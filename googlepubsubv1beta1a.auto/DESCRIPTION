@@ -1,0 +1,15 @@
+Package: googlepubsubv1beta1a.auto
+Title: Google Cloud Pub/Sub API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Provides reliable, many-to-many, asynchronous messaging between
+    applications. Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

@@ -1,0 +1,15 @@
+Package: googleadexchangesellerv11.auto
+Title: Ad Exchange Seller API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Accesses the inventory of Ad Exchange seller users and generates
+    reports. Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

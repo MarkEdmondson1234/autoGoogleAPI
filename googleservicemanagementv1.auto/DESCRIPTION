@@ -1,0 +1,11 @@
+Package: googleservicemanagementv1.auto
+Title: Google Service Management API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Google Service Management allows service producers to publish their services on Google Cloud Platform so that they can be discovered and used by service consumers. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: googleAuthR (>= 0.3)

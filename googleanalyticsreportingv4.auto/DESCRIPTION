@@ -1,0 +1,14 @@
+Package: googleanalyticsreportingv4.auto
+Title: Google Analytics Reporting API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Accesses Analytics report data. Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

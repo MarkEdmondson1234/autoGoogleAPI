@@ -1,0 +1,15 @@
+Package: googlepagespeedonlinev2.auto
+Title: PageSpeed Insights API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Analyzes the performance of a web page and provides tailored
+    suggestions to make that page faster. Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

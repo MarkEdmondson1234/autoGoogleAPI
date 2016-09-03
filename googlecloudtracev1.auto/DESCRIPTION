@@ -1,0 +1,17 @@
+Package: googlecloudtracev1.auto
+Title: Google Cloud Trace API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Send and retrieve trace data from Google Cloud Trace. Data is
+    generated and available by default for all App Engine applications. Data from
+    other applications can be written to Cloud Trace for display, reporting, and
+    analysis. Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

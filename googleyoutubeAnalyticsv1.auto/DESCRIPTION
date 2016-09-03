@@ -1,0 +1,15 @@
+Package: googleyoutubeAnalyticsv1.auto
+Title: YouTube Analytics API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Retrieves your YouTube Analytics data. Auto-generated via
+    googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

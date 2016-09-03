@@ -1,0 +1,16 @@
+Package: googleyoutubev3.auto
+Title: YouTube Data API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Supports core YouTube features, such as uploading videos, creating
+    and managing playlists, searching for content, and much more. Auto-generated via
+    googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

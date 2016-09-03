@@ -1,0 +1,15 @@
+Package: googledfareportingv22.auto
+Title: DCM/DFA Reporting And Trafficking API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Manages your DoubleClick Campaign Manager ad campaigns and reports.
+    Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

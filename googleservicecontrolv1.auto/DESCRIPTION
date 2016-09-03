@@ -1,0 +1,16 @@
+Package: googleservicecontrolv1.auto
+Title: Google Service Control API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Google Service Control provides control plane functionality to
+    managed services, such as logging, monitoring, and status checks. Auto-generated
+    via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

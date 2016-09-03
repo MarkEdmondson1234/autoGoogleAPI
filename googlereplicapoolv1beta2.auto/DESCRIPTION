@@ -1,0 +1,16 @@
+Package: googlereplicapoolv1beta2.auto
+Title: Google Compute Engine Instance Group Manager API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: [Deprecated. Please use Instance Group Manager in Compute API]
+    Provides groups of homogenous Compute Engine instances. Auto-generated via
+    googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

@@ -1,0 +1,16 @@
+Package: googleadmindirectoryv1.auto
+Title: Admin Directory API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: The Admin SDK Directory API lets you view and manage enterprise
+    resources such as users and groups, administrative notifications, security
+    features, and more. Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1

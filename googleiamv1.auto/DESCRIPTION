@@ -1,0 +1,16 @@
+Package: googleiamv1.auto
+Title: Google Identity and Access Management API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Manages identity and access control for Google Cloud Platform
+    resources, including the creation of service accounts, which you can use to
+    authenticate to Google and make API calls. Auto-generated via googleAuthR.
+Depends:
+    R (>= 3.3.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    googleAuthR (>= 0.3)
+RoxygenNote: 5.0.1
