@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other LiveBroadcast functions: \code{\link{LiveBroadcast}},
   \code{\link{liveBroadcasts.insert}}
 }
-

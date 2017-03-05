@@ -34,4 +34,3 @@ A live stream describes a live ingestion point.
 Other LiveStream functions: \code{\link{liveStreams.insert}},
   \code{\link{liveStreams.update}}
 }
-

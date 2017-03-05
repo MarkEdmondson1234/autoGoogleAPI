@@ -27,4 +27,3 @@ Details about the content of a channel.
 \seealso{
 Other ChannelContentDetails functions: \code{\link{ChannelContentDetails.relatedPlaylists}}
 }
-

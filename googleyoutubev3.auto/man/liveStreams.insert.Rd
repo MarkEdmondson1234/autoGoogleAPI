@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other LiveStream functions: \code{\link{LiveStream}},
   \code{\link{liveStreams.update}}
 }
-

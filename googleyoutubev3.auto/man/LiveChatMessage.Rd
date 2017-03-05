@@ -29,4 +29,3 @@ A liveChatMessage resource represents a chat message in a YouTube Live Chat.
 \seealso{
 Other LiveChatMessage functions: \code{\link{liveChatMessages.insert}}
 }
-

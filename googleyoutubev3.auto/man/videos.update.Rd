@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Video functions: \code{\link{Video.localizations}},
   \code{\link{Video}}, \code{\link{videos.insert}}
 }
-

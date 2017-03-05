@@ -31,4 +31,3 @@ No description
 \seealso{
 Other InvideoBranding functions: \code{\link{watermarks.set}}
 }
-

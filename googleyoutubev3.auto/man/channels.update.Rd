@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Channel functions: \code{\link{Channel.localizations}},
   \code{\link{Channel}}
 }
-

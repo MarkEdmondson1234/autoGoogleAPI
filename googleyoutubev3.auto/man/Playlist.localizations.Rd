@@ -21,4 +21,3 @@ Other Playlist functions: \code{\link{Playlist}},
   \code{\link{playlists.insert}},
   \code{\link{playlists.update}}
 }
-

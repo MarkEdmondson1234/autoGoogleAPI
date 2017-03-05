@@ -28,4 +28,3 @@ An activity resource contains information about an action that a particular chan
 \seealso{
 Other Activity functions: \code{\link{activities.insert}}
 }
-

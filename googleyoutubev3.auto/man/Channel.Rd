@@ -53,4 +53,3 @@ A channel resource contains information about a YouTube channel.
 Other Channel functions: \code{\link{Channel.localizations}},
   \code{\link{channels.update}}
 }
-

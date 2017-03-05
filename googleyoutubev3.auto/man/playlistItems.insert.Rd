@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other PlaylistItem functions: \code{\link{PlaylistItem}},
   \code{\link{playlistItems.update}}
 }
-
