@@ -40,4 +40,3 @@ Other Playlist functions: \code{\link{Playlist.localizations}},
   \code{\link{playlists.insert}},
   \code{\link{playlists.update}}
 }
-

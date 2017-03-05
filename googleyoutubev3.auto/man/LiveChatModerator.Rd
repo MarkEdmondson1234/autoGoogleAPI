@@ -26,4 +26,3 @@ A liveChatModerator resource represents a moderator for a YouTube live chat. A c
 \seealso{
 Other LiveChatModerator functions: \code{\link{liveChatModerators.insert}}
 }
-

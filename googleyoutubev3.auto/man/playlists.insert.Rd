@@ -37,4 +37,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Playlist functions: \code{\link{Playlist.localizations}},
   \code{\link{Playlist}}, \code{\link{playlists.update}}
 }
-

@@ -26,4 +26,3 @@ A liveChatBan resource represents a ban for a YouTube live chat.
 \seealso{
 Other LiveChatBan functions: \code{\link{liveChatBans.insert}}
 }
-

@@ -38,4 +38,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Caption functions: \code{\link{Caption}},
   \code{\link{captions.update}}
 }
-

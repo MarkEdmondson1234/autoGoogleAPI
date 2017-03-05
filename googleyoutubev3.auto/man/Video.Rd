@@ -63,4 +63,3 @@ A video resource represents a YouTube video.
 Other Video functions: \code{\link{Video.localizations}},
   \code{\link{videos.insert}}, \code{\link{videos.update}}
 }
-

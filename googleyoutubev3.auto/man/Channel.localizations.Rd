@@ -20,4 +20,3 @@ Localizations for different languages
 Other Channel functions: \code{\link{Channel}},
   \code{\link{channels.update}}
 }
-

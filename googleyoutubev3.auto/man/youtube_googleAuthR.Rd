@@ -23,4 +23,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/youtubepartner-channel-audit
 }
 }
-

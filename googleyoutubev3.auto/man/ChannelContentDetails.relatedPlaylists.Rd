@@ -31,4 +31,3 @@ No description
 \seealso{
 Other ChannelContentDetails functions: \code{\link{ChannelContentDetails}}
 }
-

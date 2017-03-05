@@ -24,4 +24,3 @@ A channel banner returned as the response to a channel_banner.insert call.
 \seealso{
 Other ChannelBannerResource functions: \code{\link{channelBanners.insert}}
 }
-
