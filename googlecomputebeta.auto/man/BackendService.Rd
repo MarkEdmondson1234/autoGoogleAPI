@@ -5,16 +5,19 @@
 \title{BackendService Object}
 \usage{
 BackendService(affinityCookieTtlSec = NULL, backends = NULL,
-  connectionDraining = NULL, creationTimestamp = NULL, description = NULL,
-  enableCDN = NULL, fingerprint = NULL, healthChecks = NULL, id = NULL,
-  name = NULL, port = NULL, portName = NULL, protocol = NULL,
-  region = NULL, selfLink = NULL, sessionAffinity = NULL,
-  timeoutSec = NULL)
+  cdnPolicy = NULL, connectionDraining = NULL, creationTimestamp = NULL,
+  description = NULL, enableCDN = NULL, fingerprint = NULL,
+  healthChecks = NULL, iap = NULL, id = NULL,
+  loadBalancingScheme = NULL, name = NULL, port = NULL, portName = NULL,
+  protocol = NULL, region = NULL, selfLink = NULL,
+  sessionAffinity = NULL, timeoutSec = NULL)
 }
 \arguments{
 \item{affinityCookieTtlSec}{Lifetime of cookies in seconds if session_affinity is GENERATED_COOKIE}
 
 \item{backends}{The list of backends that serve this BackendService}
+
+\item{cdnPolicy}{Cloud CDN configuration for this BackendService}
 
 \item{connectionDraining}{No description}
 
@@ -28,7 +31,11 @@ BackendService(affinityCookieTtlSec = NULL, backends = NULL,
 
 \item{healthChecks}{The list of URLs to the HttpHealthCheck or HttpsHealthCheck resource for health checking this BackendService}
 
+\item{iap}{No description}
+
 \item{id}{[Output Only] The unique identifier for the resource}
+
+\item{loadBalancingScheme}{No description}
 
 \item{name}{Name of the resource}
 
@@ -59,6 +66,8 @@ A BackendService resource. This resource defines a group of backend virtual mach
 \seealso{
 Other BackendService functions: \code{\link{backendServices.insert}},
   \code{\link{backendServices.patch}},
-  \code{\link{backendServices.update}}
+  \code{\link{backendServices.update}},
+  \code{\link{regionBackendServices.insert}},
+  \code{\link{regionBackendServices.patch}},
+  \code{\link{regionBackendServices.update}}
 }
-

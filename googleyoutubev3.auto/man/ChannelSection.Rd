@@ -38,4 +38,3 @@ Other ChannelSection functions: \code{\link{ChannelSection.localizations}},
   \code{\link{channelSections.insert}},
   \code{\link{channelSections.update}}
 }
-

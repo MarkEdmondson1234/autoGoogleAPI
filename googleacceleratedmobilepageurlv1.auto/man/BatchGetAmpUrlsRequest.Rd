@@ -24,4 +24,3 @@ AMP URL request for a batch of URLs.
 \seealso{
 Other BatchGetAmpUrlsRequest functions: \code{\link{ampUrls.batchGet}}
 }
-

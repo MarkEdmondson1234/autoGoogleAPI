@@ -3,14 +3,11 @@ Title: Accelerated Mobile Pages (AMP) URL API
 Version: 0.0.0.9000
 Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
                        role = c("aut", "cre")))
-Description: This API contains a single method, batchGet. Call this method to
-    retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).
-    Auto-generated via googleAuthR.
-Depends:
-    R (>= 3.3.0)
+Description: This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).
+ Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    googleAuthR (>= 0.3)
-RoxygenNote: 5.0.1
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

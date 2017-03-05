@@ -31,4 +31,3 @@ No description
 Other InstanceGroupsScopedList functions: \code{\link{InstanceGroupsScopedList.warning.data}},
   \code{\link{InstanceGroupsScopedList.warning}}
 }
-

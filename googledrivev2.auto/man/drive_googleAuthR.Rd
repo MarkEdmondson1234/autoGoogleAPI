@@ -8,7 +8,7 @@
 Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:11:49
+ at 2017-03-05 19:49:22
 filename: /Users/mark/dev/R/autoGoogleAPI/googledrivev2.auto/R/drive_functions.R
 api_json: api_json
 }
@@ -26,4 +26,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/drive.scripts
 }
 }
-

@@ -5,7 +5,7 @@
 \title{Gets a file's metadata by ID.}
 \usage{
 files.get(fileId, acknowledgeAbuse = NULL, projection = NULL,
-  revisionId = NULL, updateViewedDate = NULL)
+  revisionId = NULL, supportsTeamDrives = NULL, updateViewedDate = NULL)
 }
 \arguments{
 \item{fileId}{The ID for the file in question}
@@ -15,6 +15,8 @@ files.get(fileId, acknowledgeAbuse = NULL, projection = NULL,
 \item{projection}{This parameter is deprecated and has no function}
 
 \item{revisionId}{Specifies the Revision ID that should be downloaded}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{updateViewedDate}{Deprecated: Use files}
 }
@@ -40,4 +42,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/drive/}{Google Documentation}
 }
-

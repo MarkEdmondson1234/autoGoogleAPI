@@ -4,24 +4,24 @@
 \alias{Source}
 \title{Source Object}
 \usage{
-Source(Source.spec = NULL, Source.codec = NULL, spec = NULL,
-  codec = NULL, baseSpecs = NULL, metadata = NULL,
-  doesNotNeedSplitting = NULL)
+Source(Source.codec = NULL, Source.spec = NULL, codec = NULL,
+  doesNotNeedSplitting = NULL, spec = NULL, metadata = NULL,
+  baseSpecs = NULL)
 }
 \arguments{
-\item{Source.spec}{The \link{Source.spec} object or list of objects}
-
 \item{Source.codec}{The \link{Source.codec} object or list of objects}
 
-\item{spec}{The source to read from, plus its parameters}
+\item{Source.spec}{The \link{Source.spec} object or list of objects}
 
 \item{codec}{The codec to use to decode data read from the source}
 
-\item{baseSpecs}{While splitting, sources may specify the produced bundles as differences against another source, in order to save backend-side memory and allow bigger jobs}
+\item{doesNotNeedSplitting}{Setting this value to true hints to the framework that the source}
 
-\item{metadata}{Optionally, metadata for this source can be supplied right away, avoiding a SourceGetMetadataOperation roundtrip (see SourceOperationRequest)}
+\item{spec}{The source to read from, plus its parameters}
 
-\item{doesNotNeedSplitting}{Setting this value to true hints to the framework that the source doesn't need splitting, and using SourceSplitRequest on it would yield SOURCE_SPLIT_OUTCOME_USE_CURRENT}
+\item{metadata}{Optionally, metadata for this source can be supplied right away,}
+
+\item{baseSpecs}{While splitting, sources may specify the produced bundles}
 }
 \value{
 Source object
@@ -37,4 +37,3 @@ A source that records can be read and decoded from.
 Other Source functions: \code{\link{Source.codec}},
   \code{\link{Source.spec}}
 }
-

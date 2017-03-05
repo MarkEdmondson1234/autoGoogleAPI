@@ -19,4 +19,3 @@ The request for Datastore.BeginTransaction.
 \seealso{
 Other BeginTransactionRequest functions: \code{\link{projects.beginTransaction}}
 }
-

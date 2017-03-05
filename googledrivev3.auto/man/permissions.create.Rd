@@ -2,19 +2,22 @@
 % Please edit documentation in R/drive_functions.R
 \name{permissions.create}
 \alias{permissions.create}
-\title{Creates a permission for a file.}
+\title{Creates a permission for a file or Team Drive.}
 \usage{
 permissions.create(Permission, fileId, emailMessage = NULL,
-  sendNotificationEmail = NULL, transferOwnership = NULL)
+  sendNotificationEmail = NULL, supportsTeamDrives = NULL,
+  transferOwnership = NULL)
 }
 \arguments{
 \item{Permission}{The \link{Permission} object to pass to this method}
 
-\item{fileId}{The ID of the file}
+\item{fileId}{The ID of the file or Team Drive}
 
 \item{emailMessage}{A custom message to include in the notification email}
 
 \item{sendNotificationEmail}{Whether to send a notification email when sharing to users or groups}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{transferOwnership}{Whether to transfer ownership to the specified user and downgrade the current owner to a writer}
 }
@@ -35,7 +38,7 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/drive/}{Google Documentation}
 
-Other Permission functions: \code{\link{Permission}},
+Other Permission functions: \code{\link{Permission.teamDrivePermissionDetails}},
+  \code{\link{Permission}},
   \code{\link{permissions.update}}
 }
-

@@ -29,7 +29,6 @@ The bucket's lifecycle configuration. See lifecycle management for more informat
 }
 \seealso{
 Other Bucket functions: \code{\link{Bucket.cors}},
-  \code{\link{Bucket.encryption}},
   \code{\link{Bucket.lifecycle.rule.action}},
   \code{\link{Bucket.lifecycle.rule.condition}},
   \code{\link{Bucket.lifecycle.rule}},
@@ -39,4 +38,3 @@ Other Bucket functions: \code{\link{Bucket.cors}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

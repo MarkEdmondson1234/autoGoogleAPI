@@ -22,4 +22,3 @@ No description
 \seealso{
 Other BeginTransactionRequest functions: \code{\link{datasets.beginTransaction}}
 }
-

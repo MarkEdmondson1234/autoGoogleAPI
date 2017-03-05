@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/compute/docs/access/user-accounts/api/latest/}{Google Documentation}
 }
-

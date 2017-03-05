@@ -35,7 +35,7 @@ Account object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-04 00:00:29
+ at 2017-03-05 19:25:04
 filename: /Users/mark/dev/R/autoGoogleAPI/googleanalyticsv3.auto/R/analytics_objects.R
 api_json: api_json
 }
@@ -51,4 +51,3 @@ JSON template for Analytics account entry.
 Other Account functions: \code{\link{Account.childLink}},
   \code{\link{Account.permissions}}
 }
-

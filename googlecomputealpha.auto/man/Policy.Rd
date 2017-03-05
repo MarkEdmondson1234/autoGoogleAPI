@@ -8,7 +8,7 @@ Policy(auditConfigs = NULL, bindings = NULL, etag = NULL,
   iamOwned = NULL, rules = NULL, version = NULL)
 }
 \arguments{
-\item{auditConfigs}{Specifies audit logging configs for 'data access'}
+\item{auditConfigs}{Specifies cloud audit logging configuration for this policy}
 
 \item{bindings}{Associates a list of `members` to a `role`}
 
@@ -32,7 +32,7 @@ Defines an Identity and Access Management (IAM) policy. It is used to specify ac
 }
 \seealso{
 Other Policy functions: \code{\link{backendBuckets.setIamPolicy}},
+  \code{\link{hosts.setIamPolicy}},
   \code{\link{instances.setIamPolicy}},
   \code{\link{subnetworks.setIamPolicy}}
 }
-

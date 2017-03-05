@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other InstanceTemplate functions: \code{\link{InstanceTemplate}}
 }
-

@@ -8,7 +8,7 @@
 Builds and manages clusters that run container-based applications, powered by open source Kubernetes technology.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:17:58
+ at 2017-03-05 19:57:03
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecontainerv1.auto/R/container_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

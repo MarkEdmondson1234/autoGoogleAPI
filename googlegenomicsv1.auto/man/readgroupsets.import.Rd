@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{readgroupsets.import}
 \alias{readgroupsets.import}
-\title{Creates read group sets by asynchronously importing the provided information. For the definitions of read group sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics) The caller must have WRITE permissions to the dataset. ## Notes on [BAM](https://samtools.github.io/hts-specs/SAMv1.pdf) import - Tags will be converted to strings - tag types are not preserved - Comments (`@CO`) in the input file header will not be preserved - Original header order of references (`@SQ`) will not be preserved - Any reverse stranded unmapped reads will be reverse complemented, and their qualities (also the 'BQ' and 'OQ' tags, if any) will be reversed - Unmapped reads will be stripped of positional information (reference name and position)}
+\title{Creates read group sets by asynchronously importing the providedinformation.For the definitions of read group sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)The caller must have WRITE permissions to the dataset.## Notes on [BAM](https://samtools.github.io/hts-specs/SAMv1.pdf) import- Tags will be converted to strings - tag types are not preserved- Comments (`@CO`) in the input file header will not be preserved- Original header order of references (`@SQ`) will not be preserved- Any reverse stranded unmapped reads will be reverse complemented, andtheir qualities (also the 'BQ' and 'OQ' tags, if any) will be reversed- Unmapped reads will be stripped of positional information (reference nameand position)}
 \usage{
 readgroupsets.import(ImportReadGroupSetsRequest)
 }
@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other ImportReadGroupSetsRequest functions: \code{\link{ImportReadGroupSetsRequest}}
 }
-

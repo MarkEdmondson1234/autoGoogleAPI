@@ -28,4 +28,3 @@ No description
 Other Training functions: \code{\link{Training}},
   \code{\link{training.insert}}
 }
-

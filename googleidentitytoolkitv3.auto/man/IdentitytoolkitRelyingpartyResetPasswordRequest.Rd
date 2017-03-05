@@ -29,4 +29,3 @@ Request to reset the password.
 \seealso{
 Other IdentitytoolkitRelyingpartyResetPasswordRequest functions: \code{\link{relyingparty.resetPassword}}
 }
-

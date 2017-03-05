@@ -32,4 +32,3 @@ Other DatabaseInstance functions: \code{\link{DatabaseInstance}},
   \code{\link{sql.instances.patch}},
   \code{\link{sql.instances.update}}
 }
-

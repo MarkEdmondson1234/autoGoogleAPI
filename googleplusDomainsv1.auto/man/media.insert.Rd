@@ -35,4 +35,3 @@ Other Media functions: \code{\link{Media.author.image}},
   \code{\link{Media.author}}, \code{\link{Media.exif}},
   \code{\link{Media}}
 }
-

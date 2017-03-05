@@ -8,9 +8,9 @@ management.remarketingAudience.list(accountId, webPropertyId,
   max.results = NULL, start.index = NULL, type = NULL)
 }
 \arguments{
-\item{accountId}{Account ID for the remarketing audience to retrieve}
+\item{accountId}{The account ID of the remarketing audiences to retrieve}
 
-\item{webPropertyId}{Web property ID for the remarketing audience to retrieve}
+\item{webPropertyId}{The web property ID of the remarketing audiences to retrieve}
 
 \item{max.results}{The maximum number of remarketing audiences to include in this response}
 
@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/analytics/}{Google Documentation}
 }
-

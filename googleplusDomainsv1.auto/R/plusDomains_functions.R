@@ -2,7 +2,7 @@
 #' Builds on top of the Google+ platform for Google Apps Domains.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:25:27
+#'  at 2017-03-05 20:05:10
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleplusDomainsv1.auto/R/plusDomains_functions.R
 #' api_json: api_json
 #' 
@@ -27,6 +27,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Get an activity.
 #' 
@@ -52,7 +65,7 @@ NULL
 activities.get <- function(activityId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/activities/%s", activityId)
     # plusDomains.activities.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -85,7 +98,9 @@ activities.insert <- function(Activity, userId, preview = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s/activities", 
         userId)
     # plusDomains.activities.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(preview = preview), data_parse_function = function(x) x)
+    pars = list(preview = preview)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Activity, "gar_Activity"))
     
     f(the_body = Activity)
@@ -118,10 +133,11 @@ activities.insert <- function(Activity, userId, preview = NULL) {
 #' @export
 activities.list <- function(userId, collection, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s/activities/%s", 
-        collection, userId)
+        userId, collection)
     # plusDomains.activities.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -153,8 +169,9 @@ audiences.list <- function(userId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s/audiences", 
         userId)
     # plusDomains.audiences.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -185,7 +202,8 @@ circles.addPeople <- function(circleId, email = NULL, userId = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/circles/%s/people", 
         circleId)
     # plusDomains.circles.addPeople
-    f <- gar_api_generator(url, "PUT", pars_args = list(email = email, userId = userId), 
+    pars = list(email = email, userId = userId)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -214,7 +232,7 @@ circles.addPeople <- function(circleId, email = NULL, userId = NULL) {
 circles.get <- function(circleId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/circles/%s", circleId)
     # plusDomains.circles.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -246,7 +264,7 @@ circles.insert <- function(Circle, userId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s/circles", 
         userId)
     # plusDomains.circles.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Circle, "gar_Circle"))
     
     f(the_body = Circle)
@@ -280,8 +298,9 @@ circles.list <- function(userId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s/circles", 
         userId)
     # plusDomains.circles.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -311,7 +330,7 @@ circles.list <- function(userId, maxResults = NULL, pageToken = NULL) {
 circles.patch <- function(Circle, circleId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/circles/%s", circleId)
     # plusDomains.circles.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Circle, "gar_Circle"))
     
     f(the_body = Circle)
@@ -341,7 +360,7 @@ circles.patch <- function(Circle, circleId) {
 circles.remove <- function(circleId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/circles/%s", circleId)
     # plusDomains.circles.remove
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -372,7 +391,8 @@ circles.removePeople <- function(circleId, email = NULL, userId = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/circles/%s/people", 
         circleId)
     # plusDomains.circles.removePeople
-    f <- gar_api_generator(url, "DELETE", pars_args = list(email = email, userId = userId), 
+    pars = list(email = email, userId = userId)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -403,7 +423,7 @@ circles.removePeople <- function(circleId, email = NULL, userId = NULL) {
 circles.update <- function(Circle, circleId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/circles/%s", circleId)
     # plusDomains.circles.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Circle, "gar_Circle"))
     
     f(the_body = Circle)
@@ -433,7 +453,7 @@ circles.update <- function(Circle, circleId) {
 comments.get <- function(commentId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/comments/%s", commentId)
     # plusDomains.comments.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -464,7 +484,7 @@ comments.insert <- function(Comment, activityId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/activities/%s/comments", 
         activityId)
     # plusDomains.comments.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Comment, "gar_Comment"))
     
     f(the_body = Comment)
@@ -498,8 +518,9 @@ comments.list <- function(activityId, maxResults = NULL, pageToken = NULL, sortO
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/activities/%s/comments", 
         activityId)
     # plusDomains.comments.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, sortOrder = sortOrder), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, sortOrder = sortOrder)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -530,9 +551,9 @@ comments.list <- function(activityId, maxResults = NULL, pageToken = NULL, sortO
 #' @export
 media.insert <- function(Media, userId, collection) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s/media/%s", 
-        collection, userId)
+        userId, collection)
     # plusDomains.media.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Media, "gar_Media"))
     
     f(the_body = Media)
@@ -565,7 +586,7 @@ media.insert <- function(Media, userId, collection) {
 people.get <- function(userId) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s", userId)
     # plusDomains.people.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -597,10 +618,11 @@ people.get <- function(userId) {
 #' @export
 people.list <- function(userId, collection, maxResults = NULL, orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/people/%s/people/%s", 
-        collection, userId)
+        userId, collection)
     # plusDomains.people.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -632,8 +654,9 @@ people.listByActivity <- function(activityId, collection, maxResults = NULL, pag
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/activities/%s/people/%s", 
         activityId, collection)
     # plusDomains.people.listByActivity
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -671,8 +694,10 @@ people.listByCircle <- function(circleId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/plusDomains/v1/circles/%s/people", 
         circleId)
     # plusDomains.people.listByCircle
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

@@ -4,15 +4,15 @@
 \alias{ModifyAckDeadlineRequest}
 \title{ModifyAckDeadlineRequest Object}
 \usage{
-ModifyAckDeadlineRequest(ackId = NULL, ackIds = NULL,
-  ackDeadlineSeconds = NULL)
+ModifyAckDeadlineRequest(ackId = NULL, ackDeadlineSeconds = NULL,
+  ackIds = NULL)
 }
 \arguments{
 \item{ackId}{The acknowledgment ID}
 
-\item{ackIds}{List of acknowledgment IDs}
+\item{ackDeadlineSeconds}{The new ack deadline with respect to the time this request was sent to}
 
-\item{ackDeadlineSeconds}{The new ack deadline with respect to the time this request was sent to the Pub/Sub system}
+\item{ackIds}{List of acknowledgment IDs}
 }
 \value{
 ModifyAckDeadlineRequest object
@@ -27,4 +27,3 @@ Request for the ModifyAckDeadline method.
 \seealso{
 Other ModifyAckDeadlineRequest functions: \code{\link{projects.subscriptions.modifyAckDeadline}}
 }
-

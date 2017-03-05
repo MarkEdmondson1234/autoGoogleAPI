@@ -30,4 +30,3 @@ Informational warning which replaces the list of addresses when the list is empt
 Other VpnTunnelsScopedList functions: \code{\link{VpnTunnelsScopedList.warning.data}},
   \code{\link{VpnTunnelsScopedList}}
 }
-

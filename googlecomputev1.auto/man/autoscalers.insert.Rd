@@ -32,6 +32,8 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other Autoscaler functions: \code{\link{Autoscaler}},
   \code{\link{autoscalers.patch}},
-  \code{\link{autoscalers.update}}
+  \code{\link{autoscalers.update}},
+  \code{\link{regionAutoscalers.insert}},
+  \code{\link{regionAutoscalers.patch}},
+  \code{\link{regionAutoscalers.update}}
 }
-

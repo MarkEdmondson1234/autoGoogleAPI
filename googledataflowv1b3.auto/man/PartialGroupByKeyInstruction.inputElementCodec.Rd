@@ -20,4 +20,3 @@ The codec to use for interpreting an element in the input PTable.
 Other PartialGroupByKeyInstruction functions: \code{\link{PartialGroupByKeyInstruction.valueCombiningFn}},
   \code{\link{PartialGroupByKeyInstruction}}
 }
-

@@ -39,4 +39,3 @@ Other ManagedConfiguration functions: \code{\link{ManagedConfiguration}},
   \code{\link{managedconfigurationsforuser.patch}},
   \code{\link{managedconfigurationsforuser.update}}
 }
-

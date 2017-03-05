@@ -1,8 +1,8 @@
-#' Google Apps Activity API Objects 
+#' G Suite Activity API Objects 
 #' Provides a historical view of activity.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:35:50
+#'  at 2017-03-05 19:28:12
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleappsactivityv1.auto/R/appsactivity_objects.R
 #' api_json: api_json
 #' 
@@ -207,6 +207,7 @@ Target <- function(id = NULL, mimeType = NULL, name = NULL) {
 #' A representation of a user.
 #' 
 #' @param isDeleted A boolean which indicates whether the specified User was deleted
+#' @param isMe Whether the user is the authenticated user
 #' @param name The displayable name of the user
 #' @param permissionId The permission ID associated with this user
 #' @param photo The profile photo of the user
@@ -217,11 +218,12 @@ Target <- function(id = NULL, mimeType = NULL, name = NULL) {
 #' @export
 
 
-User <- function(isDeleted = NULL, name = NULL, permissionId = NULL, photo = NULL) {
+User <- function(isDeleted = NULL, isMe = NULL, name = NULL, permissionId = NULL, 
+    photo = NULL) {
     
     
     
-    structure(list(isDeleted = isDeleted, name = name, permissionId = permissionId, 
+    structure(list(isDeleted = isDeleted, isMe = isMe, name = name, permissionId = permissionId, 
         photo = photo), class = "gar_User")
 }
 

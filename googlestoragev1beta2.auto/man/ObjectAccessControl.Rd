@@ -49,4 +49,3 @@ Other ObjectAccessControl functions: \code{\link{defaultObjectAccessControls.ins
   \code{\link{objectAccessControls.patch}},
   \code{\link{objectAccessControls.update}}
 }
-

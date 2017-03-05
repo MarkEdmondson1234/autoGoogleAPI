@@ -8,7 +8,7 @@
 The Management API for Google Play Game Services.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:14:20
+ at 2017-03-05 19:52:53
 filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesManagementv1management.auto/R/gamesManagement_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/plus.login
 }
 }
-

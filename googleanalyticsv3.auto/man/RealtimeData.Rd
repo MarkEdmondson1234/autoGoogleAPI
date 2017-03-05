@@ -51,4 +51,3 @@ Other RealtimeData functions: \code{\link{RealtimeData.columnHeaders}},
   \code{\link{RealtimeData.query}},
   \code{\link{RealtimeData.totalsForAllResults}}
 }
-

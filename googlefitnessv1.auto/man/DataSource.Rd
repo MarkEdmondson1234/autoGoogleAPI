@@ -40,4 +40,3 @@ Other DataSource functions: \code{\link{users.dataSources.create}},
   \code{\link{users.dataSources.patch}},
   \code{\link{users.dataSources.update}}
 }
-

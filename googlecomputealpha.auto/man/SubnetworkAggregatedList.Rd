@@ -31,4 +31,3 @@ No description
 \seealso{
 Other SubnetworkAggregatedList functions: \code{\link{SubnetworkAggregatedList.items}}
 }
-

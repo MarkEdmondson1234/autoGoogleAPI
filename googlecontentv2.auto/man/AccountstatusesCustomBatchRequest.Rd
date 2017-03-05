@@ -22,4 +22,3 @@ No description
 \seealso{
 Other AccountstatusesCustomBatchRequest functions: \code{\link{accountstatuses.custombatch}}
 }
-

@@ -37,4 +37,3 @@ Other PretargetingConfig functions: \code{\link{PretargetingConfig.dimensions}},
   \code{\link{pretargetingConfig.insert}},
   \code{\link{pretargetingConfig.update}}
 }
-

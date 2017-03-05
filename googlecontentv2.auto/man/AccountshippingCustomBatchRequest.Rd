@@ -22,4 +22,3 @@ No description
 \seealso{
 Other AccountshippingCustomBatchRequest functions: \code{\link{accountshipping.custombatch}}
 }
-

@@ -24,4 +24,3 @@ An attachment namespace defines read and write access for all the attachments cr
 \seealso{
 Other Namespace functions: \code{\link{namespaces.update}}
 }
-

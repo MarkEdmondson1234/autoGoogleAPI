@@ -2,7 +2,7 @@
 % Please edit documentation in R/consumersurveys_functions.R
 \name{results.get}
 \alias{results.get}
-\title{Retrieves any survey results that have been produced so far. Results are formatted as an Excel file.}
+\title{Retrieves any survey results that have been produced so far. Results are formatted as an Excel file. You must add '?alt=media' to the URL as an argument to get results.}
 \usage{
 results.get(ResultsGetRequest, surveyUrlId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ResultsGetRequest functions: \code{\link{ResultsGetRequest}}
 }
-

@@ -24,4 +24,3 @@ Other ReportRequest functions: \code{\link{ReportRequest.orderBy}},
   \code{\link{reports.generate}},
   \code{\link{reports.request}}
 }
-

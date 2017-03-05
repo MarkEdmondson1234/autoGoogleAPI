@@ -19,4 +19,3 @@ An optional mapping of filters per source column offset.The filters will be appl
 \seealso{
 Other PivotTable functions: \code{\link{PivotTable}}
 }
-

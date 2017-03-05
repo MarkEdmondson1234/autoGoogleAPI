@@ -8,15 +8,14 @@
 Google Service Control provides control plane functionality to managed services, such as logging, monitoring, and status checks.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:28:55
+ at 2017-03-05 20:12:13
 filename: /Users/mark/dev/R/autoGoogleAPI/googleservicecontrolv1.auto/R/servicecontrol_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/cloud-platform
-\item https://www.googleapis.com/auth/servicecontrol
+  \item https://www.googleapis.com/auth/servicecontrol
+\item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

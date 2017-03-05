@@ -21,4 +21,3 @@ Other Channel functions: \code{\link{Channel}},
   \code{\link{changes.watch}}, \code{\link{channels.stop}},
   \code{\link{files.watch}}
 }
-

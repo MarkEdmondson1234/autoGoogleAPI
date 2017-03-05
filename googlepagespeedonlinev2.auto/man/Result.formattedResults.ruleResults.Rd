@@ -22,4 +22,3 @@ Other Result functions: \code{\link{Result.formattedResults}},
   \code{\link{Result.ruleGroups}},
   \code{\link{Result.version}}, \code{\link{Result}}
 }
-

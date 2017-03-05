@@ -20,4 +20,3 @@ No description
 Other SubnetworksScopedList functions: \code{\link{SubnetworksScopedList.warning}},
   \code{\link{SubnetworksScopedList}}
 }
-

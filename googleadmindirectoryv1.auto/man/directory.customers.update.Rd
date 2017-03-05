@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Customer functions: \code{\link{Customer}},
   \code{\link{directory.customers.patch}}
 }
-

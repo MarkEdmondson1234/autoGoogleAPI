@@ -8,7 +8,7 @@
 Stores and queries data in Google Cloud Datastore.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:05:20
+ at 2017-03-05 19:43:49
 filename: /Users/mark/dev/R/autoGoogleAPI/googledatastorev1beta1.auto/R/datastore_functions.R
 api_json: api_json
 }
@@ -20,4 +20,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/userinfo.email
 }
 }
-

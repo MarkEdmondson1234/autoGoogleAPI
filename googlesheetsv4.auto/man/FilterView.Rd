@@ -4,23 +4,24 @@
 \alias{FilterView}
 \title{FilterView Object}
 \usage{
-FilterView(FilterView.criteria = NULL, title = NULL, namedRangeId = NULL,
-  sortSpecs = NULL, range = NULL, criteria = NULL, filterViewId = NULL)
+FilterView(FilterView.criteria = NULL, namedRangeId = NULL,
+  filterViewId = NULL, criteria = NULL, title = NULL, range = NULL,
+  sortSpecs = NULL)
 }
 \arguments{
 \item{FilterView.criteria}{The \link{FilterView.criteria} object or list of objects}
 
-\item{title}{The name of the filter view}
-
 \item{namedRangeId}{The named range this filter view is backed by, if any}
 
-\item{sortSpecs}{The sort order per column}
-
-\item{range}{The range this filter view covers}
+\item{filterViewId}{The ID of the filter view}
 
 \item{criteria}{The criteria for showing/hiding values per column}
 
-\item{filterViewId}{The ID of the filter view}
+\item{title}{The name of the filter view}
+
+\item{range}{The range this filter view covers}
+
+\item{sortSpecs}{The sort order per column}
 }
 \value{
 FilterView object
@@ -35,4 +36,3 @@ A filter view.
 \seealso{
 Other FilterView functions: \code{\link{FilterView.criteria}}
 }
-

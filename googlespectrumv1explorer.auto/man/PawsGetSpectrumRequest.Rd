@@ -40,4 +40,3 @@ The request message for the available spectrum query protocol which must include
 \seealso{
 Other PawsGetSpectrumRequest functions: \code{\link{paws.getSpectrum}}
 }
-

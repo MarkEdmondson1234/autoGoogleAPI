@@ -2,7 +2,7 @@
 #' Registers, manages, indexes, and searches beacons.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:21:46
+#'  at 2017-03-05 19:58:07
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleproximitybeaconv1beta1.auto/R/proximitybeacon_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Registers a previously unregistered beacon given its `advertisedId`. These IDs are unique within the system. An ID can be registered only once. Authenticate using an [OAuth access token](https://developers.google.com/identity/protocols/OAuth2) from a signed-in user with **Is owner** or **Can edit** permissions in the Google Developers Console project.
 #' 
@@ -43,7 +56,8 @@ NULL
 beacons.register <- function(Beacon, projectId = NULL) {
     url <- "https://proximitybeacon.googleapis.com/v1beta1/beacons:register"
     # proximitybeacon.beacons.register
-    f <- gar_api_generator(url, "POST", pars_args = list(projectId = projectId), 
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Beacon, "gar_Beacon"))
     
@@ -75,7 +89,8 @@ beacons.decommission <- function(beaconName, projectId = NULL) {
     url <- sprintf("https://proximitybeacon.googleapis.com/v1beta1/{+beaconName}:decommission", 
         beaconName)
     # proximitybeacon.beacons.decommission
-    f <- gar_api_generator(url, "POST", pars_args = list(projectId = projectId), 
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -105,7 +120,9 @@ beacons.get <- function(beaconName, projectId = NULL) {
     url <- sprintf("https://proximitybeacon.googleapis.com/v1beta1/{+beaconName}", 
         beaconName)
     # proximitybeacon.beacons.get
-    f <- gar_api_generator(url, "GET", pars_args = list(projectId = projectId), data_parse_function = function(x) x)
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -135,8 +152,9 @@ beacons.get <- function(beaconName, projectId = NULL) {
 beacons.list <- function(q = NULL, pageToken = NULL, pageSize = NULL, projectId = NULL) {
     url <- "https://proximitybeacon.googleapis.com/v1beta1/beacons"
     # proximitybeacon.beacons.list
-    f <- gar_api_generator(url, "GET", pars_args = list(q = q, pageToken = pageToken, 
-        pageSize = pageSize, projectId = projectId), data_parse_function = function(x) x)
+    pars = list(q = q, pageToken = pageToken, pageSize = pageSize, projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -167,7 +185,9 @@ beacons.update <- function(Beacon, beaconName, projectId = NULL) {
     url <- sprintf("https://proximitybeacon.googleapis.com/v1beta1/{+beaconName}", 
         beaconName)
     # proximitybeacon.beacons.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(projectId = projectId), data_parse_function = function(x) x)
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Beacon, "gar_Beacon"))
     
     f(the_body = Beacon)
@@ -198,7 +218,8 @@ beacons.activate <- function(beaconName, projectId = NULL) {
     url <- sprintf("https://proximitybeacon.googleapis.com/v1beta1/{+beaconName}:activate", 
         beaconName)
     # proximitybeacon.beacons.activate
-    f <- gar_api_generator(url, "POST", pars_args = list(projectId = projectId), 
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -228,7 +249,8 @@ beacons.deactivate <- function(beaconName, projectId = NULL) {
     url <- sprintf("https://proximitybeacon.googleapis.com/v1beta1/{+beaconName}:deactivate", 
         beaconName)
     # proximitybeacon.beacons.deactivate
-    f <- gar_api_generator(url, "POST", pars_args = list(projectId = projectId), 
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -256,7 +278,9 @@ beacons.deactivate <- function(beaconName, projectId = NULL) {
 namespaces.list <- function(projectId = NULL) {
     url <- "https://proximitybeacon.googleapis.com/v1beta1/namespaces"
     # proximitybeacon.namespaces.list
-    f <- gar_api_generator(url, "GET", pars_args = list(projectId = projectId), data_parse_function = function(x) x)
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -287,7 +311,9 @@ namespaces.update <- function(Namespace, namespaceName, projectId = NULL) {
     url <- sprintf("https://proximitybeacon.googleapis.com/v1beta1/{+namespaceName}", 
         namespaceName)
     # proximitybeacon.namespaces.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(projectId = projectId), data_parse_function = function(x) x)
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Namespace, "gar_Namespace"))
     
     f(the_body = Namespace)
@@ -315,7 +341,7 @@ namespaces.update <- function(Namespace, namespaceName, projectId = NULL) {
 getEidparams <- function() {
     url <- "https://proximitybeacon.googleapis.com/v1beta1/eidparams"
     # proximitybeacon.getEidparams
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -348,7 +374,8 @@ beaconinfo.getforobserved <- function(GetInfoForObservedBeaconsRequest) {
     
     url <- "https://proximitybeacon.googleapis.com/v1beta1/beaconinfo:getforobserved"
     # proximitybeacon.beaconinfo.getforobserved
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(GetInfoForObservedBeaconsRequest, "gar_GetInfoForObservedBeaconsRequest"))
     

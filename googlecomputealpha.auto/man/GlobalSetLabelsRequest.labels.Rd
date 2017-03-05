@@ -18,7 +18,8 @@ A list of labels to apply for this resource. Each label key & value must comply 
 }
 \seealso{
 Other GlobalSetLabelsRequest functions: \code{\link{GlobalSetLabelsRequest}},
+  \code{\link{globalAddresses.setLabels}},
+  \code{\link{globalForwardingRules.setLabels}},
   \code{\link{images.setLabels}},
   \code{\link{snapshots.setLabels}}
 }
-

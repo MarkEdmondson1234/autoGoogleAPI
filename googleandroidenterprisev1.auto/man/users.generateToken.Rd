@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{users.generateToken}
 \alias{users.generateToken}
-\title{Generates a token (activation code) to allow this user to configure their work account in the Android Setup Wizard. Revokes any previously generated token.This call only works with Google managed accounts.}
+\title{Generates a token (activation code) to allow this user to configure their managed account in the Android Setup Wizard. Revokes any previously generated token.This call only works with Google managed accounts.}
 \usage{
 users.generateToken(enterpriseId, userId)
 }
@@ -27,4 +27,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/android/work/play/emm-api}{Google Documentation}
 }
-

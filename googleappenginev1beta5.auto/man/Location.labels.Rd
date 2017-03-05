@@ -20,4 +20,3 @@ Cross-service attributes for the location. For example {'cloud.googleapis.com/re
 Other Location functions: \code{\link{Location.metadata}},
   \code{\link{Location}}
 }
-

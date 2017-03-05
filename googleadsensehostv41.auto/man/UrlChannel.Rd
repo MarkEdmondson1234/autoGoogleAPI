@@ -24,4 +24,3 @@ No description
 \seealso{
 Other UrlChannel functions: \code{\link{urlchannels.insert}}
 }
-

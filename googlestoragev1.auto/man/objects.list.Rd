@@ -12,7 +12,7 @@ objects.list(bucket, delimiter = NULL, maxResults = NULL,
 
 \item{delimiter}{Returns results in a directory-like mode}
 
-\item{maxResults}{Maximum number of items plus prefixes to return}
+\item{maxResults}{Maximum number of items plus prefixes to return in a single page of responses}
 
 \item{pageToken}{A previously-returned page token representing part of the larger set of results to view}
 
@@ -42,4 +42,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/storage/docs/json_api/}{Google Documentation}
 }
-

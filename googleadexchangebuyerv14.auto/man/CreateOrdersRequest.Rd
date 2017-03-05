@@ -24,4 +24,3 @@ No description
 \seealso{
 Other CreateOrdersRequest functions: \code{\link{proposals.insert}}
 }
-

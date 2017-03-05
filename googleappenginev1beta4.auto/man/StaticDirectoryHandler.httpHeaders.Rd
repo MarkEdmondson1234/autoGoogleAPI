@@ -19,4 +19,3 @@ HTTP headers to use for all responses from these URLs.
 \seealso{
 Other StaticDirectoryHandler functions: \code{\link{StaticDirectoryHandler}}
 }
-

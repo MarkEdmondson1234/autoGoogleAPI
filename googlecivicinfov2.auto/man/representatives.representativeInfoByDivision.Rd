@@ -4,10 +4,12 @@
 \alias{representatives.representativeInfoByDivision}
 \title{Looks up representative information for a single geographic division.}
 \usage{
-representatives.representativeInfoByDivision(ocdId, levels = NULL,
-  recursive = NULL, roles = NULL)
+representatives.representativeInfoByDivision(DivisionRepresentativeInfoRequest,
+  ocdId, levels = NULL, recursive = NULL, roles = NULL)
 }
 \arguments{
+\item{DivisionRepresentativeInfoRequest}{The \link{DivisionRepresentativeInfoRequest} object to pass to this method}
+
 \item{ocdId}{The Open Civic Data division identifier of the division to look up}
 
 \item{levels}{A list of office levels to filter by}
@@ -31,5 +33,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
 \href{https://developers.google.com/civic-information}{Google Documentation}
-}
 
+Other DivisionRepresentativeInfoRequest functions: \code{\link{DivisionRepresentativeInfoRequest}}
+}

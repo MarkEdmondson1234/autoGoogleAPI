@@ -4,28 +4,28 @@
 \alias{SparkJob}
 \title{SparkJob Object}
 \usage{
-SparkJob(SparkJob.properties = NULL, mainJarFileUri = NULL,
-  mainClass = NULL, args = NULL, jarFileUris = NULL, fileUris = NULL,
-  archiveUris = NULL, properties = NULL, loggingConfiguration = NULL)
+SparkJob(SparkJob.properties = NULL, loggingConfiguration = NULL,
+  properties = NULL, args = NULL, fileUris = NULL, mainClass = NULL,
+  archiveUris = NULL, mainJarFileUri = NULL, jarFileUris = NULL)
 }
 \arguments{
 \item{SparkJob.properties}{The \link{SparkJob.properties} object or list of objects}
 
-\item{mainJarFileUri}{The Hadoop Compatible Filesystem (HCFS) URI of the jar file that contains the main class}
+\item{loggingConfiguration}{Optional The runtime log configuration for job execution}
+
+\item{properties}{Optional A mapping of property names to values, used to configure Spark}
+
+\item{args}{Optional The arguments to pass to the driver}
+
+\item{fileUris}{Optional HCFS URIs of files to be copied to the working directory of Spark drivers and distributed tasks}
 
 \item{mainClass}{The name of the driver's main class}
 
-\item{args}{[Optional] The arguments to pass to the driver}
+\item{archiveUris}{Optional HCFS URIs of archives to be extracted in the working directory of Spark drivers and tasks}
 
-\item{jarFileUris}{[Optional] HCFS URIs of jar files to add to the CLASSPATHs of the Spark driver and tasks}
+\item{mainJarFileUri}{The Hadoop Compatible Filesystem (HCFS) URI of the jar file that contains the main class}
 
-\item{fileUris}{[Optional] HCFS URIs of files to be copied to the working directory of Spark drivers and distributed tasks}
-
-\item{archiveUris}{[Optional] HCFS URIs of archives to be extracted in the working directory of Spark drivers and tasks}
-
-\item{properties}{[Optional] A mapping of property names to values, used to configure Spark}
-
-\item{loggingConfiguration}{[Optional] The runtime log configuration for job execution}
+\item{jarFileUris}{Optional HCFS URIs of jar files to add to the CLASSPATHs of the Spark driver and tasks}
 }
 \value{
 SparkJob object
@@ -40,4 +40,3 @@ A Cloud Dataproc job for running Spark applications on YARN.
 \seealso{
 Other SparkJob functions: \code{\link{SparkJob.properties}}
 }
-

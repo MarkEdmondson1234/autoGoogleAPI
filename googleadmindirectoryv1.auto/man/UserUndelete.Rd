@@ -22,4 +22,3 @@ JSON request template to undelete a user in Directory API.
 \seealso{
 Other UserUndelete functions: \code{\link{directory.users.undelete}}
 }
-

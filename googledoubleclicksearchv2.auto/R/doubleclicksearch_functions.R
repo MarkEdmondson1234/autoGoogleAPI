@@ -2,7 +2,7 @@
 #' Reports and modifies your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:11:32
+#'  at 2017-03-05 19:49:01
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googledoubleclicksearchv2.auto/R/doubleclicksearch_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Retrieves a list of conversions from a DoubleClick Search engine account.
 #' 
@@ -51,11 +64,12 @@ NULL
 conversion.get <- function(agencyId, advertiserId, engineAccountId, endDate, rowCount, 
     startDate, startRow, adGroupId = NULL, adId = NULL, campaignId = NULL, criterionId = NULL) {
     url <- sprintf("https://www.googleapis.com/doubleclicksearch/v2/agency/%s/advertiser/%s/engine/%s/conversion", 
-        advertiserId, agencyId, engineAccountId)
+        agencyId, advertiserId, engineAccountId)
     # doubleclicksearch.conversion.get
-    f <- gar_api_generator(url, "GET", pars_args = list(adGroupId = adGroupId, adId = adId, 
-        campaignId = campaignId, criterionId = criterionId, endDate = endDate, rowCount = rowCount, 
-        startDate = startDate, startRow = startRow), data_parse_function = function(x) x)
+    pars = list(endDate = endDate, rowCount = rowCount, startDate = startDate, startRow = startRow, 
+        adGroupId = adGroupId, adId = adId, campaignId = campaignId, criterionId = criterionId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -83,7 +97,7 @@ conversion.get <- function(agencyId, advertiserId, engineAccountId, endDate, row
 conversion.insert <- function(ConversionList) {
     url <- "https://www.googleapis.com/doubleclicksearch/v2/conversion"
     # doubleclicksearch.conversion.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ConversionList, "gar_ConversionList"))
     
     f(the_body = ConversionList)
@@ -121,9 +135,11 @@ conversion.patch <- function(ConversionList, advertiserId, agencyId, endDate, en
     rowCount, startDate, startRow) {
     url <- "https://www.googleapis.com/doubleclicksearch/v2/conversion"
     # doubleclicksearch.conversion.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(advertiserId = advertiserId, 
-        agencyId = agencyId, endDate = endDate, engineAccountId = engineAccountId, 
-        rowCount = rowCount, startDate = startDate, startRow = startRow), data_parse_function = function(x) x)
+    pars = list(advertiserId = advertiserId, agencyId = agencyId, endDate = endDate, 
+        engineAccountId = engineAccountId, rowCount = rowCount, startDate = startDate, 
+        startRow = startRow)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(ConversionList, "gar_ConversionList"))
     
     f(the_body = ConversionList)
@@ -153,7 +169,7 @@ conversion.patch <- function(ConversionList, advertiserId, agencyId, endDate, en
 conversion.update <- function(ConversionList) {
     url <- "https://www.googleapis.com/doubleclicksearch/v2/conversion"
     # doubleclicksearch.conversion.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(ConversionList, "gar_ConversionList"))
     
     f(the_body = ConversionList)
@@ -183,7 +199,7 @@ conversion.update <- function(ConversionList) {
 conversion.updateAvailability <- function(UpdateAvailabilityRequest) {
     url <- "https://www.googleapis.com/doubleclicksearch/v2/conversion/updateAvailability"
     # doubleclicksearch.conversion.updateAvailability
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(UpdateAvailabilityRequest, "gar_UpdateAvailabilityRequest"))
     
     f(the_body = UpdateAvailabilityRequest)
@@ -213,7 +229,7 @@ conversion.updateAvailability <- function(UpdateAvailabilityRequest) {
 reports.generate <- function(ReportRequest) {
     url <- "https://www.googleapis.com/doubleclicksearch/v2/reports/generate"
     # doubleclicksearch.reports.generate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ReportRequest, "gar_ReportRequest"))
     
     f(the_body = ReportRequest)
@@ -243,7 +259,7 @@ reports.get <- function(reportId) {
     url <- sprintf("https://www.googleapis.com/doubleclicksearch/v2/reports/%s", 
         reportId)
     # doubleclicksearch.reports.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -270,9 +286,9 @@ reports.get <- function(reportId) {
 #' @export
 reports.getFile <- function(reportId, reportFragment) {
     url <- sprintf("https://www.googleapis.com/doubleclicksearch/v2/reports/%s/files/%s", 
-        reportFragment, reportId)
+        reportId, reportFragment)
     # doubleclicksearch.reports.getFile
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -300,7 +316,7 @@ reports.getFile <- function(reportId, reportFragment) {
 reports.request <- function(ReportRequest) {
     url <- "https://www.googleapis.com/doubleclicksearch/v2/reports"
     # doubleclicksearch.reports.request
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ReportRequest, "gar_ReportRequest"))
     
     f(the_body = ReportRequest)
@@ -335,9 +351,10 @@ savedColumns.list <- function(agencyId, advertiserId) {
     
     
     url <- sprintf("https://www.googleapis.com/doubleclicksearch/v2/agency/%s/advertiser/%s/savedcolumns", 
-        advertiserId, agencyId)
+        agencyId, advertiserId)
     # doubleclicksearch.savedColumns.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

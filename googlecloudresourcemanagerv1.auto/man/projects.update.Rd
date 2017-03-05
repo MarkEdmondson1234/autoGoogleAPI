@@ -2,7 +2,7 @@
 % Please edit documentation in R/cloudresourcemanager_functions.R
 \name{projects.update}
 \alias{projects.update}
-\title{Updates the attributes of the Project identified by the specified `project_id` (for example, `my-project-123`). The caller must have modify permissions for this Project.}
+\title{Updates the attributes of the Project identified by the specified`project_id` (for example, `my-project-123`).The caller must have modify permissions for this Project.}
 \usage{
 projects.update(Project, projectId)
 }
@@ -28,6 +28,5 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \href{https://cloud.google.com/resource-manager}{Google Documentation}
 
 Other Project functions: \code{\link{Project.labels}},
-  \code{\link{Project}}
+  \code{\link{Project}}, \code{\link{projects.create}}
 }
-

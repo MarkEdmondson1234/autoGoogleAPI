@@ -24,4 +24,3 @@ Other CalendarListEntry functions: \code{\link{CalendarListEntry}},
   \code{\link{ist.insert}}, \code{\link{ist.patch}},
   \code{\link{ist.update}}
 }
-

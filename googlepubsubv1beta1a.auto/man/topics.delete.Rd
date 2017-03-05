@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{topics.delete}
 \alias{topics.delete}
-\title{Deletes the topic with the given name. Returns NOT_FOUND if the topic does not exist. After a topic is deleted, a new topic may be created with the same name.}
+\title{Deletes the topic with the given name. Returns NOT_FOUND if the topic doesnot exist. After a topic is deleted, a new topic may be created with thesame name.}
 \usage{
 topics.delete(topic)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/pubsub/docs}{Google Documentation}
 }
-

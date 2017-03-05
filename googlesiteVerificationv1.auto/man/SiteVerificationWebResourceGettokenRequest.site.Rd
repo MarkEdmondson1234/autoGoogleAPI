@@ -26,4 +26,3 @@ The site for which a verification token will be generated.
 Other SiteVerificationWebResourceGettokenRequest functions: \code{\link{SiteVerificationWebResourceGettokenRequest}},
   \code{\link{webResource.getToken}}
 }
-

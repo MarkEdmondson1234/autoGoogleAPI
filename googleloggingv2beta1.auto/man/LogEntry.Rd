@@ -4,40 +4,45 @@
 \alias{LogEntry}
 \title{LogEntry Object}
 \usage{
-LogEntry(LogEntry.protoPayload = NULL, LogEntry.jsonPayload = NULL,
-  LogEntry.labels = NULL, logName = NULL, resource = NULL,
-  protoPayload = NULL, textPayload = NULL, jsonPayload = NULL,
-  timestamp = NULL, severity = NULL, insertId = NULL,
-  httpRequest = NULL, labels = NULL, operation = NULL)
+LogEntry(LogEntry.jsonPayload = NULL, LogEntry.protoPayload = NULL,
+  LogEntry.labels = NULL, logName = NULL, httpRequest = NULL,
+  resource = NULL, jsonPayload = NULL, insertId = NULL,
+  operation = NULL, textPayload = NULL, protoPayload = NULL,
+  trace = NULL, labels = NULL, severity = NULL, sourceLocation = NULL,
+  timestamp = NULL)
 }
 \arguments{
-\item{LogEntry.protoPayload}{The \link{LogEntry.protoPayload} object or list of objects}
-
 \item{LogEntry.jsonPayload}{The \link{LogEntry.jsonPayload} object or list of objects}
+
+\item{LogEntry.protoPayload}{The \link{LogEntry.protoPayload} object or list of objects}
 
 \item{LogEntry.labels}{The \link{LogEntry.labels} object or list of objects}
 
 \item{logName}{Required}
 
+\item{httpRequest}{Optional}
+
 \item{resource}{Required}
-
-\item{protoPayload}{The log entry payload, represented as a protocol buffer}
-
-\item{textPayload}{The log entry payload, represented as a Unicode string (UTF-8)}
 
 \item{jsonPayload}{The log entry payload, represented as a structure that is expressed as a JSON object}
 
-\item{timestamp}{Optional}
-
-\item{severity}{Optional}
-
 \item{insertId}{Optional}
 
-\item{httpRequest}{Optional}
+\item{operation}{Optional}
+
+\item{textPayload}{The log entry payload, represented as a Unicode string (UTF-8)}
+
+\item{protoPayload}{The log entry payload, represented as a protocol buffer}
+
+\item{trace}{Optional}
 
 \item{labels}{Optional}
 
-\item{operation}{Optional}
+\item{severity}{Optional}
+
+\item{sourceLocation}{Optional}
+
+\item{timestamp}{Optional}
 }
 \value{
 LogEntry object
@@ -54,4 +59,3 @@ Other LogEntry functions: \code{\link{LogEntry.jsonPayload}},
   \code{\link{LogEntry.labels}},
   \code{\link{LogEntry.protoPayload}}
 }
-

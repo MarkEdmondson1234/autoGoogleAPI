@@ -31,4 +31,3 @@ No description
 Other SubnetworksScopedList functions: \code{\link{SubnetworksScopedList.warning.data}},
   \code{\link{SubnetworksScopedList.warning}}
 }
-

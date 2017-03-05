@@ -2,7 +2,7 @@
 #' The API for Google Play Game Services.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:13:41
+#'  at 2017-03-05 19:52:01
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesv1.auto/R/games_functions.R
 #' api_json: api_json
 #' 
@@ -20,6 +20,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Lists all the achievement definitions for your application.
 #' 
@@ -48,8 +61,10 @@ achievementDefinitions.list <- function(consistencyToken = NULL, language = NULL
     maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/achievements"
     # games.achievementDefinitions.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -82,8 +97,10 @@ achievements.increment <- function(achievementId, stepsToIncrement, consistencyT
     url <- sprintf("https://www.googleapis.com/games/v1/achievements/%s/increment", 
         achievementId)
     # games.achievements.increment
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        requestId = requestId, stepsToIncrement = stepsToIncrement), data_parse_function = function(x) x)
+    pars = list(stepsToIncrement = stepsToIncrement, consistencyToken = consistencyToken, 
+        requestId = requestId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -118,8 +135,9 @@ achievements.list <- function(playerId, consistencyToken = NULL, language = NULL
     url <- sprintf("https://www.googleapis.com/games/v1/players/%s/achievements", 
         playerId)
     # games.achievements.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken, state = state), 
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken, state = state)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -150,7 +168,8 @@ achievements.reveal <- function(achievementId, consistencyToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/achievements/%s/reveal", 
         achievementId)
     # games.achievements.reveal
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -182,8 +201,9 @@ achievements.setStepsAtLeast <- function(achievementId, steps, consistencyToken 
     url <- sprintf("https://www.googleapis.com/games/v1/achievements/%s/setStepsAtLeast", 
         achievementId)
     # games.achievements.setStepsAtLeast
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        steps = steps), data_parse_function = function(x) x)
+    pars = list(steps = steps, consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -213,7 +233,8 @@ achievements.unlock <- function(achievementId, consistencyToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/achievements/%s/unlock", 
         achievementId)
     # games.achievements.unlock
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -244,7 +265,8 @@ achievements.unlock <- function(achievementId, consistencyToken = NULL) {
 achievements.updateMultiple <- function(AchievementUpdateMultipleRequest, consistencyToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/achievements/updateMultiple"
     # games.achievements.updateMultiple
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(AchievementUpdateMultipleRequest, "gar_AchievementUpdateMultipleRequest"))
     
@@ -279,8 +301,9 @@ applications.get <- function(applicationId, consistencyToken = NULL, language = 
     platformType = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/applications/%s", applicationId)
     # games.applications.get
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, platformType = platformType), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, platformType = platformType)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -308,7 +331,8 @@ applications.get <- function(applicationId, consistencyToken = NULL, language = 
 applications.played <- function(consistencyToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/applications/played"
     # games.applications.played
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -339,7 +363,8 @@ applications.verify <- function(applicationId, consistencyToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/applications/%s/verify", 
         applicationId)
     # games.applications.verify
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -372,8 +397,10 @@ events.listByPlayer <- function(consistencyToken = NULL, language = NULL, maxRes
     pageToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/events"
     # games.events.listByPlayer
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -405,8 +432,10 @@ events.listDefinitions <- function(consistencyToken = NULL, language = NULL, max
     pageToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/eventDefinitions"
     # games.events.listDefinitions
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -437,8 +466,9 @@ events.listDefinitions <- function(consistencyToken = NULL, language = NULL, max
 events.record <- function(EventRecordRequest, consistencyToken = NULL, language = NULL) {
     url <- "https://www.googleapis.com/games/v1/events"
     # games.events.record
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(EventRecordRequest, "gar_EventRecordRequest"))
     
     f(the_body = EventRecordRequest)
@@ -470,8 +500,9 @@ events.record <- function(EventRecordRequest, consistencyToken = NULL, language 
 leaderboards.get <- function(leaderboardId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/leaderboards/%s", leaderboardId)
     # games.leaderboards.get
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -503,8 +534,10 @@ leaderboards.list <- function(consistencyToken = NULL, language = NULL, maxResul
     pageToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/leaderboards"
     # games.leaderboards.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -532,7 +565,8 @@ leaderboards.list <- function(consistencyToken = NULL, language = NULL, maxResul
 metagame.getMetagameConfig <- function(consistencyToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/metagameConfig"
     # games.metagame.getMetagameConfig
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -566,10 +600,12 @@ metagame.getMetagameConfig <- function(consistencyToken = NULL) {
 metagame.listCategoriesByPlayer <- function(playerId, collection, consistencyToken = NULL, 
     language = NULL, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/players/%s/categories/%s", 
-        collection, playerId)
+        playerId, collection)
     # games.metagame.listCategoriesByPlayer
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -599,8 +635,9 @@ metagame.listCategoriesByPlayer <- function(playerId, collection, consistencyTok
 players.get <- function(playerId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/players/%s", playerId)
     # games.players.get
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -633,8 +670,10 @@ players.list <- function(collection, consistencyToken = NULL, language = NULL, m
     pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/players/me/players/%s", collection)
     # games.players.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -664,7 +703,8 @@ players.list <- function(collection, consistencyToken = NULL, language = NULL, m
 pushtokens.remove <- function(PushTokenId, consistencyToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/pushtokens/remove"
     # games.pushtokens.remove
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(PushTokenId, "gar_PushTokenId"))
     
@@ -697,7 +737,8 @@ pushtokens.remove <- function(PushTokenId, consistencyToken = NULL) {
 pushtokens.update <- function(PushToken, consistencyToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/pushtokens"
     # games.pushtokens.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(PushToken, "gar_PushToken"))
     
@@ -730,10 +771,11 @@ pushtokens.update <- function(PushToken, consistencyToken = NULL) {
 #' @export
 questMilestones.claim <- function(questId, milestoneId, requestId, consistencyToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/quests/%s/milestones/%s/claim", 
-        milestoneId, questId)
+        questId, milestoneId)
     # games.questMilestones.claim
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken, 
-        requestId = requestId), data_parse_function = function(x) x)
+    pars = list(requestId = requestId, consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -763,8 +805,9 @@ questMilestones.claim <- function(questId, milestoneId, requestId, consistencyTo
 quests.accept <- function(questId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/quests/%s/accept", questId)
     # games.quests.accept
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -797,8 +840,10 @@ quests.list <- function(playerId, consistencyToken = NULL, language = NULL, maxR
     pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/players/%s/quests", playerId)
     # games.quests.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -827,8 +872,9 @@ quests.list <- function(playerId, consistencyToken = NULL, language = NULL, maxR
 revisions.check <- function(clientRevision, consistencyToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/revisions/check"
     # games.revisions.check
-    f <- gar_api_generator(url, "GET", pars_args = list(clientRevision = clientRevision, 
-        consistencyToken = consistencyToken), data_parse_function = function(x) x)
+    pars = list(clientRevision = clientRevision, consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -859,8 +905,9 @@ revisions.check <- function(clientRevision, consistencyToken = NULL) {
 rooms.create <- function(RoomCreateRequest, consistencyToken = NULL, language = NULL) {
     url <- "https://www.googleapis.com/games/v1/rooms/create"
     # games.rooms.create
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(RoomCreateRequest, "gar_RoomCreateRequest"))
     
     f(the_body = RoomCreateRequest)
@@ -892,8 +939,9 @@ rooms.create <- function(RoomCreateRequest, consistencyToken = NULL, language = 
 rooms.decline <- function(roomId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/rooms/%s/decline", roomId)
     # games.rooms.decline
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -922,7 +970,8 @@ rooms.decline <- function(roomId, consistencyToken = NULL, language = NULL) {
 rooms.dismiss <- function(roomId, consistencyToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/rooms/%s/dismiss", roomId)
     # games.rooms.dismiss
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -953,8 +1002,9 @@ rooms.dismiss <- function(roomId, consistencyToken = NULL) {
 rooms.get <- function(roomId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/rooms/%s", roomId)
     # games.rooms.get
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -986,8 +1036,9 @@ rooms.get <- function(roomId, consistencyToken = NULL, language = NULL) {
 rooms.join <- function(RoomJoinRequest, roomId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/rooms/%s/join", roomId)
     # games.rooms.join
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(RoomJoinRequest, "gar_RoomJoinRequest"))
     
     f(the_body = RoomJoinRequest)
@@ -1021,8 +1072,9 @@ rooms.join <- function(RoomJoinRequest, roomId, consistencyToken = NULL, languag
 rooms.leave <- function(RoomLeaveRequest, roomId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/rooms/%s/leave", roomId)
     # games.rooms.leave
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(RoomLeaveRequest, "gar_RoomLeaveRequest"))
     
     f(the_body = RoomLeaveRequest)
@@ -1056,8 +1108,10 @@ rooms.list <- function(consistencyToken = NULL, language = NULL, maxResults = NU
     pageToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/rooms"
     # games.rooms.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1090,8 +1144,9 @@ rooms.reportStatus <- function(RoomP2PStatuses, roomId, consistencyToken = NULL,
     language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/rooms/%s/reportstatus", roomId)
     # games.rooms.reportStatus
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(RoomP2PStatuses, "gar_RoomP2PStatuses"))
     
     f(the_body = RoomP2PStatuses)
@@ -1128,11 +1183,12 @@ rooms.reportStatus <- function(RoomP2PStatuses, roomId, consistencyToken = NULL,
 scores.get <- function(playerId, leaderboardId, timeSpan, consistencyToken = NULL, 
     includeRankType = NULL, language = NULL, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/players/%s/leaderboards/%s/scores/%s", 
-        leaderboardId, playerId, timeSpan)
+        playerId, leaderboardId, timeSpan)
     # games.scores.get
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        includeRankType = includeRankType, language = language, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, includeRankType = includeRankType, 
+        language = language, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1166,10 +1222,11 @@ scores.get <- function(playerId, leaderboardId, timeSpan, consistencyToken = NUL
 scores.list <- function(leaderboardId, collection, timeSpan, consistencyToken = NULL, 
     language = NULL, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/leaderboards/%s/scores/%s", 
-        collection, leaderboardId)
+        leaderboardId, collection)
     # games.scores.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken, timeSpan = timeSpan), 
+    pars = list(timeSpan = timeSpan, consistencyToken = consistencyToken, language = language, 
+        maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1206,11 +1263,13 @@ scores.list <- function(leaderboardId, collection, timeSpan, consistencyToken = 
 scores.listWindow <- function(leaderboardId, collection, timeSpan, consistencyToken = NULL, 
     language = NULL, maxResults = NULL, pageToken = NULL, resultsAbove = NULL, returnTopIfAbsent = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/leaderboards/%s/window/%s", 
-        collection, leaderboardId)
+        leaderboardId, collection)
     # games.scores.listWindow
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken, resultsAbove = resultsAbove, 
-        returnTopIfAbsent = returnTopIfAbsent, timeSpan = timeSpan), data_parse_function = function(x) x)
+    pars = list(timeSpan = timeSpan, consistencyToken = consistencyToken, language = language, 
+        maxResults = maxResults, pageToken = pageToken, resultsAbove = resultsAbove, 
+        returnTopIfAbsent = returnTopIfAbsent)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1244,8 +1303,10 @@ scores.submit <- function(leaderboardId, score, consistencyToken = NULL, languag
     url <- sprintf("https://www.googleapis.com/games/v1/leaderboards/%s/scores", 
         leaderboardId)
     # games.scores.submit
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, score = score, scoreTag = scoreTag), data_parse_function = function(x) x)
+    pars = list(score = score, consistencyToken = consistencyToken, language = language, 
+        scoreTag = scoreTag)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1277,8 +1338,9 @@ scores.submitMultiple <- function(PlayerScoreSubmissionList, consistencyToken = 
     language = NULL) {
     url <- "https://www.googleapis.com/games/v1/leaderboards/scores"
     # games.scores.submitMultiple
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(PlayerScoreSubmissionList, "gar_PlayerScoreSubmissionList"))
     
     f(the_body = PlayerScoreSubmissionList)
@@ -1311,8 +1373,9 @@ scores.submitMultiple <- function(PlayerScoreSubmissionList, consistencyToken = 
 snapshots.get <- function(snapshotId, consistencyToken = NULL, language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/snapshots/%s", snapshotId)
     # games.snapshots.get
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1346,8 +1409,10 @@ snapshots.list <- function(playerId, consistencyToken = NULL, language = NULL, m
     pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/players/%s/snapshots", playerId)
     # games.snapshots.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1377,7 +1442,8 @@ turnBasedMatches.cancel <- function(matchId, consistencyToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/cancel", 
         matchId)
     # games.turnBasedMatches.cancel
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1410,8 +1476,9 @@ turnBasedMatches.create <- function(TurnBasedMatchCreateRequest, consistencyToke
     language = NULL) {
     url <- "https://www.googleapis.com/games/v1/turnbasedmatches/create"
     # games.turnBasedMatches.create
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(TurnBasedMatchCreateRequest, "gar_TurnBasedMatchCreateRequest"))
     
     f(the_body = TurnBasedMatchCreateRequest)
@@ -1444,8 +1511,9 @@ turnBasedMatches.decline <- function(matchId, consistencyToken = NULL, language 
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/decline", 
         matchId)
     # games.turnBasedMatches.decline
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1475,7 +1543,8 @@ turnBasedMatches.dismiss <- function(matchId, consistencyToken = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/dismiss", 
         matchId)
     # games.turnBasedMatches.dismiss
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken), 
+    pars = list(consistencyToken = consistencyToken)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1510,8 +1579,9 @@ turnBasedMatches.finish <- function(TurnBasedMatchResults, matchId, consistencyT
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/finish", 
         matchId)
     # games.turnBasedMatches.finish
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(TurnBasedMatchResults, "gar_TurnBasedMatchResults"))
     
     f(the_body = TurnBasedMatchResults)
@@ -1545,8 +1615,10 @@ turnBasedMatches.get <- function(matchId, consistencyToken = NULL, includeMatchD
     language = NULL) {
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s", matchId)
     # games.turnBasedMatches.get
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        includeMatchData = includeMatchData, language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, includeMatchData = includeMatchData, 
+        language = language)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1577,8 +1649,9 @@ turnBasedMatches.join <- function(matchId, consistencyToken = NULL, language = N
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/join", 
         matchId)
     # games.turnBasedMatches.join
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1609,8 +1682,9 @@ turnBasedMatches.leave <- function(matchId, consistencyToken = NULL, language = 
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/leave", 
         matchId)
     # games.turnBasedMatches.leave
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1644,8 +1718,9 @@ turnBasedMatches.leaveTurn <- function(matchId, matchVersion, consistencyToken =
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/leaveTurn", 
         matchId)
     # games.turnBasedMatches.leaveTurn
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, matchVersion = matchVersion, pendingParticipantId = pendingParticipantId), 
+    pars = list(matchVersion = matchVersion, consistencyToken = consistencyToken, 
+        language = language, pendingParticipantId = pendingParticipantId)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1680,9 +1755,11 @@ turnBasedMatches.list <- function(consistencyToken = NULL, includeMatchData = NU
     language = NULL, maxCompletedMatches = NULL, maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/turnbasedmatches"
     # games.turnBasedMatches.list
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        includeMatchData = includeMatchData, language = language, maxCompletedMatches = maxCompletedMatches, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, includeMatchData = includeMatchData, 
+        language = language, maxCompletedMatches = maxCompletedMatches, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1715,8 +1792,9 @@ turnBasedMatches.rematch <- function(matchId, consistencyToken = NULL, language 
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/rematch", 
         matchId)
     # games.turnBasedMatches.rematch
-    f <- gar_api_generator(url, "POST", pars_args = list(consistencyToken = consistencyToken, 
-        language = language, requestId = requestId), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language, requestId = requestId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1750,9 +1828,11 @@ turnBasedMatches.sync <- function(consistencyToken = NULL, includeMatchData = NU
     language = NULL, maxCompletedMatches = NULL, maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/games/v1/turnbasedmatches/sync"
     # games.turnBasedMatches.sync
-    f <- gar_api_generator(url, "GET", pars_args = list(consistencyToken = consistencyToken, 
-        includeMatchData = includeMatchData, language = language, maxCompletedMatches = maxCompletedMatches, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, includeMatchData = includeMatchData, 
+        language = language, maxCompletedMatches = maxCompletedMatches, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1793,8 +1873,10 @@ turnBasedMatches.takeTurn <- function(TurnBasedMatchTurn, matchId, consistencyTo
     url <- sprintf("https://www.googleapis.com/games/v1/turnbasedmatches/%s/turn", 
         matchId)
     # games.turnBasedMatches.takeTurn
-    f <- gar_api_generator(url, "PUT", pars_args = list(consistencyToken = consistencyToken, 
-        language = language), data_parse_function = function(x) x)
+    pars = list(consistencyToken = consistencyToken, language = language)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     stopifnot(inherits(TurnBasedMatchTurn, "gar_TurnBasedMatchTurn"))
     

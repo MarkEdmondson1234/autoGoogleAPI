@@ -31,4 +31,3 @@ A subscription resource contains information about a YouTube user subscription. 
 \seealso{
 Other Subscription functions: \code{\link{subscriptions.insert}}
 }
-

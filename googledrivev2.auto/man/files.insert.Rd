@@ -5,8 +5,9 @@
 \title{Insert a new file.}
 \usage{
 files.insert(File, convert = NULL, ocr = NULL, ocrLanguage = NULL,
-  pinned = NULL, timedTextLanguage = NULL, timedTextTrackName = NULL,
-  useContentAsIndexableText = NULL, visibility = NULL)
+  pinned = NULL, supportsTeamDrives = NULL, timedTextLanguage = NULL,
+  timedTextTrackName = NULL, useContentAsIndexableText = NULL,
+  visibility = NULL)
 }
 \arguments{
 \item{File}{The \link{File} object to pass to this method}
@@ -18,6 +19,8 @@ files.insert(File, convert = NULL, ocr = NULL, ocrLanguage = NULL,
 \item{ocrLanguage}{If ocr is true, hints at the language to use}
 
 \item{pinned}{Whether to pin the head revision of the uploaded file}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{timedTextLanguage}{The language of the timed text}
 
@@ -46,7 +49,8 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/drive/}{Google Documentation}
 
-Other File functions: \code{\link{File.exportLinks}},
+Other File functions: \code{\link{File.capabilities}},
+  \code{\link{File.exportLinks}},
   \code{\link{File.imageMediaMetadata.location}},
   \code{\link{File.imageMediaMetadata}},
   \code{\link{File.indexableText}},
@@ -57,4 +61,3 @@ Other File functions: \code{\link{File.exportLinks}},
   \code{\link{File}}, \code{\link{files.copy}},
   \code{\link{files.patch}}, \code{\link{files.update}}
 }
-

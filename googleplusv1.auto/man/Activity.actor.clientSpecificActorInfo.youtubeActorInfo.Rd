@@ -42,4 +42,3 @@ Other Activity functions: \code{\link{Activity.actor.clientSpecificActorInfo}},
   \code{\link{Activity.object}},
   \code{\link{Activity.provider}}, \code{\link{Activity}}
 }
-

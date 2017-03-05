@@ -25,4 +25,3 @@ Other Operation functions: \code{\link{Operation.error.errors}},
   \code{\link{Operation.warnings.data}},
   \code{\link{Operation}}
 }
-

@@ -31,4 +31,3 @@ No description
 Other TargetPoolsScopedList functions: \code{\link{TargetPoolsScopedList.warning.data}},
   \code{\link{TargetPoolsScopedList.warning}}
 }
-

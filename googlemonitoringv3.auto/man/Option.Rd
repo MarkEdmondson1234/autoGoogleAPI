@@ -11,7 +11,7 @@ Option(Option.value = NULL, name = NULL, value = NULL)
 
 \item{name}{The option's name}
 
-\item{value}{The option's value}
+\item{value}{The option's value packed in an Any message}
 }
 \value{
 Option object
@@ -26,4 +26,3 @@ A protocol buffer option, which can be attached to a message, field, enumeration
 \seealso{
 Other Option functions: \code{\link{Option.value}}
 }
-

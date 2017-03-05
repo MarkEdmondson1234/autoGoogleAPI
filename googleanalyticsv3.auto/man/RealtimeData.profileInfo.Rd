@@ -37,4 +37,3 @@ Other RealtimeData functions: \code{\link{RealtimeData.columnHeaders}},
   \code{\link{RealtimeData.totalsForAllResults}},
   \code{\link{RealtimeData}}
 }
-

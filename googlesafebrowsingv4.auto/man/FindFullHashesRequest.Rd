@@ -27,4 +27,3 @@ Request to return full hashes matched by the provided hash prefixes.
 \seealso{
 Other FindFullHashesRequest functions: \code{\link{fullHashes.find}}
 }
-

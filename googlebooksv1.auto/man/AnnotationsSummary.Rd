@@ -24,4 +24,3 @@ No description
 \seealso{
 Other AnnotationsSummary functions: \code{\link{AnnotationsSummary.layers}}
 }
-

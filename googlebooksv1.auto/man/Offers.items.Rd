@@ -23,4 +23,3 @@ No description
 Other Offers functions: \code{\link{Offers.items.items}},
   \code{\link{Offers}}
 }
-

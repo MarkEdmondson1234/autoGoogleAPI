@@ -1,5 +1,5 @@
 # googlefitnessv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Fitness R library
 
 Stores and accesses user data in the fitness store from apps on any platform.
@@ -20,7 +20,7 @@ Set the appropriate Google API scopes:
 ```r
 library(googleAuthR)
 library(googlefitnessv1.auto)
-options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/fitness.activity.read', 'https://www.googleapis.com/auth/fitness.activity.write', 'https://www.googleapis.com/auth/fitness.body.read', 'https://www.googleapis.com/auth/fitness.body.write', 'https://www.googleapis.com/auth/fitness.location.read', 'https://www.googleapis.com/auth/fitness.location.write', 'https://www.googleapis.com/auth/fitness.nutrition.read', 'https://www.googleapis.com/auth/fitness.nutrition.write'))
+options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/fitness.activity.read', 'https://www.googleapis.com/auth/fitness.activity.write', 'https://www.googleapis.com/auth/fitness.blood_glucose.read', 'https://www.googleapis.com/auth/fitness.blood_glucose.write', 'https://www.googleapis.com/auth/fitness.blood_pressure.read', 'https://www.googleapis.com/auth/fitness.blood_pressure.write', 'https://www.googleapis.com/auth/fitness.body.read', 'https://www.googleapis.com/auth/fitness.body.write', 'https://www.googleapis.com/auth/fitness.body_temperature.read', 'https://www.googleapis.com/auth/fitness.body_temperature.write', 'https://www.googleapis.com/auth/fitness.location.read', 'https://www.googleapis.com/auth/fitness.location.write', 'https://www.googleapis.com/auth/fitness.nutrition.read', 'https://www.googleapis.com/auth/fitness.nutrition.write', 'https://www.googleapis.com/auth/fitness.oxygen_saturation.read', 'https://www.googleapis.com/auth/fitness.oxygen_saturation.write', 'https://www.googleapis.com/auth/fitness.reproductive_health.read', 'https://www.googleapis.com/auth/fitness.reproductive_health.write'))
 
 gar_auth()
 ```

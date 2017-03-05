@@ -5,7 +5,7 @@
 \title{Bucket.lifecycle.rule.condition Object}
 \usage{
 Bucket.lifecycle.rule.condition(age = NULL, createdBefore = NULL,
-  isLive = NULL, numNewerVersions = NULL)
+  isLive = NULL, matchesStorageClass = NULL, numNewerVersions = NULL)
 }
 \arguments{
 \item{age}{Age of an object (in days)}
@@ -13,6 +13,8 @@ Bucket.lifecycle.rule.condition(age = NULL, createdBefore = NULL,
 \item{createdBefore}{A date in RFC 3339 format with only the date part (for instance, '2013-01-15')}
 
 \item{isLive}{Relevant only for versioned objects}
+
+\item{matchesStorageClass}{Objects having any of the storage classes specified by this condition will be matched}
 
 \item{numNewerVersions}{Relevant only for versioned objects}
 }
@@ -28,7 +30,6 @@ The condition(s) under which the action will be taken.
 }
 \seealso{
 Other Bucket functions: \code{\link{Bucket.cors}},
-  \code{\link{Bucket.encryption}},
   \code{\link{Bucket.lifecycle.rule.action}},
   \code{\link{Bucket.lifecycle.rule}},
   \code{\link{Bucket.lifecycle}},
@@ -38,4 +39,3 @@ Other Bucket functions: \code{\link{Bucket.cors}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

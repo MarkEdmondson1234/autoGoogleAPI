@@ -20,4 +20,3 @@ This field is not used.
 Other Operation functions: \code{\link{Operation.response}},
   \code{\link{Operation}}
 }
-

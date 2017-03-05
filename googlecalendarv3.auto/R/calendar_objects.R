@@ -2,7 +2,7 @@
 #' Manipulates events and other calendar data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-04 00:00:52
+#'  at 2017-03-05 19:30:36
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecalendarv3.auto/R/calendar_objects.R
 #' api_json: api_json
 #' 

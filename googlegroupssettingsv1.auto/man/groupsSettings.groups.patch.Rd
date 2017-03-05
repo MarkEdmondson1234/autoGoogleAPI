@@ -27,7 +27,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/google-apps/groups-settings/get_started}{Google Documentation}
 
-Other Groups.functions: \code{\link{Groups}},
+Other Groups functions: \code{\link{Groups}},
   \code{\link{groupsSettings.groups.update}}
 }
-

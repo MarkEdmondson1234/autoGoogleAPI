@@ -24,11 +24,11 @@ ObjectAccessControl(ObjectAccessControl.projectTeam = NULL, bucket = NULL,
 
 \item{etag}{HTTP 1}
 
-\item{generation}{The content generation of the object}
+\item{generation}{The content generation of the object, if applied to an object}
 
 \item{id}{The ID of the access-control entry}
 
-\item{object}{The name of the object}
+\item{object}{The name of the object, if applied to an object}
 
 \item{projectTeam}{The project team associated with the entity, if any}
 
@@ -55,4 +55,3 @@ Other ObjectAccessControl functions: \code{\link{ObjectAccessControl.projectTeam
   \code{\link{objectAccessControls.patch}},
   \code{\link{objectAccessControls.update}}
 }
-

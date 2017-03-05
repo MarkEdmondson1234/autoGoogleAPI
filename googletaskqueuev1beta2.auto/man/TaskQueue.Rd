@@ -34,4 +34,3 @@ No description
 Other TaskQueue functions: \code{\link{TaskQueue.acl}},
   \code{\link{TaskQueue.stats}}
 }
-

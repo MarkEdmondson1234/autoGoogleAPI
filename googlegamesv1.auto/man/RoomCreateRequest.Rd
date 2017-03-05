@@ -36,4 +36,3 @@ This is a JSON template for a room creation request.
 \seealso{
 Other RoomCreateRequest functions: \code{\link{rooms.create}}
 }
-

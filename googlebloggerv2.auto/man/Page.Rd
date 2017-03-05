@@ -48,4 +48,3 @@ No description
 Other Page functions: \code{\link{Page.author.image}},
   \code{\link{Page.author}}, \code{\link{Page.blog}}
 }
-

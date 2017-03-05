@@ -2,7 +2,7 @@
 #' The API for Google Play Game Services.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:13:42
+#'  at 2017-03-05 19:52:02
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesv1.auto/R/games_objects.R
 #' api_json: api_json
 #' 

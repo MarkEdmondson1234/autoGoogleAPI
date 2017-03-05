@@ -4,19 +4,22 @@
 \alias{WorkerMessage}
 \title{WorkerMessage Object}
 \usage{
-WorkerMessage(WorkerMessage.labels = NULL, labels = NULL, time = NULL,
-  workerHealthReport = NULL, workerMessageCode = NULL)
+WorkerMessage(WorkerMessage.labels = NULL, time = NULL,
+  workerHealthReport = NULL, workerMessageCode = NULL,
+  workerMetrics = NULL, labels = NULL)
 }
 \arguments{
 \item{WorkerMessage.labels}{The \link{WorkerMessage.labels} object or list of objects}
-
-\item{labels}{Labels are used to group WorkerMessages}
 
 \item{time}{The timestamp of the worker_message}
 
 \item{workerHealthReport}{The health of a worker}
 
 \item{workerMessageCode}{A worker message code}
+
+\item{workerMetrics}{Resource metrics reported by workers}
+
+\item{labels}{Labels are used to group WorkerMessages}
 }
 \value{
 WorkerMessage object
@@ -31,4 +34,3 @@ WorkerMessage provides information to the backend about a worker.
 \seealso{
 Other WorkerMessage functions: \code{\link{WorkerMessage.labels}}
 }
-

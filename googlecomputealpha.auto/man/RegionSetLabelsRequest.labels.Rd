@@ -18,6 +18,8 @@ The labels to set for this resource.
 }
 \seealso{
 Other RegionSetLabelsRequest functions: \code{\link{RegionSetLabelsRequest}},
-  \code{\link{regionDisks.setLabels}}
+  \code{\link{addresses.setLabels}},
+  \code{\link{forwardingRules.setLabels}},
+  \code{\link{regionDisks.setLabels}},
+  \code{\link{vpnTunnels.setLabels}}
 }
-

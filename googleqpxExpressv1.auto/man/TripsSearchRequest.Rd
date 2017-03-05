@@ -22,4 +22,3 @@ A QPX Express search request.
 \seealso{
 Other TripsSearchRequest functions: \code{\link{trips.search}}
 }
-

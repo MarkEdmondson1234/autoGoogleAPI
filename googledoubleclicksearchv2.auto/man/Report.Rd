@@ -40,4 +40,3 @@ A DoubleClick Search report. This object contains the report request, some repor
 \seealso{
 Other Report functions: \code{\link{Report.files}}
 }
-

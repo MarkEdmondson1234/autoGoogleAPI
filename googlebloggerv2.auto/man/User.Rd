@@ -43,4 +43,3 @@ No description
 Other User functions: \code{\link{User.blogs}},
   \code{\link{User.locale}}
 }
-

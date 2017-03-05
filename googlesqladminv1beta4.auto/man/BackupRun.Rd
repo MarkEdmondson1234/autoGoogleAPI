@@ -44,4 +44,3 @@ A database instance backup run resource.
 \seealso{
 Other BackupRun functions: \code{\link{sql.backupRuns.insert}}
 }
-

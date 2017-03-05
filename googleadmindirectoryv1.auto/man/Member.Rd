@@ -35,4 +35,3 @@ Other Member functions: \code{\link{directory.members.insert}},
   \code{\link{directory.members.patch}},
   \code{\link{directory.members.update}}
 }
-

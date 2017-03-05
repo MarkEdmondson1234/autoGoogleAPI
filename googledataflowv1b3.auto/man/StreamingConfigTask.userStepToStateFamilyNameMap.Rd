@@ -19,4 +19,3 @@ Map from user step names to state families.
 \seealso{
 Other StreamingConfigTask functions: \code{\link{StreamingConfigTask}}
 }
-

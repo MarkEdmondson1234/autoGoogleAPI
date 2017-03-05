@@ -49,4 +49,3 @@ Other Volume functions: \code{\link{Volume.accessInfo.pdf}},
   \code{\link{Volume.volumeInfo.panelizationSummary}},
   \code{\link{Volume.volumeInfo}}, \code{\link{Volume}}
 }
-

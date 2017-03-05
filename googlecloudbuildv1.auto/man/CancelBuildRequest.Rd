@@ -19,4 +19,3 @@ Request to cancel an ongoing build.
 \seealso{
 Other CancelBuildRequest functions: \code{\link{projects.builds.cancel}}
 }
-

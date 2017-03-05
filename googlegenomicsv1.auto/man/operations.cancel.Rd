@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other CancelOperationRequest functions: \code{\link{CancelOperationRequest}}
 }
-

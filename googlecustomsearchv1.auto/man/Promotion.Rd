@@ -39,4 +39,3 @@ No description
 Other Promotion functions: \code{\link{Promotion.bodyLines}},
   \code{\link{Promotion.image}}
 }
-

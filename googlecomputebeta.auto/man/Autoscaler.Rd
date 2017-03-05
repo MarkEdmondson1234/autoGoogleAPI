@@ -50,4 +50,3 @@ Other Autoscaler functions: \code{\link{autoscalers.insert}},
   \code{\link{regionAutoscalers.patch}},
   \code{\link{regionAutoscalers.update}}
 }
-

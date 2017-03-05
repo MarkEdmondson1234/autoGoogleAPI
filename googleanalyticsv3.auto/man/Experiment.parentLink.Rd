@@ -28,4 +28,3 @@ Other Experiment functions: \code{\link{Experiment.variations}},
   \code{\link{management.experiments.patch}},
   \code{\link{management.experiments.update}}
 }
-

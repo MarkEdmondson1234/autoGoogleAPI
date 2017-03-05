@@ -55,7 +55,7 @@ Account object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:09:53
+ at 2017-03-05 19:45:53
 filename: /Users/mark/dev/R/autoGoogleAPI/googledfareportingv26.auto/R/dfareporting_objects.R
 api_json: api_json
 }
@@ -71,4 +71,3 @@ Contains properties of a DCM account.
 Other Account functions: \code{\link{accounts.patch}},
   \code{\link{accounts.update}}
 }
-

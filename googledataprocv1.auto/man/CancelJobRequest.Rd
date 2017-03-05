@@ -19,4 +19,3 @@ A request to cancel a job.
 \seealso{
 Other CancelJobRequest functions: \code{\link{projects.regions.jobs.cancel}}
 }
-

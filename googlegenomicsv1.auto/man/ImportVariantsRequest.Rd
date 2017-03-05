@@ -5,8 +5,8 @@
 \title{ImportVariantsRequest Object}
 \usage{
 ImportVariantsRequest(ImportVariantsRequest.infoMergeConfig = NULL,
-  variantSetId = NULL, sourceUris = NULL, format = NULL,
-  normalizeReferenceNames = NULL, infoMergeConfig = NULL)
+  variantSetId = NULL, sourceUris = NULL, normalizeReferenceNames = NULL,
+  format = NULL, infoMergeConfig = NULL)
 }
 \arguments{
 \item{ImportVariantsRequest.infoMergeConfig}{The \link{ImportVariantsRequest.infoMergeConfig} object or list of objects}
@@ -15,11 +15,11 @@ ImportVariantsRequest(ImportVariantsRequest.infoMergeConfig = NULL,
 
 \item{sourceUris}{A list of URIs referencing variant files in Google Cloud Storage}
 
-\item{format}{The format of the variant data being imported}
-
 \item{normalizeReferenceNames}{Convert reference names to the canonical representation}
 
-\item{infoMergeConfig}{A mapping between info field keys and the InfoMergeOperations to be performed on them}
+\item{format}{The format of the variant data being imported}
+
+\item{infoMergeConfig}{A mapping between info field keys and the InfoMergeOperations to}
 }
 \value{
 ImportVariantsRequest object
@@ -35,4 +35,3 @@ The variant data import request.
 Other ImportVariantsRequest functions: \code{\link{ImportVariantsRequest.infoMergeConfig}},
   \code{\link{variants.import}}
 }
-

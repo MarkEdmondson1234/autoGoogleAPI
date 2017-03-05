@@ -22,4 +22,3 @@ No description
 \seealso{
 Other OrdersAcknowledgeRequest functions: \code{\link{orders.acknowledge}}
 }
-

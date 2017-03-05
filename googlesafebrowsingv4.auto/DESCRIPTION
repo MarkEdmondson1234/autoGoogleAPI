@@ -3,14 +3,10 @@ Title: Safe Browsing APIs
 Version: 0.0.0.9000
 Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
                        role = c("aut", "cre")))
-Description: Enables client applications to check web resources (most commonly
-    URLs) against Google-generated lists of unsafe web resources. Auto-generated via
-    googleAuthR.
-Depends:
-    R (>= 3.3.0)
+Description: Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    googleAuthR (>= 0.3)
-RoxygenNote: 5.0.1
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

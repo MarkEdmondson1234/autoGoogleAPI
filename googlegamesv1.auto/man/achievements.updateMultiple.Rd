@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other AchievementUpdateMultipleRequest functions: \code{\link{AchievementUpdateMultipleRequest}}
 }
-

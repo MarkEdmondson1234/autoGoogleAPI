@@ -11,18 +11,20 @@ File(File.appProperties = NULL, File.capabilities = NULL,
   appProperties = NULL, capabilities = NULL, contentHints = NULL,
   createdTime = NULL, description = NULL, explicitlyTrashed = NULL,
   fileExtension = NULL, folderColorRgb = NULL, fullFileExtension = NULL,
+  hasAugmentedPermissions = NULL, hasThumbnail = NULL,
   headRevisionId = NULL, iconLink = NULL, id = NULL,
   imageMediaMetadata = NULL, isAppAuthorized = NULL,
   lastModifyingUser = NULL, md5Checksum = NULL, mimeType = NULL,
-  modifiedByMeTime = NULL, modifiedTime = NULL, name = NULL,
-  originalFilename = NULL, ownedByMe = NULL, owners = NULL,
+  modifiedByMe = NULL, modifiedByMeTime = NULL, modifiedTime = NULL,
+  name = NULL, originalFilename = NULL, ownedByMe = NULL, owners = NULL,
   parents = NULL, permissions = NULL, properties = NULL,
   quotaBytesUsed = NULL, shared = NULL, sharedWithMeTime = NULL,
   sharingUser = NULL, size = NULL, spaces = NULL, starred = NULL,
-  thumbnailLink = NULL, trashed = NULL, version = NULL,
-  videoMediaMetadata = NULL, viewedByMe = NULL, viewedByMeTime = NULL,
-  viewersCanCopyContent = NULL, webContentLink = NULL, webViewLink = NULL,
-  writersCanShare = NULL)
+  teamDriveId = NULL, thumbnailLink = NULL, thumbnailVersion = NULL,
+  trashed = NULL, trashedTime = NULL, trashingUser = NULL,
+  version = NULL, videoMediaMetadata = NULL, viewedByMe = NULL,
+  viewedByMeTime = NULL, viewersCanCopyContent = NULL,
+  webContentLink = NULL, webViewLink = NULL, writersCanShare = NULL)
 }
 \arguments{
 \item{File.appProperties}{The \link{File.appProperties} object or list of objects}
@@ -59,6 +61,10 @@ File(File.appProperties = NULL, File.capabilities = NULL,
 
 \item{fullFileExtension}{The full file extension extracted from the name field}
 
+\item{hasAugmentedPermissions}{Whether any users are granted file access directly on this file}
+
+\item{hasThumbnail}{Whether this file has a thumbnail}
+
 \item{headRevisionId}{The ID of the file's head revision}
 
 \item{iconLink}{A static, unauthenticated link to the file's icon}
@@ -74,6 +80,8 @@ File(File.appProperties = NULL, File.capabilities = NULL,
 \item{md5Checksum}{The MD5 checksum for the content of the file}
 
 \item{mimeType}{The MIME type of the file}
+
+\item{modifiedByMe}{Whether the file has been modified by this user}
 
 \item{modifiedByMeTime}{The last time the file was modified by the user (RFC 3339 date-time)}
 
@@ -107,9 +115,17 @@ File(File.appProperties = NULL, File.capabilities = NULL,
 
 \item{starred}{Whether the user has starred the file}
 
+\item{teamDriveId}{ID of the Team Drive the file resides in}
+
 \item{thumbnailLink}{A short-lived link to the file's thumbnail, if available}
 
+\item{thumbnailVersion}{The thumbnail version for use in thumbnail cache invalidation}
+
 \item{trashed}{Whether the file has been trashed, either explicitly or from a trashed parent folder}
+
+\item{trashedTime}{The time that the item was trashed (RFC 3339 date-time)}
+
+\item{trashingUser}{If the file has been explicitly trashed, the user who trashed it}
 
 \item{version}{A monotonically increasing version number for the file}
 
@@ -149,4 +165,3 @@ Other File functions: \code{\link{File.appProperties}},
   \code{\link{files.copy}}, \code{\link{files.create}},
   \code{\link{files.update}}
 }
-

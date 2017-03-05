@@ -30,6 +30,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
 
-Other InstanceGroupManager functions: \code{\link{InstanceGroupManager}}
+Other InstanceGroupManager functions: \code{\link{InstanceGroupManager}},
+  \code{\link{regionInstanceGroupManagers.insert}}
 }
-

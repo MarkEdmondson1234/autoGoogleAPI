@@ -4,21 +4,21 @@
 \alias{Job}
 \title{Job Object}
 \usage{
-Job(id = NULL, reportTypeId = NULL, name = NULL, createTime = NULL,
-  expireTime = NULL, systemManaged = NULL)
+Job(createTime = NULL, expireTime = NULL, reportTypeId = NULL,
+  name = NULL, id = NULL, systemManaged = NULL)
 }
 \arguments{
-\item{id}{The server-generated ID of the job (max}
+\item{createTime}{The creation date/time of the job}
+
+\item{expireTime}{The date/time when this job will expire/expired}
 
 \item{reportTypeId}{The type of reports this job creates}
 
 \item{name}{The name of the job (max}
 
-\item{createTime}{The creation date/time of the job}
+\item{id}{The server-generated ID of the job (max}
 
-\item{expireTime}{The date/time when this job will expire/expired}
-
-\item{systemManaged}{True if this a system-managed job that cannot be modified by the user; otherwise false}
+\item{systemManaged}{True if this a system-managed job that cannot be modified by the user;}
 }
 \value{
 Job object
@@ -33,4 +33,3 @@ A job creating reports of a specific type.
 \seealso{
 Other Job functions: \code{\link{jobs.create}}
 }
-

@@ -19,4 +19,3 @@ Map of attribute name and value for this column.
 \seealso{
 Other Column functions: \code{\link{Column}}
 }
-

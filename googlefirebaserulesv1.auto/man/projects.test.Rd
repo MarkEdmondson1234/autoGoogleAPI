@@ -27,8 +27,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://firebase.google.com/docs/storage/security/start}{Google Documentation}
+\href{https://firebase.google.com/docs/storage/security}{Google Documentation}
 
 Other TestRulesetRequest functions: \code{\link{TestRulesetRequest}}
 }
-

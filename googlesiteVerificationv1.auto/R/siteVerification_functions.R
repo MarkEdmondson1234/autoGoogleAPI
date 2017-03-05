@@ -2,7 +2,7 @@
 #' Verifies ownership of websites or domains with Google.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:47:15
+#'  at 2017-03-05 20:13:57
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlesiteVerificationv1.auto/R/siteVerification_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Relinquish ownership of a website or domain.
 #' 
@@ -43,7 +56,7 @@ webResource.delete <- function(id) {
     url <- sprintf("https://www.googleapis.com/siteVerification/v1/webResource/%s", 
         id)
     # siteVerification.webResource.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -71,7 +84,7 @@ webResource.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/siteVerification/v1/webResource/%s", 
         id)
     # siteVerification.webResource.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -100,7 +113,7 @@ webResource.get <- function(id) {
 webResource.getToken <- function(SiteVerificationWebResourceGettokenRequest) {
     url <- "https://www.googleapis.com/siteVerification/v1/token"
     # siteVerification.webResource.getToken
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(SiteVerificationWebResourceGettokenRequest, "gar_SiteVerificationWebResourceGettokenRequest"))
     
     f(the_body = SiteVerificationWebResourceGettokenRequest)
@@ -132,7 +145,8 @@ webResource.getToken <- function(SiteVerificationWebResourceGettokenRequest) {
 webResource.insert <- function(SiteVerificationWebResourceResource, verificationMethod) {
     url <- "https://www.googleapis.com/siteVerification/v1/webResource"
     # siteVerification.webResource.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(verificationMethod = verificationMethod), 
+    pars = list(verificationMethod = verificationMethod)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(SiteVerificationWebResourceResource, "gar_SiteVerificationWebResourceResource"))
     
@@ -161,7 +175,7 @@ webResource.insert <- function(SiteVerificationWebResourceResource, verification
 webResource.list <- function() {
     url <- "https://www.googleapis.com/siteVerification/v1/webResource"
     # siteVerification.webResource.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -191,7 +205,7 @@ webResource.patch <- function(SiteVerificationWebResourceResource, id) {
     url <- sprintf("https://www.googleapis.com/siteVerification/v1/webResource/%s", 
         id)
     # siteVerification.webResource.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(SiteVerificationWebResourceResource, "gar_SiteVerificationWebResourceResource"))
     
     f(the_body = SiteVerificationWebResourceResource)
@@ -228,7 +242,8 @@ webResource.update <- function(SiteVerificationWebResourceResource, id) {
     url <- sprintf("https://www.googleapis.com/siteVerification/v1/webResource/%s", 
         id)
     # siteVerification.webResource.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(SiteVerificationWebResourceResource, "gar_SiteVerificationWebResourceResource"))
     

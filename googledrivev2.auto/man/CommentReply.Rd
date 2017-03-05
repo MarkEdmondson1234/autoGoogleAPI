@@ -39,4 +39,3 @@ A comment on a file in Google Drive.
 Other CommentReply functions: \code{\link{replies.insert}},
   \code{\link{replies.patch}}, \code{\link{replies.update}}
 }
-

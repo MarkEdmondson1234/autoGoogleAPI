@@ -49,4 +49,3 @@ Other Comment functions: \code{\link{Comment.quotedFileContent}},
   \code{\link{comments.create}},
   \code{\link{comments.update}}
 }
-

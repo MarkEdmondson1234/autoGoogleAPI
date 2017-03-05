@@ -19,4 +19,3 @@ The criteria for showing/hiding values per column.The map's key is the column in
 \seealso{
 Other BasicFilter functions: \code{\link{BasicFilter}}
 }
-

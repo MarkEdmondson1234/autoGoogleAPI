@@ -4,11 +4,11 @@
 \name{iam_googleAuthR}
 \alias{iam_googleAuthR}
 \alias{iam_googleAuthR-package}
-\title{Google Identity and Access Management API
+\title{Google Identity and Access Management (IAM) API
 Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:20:01
+ at 2017-03-05 19:59:06
 filename: /Users/mark/dev/R/autoGoogleAPI/googleiamv1.auto/R/iam_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

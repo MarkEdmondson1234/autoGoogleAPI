@@ -35,4 +35,3 @@ Other Bucket functions: \code{\link{Bucket.owner}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.update}}
 }
-

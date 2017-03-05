@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstancesSetMachineTypeRequest functions: \code{\link{instances.setMachineType}}
 }
-

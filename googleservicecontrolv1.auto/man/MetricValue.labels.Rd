@@ -19,4 +19,3 @@ The labels describing the metric value.See comments on google.api.servicecontrol
 \seealso{
 Other MetricValue functions: \code{\link{MetricValue}}
 }
-

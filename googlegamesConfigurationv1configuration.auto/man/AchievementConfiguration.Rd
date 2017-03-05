@@ -29,7 +29,7 @@ AchievementConfiguration object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:14:05
+ at 2017-03-05 19:52:32
 filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesConfigurationv1configuration.auto/R/gamesConfiguration_objects.R
 api_json: api_json
 }
@@ -46,4 +46,3 @@ Other AchievementConfiguration functions: \code{\link{achievementConfigurations.
   \code{\link{achievementConfigurations.patch}},
   \code{\link{achievementConfigurations.update}}
 }
-

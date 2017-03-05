@@ -1,5 +1,5 @@
 # googlereplicapoolv1beta2.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Compute Engine Instance Group Manager API R library
 
 [Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances.

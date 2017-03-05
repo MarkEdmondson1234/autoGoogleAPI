@@ -42,4 +42,3 @@ No description
 Other Insert functions: \code{\link{Insert.trainingInstances}},
   \code{\link{trainedmodels.insert}}
 }
-

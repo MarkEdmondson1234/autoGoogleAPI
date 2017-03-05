@@ -20,4 +20,3 @@ The value combining function to invoke.
 Other PartialGroupByKeyInstruction functions: \code{\link{PartialGroupByKeyInstruction.inputElementCodec}},
   \code{\link{PartialGroupByKeyInstruction}}
 }
-

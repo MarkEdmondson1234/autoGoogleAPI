@@ -17,7 +17,7 @@ Input object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:25:46
+ at 2017-03-05 20:05:37
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepredictionv12.auto/R/prediction_objects.R
 api_json: api_json
 }
@@ -33,4 +33,3 @@ No description
 Other Input functions: \code{\link{Input.input}},
   \code{\link{hostedmodels.predict}}
 }
-

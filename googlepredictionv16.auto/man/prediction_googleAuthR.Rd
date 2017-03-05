@@ -8,7 +8,7 @@
 Lets you access a cloud hosted machine learning service that makes it easy to build smart apps}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:26:45
+ at 2017-03-05 20:07:01
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepredictionv16.auto/R/prediction_functions.R
 api_json: api_json
 }
@@ -22,4 +22,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/prediction
 }
 }
-

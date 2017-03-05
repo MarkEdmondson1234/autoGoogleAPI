@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Address functions: \code{\link{Address}},
   \code{\link{globalAddresses.insert}}
 }
-

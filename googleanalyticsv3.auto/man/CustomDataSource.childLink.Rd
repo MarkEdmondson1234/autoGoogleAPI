@@ -25,4 +25,3 @@ No description
 Other CustomDataSource functions: \code{\link{CustomDataSource.parentLink}},
   \code{\link{CustomDataSource}}
 }
-

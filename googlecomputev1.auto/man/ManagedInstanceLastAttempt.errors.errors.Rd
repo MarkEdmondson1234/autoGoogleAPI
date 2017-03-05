@@ -20,4 +20,3 @@ No description
 Other ManagedInstanceLastAttempt functions: \code{\link{ManagedInstanceLastAttempt.errors}},
   \code{\link{ManagedInstanceLastAttempt}}
 }
-

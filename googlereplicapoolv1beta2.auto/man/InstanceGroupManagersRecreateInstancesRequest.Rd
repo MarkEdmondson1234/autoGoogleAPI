@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstanceGroupManagersRecreateInstancesRequest functions: \code{\link{instanceGroupManagers.recreateInstances}}
 }
-

@@ -17,7 +17,7 @@ FindThreatMatchesRequest object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:22:47
+ at 2017-03-05 19:58:29
 filename: /Users/mark/dev/R/autoGoogleAPI/googlesafebrowsingv4.auto/R/safebrowsing_objects.R
 api_json: api_json
 }
@@ -32,4 +32,3 @@ Request to check entries against lists.
 \seealso{
 Other FindThreatMatchesRequest functions: \code{\link{threatMatches.find}}
 }
-

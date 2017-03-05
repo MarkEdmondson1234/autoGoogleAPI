@@ -19,4 +19,3 @@ The label's name.
 \seealso{
 Other TimeseriesDescriptor functions: \code{\link{TimeseriesDescriptor}}
 }
-

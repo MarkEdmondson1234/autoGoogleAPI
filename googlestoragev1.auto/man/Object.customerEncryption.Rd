@@ -29,4 +29,3 @@ Other Object functions: \code{\link{Object.metadata}},
   \code{\link{objects.rewrite}},
   \code{\link{objects.update}}
 }
-

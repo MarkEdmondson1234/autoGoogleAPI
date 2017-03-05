@@ -19,4 +19,3 @@ Political geographic divisions that contain the requested address.
 \seealso{
 Other RepresentativeInfoResponse functions: \code{\link{RepresentativeInfoResponse}}
 }
-

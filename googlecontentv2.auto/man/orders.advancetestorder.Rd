@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.advancetestorder}
 \alias{orders.advancetestorder}
-\title{Sandbox only. Moves a test order from state 'inProgress' to state 'pendingShipment'.}
+\title{Sandbox only. Moves a test order from state 'inProgress' to state 'pendingShipment'. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.advancetestorder(merchantId, orderId)
 }
@@ -27,4 +27,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

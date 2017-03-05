@@ -23,4 +23,3 @@ No description
 Other TestPermissionsRequest functions: \code{\link{groups.testIamPermissions}},
   \code{\link{users.testIamPermissions}}
 }
-

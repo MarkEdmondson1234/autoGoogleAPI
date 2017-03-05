@@ -34,4 +34,3 @@ No description
 Other Place functions: \code{\link{Place.address}},
   \code{\link{Place.position}}
 }
-

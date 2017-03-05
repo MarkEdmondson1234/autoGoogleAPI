@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other RuntimeConfig functions: \code{\link{RuntimeConfig}},
   \code{\link{projects.configs.create}}
 }
-

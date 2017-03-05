@@ -32,4 +32,3 @@ No description
 Other InstanceGroupManagersScopedList functions: \code{\link{InstanceGroupManagersScopedList.warning.data}},
   \code{\link{InstanceGroupManagersScopedList.warning}}
 }
-

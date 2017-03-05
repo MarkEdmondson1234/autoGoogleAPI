@@ -23,4 +23,3 @@ The container of blogs for this user.
 Other User functions: \code{\link{User.locale}},
   \code{\link{User}}
 }
-

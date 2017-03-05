@@ -52,4 +52,3 @@ A persistent disk snapshot resource.
 \seealso{
 Other Snapshot functions: \code{\link{disks.createSnapshot}}
 }
-

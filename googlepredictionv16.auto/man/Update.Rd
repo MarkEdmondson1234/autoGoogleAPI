@@ -24,4 +24,3 @@ No description
 \seealso{
 Other Update functions: \code{\link{trainedmodels.update}}
 }
-

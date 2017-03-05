@@ -2,7 +2,7 @@
 #' Stores and retrieves potentially large, immutable data objects.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-04 00:02:44
+#'  at 2017-03-05 20:17:00
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragev1.auto/R/storage_functions.R
 #' api_json: api_json
 #' 
@@ -22,6 +22,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Permanently deletes the ACL entry for the specified entity on the specified bucket.
 #' 
@@ -47,7 +60,7 @@ NULL
 bucketAccessControls.delete <- function(bucket, entity) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/acl/%s", bucket, entity)
     # storage.bucketAccessControls.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -76,7 +89,7 @@ bucketAccessControls.delete <- function(bucket, entity) {
 bucketAccessControls.get <- function(bucket, entity) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/acl/%s", bucket, entity)
     # storage.bucketAccessControls.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -106,7 +119,7 @@ bucketAccessControls.get <- function(bucket, entity) {
 bucketAccessControls.insert <- function(BucketAccessControl, bucket) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/acl", bucket)
     # storage.bucketAccessControls.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(BucketAccessControl, "gar_BucketAccessControl"))
     
     f(the_body = BucketAccessControl)
@@ -136,7 +149,7 @@ bucketAccessControls.insert <- function(BucketAccessControl, bucket) {
 bucketAccessControls.list <- function(bucket) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/acl", bucket)
     # storage.bucketAccessControls.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -167,7 +180,7 @@ bucketAccessControls.list <- function(bucket) {
 bucketAccessControls.patch <- function(BucketAccessControl, bucket, entity) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/acl/%s", bucket, entity)
     # storage.bucketAccessControls.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(BucketAccessControl, "gar_BucketAccessControl"))
     
     f(the_body = BucketAccessControl)
@@ -200,7 +213,7 @@ bucketAccessControls.patch <- function(BucketAccessControl, bucket, entity) {
 bucketAccessControls.update <- function(BucketAccessControl, bucket, entity) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/acl/%s", bucket, entity)
     # storage.bucketAccessControls.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(BucketAccessControl, "gar_BucketAccessControl"))
     
     f(the_body = BucketAccessControl)
@@ -233,8 +246,9 @@ bucketAccessControls.update <- function(BucketAccessControl, bucket, entity) {
 buckets.delete <- function(bucket, ifMetagenerationMatch = NULL, ifMetagenerationNotMatch = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s", bucket)
     # storage.buckets.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(ifMetagenerationMatch = ifMetagenerationMatch, 
-        ifMetagenerationNotMatch = ifMetagenerationNotMatch), data_parse_function = function(x) x)
+    pars = list(ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -269,8 +283,9 @@ buckets.get <- function(bucket, ifMetagenerationMatch = NULL, ifMetagenerationNo
     projection = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s", bucket)
     # storage.buckets.get
-    f <- gar_api_generator(url, "GET", pars_args = list(ifMetagenerationMatch = ifMetagenerationMatch, 
-        ifMetagenerationNotMatch = ifMetagenerationNotMatch, projection = projection), 
+    pars = list(ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
+        projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -306,9 +321,10 @@ buckets.insert <- function(Bucket, project, predefinedAcl = NULL, predefinedDefa
     projection = NULL) {
     url <- "https://www.googleapis.com/storage/v1/b"
     # storage.buckets.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(predefinedAcl = predefinedAcl, 
-        predefinedDefaultObjectAcl = predefinedDefaultObjectAcl, project = project, 
-        projection = projection), data_parse_function = function(x) x)
+    pars = list(project = project, predefinedAcl = predefinedAcl, predefinedDefaultObjectAcl = predefinedDefaultObjectAcl, 
+        projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Bucket, "gar_Bucket"))
     
     f(the_body = Bucket)
@@ -336,7 +352,7 @@ buckets.insert <- function(Bucket, project, predefinedAcl = NULL, predefinedDefa
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
 #' @param project A valid API project identifier
-#' @param maxResults Maximum number of buckets to return
+#' @param maxResults Maximum number of buckets to return in a single response
 #' @param pageToken A previously-returned page token representing part of the larger set of results to view
 #' @param prefix Filter results to buckets whose names begin with this prefix
 #' @param projection Set of properties to return
@@ -346,14 +362,15 @@ buckets.list <- function(project, maxResults = NULL, pageToken = NULL, prefix = 
     projection = NULL) {
     url <- "https://www.googleapis.com/storage/v1/b"
     # storage.buckets.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, prefix = prefix, project = project, projection = projection), 
+    pars = list(project = project, maxResults = maxResults, pageToken = pageToken, 
+        prefix = prefix, projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
 }
 
-#' Updates a bucket. This method supports patch semantics.
+#' Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. This method supports patch semantics.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -384,9 +401,10 @@ buckets.patch <- function(Bucket, bucket, ifMetagenerationMatch = NULL, ifMetage
     predefinedAcl = NULL, predefinedDefaultObjectAcl = NULL, projection = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s", bucket)
     # storage.buckets.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(ifMetagenerationMatch = ifMetagenerationMatch, 
-        ifMetagenerationNotMatch = ifMetagenerationNotMatch, predefinedAcl = predefinedAcl, 
-        predefinedDefaultObjectAcl = predefinedDefaultObjectAcl, projection = projection), 
+    pars = list(ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
+        predefinedAcl = predefinedAcl, predefinedDefaultObjectAcl = predefinedDefaultObjectAcl, 
+        projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Bucket, "gar_Bucket"))
     
@@ -394,7 +412,7 @@ buckets.patch <- function(Bucket, bucket, ifMetagenerationMatch = NULL, ifMetage
     
 }
 
-#' Updates a bucket.
+#' Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -425,9 +443,10 @@ buckets.update <- function(Bucket, bucket, ifMetagenerationMatch = NULL, ifMetag
     predefinedAcl = NULL, predefinedDefaultObjectAcl = NULL, projection = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s", bucket)
     # storage.buckets.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(ifMetagenerationMatch = ifMetagenerationMatch, 
-        ifMetagenerationNotMatch = ifMetagenerationNotMatch, predefinedAcl = predefinedAcl, 
-        predefinedDefaultObjectAcl = predefinedDefaultObjectAcl, projection = projection), 
+    pars = list(ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
+        predefinedAcl = predefinedAcl, predefinedDefaultObjectAcl = predefinedDefaultObjectAcl, 
+        projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Bucket, "gar_Bucket"))
     
@@ -462,7 +481,7 @@ buckets.update <- function(Bucket, bucket, ifMetagenerationMatch = NULL, ifMetag
 channels.stop <- function(Channel) {
     url <- "https://www.googleapis.com/storage/v1/channels/stop"
     # storage.channels.stop
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
     f(the_body = Channel)
@@ -494,7 +513,7 @@ defaultObjectAccessControls.delete <- function(bucket, entity) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/defaultObjectAcl/%s", 
         bucket, entity)
     # storage.defaultObjectAccessControls.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -524,7 +543,7 @@ defaultObjectAccessControls.get <- function(bucket, entity) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/defaultObjectAcl/%s", 
         bucket, entity)
     # storage.defaultObjectAccessControls.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -555,7 +574,7 @@ defaultObjectAccessControls.insert <- function(ObjectAccessControl, bucket) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/defaultObjectAcl", 
         bucket)
     # storage.defaultObjectAccessControls.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ObjectAccessControl, "gar_ObjectAccessControl"))
     
     f(the_body = ObjectAccessControl)
@@ -589,8 +608,9 @@ defaultObjectAccessControls.list <- function(bucket, ifMetagenerationMatch = NUL
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/defaultObjectAcl", 
         bucket)
     # storage.defaultObjectAccessControls.list
-    f <- gar_api_generator(url, "GET", pars_args = list(ifMetagenerationMatch = ifMetagenerationMatch, 
-        ifMetagenerationNotMatch = ifMetagenerationNotMatch), data_parse_function = function(x) x)
+    pars = list(ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -622,7 +642,7 @@ defaultObjectAccessControls.patch <- function(ObjectAccessControl, bucket, entit
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/defaultObjectAcl/%s", 
         bucket, entity)
     # storage.defaultObjectAccessControls.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(ObjectAccessControl, "gar_ObjectAccessControl"))
     
     f(the_body = ObjectAccessControl)
@@ -656,7 +676,7 @@ defaultObjectAccessControls.update <- function(ObjectAccessControl, bucket, enti
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/defaultObjectAcl/%s", 
         bucket, entity)
     # storage.defaultObjectAccessControls.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(ObjectAccessControl, "gar_ObjectAccessControl"))
     
     f(the_body = ObjectAccessControl)
@@ -688,9 +708,10 @@ defaultObjectAccessControls.update <- function(ObjectAccessControl, bucket, enti
 #' @export
 objectAccessControls.delete <- function(bucket, object, entity, generation = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/acl/%s", bucket, 
-        entity, object)
+        object, entity)
     # storage.objectAccessControls.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(generation = generation), 
+    pars = list(generation = generation)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -721,9 +742,10 @@ objectAccessControls.delete <- function(bucket, object, entity, generation = NUL
 #' @export
 objectAccessControls.get <- function(bucket, object, entity, generation = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/acl/%s", bucket, 
-        entity, object)
+        object, entity)
     # storage.objectAccessControls.get
-    f <- gar_api_generator(url, "GET", pars_args = list(generation = generation), 
+    pars = list(generation = generation)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -757,7 +779,8 @@ objectAccessControls.insert <- function(ObjectAccessControl, bucket, object, gen
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/acl", bucket, 
         object)
     # storage.objectAccessControls.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(generation = generation), 
+    pars = list(generation = generation)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(ObjectAccessControl, "gar_ObjectAccessControl"))
     
@@ -791,7 +814,8 @@ objectAccessControls.list <- function(bucket, object, generation = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/acl", bucket, 
         object)
     # storage.objectAccessControls.list
-    f <- gar_api_generator(url, "GET", pars_args = list(generation = generation), 
+    pars = list(generation = generation)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -825,9 +849,10 @@ objectAccessControls.list <- function(bucket, object, generation = NULL) {
 objectAccessControls.patch <- function(ObjectAccessControl, bucket, object, entity, 
     generation = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/acl/%s", bucket, 
-        entity, object)
+        object, entity)
     # storage.objectAccessControls.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(generation = generation), 
+    pars = list(generation = generation)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(ObjectAccessControl, "gar_ObjectAccessControl"))
     
@@ -863,9 +888,10 @@ objectAccessControls.patch <- function(ObjectAccessControl, bucket, object, enti
 objectAccessControls.update <- function(ObjectAccessControl, bucket, object, entity, 
     generation = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/acl/%s", bucket, 
-        entity, object)
+        object, entity)
     # storage.objectAccessControls.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(generation = generation), 
+    pars = list(generation = generation)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(ObjectAccessControl, "gar_ObjectAccessControl"))
     
@@ -897,19 +923,18 @@ objectAccessControls.update <- function(ObjectAccessControl, bucket, object, ent
 #' @param destinationPredefinedAcl Apply a predefined set of access controls to the destination object
 #' @param ifGenerationMatch Makes the operation conditional on whether the object's current generation matches the given value
 #' @param ifMetagenerationMatch Makes the operation conditional on whether the object's current metageneration matches the given value
-#' @param kmsKeyName Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object
 #' @importFrom googleAuthR gar_api_generator
 #' @family ComposeRequest functions
 #' @export
 objects.compose <- function(ComposeRequest, destinationBucket, destinationObject, 
-    destinationPredefinedAcl = NULL, ifGenerationMatch = NULL, ifMetagenerationMatch = NULL, 
-    kmsKeyName = NULL) {
+    destinationPredefinedAcl = NULL, ifGenerationMatch = NULL, ifMetagenerationMatch = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/compose", destinationBucket, 
         destinationObject)
     # storage.objects.compose
-    f <- gar_api_generator(url, "POST", pars_args = list(destinationPredefinedAcl = destinationPredefinedAcl, 
-        ifGenerationMatch = ifGenerationMatch, ifMetagenerationMatch = ifMetagenerationMatch, 
-        kmsKeyName = kmsKeyName), data_parse_function = function(x) x)
+    pars = list(destinationPredefinedAcl = destinationPredefinedAcl, ifGenerationMatch = ifGenerationMatch, 
+        ifMetagenerationMatch = ifMetagenerationMatch)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(ComposeRequest, "gar_ComposeRequest"))
     
     f(the_body = ComposeRequest)
@@ -959,14 +984,16 @@ objects.copy <- function(Object, sourceBucket, sourceObject, destinationBucket, 
     ifSourceGenerationNotMatch = NULL, ifSourceMetagenerationMatch = NULL, ifSourceMetagenerationNotMatch = NULL, 
     projection = NULL, sourceGeneration = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/copyTo/b/%s/o/%s", 
-        destinationBucket, destinationObject, sourceBucket, sourceObject)
+        sourceBucket, sourceObject, destinationBucket, destinationObject)
     # storage.objects.copy
-    f <- gar_api_generator(url, "POST", pars_args = list(destinationPredefinedAcl = destinationPredefinedAcl, 
-        ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
-        ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
-        ifSourceGenerationMatch = ifSourceGenerationMatch, ifSourceGenerationNotMatch = ifSourceGenerationNotMatch, 
-        ifSourceMetagenerationMatch = ifSourceMetagenerationMatch, ifSourceMetagenerationNotMatch = ifSourceMetagenerationNotMatch, 
-        projection = projection, sourceGeneration = sourceGeneration), data_parse_function = function(x) x)
+    pars = list(destinationPredefinedAcl = destinationPredefinedAcl, ifGenerationMatch = ifGenerationMatch, 
+        ifGenerationNotMatch = ifGenerationNotMatch, ifMetagenerationMatch = ifMetagenerationMatch, 
+        ifMetagenerationNotMatch = ifMetagenerationNotMatch, ifSourceGenerationMatch = ifSourceGenerationMatch, 
+        ifSourceGenerationNotMatch = ifSourceGenerationNotMatch, ifSourceMetagenerationMatch = ifSourceMetagenerationMatch, 
+        ifSourceMetagenerationNotMatch = ifSourceMetagenerationNotMatch, projection = projection, 
+        sourceGeneration = sourceGeneration)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Object, "gar_Object"))
     
     f(the_body = Object)
@@ -1004,9 +1031,9 @@ objects.delete <- function(bucket, object, generation = NULL, ifGenerationMatch 
     ifGenerationNotMatch = NULL, ifMetagenerationMatch = NULL, ifMetagenerationNotMatch = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s", bucket, object)
     # storage.objects.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(generation = generation, 
-        ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
-        ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch), 
+    pars = list(generation = generation, ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
+        ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1047,10 +1074,11 @@ objects.get <- function(bucket, object, generation = NULL, ifGenerationMatch = N
     projection = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s", bucket, object)
     # storage.objects.get
-    f <- gar_api_generator(url, "GET", pars_args = list(generation = generation, 
-        ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
+    pars = list(generation = generation, ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
         ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
-        projection = projection), data_parse_function = function(x) x)
+        projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1080,7 +1108,6 @@ objects.get <- function(bucket, object, generation = NULL, ifGenerationMatch = N
 #' @param ifGenerationNotMatch Makes the operation conditional on whether the object's current generation does not match the given value
 #' @param ifMetagenerationMatch Makes the operation conditional on whether the object's current metageneration matches the given value
 #' @param ifMetagenerationNotMatch Makes the operation conditional on whether the object's current metageneration does not match the given value
-#' @param kmsKeyName Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object
 #' @param name Name of the object
 #' @param predefinedAcl Apply a predefined set of access controls to this object
 #' @param projection Set of properties to return
@@ -1089,13 +1116,14 @@ objects.get <- function(bucket, object, generation = NULL, ifGenerationMatch = N
 #' @export
 objects.insert <- function(Object, bucket, contentEncoding = NULL, ifGenerationMatch = NULL, 
     ifGenerationNotMatch = NULL, ifMetagenerationMatch = NULL, ifMetagenerationNotMatch = NULL, 
-    kmsKeyName = NULL, name = NULL, predefinedAcl = NULL, projection = NULL) {
+    name = NULL, predefinedAcl = NULL, projection = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o", bucket)
     # storage.objects.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(contentEncoding = contentEncoding, 
-        ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
-        ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
-        kmsKeyName = kmsKeyName, name = name, predefinedAcl = predefinedAcl, projection = projection), 
+    pars = list(contentEncoding = contentEncoding, ifGenerationMatch = ifGenerationMatch, 
+        ifGenerationNotMatch = ifGenerationNotMatch, ifMetagenerationMatch = ifMetagenerationMatch, 
+        ifMetagenerationNotMatch = ifMetagenerationNotMatch, name = name, predefinedAcl = predefinedAcl, 
+        projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Object, "gar_Object"))
     
@@ -1125,7 +1153,7 @@ objects.insert <- function(Object, bucket, contentEncoding = NULL, ifGenerationM
 #' 
 #' @param bucket Name of the bucket in which to look for objects
 #' @param delimiter Returns results in a directory-like mode
-#' @param maxResults Maximum number of items plus prefixes to return
+#' @param maxResults Maximum number of items plus prefixes to return in a single page of responses
 #' @param pageToken A previously-returned page token representing part of the larger set of results to view
 #' @param prefix Filter results to objects whose names begin with this prefix
 #' @param projection Set of properties to return
@@ -1136,8 +1164,9 @@ objects.list <- function(bucket, delimiter = NULL, maxResults = NULL, pageToken 
     prefix = NULL, projection = NULL, versions = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o", bucket)
     # storage.objects.list
-    f <- gar_api_generator(url, "GET", pars_args = list(delimiter = delimiter, maxResults = maxResults, 
-        pageToken = pageToken, prefix = prefix, projection = projection, versions = versions), 
+    pars = list(delimiter = delimiter, maxResults = maxResults, pageToken = pageToken, 
+        prefix = prefix, projection = projection, versions = versions)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1178,10 +1207,11 @@ objects.patch <- function(Object, bucket, object, generation = NULL, ifGeneratio
     predefinedAcl = NULL, projection = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s", bucket, object)
     # storage.objects.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(generation = generation, 
-        ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
+    pars = list(generation = generation, ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
         ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
-        predefinedAcl = predefinedAcl, projection = projection), data_parse_function = function(x) x)
+        predefinedAcl = predefinedAcl, projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Object, "gar_Object"))
     
     f(the_body = Object)
@@ -1211,7 +1241,6 @@ objects.patch <- function(Object, bucket, object, generation = NULL, ifGeneratio
 #' @param sourceObject Name of the source object
 #' @param destinationBucket Name of the bucket in which to store the new object
 #' @param destinationObject Name of the new object
-#' @param destinationKmsKeyName Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object
 #' @param destinationPredefinedAcl Apply a predefined set of access controls to the destination object
 #' @param ifGenerationMatch Makes the operation conditional on whether the destination object's current generation matches the given value
 #' @param ifGenerationNotMatch Makes the operation conditional on whether the destination object's current generation does not match the given value
@@ -1229,21 +1258,21 @@ objects.patch <- function(Object, bucket, object, generation = NULL, ifGeneratio
 #' @family Object functions
 #' @export
 objects.rewrite <- function(Object, sourceBucket, sourceObject, destinationBucket, 
-    destinationObject, destinationKmsKeyName = NULL, destinationPredefinedAcl = NULL, 
-    ifGenerationMatch = NULL, ifGenerationNotMatch = NULL, ifMetagenerationMatch = NULL, 
-    ifMetagenerationNotMatch = NULL, ifSourceGenerationMatch = NULL, ifSourceGenerationNotMatch = NULL, 
-    ifSourceMetagenerationMatch = NULL, ifSourceMetagenerationNotMatch = NULL, maxBytesRewrittenPerCall = NULL, 
-    projection = NULL, rewriteToken = NULL, sourceGeneration = NULL) {
+    destinationObject, destinationPredefinedAcl = NULL, ifGenerationMatch = NULL, 
+    ifGenerationNotMatch = NULL, ifMetagenerationMatch = NULL, ifMetagenerationNotMatch = NULL, 
+    ifSourceGenerationMatch = NULL, ifSourceGenerationNotMatch = NULL, ifSourceMetagenerationMatch = NULL, 
+    ifSourceMetagenerationNotMatch = NULL, maxBytesRewrittenPerCall = NULL, projection = NULL, 
+    rewriteToken = NULL, sourceGeneration = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s/rewriteTo/b/%s/o/%s", 
-        destinationBucket, destinationObject, sourceBucket, sourceObject)
+        sourceBucket, sourceObject, destinationBucket, destinationObject)
     # storage.objects.rewrite
-    f <- gar_api_generator(url, "POST", pars_args = list(destinationKmsKeyName = destinationKmsKeyName, 
-        destinationPredefinedAcl = destinationPredefinedAcl, ifGenerationMatch = ifGenerationMatch, 
+    pars = list(destinationPredefinedAcl = destinationPredefinedAcl, ifGenerationMatch = ifGenerationMatch, 
         ifGenerationNotMatch = ifGenerationNotMatch, ifMetagenerationMatch = ifMetagenerationMatch, 
         ifMetagenerationNotMatch = ifMetagenerationNotMatch, ifSourceGenerationMatch = ifSourceGenerationMatch, 
         ifSourceGenerationNotMatch = ifSourceGenerationNotMatch, ifSourceMetagenerationMatch = ifSourceMetagenerationMatch, 
         ifSourceMetagenerationNotMatch = ifSourceMetagenerationNotMatch, maxBytesRewrittenPerCall = maxBytesRewrittenPerCall, 
-        projection = projection, rewriteToken = rewriteToken, sourceGeneration = sourceGeneration), 
+        projection = projection, rewriteToken = rewriteToken, sourceGeneration = sourceGeneration)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Object, "gar_Object"))
     
@@ -1286,10 +1315,11 @@ objects.update <- function(Object, bucket, object, generation = NULL, ifGenerati
     predefinedAcl = NULL, projection = NULL) {
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/%s", bucket, object)
     # storage.objects.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(generation = generation, 
-        ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
+    pars = list(generation = generation, ifGenerationMatch = ifGenerationMatch, ifGenerationNotMatch = ifGenerationNotMatch, 
         ifMetagenerationMatch = ifMetagenerationMatch, ifMetagenerationNotMatch = ifMetagenerationNotMatch, 
-        predefinedAcl = predefinedAcl, projection = projection), data_parse_function = function(x) x)
+        predefinedAcl = predefinedAcl, projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Object, "gar_Object"))
     
     f(the_body = Object)
@@ -1322,7 +1352,7 @@ objects.update <- function(Object, bucket, object, generation = NULL, ifGenerati
 
 #' @param delimiter Returns results in a directory-like mode
 
-#' @param maxResults Maximum number of items plus prefixes to return
+#' @param maxResults Maximum number of items plus prefixes to return in a single page of responses
 
 #' @param pageToken A previously-returned page token representing part of the larger set of results to view
 
@@ -1342,8 +1372,10 @@ objects.watchAll <- function(Channel, bucket, delimiter = NULL, maxResults = NUL
     
     url <- sprintf("https://www.googleapis.com/storage/v1/b/%s/o/watch", bucket)
     # storage.objects.watchAll
-    f <- gar_api_generator(url, "POST", pars_args = list(delimiter = delimiter, maxResults = maxResults, 
-        pageToken = pageToken, prefix = prefix, projection = projection, versions = versions), 
+    pars = list(delimiter = delimiter, maxResults = maxResults, pageToken = pageToken, 
+        prefix = prefix, projection = projection, versions = versions)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     stopifnot(inherits(Channel, "gar_Channel"))

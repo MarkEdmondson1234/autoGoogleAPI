@@ -46,4 +46,3 @@ No description
 \seealso{
 Other Insert2 functions: \code{\link{Insert2.modelInfo}}
 }
-

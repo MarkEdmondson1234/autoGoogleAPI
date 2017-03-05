@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{entitlements.delete}
 \alias{entitlements.delete}
-\title{Removes an entitlement to an app for a user and uninstalls it.}
+\title{Removes an entitlement to an app for a user.}
 \usage{
 entitlements.delete(enterpriseId, userId, entitlementId)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/android/work/play/emm-api}{Google Documentation}
 }
-

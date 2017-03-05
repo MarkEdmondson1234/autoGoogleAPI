@@ -50,4 +50,3 @@ Other Geolayerdata functions: \code{\link{Geolayerdata.common}},
   \code{\link{Geolayerdata.geo.viewport}},
   \code{\link{Geolayerdata}}
 }
-

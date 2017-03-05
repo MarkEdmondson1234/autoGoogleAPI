@@ -38,4 +38,3 @@ Other Page functions: \code{\link{Page.author.image}},
   \code{\link{Page}}, \code{\link{pages.insert}},
   \code{\link{pages.patch}}
 }
-

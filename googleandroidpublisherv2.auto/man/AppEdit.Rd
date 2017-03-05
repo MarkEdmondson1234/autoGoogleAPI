@@ -24,4 +24,3 @@ Represents an edit of an app. An edit allows clients to make multiple changes be
 \seealso{
 Other AppEdit functions: \code{\link{edits.insert}}
 }
-

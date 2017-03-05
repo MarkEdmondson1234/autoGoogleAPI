@@ -39,4 +39,3 @@ Other ComposeRequest functions: \code{\link{ComposeRequest.sourceObjects.objectP
   \code{\link{ComposeRequest.sourceObjects}},
   \code{\link{ComposeRequest}}
 }
-

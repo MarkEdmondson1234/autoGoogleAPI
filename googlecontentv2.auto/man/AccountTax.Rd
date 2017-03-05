@@ -25,4 +25,3 @@ The tax settings of a merchant account.
 Other AccountTax functions: \code{\link{accounttax.patch}},
   \code{\link{accounttax.update}}
 }
-

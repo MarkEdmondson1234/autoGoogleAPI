@@ -24,4 +24,3 @@ Other About functions: \code{\link{About.additionalRoleInfo.roleSets}},
   \code{\link{About.importFormats}},
   \code{\link{About.maxUploadSizes}}, \code{\link{About}}
 }
-

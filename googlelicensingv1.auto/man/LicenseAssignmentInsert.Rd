@@ -22,4 +22,3 @@ Template for LicenseAssignment Insert request
 \seealso{
 Other LicenseAssignmentInsert functions: \code{\link{licenseAssignments.insert}}
 }
-

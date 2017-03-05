@@ -23,4 +23,3 @@ The physical address of the place.
 Other Place functions: \code{\link{Place.position}},
   \code{\link{Place}}
 }
-

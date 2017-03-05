@@ -22,4 +22,3 @@ Other Creative functions: \code{\link{Creative.disapprovalReasons}},
   \code{\link{Creative.filteringReasons}},
   \code{\link{Creative}}, \code{\link{creatives.insert}}
 }
-

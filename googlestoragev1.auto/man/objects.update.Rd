@@ -54,4 +54,3 @@ Other Object functions: \code{\link{Object.customerEncryption}},
   \code{\link{objects.patch}},
   \code{\link{objects.rewrite}}
 }
-

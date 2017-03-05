@@ -33,4 +33,3 @@ Other Geolayerdata functions: \code{\link{Geolayerdata.common}},
   \code{\link{Geolayerdata.geo}},
   \code{\link{Geolayerdata}}
 }
-

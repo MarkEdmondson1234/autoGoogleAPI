@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{datafeedstatuses.list}
 \alias{datafeedstatuses.list}
-\title{Lists the statuses of the datafeeds in your Merchant Center account.}
+\title{Lists the statuses of the datafeeds in your Merchant Center account. This method can only be called for non-multi-client accounts.}
 \usage{
 datafeedstatuses.list(merchantId, maxResults = NULL, pageToken = NULL)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

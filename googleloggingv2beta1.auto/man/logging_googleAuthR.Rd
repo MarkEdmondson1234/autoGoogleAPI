@@ -4,22 +4,21 @@
 \name{logging_googleAuthR}
 \alias{logging_googleAuthR}
 \alias{logging_googleAuthR-package}
-\title{Google Cloud Logging API
-Writes log entries and manages your logs, log sinks, and logs-based metrics.}
+\title{Stackdriver Logging API
+Writes log entries and manages your Stackdriver Logging configuration.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:20:29
+ at 2017-03-05 20:01:24
 filename: /Users/mark/dev/R/autoGoogleAPI/googleloggingv2beta1.auto/R/logging_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/cloud-platform
-\item https://www.googleapis.com/auth/cloud-platform.read-only
+  \item https://www.googleapis.com/auth/cloud-platform.read-only
 \item https://www.googleapis.com/auth/logging.admin
 \item https://www.googleapis.com/auth/logging.read
 \item https://www.googleapis.com/auth/logging.write
+\item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

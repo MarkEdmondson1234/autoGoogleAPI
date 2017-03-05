@@ -8,7 +8,7 @@
 View Google Search Console data for your verified sites.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:50:42
+ at 2017-03-05 20:22:23
 filename: /Users/mark/dev/R/autoGoogleAPI/googlewebmastersv3.auto/R/webmasters_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/webmasters.readonly
 }
 }
-

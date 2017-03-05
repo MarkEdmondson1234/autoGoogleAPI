@@ -31,4 +31,3 @@ Other User functions: \code{\link{User.customSchemas}},
   \code{\link{User}}, \code{\link{directory.users.insert}},
   \code{\link{directory.users.patch}}
 }
-

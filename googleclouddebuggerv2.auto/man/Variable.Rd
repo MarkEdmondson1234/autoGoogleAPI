@@ -4,19 +4,19 @@
 \alias{Variable}
 \title{Variable Object}
 \usage{
-Variable(name = NULL, value = NULL, type = NULL, members = NULL,
-  varTableIndex = NULL, status = NULL)
+Variable(name = NULL, type = NULL, varTableIndex = NULL, value = NULL,
+  members = NULL, status = NULL)
 }
 \arguments{
 \item{name}{Name of the variable, if any}
 
-\item{value}{Simple value of the variable}
-
 \item{type}{Variable type (e}
 
-\item{members}{Members contained or pointed to by the variable}
-
 \item{varTableIndex}{Reference to a variable in the shared variable table}
+
+\item{value}{Simple value of the variable}
+
+\item{members}{Members contained or pointed to by the variable}
 
 \item{status}{Status associated with the variable}
 }
@@ -26,4 +26,3 @@ Variable object
 \description{
 Variable Object
 }
-

@@ -2,7 +2,7 @@
 #' Accesses the inventory of Ad Exchange seller users and generates reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:31:41
+#'  at 2017-03-05 19:21:40
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangesellerv11.auto/R/adexchangeseller_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Get information about the selected Ad Exchange account.
 #' 
@@ -44,7 +57,7 @@ accounts.get <- function(accountId) {
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v1.1/accounts/%s", 
         accountId)
     # adexchangeseller.accounts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -73,8 +86,9 @@ accounts.get <- function(accountId) {
 adclients.list <- function(maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/adexchangeseller/v1.1/adclients"
     # adexchangeseller.adclients.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -104,7 +118,7 @@ adunits.get <- function(adClientId, adUnitId) {
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v1.1/adclients/%s/adunits/%s", 
         adClientId, adUnitId)
     # adexchangeseller.adunits.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -136,8 +150,9 @@ adunits.list <- function(adClientId, includeInactive = NULL, maxResults = NULL, 
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v1.1/adclients/%s/adunits", 
         adClientId)
     # adexchangeseller.adunits.list
-    f <- gar_api_generator(url, "GET", pars_args = list(includeInactive = includeInactive, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(includeInactive = includeInactive, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -165,7 +180,9 @@ adunits.list <- function(adClientId, includeInactive = NULL, maxResults = NULL, 
 alerts.list <- function(locale = NULL) {
     url <- "https://www.googleapis.com/adexchangeseller/v1.1/alerts"
     # adexchangeseller.alerts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(locale = locale), data_parse_function = function(x) x)
+    pars = list(locale = locale)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -195,7 +212,7 @@ customchannels.get <- function(adClientId, customChannelId) {
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v1.1/adclients/%s/customchannels/%s", 
         adClientId, customChannelId)
     # adexchangeseller.customchannels.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -226,8 +243,9 @@ customchannels.list <- function(adClientId, maxResults = NULL, pageToken = NULL)
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v1.1/adclients/%s/customchannels", 
         adClientId)
     # adexchangeseller.customchannels.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -254,7 +272,7 @@ customchannels.list <- function(adClientId, maxResults = NULL, pageToken = NULL)
 metadata.dimensions.list <- function() {
     url <- "https://www.googleapis.com/adexchangeseller/v1.1/metadata/dimensions"
     # adexchangeseller.metadata.dimensions.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -281,7 +299,7 @@ metadata.dimensions.list <- function() {
 metadata.metrics.list <- function() {
     url <- "https://www.googleapis.com/adexchangeseller/v1.1/metadata/metrics"
     # adexchangeseller.metadata.metrics.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -310,7 +328,7 @@ preferreddeals.get <- function(dealId) {
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v1.1/preferreddeals/%s", 
         dealId)
     # adexchangeseller.preferreddeals.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -337,7 +355,7 @@ preferreddeals.get <- function(dealId) {
 preferreddeals.list <- function() {
     url <- "https://www.googleapis.com/adexchangeseller/v1.1/preferreddeals"
     # adexchangeseller.preferreddeals.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -374,9 +392,11 @@ reports.generate <- function(startDate, endDate, dimension = NULL, filter = NULL
     locale = NULL, maxResults = NULL, metric = NULL, sort = NULL, startIndex = NULL) {
     url <- "https://www.googleapis.com/adexchangeseller/v1.1/reports"
     # adexchangeseller.reports.generate
-    f <- gar_api_generator(url, "GET", pars_args = list(dimension = dimension, endDate = endDate, 
+    pars = list(startDate = startDate, endDate = endDate, dimension = dimension, 
         filter = filter, locale = locale, maxResults = maxResults, metric = metric, 
-        sort = sort, startDate = startDate, startIndex = startIndex), data_parse_function = function(x) x)
+        sort = sort, startIndex = startIndex)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -414,8 +434,10 @@ urlchannels.list <- function(adClientId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v1.1/adclients/%s/urlchannels", 
         adClientId)
     # adexchangeseller.urlchannels.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

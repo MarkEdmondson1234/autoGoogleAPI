@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstanceReference functions: \code{\link{targetPools.getHealth}}
 }
-

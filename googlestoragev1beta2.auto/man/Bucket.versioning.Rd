@@ -30,4 +30,3 @@ Other Bucket functions: \code{\link{Bucket.cors}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

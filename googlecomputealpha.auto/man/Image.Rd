@@ -29,7 +29,7 @@ Image(Image.labels = NULL, Image.rawDisk = NULL, archiveSizeBytes = NULL,
 
 \item{family}{The name of the image family to which this image belongs}
 
-\item{guestOsFeatures}{Features of the guest os, valid for bootable images only}
+\item{guestOsFeatures}{A list of features to enable on the guest OS}
 
 \item{id}{[Output Only] The unique identifier for the resource}
 
@@ -47,7 +47,7 @@ Image(Image.labels = NULL, Image.rawDisk = NULL, archiveSizeBytes = NULL,
 
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 
-\item{sourceDisk}{URL of the The source disk used to create this image}
+\item{sourceDisk}{URL of the source disk used to create this image}
 
 \item{sourceDiskEncryptionKey}{The customer-supplied encryption key of the source disk}
 
@@ -71,4 +71,3 @@ An Image resource.
 Other Image functions: \code{\link{Image.labels}},
   \code{\link{Image.rawDisk}}, \code{\link{images.insert}}
 }
-

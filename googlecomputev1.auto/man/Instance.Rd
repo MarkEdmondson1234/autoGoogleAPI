@@ -59,4 +59,3 @@ An Instance resource.
 \seealso{
 Other Instance functions: \code{\link{instances.insert}}
 }
-

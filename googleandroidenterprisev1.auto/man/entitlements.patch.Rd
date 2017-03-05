@@ -37,4 +37,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Entitlement functions: \code{\link{Entitlement}},
   \code{\link{entitlements.update}}
 }
-

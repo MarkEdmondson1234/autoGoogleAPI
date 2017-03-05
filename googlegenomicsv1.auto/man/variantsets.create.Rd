@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{variantsets.create}
 \alias{variantsets.create}
-\title{Creates a new variant set. For the definitions of variant sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics) The provided variant set must have a valid `datasetId` set - all other fields are optional. Note that the `id` field will be ignored, as this is assigned by the server.}
+\title{Creates a new variant set.For the definitions of variant sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)The provided variant set must have a valid `datasetId` set - all otherfields are optional. Note that the `id` field will be ignored, as this isassigned by the server.}
 \usage{
 variantsets.create(VariantSet)
 }
@@ -25,9 +25,8 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other VariantSet functions: \code{\link{VariantSet}},
   \code{\link{variantsets.patch}}
 }
-

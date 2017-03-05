@@ -2,7 +2,7 @@
 #' [Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:27:25
+#'  at 2017-03-05 20:09:09
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlereplicapoolv1beta2.auto/R/replicapool_objects.R
 #' api_json: api_json
 #' 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/appengine_functions.R
 \name{apps.create}
 \alias{apps.create}
-\title{Creates an App Engine application for a Google Cloud Platform project. This requires a project that excludes an App Engine application. For details about creating a project without an application, see the [Google Cloud Resource Manager create project topic](https://cloud.google.com/resource-manager/docs/creating-project).}
+\title{Creates an App Engine application for a Google Cloud Platform project. This requires a project that excludes an App Engine application. For details about creating a project without an application, see the Google Cloud Resource Manager create project topic (https://cloud.google.com/resource-manager/docs/creating-project).}
 \usage{
 apps.create(Application)
 }
@@ -26,6 +26,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/appengine/docs/admin-api/}{Google Documentation}
 
-Other Application functions: \code{\link{Application}}
+Other Application functions: \code{\link{Application}},
+  \code{\link{apps.patch}}
 }
-

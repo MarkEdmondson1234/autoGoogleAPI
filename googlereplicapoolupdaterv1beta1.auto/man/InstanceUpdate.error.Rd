@@ -25,4 +25,3 @@ Errors that occurred during the instance update.
 Other InstanceUpdate functions: \code{\link{InstanceUpdate.error.errors}},
   \code{\link{InstanceUpdate}}
 }
-

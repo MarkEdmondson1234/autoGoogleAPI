@@ -22,4 +22,3 @@ No description
 \seealso{
 Other TargetPoolsRemoveHealthCheckRequest functions: \code{\link{targetPools.removeHealthCheck}}
 }
-

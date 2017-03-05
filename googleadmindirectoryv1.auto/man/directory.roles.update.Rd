@@ -33,4 +33,3 @@ Other Role functions: \code{\link{Role.rolePrivileges}},
   \code{\link{Role}}, \code{\link{directory.roles.insert}},
   \code{\link{directory.roles.patch}}
 }
-

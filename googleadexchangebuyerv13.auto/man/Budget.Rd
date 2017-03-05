@@ -32,4 +32,3 @@ The configuration data for Ad Exchange RTB - Budget API.
 Other Budget functions: \code{\link{budget.patch}},
   \code{\link{budget.update}}
 }
-

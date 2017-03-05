@@ -8,7 +8,7 @@
 Finds the least expensive flights between an origin and a destination.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:27:01
+ at 2017-03-05 20:08:31
 filename: /Users/mark/dev/R/autoGoogleAPI/googleqpxExpressv1.auto/R/qpxExpress_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

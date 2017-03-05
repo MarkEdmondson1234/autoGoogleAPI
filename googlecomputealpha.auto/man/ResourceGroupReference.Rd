@@ -7,7 +7,7 @@
 ResourceGroupReference(group = NULL)
 }
 \arguments{
-\item{group}{A URI referencing one of the resource views listed in the backend service}
+\item{group}{A URI referencing one of the instance groups listed in the backend service}
 }
 \value{
 ResourceGroupReference object
@@ -23,4 +23,3 @@ No description
 Other ResourceGroupReference functions: \code{\link{backendServices.getHealth}},
   \code{\link{regionBackendServices.getHealth}}
 }
-

@@ -44,4 +44,3 @@ Other Channel functions: \code{\link{Channel.params}},
   \code{\link{channels.stop}},
   \code{\link{reports.activities.watch}}
 }
-

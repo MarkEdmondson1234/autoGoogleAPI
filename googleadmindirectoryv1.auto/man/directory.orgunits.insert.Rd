@@ -31,4 +31,3 @@ Other OrgUnit functions: \code{\link{OrgUnit}},
   \code{\link{directory.orgunits.patch}},
   \code{\link{directory.orgunits.update}}
 }
-

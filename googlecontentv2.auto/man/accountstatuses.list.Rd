@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accountstatuses.list}
 \alias{accountstatuses.list}
-\title{Lists the statuses of the sub-accounts in your Merchant Center account.}
+\title{Lists the statuses of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.}
 \usage{
 accountstatuses.list(merchantId, maxResults = NULL, pageToken = NULL)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

@@ -22,4 +22,3 @@ The request to add resources to the resource view.
 \seealso{
 Other RegionViewsAddResourcesRequest functions: \code{\link{regionViews.addresources}}
 }
-

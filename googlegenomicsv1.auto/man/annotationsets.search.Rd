@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{annotationsets.search}
 \alias{annotationsets.search}
-\title{Searches for annotation sets that match the given criteria. Annotation sets are returned in an unspecified order. This order is consistent, such that two queries for the same content (regardless of page size) yield annotation sets in the same order across their respective streams of paginated responses. Caller must have READ permission for the queried datasets.}
+\title{Searches for annotation sets that match the given criteria. Annotation setsare returned in an unspecified order. This order is consistent, such thattwo queries for the same content (regardless of page size) yield annotationsets in the same order across their respective streams of paginatedresponses. Caller must have READ permission for the queried datasets.}
 \usage{
 annotationsets.search(SearchAnnotationSetsRequest)
 }
@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other SearchAnnotationSetsRequest functions: \code{\link{SearchAnnotationSetsRequest}}
 }
-

@@ -27,4 +27,3 @@ Other CustomDimension functions: \code{\link{CustomDimension}},
   \code{\link{management.customDimensions.patch}},
   \code{\link{management.customDimensions.update}}
 }
-

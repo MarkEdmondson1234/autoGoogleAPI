@@ -2,7 +2,7 @@
 % Please edit documentation in R/dataproc_functions.R
 \name{operations.delete}
 \alias{operations.delete}
-\title{Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.}
+\title{Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.}
 \usage{
 operations.delete(name)
 }
@@ -25,4 +25,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/dataproc/}{Google Documentation}
 }
-

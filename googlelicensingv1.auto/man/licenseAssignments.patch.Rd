@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other LicenseAssignment functions: \code{\link{LicenseAssignment}},
   \code{\link{licenseAssignments.update}}
 }
-

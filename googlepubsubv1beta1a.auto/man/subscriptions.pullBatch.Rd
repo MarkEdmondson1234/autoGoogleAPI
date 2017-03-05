@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{subscriptions.pullBatch}
 \alias{subscriptions.pullBatch}
-\title{Pulls messages from the server. Returns an empty list if there are no messages available in the backlog. The system is free to return UNAVAILABLE if there are too many pull requests outstanding for the given subscription.}
+\title{Pulls messages from the server. Returns an empty list if there are nomessages available in the backlog. The system is free to return UNAVAILABLEif there are too many pull requests outstanding for the given subscription.}
 \usage{
 subscriptions.pullBatch(PullBatchRequest)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other PullBatchRequest functions: \code{\link{PullBatchRequest}}
 }
-

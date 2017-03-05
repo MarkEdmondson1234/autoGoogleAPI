@@ -22,4 +22,3 @@ The request to remove resources from the resource view.
 \seealso{
 Other ZoneViewsRemoveResourcesRequest functions: \code{\link{zoneViews.removeResources}}
 }
-

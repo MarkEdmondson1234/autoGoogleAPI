@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{annotationsets.update}
 \alias{annotationsets.update}
-\title{Updates an annotation set. The update must respect all mutability restrictions and other invariants described on the annotation set resource. Caller must have WRITE permission for the associated dataset.}
+\title{Updates an annotation set. The update must respect all mutabilityrestrictions and other invariants described on the annotation set resource.Caller must have WRITE permission for the associated dataset.}
 \usage{
 annotationsets.update(AnnotationSet, annotationSetId, updateMask = NULL)
 }
@@ -28,10 +28,9 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other AnnotationSet functions: \code{\link{AnnotationSet.info}},
   \code{\link{AnnotationSet}},
   \code{\link{annotationsets.create}}
 }
-

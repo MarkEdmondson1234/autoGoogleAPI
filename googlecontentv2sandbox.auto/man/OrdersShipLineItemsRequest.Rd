@@ -31,4 +31,3 @@ No description
 \seealso{
 Other OrdersShipLineItemsRequest functions: \code{\link{orders.shiplineitems}}
 }
-

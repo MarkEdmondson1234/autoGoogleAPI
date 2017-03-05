@@ -33,4 +33,3 @@ Other Dataset functions: \code{\link{Dataset.access}},
   \code{\link{datasets.patch}},
   \code{\link{datasets.update}}
 }
-

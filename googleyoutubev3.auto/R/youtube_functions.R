@@ -2,7 +2,7 @@
 #' Supports core YouTube features, such as uploading videos, creating and managing playlists, searching for content, and much more.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:50:56
+#'  at 2017-03-05 20:22:46
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleyoutubev3.auto/R/youtube_functions.R
 #' api_json: api_json
 #' 
@@ -23,6 +23,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Posts a bulletin for a specific channel. (The user submitting the request must be authorized to act on the channel's behalf.)Note: Even though an activity resource can contain information about actions like a user rating a video or marking a video as a favorite, you need to use other API methods to generate those activity resources. For example, you would use the API's videos.rate() method to rate a video and the playlistItems.insert() method to mark a video as a favorite.
 #' 
@@ -49,7 +62,9 @@ NULL
 activities.insert <- function(Activity, part) {
     url <- "https://www.googleapis.com/youtube/v3/activities"
     # youtube.activities.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Activity, "gar_Activity"))
     
     f(the_body = Activity)
@@ -90,9 +105,10 @@ activities.list <- function(part, channelId = NULL, home = NULL, maxResults = NU
     regionCode = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/activities"
     # youtube.activities.list
-    f <- gar_api_generator(url, "GET", pars_args = list(channelId = channelId, home = home, 
-        maxResults = maxResults, mine = mine, pageToken = pageToken, part = part, 
-        publishedAfter = publishedAfter, publishedBefore = publishedBefore, regionCode = regionCode), 
+    pars = list(part = part, channelId = channelId, home = home, maxResults = maxResults, 
+        mine = mine, pageToken = pageToken, publishedAfter = publishedAfter, publishedBefore = publishedBefore, 
+        regionCode = regionCode)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -123,8 +139,9 @@ activities.list <- function(part, channelId = NULL, home = NULL, maxResults = NU
 captions.delete <- function(id, onBehalfOf = NULL, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/captions"
     # youtube.captions.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id, onBehalfOf = onBehalfOf, 
-        onBehalfOfContentOwner = onBehalfOfContentOwner), data_parse_function = function(x) x)
+    pars = list(id = id, onBehalfOf = onBehalfOf, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -157,8 +174,9 @@ captions.download <- function(id, onBehalfOf = NULL, onBehalfOfContentOwner = NU
     tfmt = NULL, tlang = NULL) {
     url <- sprintf("https://www.googleapis.com/youtube/v3/captions/%s", id)
     # youtube.captions.download
-    f <- gar_api_generator(url, "GET", pars_args = list(onBehalfOf = onBehalfOf, 
-        onBehalfOfContentOwner = onBehalfOfContentOwner, tfmt = tfmt, tlang = tlang), 
+    pars = list(onBehalfOf = onBehalfOf, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        tfmt = tfmt, tlang = tlang)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -193,8 +211,9 @@ captions.insert <- function(Caption, part, onBehalfOf = NULL, onBehalfOfContentO
     sync = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/captions"
     # youtube.captions.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOf = onBehalfOf, 
-        onBehalfOfContentOwner = onBehalfOfContentOwner, part = part, sync = sync), 
+    pars = list(part = part, onBehalfOf = onBehalfOf, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        sync = sync)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Caption, "gar_Caption"))
     
@@ -229,8 +248,9 @@ captions.insert <- function(Caption, part, onBehalfOf = NULL, onBehalfOfContentO
 captions.list <- function(part, videoId, id = NULL, onBehalfOf = NULL, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/captions"
     # youtube.captions.list
-    f <- gar_api_generator(url, "GET", pars_args = list(id = id, onBehalfOf = onBehalfOf, 
-        onBehalfOfContentOwner = onBehalfOfContentOwner, part = part, videoId = videoId), 
+    pars = list(part = part, videoId = videoId, id = id, onBehalfOf = onBehalfOf, 
+        onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -265,8 +285,9 @@ captions.update <- function(Caption, part, onBehalfOf = NULL, onBehalfOfContentO
     sync = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/captions"
     # youtube.captions.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(onBehalfOf = onBehalfOf, 
-        onBehalfOfContentOwner = onBehalfOfContentOwner, part = part, sync = sync), 
+    pars = list(part = part, onBehalfOf = onBehalfOf, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        sync = sync)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Caption, "gar_Caption"))
     
@@ -300,7 +321,8 @@ captions.update <- function(Caption, part, onBehalfOf = NULL, onBehalfOfContentO
 channelBanners.insert <- function(ChannelBannerResource, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/channelBanners/insert"
     # youtube.channelBanners.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(ChannelBannerResource, "gar_ChannelBannerResource"))
     
@@ -333,7 +355,8 @@ channelBanners.insert <- function(ChannelBannerResource, onBehalfOfContentOwner 
 channelSections.delete <- function(id, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/channelSections"
     # youtube.channelSections.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -368,8 +391,8 @@ channelSections.insert <- function(ChannelSection, part, onBehalfOfContentOwner 
     onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/channelSections"
     # youtube.channelSections.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part), 
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(ChannelSection, "gar_ChannelSection"))
     
@@ -408,8 +431,9 @@ channelSections.list <- function(part, channelId = NULL, hl = NULL, id = NULL, m
     onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/channelSections"
     # youtube.channelSections.list
-    f <- gar_api_generator(url, "GET", pars_args = list(channelId = channelId, hl = hl, 
-        id = id, mine = mine, onBehalfOfContentOwner = onBehalfOfContentOwner, part = part), 
+    pars = list(part = part, channelId = channelId, hl = hl, id = id, mine = mine, 
+        onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -442,8 +466,9 @@ channelSections.list <- function(part, channelId = NULL, hl = NULL, id = NULL, m
 channelSections.update <- function(ChannelSection, part, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/channelSections"
     # youtube.channelSections.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        part = part), data_parse_function = function(x) x)
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(ChannelSection, "gar_ChannelSection"))
     
     f(the_body = ChannelSection)
@@ -488,10 +513,12 @@ channels.list <- function(part, categoryId = NULL, forUsername = NULL, hl = NULL
     onBehalfOfContentOwner = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/channels"
     # youtube.channels.list
-    f <- gar_api_generator(url, "GET", pars_args = list(categoryId = categoryId, 
-        forUsername = forUsername, hl = hl, id = id, managedByMe = managedByMe, maxResults = maxResults, 
-        mine = mine, mySubscribers = mySubscribers, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        pageToken = pageToken, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, categoryId = categoryId, forUsername = forUsername, 
+        hl = hl, id = id, managedByMe = managedByMe, maxResults = maxResults, mine = mine, 
+        mySubscribers = mySubscribers, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -523,8 +550,9 @@ channels.list <- function(part, categoryId = NULL, forUsername = NULL, hl = NULL
 channels.update <- function(Channel, part, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/channels"
     # youtube.channels.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        part = part), data_parse_function = function(x) x)
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
     f(the_body = Channel)
@@ -555,7 +583,9 @@ channels.update <- function(Channel, part, onBehalfOfContentOwner = NULL) {
 commentThreads.insert <- function(CommentThread, part) {
     url <- "https://www.googleapis.com/youtube/v3/commentThreads"
     # youtube.commentThreads.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(CommentThread, "gar_CommentThread"))
     
     f(the_body = CommentThread)
@@ -596,10 +626,12 @@ commentThreads.list <- function(part, allThreadsRelatedToChannelId = NULL, chann
     searchTerms = NULL, textFormat = NULL, videoId = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/commentThreads"
     # youtube.commentThreads.list
-    f <- gar_api_generator(url, "GET", pars_args = list(allThreadsRelatedToChannelId = allThreadsRelatedToChannelId, 
+    pars = list(part = part, allThreadsRelatedToChannelId = allThreadsRelatedToChannelId, 
         channelId = channelId, id = id, maxResults = maxResults, moderationStatus = moderationStatus, 
-        order = order, pageToken = pageToken, part = part, searchTerms = searchTerms, 
-        textFormat = textFormat, videoId = videoId), data_parse_function = function(x) x)
+        order = order, pageToken = pageToken, searchTerms = searchTerms, textFormat = textFormat, 
+        videoId = videoId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -628,7 +660,9 @@ commentThreads.list <- function(part, allThreadsRelatedToChannelId = NULL, chann
 commentThreads.update <- function(CommentThread, part) {
     url <- "https://www.googleapis.com/youtube/v3/commentThreads"
     # youtube.commentThreads.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(CommentThread, "gar_CommentThread"))
     
     f(the_body = CommentThread)
@@ -657,7 +691,9 @@ commentThreads.update <- function(CommentThread, part) {
 comments.delete <- function(id) {
     url <- "https://www.googleapis.com/youtube/v3/comments"
     # youtube.comments.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id), data_parse_function = function(x) x)
+    pars = list(id = id)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -686,7 +722,9 @@ comments.delete <- function(id) {
 comments.insert <- function(Comment, part) {
     url <- "https://www.googleapis.com/youtube/v3/comments"
     # youtube.comments.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Comment, "gar_Comment"))
     
     f(the_body = Comment)
@@ -721,8 +759,9 @@ comments.list <- function(part, id = NULL, maxResults = NULL, pageToken = NULL, 
     textFormat = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/comments"
     # youtube.comments.list
-    f <- gar_api_generator(url, "GET", pars_args = list(id = id, maxResults = maxResults, 
-        pageToken = pageToken, parentId = parentId, part = part, textFormat = textFormat), 
+    pars = list(part = part, id = id, maxResults = maxResults, pageToken = pageToken, 
+        parentId = parentId, textFormat = textFormat)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -750,7 +789,9 @@ comments.list <- function(part, id = NULL, maxResults = NULL, pageToken = NULL, 
 comments.markAsSpam <- function(id) {
     url <- "https://www.googleapis.com/youtube/v3/comments/markAsSpam"
     # youtube.comments.markAsSpam
-    f <- gar_api_generator(url, "POST", pars_args = list(id = id), data_parse_function = function(x) x)
+    pars = list(id = id)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -779,8 +820,9 @@ comments.markAsSpam <- function(id) {
 comments.setModerationStatus <- function(id, moderationStatus, banAuthor = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/comments/setModerationStatus"
     # youtube.comments.setModerationStatus
-    f <- gar_api_generator(url, "POST", pars_args = list(banAuthor = banAuthor, id = id, 
-        moderationStatus = moderationStatus), data_parse_function = function(x) x)
+    pars = list(id = id, moderationStatus = moderationStatus, banAuthor = banAuthor)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -809,7 +851,9 @@ comments.setModerationStatus <- function(id, moderationStatus, banAuthor = NULL)
 comments.update <- function(Comment, part) {
     url <- "https://www.googleapis.com/youtube/v3/comments"
     # youtube.comments.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Comment, "gar_Comment"))
     
     f(the_body = Comment)
@@ -843,8 +887,9 @@ comments.update <- function(Comment, part) {
 fanFundingEvents.list <- function(part, hl = NULL, maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/fanFundingEvents"
     # youtube.fanFundingEvents.list
-    f <- gar_api_generator(url, "GET", pars_args = list(hl = hl, maxResults = maxResults, 
-        pageToken = pageToken, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, hl = hl, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -877,8 +922,9 @@ fanFundingEvents.list <- function(part, hl = NULL, maxResults = NULL, pageToken 
 guideCategories.list <- function(part, hl = NULL, id = NULL, regionCode = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/guideCategories"
     # youtube.guideCategories.list
-    f <- gar_api_generator(url, "GET", pars_args = list(hl = hl, id = id, part = part, 
-        regionCode = regionCode), data_parse_function = function(x) x)
+    pars = list(part = part, hl = hl, id = id, regionCode = regionCode)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -909,7 +955,9 @@ guideCategories.list <- function(part, hl = NULL, id = NULL, regionCode = NULL) 
 i18nLanguages.list <- function(part, hl = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/i18nLanguages"
     # youtube.i18nLanguages.list
-    f <- gar_api_generator(url, "GET", pars_args = list(hl = hl, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, hl = hl)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -940,7 +988,9 @@ i18nLanguages.list <- function(part, hl = NULL) {
 i18nRegions.list <- function(part, hl = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/i18nRegions"
     # youtube.i18nRegions.list
-    f <- gar_api_generator(url, "GET", pars_args = list(hl = hl, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, hl = hl)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -973,9 +1023,10 @@ liveBroadcasts.bind <- function(id, part, onBehalfOfContentOwner = NULL, onBehal
     streamId = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveBroadcasts/bind"
     # youtube.liveBroadcasts.bind
-    f <- gar_api_generator(url, "POST", pars_args = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part, 
-        streamId = streamId), data_parse_function = function(x) x)
+    pars = list(id = id, part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, streamId = streamId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1010,10 +1061,11 @@ liveBroadcasts.control <- function(id, part, displaySlate = NULL, offsetTimeMs =
     onBehalfOfContentOwner = NULL, onBehalfOfContentOwnerChannel = NULL, walltime = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveBroadcasts/control"
     # youtube.liveBroadcasts.control
-    f <- gar_api_generator(url, "POST", pars_args = list(displaySlate = displaySlate, 
-        id = id, offsetTimeMs = offsetTimeMs, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part, 
-        walltime = walltime), data_parse_function = function(x) x)
+    pars = list(id = id, part = part, displaySlate = displaySlate, offsetTimeMs = offsetTimeMs, 
+        onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, 
+        walltime = walltime)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1043,8 +1095,9 @@ liveBroadcasts.control <- function(id, part, displaySlate = NULL, offsetTimeMs =
 liveBroadcasts.delete <- function(id, onBehalfOfContentOwner = NULL, onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveBroadcasts"
     # youtube.liveBroadcasts.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel), data_parse_function = function(x) x)
+    pars = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1077,8 +1130,8 @@ liveBroadcasts.insert <- function(LiveBroadcast, part, onBehalfOfContentOwner = 
     onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveBroadcasts"
     # youtube.liveBroadcasts.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part), 
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(LiveBroadcast, "gar_LiveBroadcast"))
     
@@ -1120,10 +1173,11 @@ liveBroadcasts.list <- function(part, broadcastStatus = NULL, broadcastType = NU
     pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveBroadcasts"
     # youtube.liveBroadcasts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(broadcastStatus = broadcastStatus, 
-        broadcastType = broadcastType, id = id, maxResults = maxResults, mine = mine, 
-        onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, 
-        pageToken = pageToken, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, broadcastStatus = broadcastStatus, broadcastType = broadcastType, 
+        id = id, maxResults = maxResults, mine = mine, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1156,9 +1210,10 @@ liveBroadcasts.transition <- function(broadcastStatus, id, part, onBehalfOfConte
     onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveBroadcasts/transition"
     # youtube.liveBroadcasts.transition
-    f <- gar_api_generator(url, "POST", pars_args = list(broadcastStatus = broadcastStatus, 
-        id = id, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, 
-        part = part), data_parse_function = function(x) x)
+    pars = list(broadcastStatus = broadcastStatus, id = id, part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1191,8 +1246,8 @@ liveBroadcasts.update <- function(LiveBroadcast, part, onBehalfOfContentOwner = 
     onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveBroadcasts"
     # youtube.liveBroadcasts.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part), 
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(LiveBroadcast, "gar_LiveBroadcast"))
     
@@ -1223,7 +1278,9 @@ liveBroadcasts.update <- function(LiveBroadcast, part, onBehalfOfContentOwner = 
 liveChatBans.delete <- function(id) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/bans"
     # youtube.liveChatBans.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id), data_parse_function = function(x) x)
+    pars = list(id = id)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1253,7 +1310,9 @@ liveChatBans.delete <- function(id) {
 liveChatBans.insert <- function(LiveChatBan, part) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/bans"
     # youtube.liveChatBans.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(LiveChatBan, "gar_LiveChatBan"))
     
     f(the_body = LiveChatBan)
@@ -1283,7 +1342,9 @@ liveChatBans.insert <- function(LiveChatBan, part) {
 liveChatMessages.delete <- function(id) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/messages"
     # youtube.liveChatMessages.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id), data_parse_function = function(x) x)
+    pars = list(id = id)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1313,7 +1374,9 @@ liveChatMessages.delete <- function(id) {
 liveChatMessages.insert <- function(LiveChatMessage, part) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/messages"
     # youtube.liveChatMessages.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(LiveChatMessage, "gar_LiveChatMessage"))
     
     f(the_body = LiveChatMessage)
@@ -1350,8 +1413,9 @@ liveChatMessages.list <- function(liveChatId, part, hl = NULL, maxResults = NULL
     pageToken = NULL, profileImageSize = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/messages"
     # youtube.liveChatMessages.list
-    f <- gar_api_generator(url, "GET", pars_args = list(hl = hl, liveChatId = liveChatId, 
-        maxResults = maxResults, pageToken = pageToken, part = part, profileImageSize = profileImageSize), 
+    pars = list(liveChatId = liveChatId, part = part, hl = hl, maxResults = maxResults, 
+        pageToken = pageToken, profileImageSize = profileImageSize)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1380,7 +1444,9 @@ liveChatMessages.list <- function(liveChatId, part, hl = NULL, maxResults = NULL
 liveChatModerators.delete <- function(id) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/moderators"
     # youtube.liveChatModerators.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id), data_parse_function = function(x) x)
+    pars = list(id = id)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1410,7 +1476,9 @@ liveChatModerators.delete <- function(id) {
 liveChatModerators.insert <- function(LiveChatModerator, part) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/moderators"
     # youtube.liveChatModerators.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(LiveChatModerator, "gar_LiveChatModerator"))
     
     f(the_body = LiveChatModerator)
@@ -1444,8 +1512,9 @@ liveChatModerators.insert <- function(LiveChatModerator, part) {
 liveChatModerators.list <- function(liveChatId, part, maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveChat/moderators"
     # youtube.liveChatModerators.list
-    f <- gar_api_generator(url, "GET", pars_args = list(liveChatId = liveChatId, 
-        maxResults = maxResults, pageToken = pageToken, part = part), data_parse_function = function(x) x)
+    pars = list(liveChatId = liveChatId, part = part, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1475,8 +1544,9 @@ liveChatModerators.list <- function(liveChatId, part, maxResults = NULL, pageTok
 liveStreams.delete <- function(id, onBehalfOfContentOwner = NULL, onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveStreams"
     # youtube.liveStreams.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel), data_parse_function = function(x) x)
+    pars = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1508,8 +1578,8 @@ liveStreams.delete <- function(id, onBehalfOfContentOwner = NULL, onBehalfOfCont
 liveStreams.insert <- function(LiveStream, part, onBehalfOfContentOwner = NULL, onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveStreams"
     # youtube.liveStreams.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part), 
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(LiveStream, "gar_LiveStream"))
     
@@ -1548,9 +1618,10 @@ liveStreams.list <- function(part, id = NULL, maxResults = NULL, mine = NULL, on
     onBehalfOfContentOwnerChannel = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveStreams"
     # youtube.liveStreams.list
-    f <- gar_api_generator(url, "GET", pars_args = list(id = id, maxResults = maxResults, 
-        mine = mine, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, 
-        pageToken = pageToken, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, id = id, maxResults = maxResults, mine = mine, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1582,8 +1653,8 @@ liveStreams.list <- function(part, id = NULL, maxResults = NULL, mine = NULL, on
 liveStreams.update <- function(LiveStream, part, onBehalfOfContentOwner = NULL, onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/liveStreams"
     # youtube.liveStreams.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part), 
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(LiveStream, "gar_LiveStream"))
     
@@ -1610,12 +1681,15 @@ liveStreams.update <- function(LiveStream, part, onBehalfOfContentOwner = NULL, 
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
 #' @param id The id parameter specifies the YouTube playlist item ID for the playlist item that is being deleted
+#' @param onBehalfOfContentOwner Note: This parameter is intended exclusively for YouTube content partners
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-playlistItems.delete <- function(id) {
+playlistItems.delete <- function(id, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlistItems"
     # youtube.playlistItems.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id), data_parse_function = function(x) x)
+    pars = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1647,8 +1721,9 @@ playlistItems.delete <- function(id) {
 playlistItems.insert <- function(PlaylistItem, part, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlistItems"
     # youtube.playlistItems.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        part = part), data_parse_function = function(x) x)
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(PlaylistItem, "gar_PlaylistItem"))
     
     f(the_body = PlaylistItem)
@@ -1687,9 +1762,10 @@ playlistItems.list <- function(part, id = NULL, maxResults = NULL, onBehalfOfCon
     pageToken = NULL, playlistId = NULL, videoId = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlistItems"
     # youtube.playlistItems.list
-    f <- gar_api_generator(url, "GET", pars_args = list(id = id, maxResults = maxResults, 
-        onBehalfOfContentOwner = onBehalfOfContentOwner, pageToken = pageToken, part = part, 
-        playlistId = playlistId, videoId = videoId), data_parse_function = function(x) x)
+    pars = list(part = part, id = id, maxResults = maxResults, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        pageToken = pageToken, playlistId = playlistId, videoId = videoId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1714,13 +1790,16 @@ playlistItems.list <- function(part, id = NULL, maxResults = NULL, onBehalfOfCon
 #' 
 #' @param PlaylistItem The \link{PlaylistItem} object to pass to this method
 #' @param part The part parameter serves two purposes in this operation
+#' @param onBehalfOfContentOwner Note: This parameter is intended exclusively for YouTube content partners
 #' @importFrom googleAuthR gar_api_generator
 #' @family PlaylistItem functions
 #' @export
-playlistItems.update <- function(PlaylistItem, part) {
+playlistItems.update <- function(PlaylistItem, part, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlistItems"
     # youtube.playlistItems.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(PlaylistItem, "gar_PlaylistItem"))
     
     f(the_body = PlaylistItem)
@@ -1752,7 +1831,8 @@ playlistItems.update <- function(PlaylistItem, part) {
 playlists.delete <- function(id, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlists"
     # youtube.playlists.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1786,8 +1866,8 @@ playlists.delete <- function(id, onBehalfOfContentOwner = NULL) {
 playlists.insert <- function(Playlist, part, onBehalfOfContentOwner = NULL, onBehalfOfContentOwnerChannel = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlists"
     # youtube.playlists.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part), 
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Playlist, "gar_Playlist"))
     
@@ -1830,10 +1910,11 @@ playlists.list <- function(part, channelId = NULL, hl = NULL, id = NULL, maxResu
     pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlists"
     # youtube.playlists.list
-    f <- gar_api_generator(url, "GET", pars_args = list(channelId = channelId, hl = hl, 
-        id = id, maxResults = maxResults, mine = mine, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, pageToken = pageToken, 
-        part = part), data_parse_function = function(x) x)
+    pars = list(part = part, channelId = channelId, hl = hl, id = id, maxResults = maxResults, 
+        mine = mine, onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1865,8 +1946,9 @@ playlists.list <- function(part, channelId = NULL, hl = NULL, id = NULL, maxResu
 playlists.update <- function(Playlist, part, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/playlists"
     # youtube.playlists.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        part = part), data_parse_function = function(x) x)
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Playlist, "gar_Playlist"))
     
     f(the_body = Playlist)
@@ -1935,17 +2017,18 @@ search.list <- function(part, channelId = NULL, channelType = NULL, eventType = 
     videoSyndicated = NULL, videoType = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/search"
     # youtube.search.list
-    f <- gar_api_generator(url, "GET", pars_args = list(channelId = channelId, channelType = channelType, 
-        eventType = eventType, forContentOwner = forContentOwner, forDeveloper = forDeveloper, 
-        forMine = forMine, location = location, locationRadius = locationRadius, 
-        maxResults = maxResults, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        order = order, pageToken = pageToken, part = part, publishedAfter = publishedAfter, 
-        publishedBefore = publishedBefore, q = q, regionCode = regionCode, relatedToVideoId = relatedToVideoId, 
-        relevanceLanguage = relevanceLanguage, safeSearch = safeSearch, topicId = topicId, 
-        type = type, videoCaption = videoCaption, videoCategoryId = videoCategoryId, 
-        videoDefinition = videoDefinition, videoDimension = videoDimension, videoDuration = videoDuration, 
-        videoEmbeddable = videoEmbeddable, videoLicense = videoLicense, videoSyndicated = videoSyndicated, 
-        videoType = videoType), data_parse_function = function(x) x)
+    pars = list(part = part, channelId = channelId, channelType = channelType, eventType = eventType, 
+        forContentOwner = forContentOwner, forDeveloper = forDeveloper, forMine = forMine, 
+        location = location, locationRadius = locationRadius, maxResults = maxResults, 
+        onBehalfOfContentOwner = onBehalfOfContentOwner, order = order, pageToken = pageToken, 
+        publishedAfter = publishedAfter, publishedBefore = publishedBefore, q = q, 
+        regionCode = regionCode, relatedToVideoId = relatedToVideoId, relevanceLanguage = relevanceLanguage, 
+        safeSearch = safeSearch, topicId = topicId, type = type, videoCaption = videoCaption, 
+        videoCategoryId = videoCategoryId, videoDefinition = videoDefinition, videoDimension = videoDimension, 
+        videoDuration = videoDuration, videoEmbeddable = videoEmbeddable, videoLicense = videoLicense, 
+        videoSyndicated = videoSyndicated, videoType = videoType)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1977,8 +2060,9 @@ search.list <- function(part, channelId = NULL, channelType = NULL, eventType = 
 sponsors.list <- function(part, filter = NULL, maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/sponsors"
     # youtube.sponsors.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, filter = filter, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2007,7 +2091,9 @@ sponsors.list <- function(part, filter = NULL, maxResults = NULL, pageToken = NU
 subscriptions.delete <- function(id) {
     url <- "https://www.googleapis.com/youtube/v3/subscriptions"
     # youtube.subscriptions.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id), data_parse_function = function(x) x)
+    pars = list(id = id)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2038,7 +2124,9 @@ subscriptions.delete <- function(id) {
 subscriptions.insert <- function(Subscription, part) {
     url <- "https://www.googleapis.com/youtube/v3/subscriptions"
     # youtube.subscriptions.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(part = part), data_parse_function = function(x) x)
+    pars = list(part = part)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Subscription, "gar_Subscription"))
     
     f(the_body = Subscription)
@@ -2084,11 +2172,47 @@ subscriptions.list <- function(part, channelId = NULL, forChannelId = NULL, id =
     pageToken = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/subscriptions"
     # youtube.subscriptions.list
-    f <- gar_api_generator(url, "GET", pars_args = list(channelId = channelId, forChannelId = forChannelId, 
+    pars = list(part = part, channelId = channelId, forChannelId = forChannelId, 
         id = id, maxResults = maxResults, mine = mine, myRecentSubscribers = myRecentSubscribers, 
         mySubscribers = mySubscribers, onBehalfOfContentOwner = onBehalfOfContentOwner, 
         onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, order = order, 
-        pageToken = pageToken, part = part), data_parse_function = function(x) x)
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Lists Super Chat events for a channel.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/youtube/v3}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/youtube
+#' \item https://www.googleapis.com/auth/youtube.force-ssl
+#' \item https://www.googleapis.com/auth/youtube.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/youtube, https://www.googleapis.com/auth/youtube.force-ssl, https://www.googleapis.com/auth/youtube.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param part The part parameter specifies the superChatEvent resource parts that the API response will include
+#' @param hl The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports
+#' @param maxResults The maxResults parameter specifies the maximum number of items that should be returned in the result set
+#' @param pageToken The pageToken parameter identifies a specific page in the result set that should be returned
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+superChatEvents.list <- function(part, hl = NULL, maxResults = NULL, pageToken = NULL) {
+    url <- "https://www.googleapis.com/youtube/v3/superChatEvents"
+    # youtube.superChatEvents.list
+    pars = list(part = part, hl = hl, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2119,8 +2243,9 @@ subscriptions.list <- function(part, channelId = NULL, forChannelId = NULL, id =
 thumbnails.set <- function(videoId, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/thumbnails/set"
     # youtube.thumbnails.set
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        videoId = videoId), data_parse_function = function(x) x)
+    pars = list(videoId = videoId, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2150,7 +2275,9 @@ thumbnails.set <- function(videoId, onBehalfOfContentOwner = NULL) {
 videoAbuseReportReasons.list <- function(part, hl = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videoAbuseReportReasons"
     # youtube.videoAbuseReportReasons.list
-    f <- gar_api_generator(url, "GET", pars_args = list(hl = hl, part = part), data_parse_function = function(x) x)
+    pars = list(part = part, hl = hl)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2183,8 +2310,9 @@ videoAbuseReportReasons.list <- function(part, hl = NULL) {
 videoCategories.list <- function(part, hl = NULL, id = NULL, regionCode = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videoCategories"
     # youtube.videoCategories.list
-    f <- gar_api_generator(url, "GET", pars_args = list(hl = hl, id = id, part = part, 
-        regionCode = regionCode), data_parse_function = function(x) x)
+    pars = list(part = part, hl = hl, id = id, regionCode = regionCode)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2214,7 +2342,8 @@ videoCategories.list <- function(part, hl = NULL, id = NULL, regionCode = NULL) 
 videos.delete <- function(id, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videos"
     # youtube.videos.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -2245,7 +2374,8 @@ videos.delete <- function(id, onBehalfOfContentOwner = NULL) {
 videos.getRating <- function(id, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videos/getRating"
     # youtube.videos.getRating
-    f <- gar_api_generator(url, "GET", pars_args = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(id = id, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -2284,10 +2414,11 @@ videos.insert <- function(Video, part, autoLevels = NULL, notifySubscribers = NU
     onBehalfOfContentOwner = NULL, onBehalfOfContentOwnerChannel = NULL, stabilize = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videos"
     # youtube.videos.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(autoLevels = autoLevels, 
-        notifySubscribers = notifySubscribers, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, part = part, 
-        stabilize = stabilize), data_parse_function = function(x) x)
+    pars = list(part = part, autoLevels = autoLevels, notifySubscribers = notifySubscribers, 
+        onBehalfOfContentOwner = onBehalfOfContentOwner, onBehalfOfContentOwnerChannel = onBehalfOfContentOwnerChannel, 
+        stabilize = stabilize)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Video, "gar_Video"))
     
     f(the_body = Video)
@@ -2318,7 +2449,9 @@ videos.insert <- function(Video, part, autoLevels = NULL, notifySubscribers = NU
 #' @param hl The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports
 #' @param id The id parameter specifies a comma-separated list of the YouTube video ID(s) for the resource(s) that are being retrieved
 #' @param locale DEPRECATED
+#' @param maxHeight The maxHeight parameter specifies a maximum height of the embedded player
 #' @param maxResults The maxResults parameter specifies the maximum number of items that should be returned in the result set
+#' @param maxWidth The maxWidth parameter specifies a maximum width of the embedded player
 #' @param myRating Set this parameter's value to like or dislike to instruct the API to only return videos liked or disliked by the authenticated user
 #' @param onBehalfOfContentOwner Note: This parameter is intended exclusively for YouTube content partners
 #' @param pageToken The pageToken parameter identifies a specific page in the result set that should be returned
@@ -2327,13 +2460,14 @@ videos.insert <- function(Video, part, autoLevels = NULL, notifySubscribers = NU
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 videos.list <- function(part, chart = NULL, hl = NULL, id = NULL, locale = NULL, 
-    maxResults = NULL, myRating = NULL, onBehalfOfContentOwner = NULL, pageToken = NULL, 
-    regionCode = NULL, videoCategoryId = NULL) {
+    maxHeight = NULL, maxResults = NULL, maxWidth = NULL, myRating = NULL, onBehalfOfContentOwner = NULL, 
+    pageToken = NULL, regionCode = NULL, videoCategoryId = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videos"
     # youtube.videos.list
-    f <- gar_api_generator(url, "GET", pars_args = list(chart = chart, hl = hl, id = id, 
-        locale = locale, maxResults = maxResults, myRating = myRating, onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        pageToken = pageToken, part = part, regionCode = regionCode, videoCategoryId = videoCategoryId), 
+    pars = list(part = part, chart = chart, hl = hl, id = id, locale = locale, maxHeight = maxHeight, 
+        maxResults = maxResults, maxWidth = maxWidth, myRating = myRating, onBehalfOfContentOwner = onBehalfOfContentOwner, 
+        pageToken = pageToken, regionCode = regionCode, videoCategoryId = videoCategoryId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -2364,7 +2498,8 @@ videos.list <- function(part, chart = NULL, hl = NULL, id = NULL, locale = NULL,
 videos.rate <- function(id, rating) {
     url <- "https://www.googleapis.com/youtube/v3/videos/rate"
     # youtube.videos.rate
-    f <- gar_api_generator(url, "POST", pars_args = list(id = id, rating = rating), 
+    pars = list(id = id, rating = rating)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -2396,7 +2531,8 @@ videos.rate <- function(id, rating) {
 videos.reportAbuse <- function(VideoAbuseReport, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videos/reportAbuse"
     # youtube.videos.reportAbuse
-    f <- gar_api_generator(url, "POST", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(VideoAbuseReport, "gar_VideoAbuseReport"))
     
@@ -2431,8 +2567,9 @@ videos.reportAbuse <- function(VideoAbuseReport, onBehalfOfContentOwner = NULL) 
 videos.update <- function(Video, part, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/videos"
     # youtube.videos.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(onBehalfOfContentOwner = onBehalfOfContentOwner, 
-        part = part), data_parse_function = function(x) x)
+    pars = list(part = part, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Video, "gar_Video"))
     
     f(the_body = Video)
@@ -2467,7 +2604,8 @@ videos.update <- function(Video, part, onBehalfOfContentOwner = NULL) {
 watermarks.set <- function(InvideoBranding, channelId, onBehalfOfContentOwner = NULL) {
     url <- "https://www.googleapis.com/youtube/v3/watermarks/set"
     # youtube.watermarks.set
-    f <- gar_api_generator(url, "POST", pars_args = list(channelId = channelId, onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(channelId = channelId, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(InvideoBranding, "gar_InvideoBranding"))
     
@@ -2506,7 +2644,9 @@ watermarks.unset <- function(channelId, onBehalfOfContentOwner = NULL) {
     
     url <- "https://www.googleapis.com/youtube/v3/watermarks/unset"
     # youtube.watermarks.unset
-    f <- gar_api_generator(url, "POST", pars_args = list(channelId = channelId, onBehalfOfContentOwner = onBehalfOfContentOwner), 
+    pars = list(channelId = channelId, onBehalfOfContentOwner = onBehalfOfContentOwner)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     f()

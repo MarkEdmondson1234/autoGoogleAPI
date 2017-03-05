@@ -85,4 +85,3 @@ Other Disk functions: \code{\link{Disk.labels}},
   \code{\link{disks.insert}},
   \code{\link{regionDisks.insert}}
 }
-

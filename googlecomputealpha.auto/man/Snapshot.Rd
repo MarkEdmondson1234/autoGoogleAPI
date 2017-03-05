@@ -61,4 +61,3 @@ Other Snapshot functions: \code{\link{Snapshot.labels}},
   \code{\link{disks.createSnapshot}},
   \code{\link{regionDisks.createSnapshot}}
 }
-

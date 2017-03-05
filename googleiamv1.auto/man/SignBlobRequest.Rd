@@ -22,4 +22,3 @@ The service account sign blob request.
 \seealso{
 Other SignBlobRequest functions: \code{\link{projects.serviceAccounts.signBlob}}
 }
-

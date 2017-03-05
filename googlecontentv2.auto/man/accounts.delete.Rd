@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accounts.delete}
 \alias{accounts.delete}
-\title{Deletes a Merchant Center sub-account.}
+\title{Deletes a Merchant Center sub-account. This method can only be called for multi-client accounts.}
 \usage{
 accounts.delete(merchantId, accountId, dryRun = NULL)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

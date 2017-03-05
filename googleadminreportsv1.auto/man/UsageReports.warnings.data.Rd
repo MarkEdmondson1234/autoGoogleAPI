@@ -20,4 +20,3 @@ No description
 Other UsageReports functions: \code{\link{UsageReports.warnings}},
   \code{\link{UsageReports}}
 }
-

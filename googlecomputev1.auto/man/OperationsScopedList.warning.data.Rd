@@ -20,4 +20,3 @@ No description
 Other OperationsScopedList functions: \code{\link{OperationsScopedList.warning}},
   \code{\link{OperationsScopedList}}
 }
-

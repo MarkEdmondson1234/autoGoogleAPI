@@ -32,4 +32,3 @@ Other SiteVerificationWebResourceResource functions: \code{\link{SiteVerificatio
   \code{\link{webResource.insert}},
   \code{\link{webResource.patch}}
 }
-

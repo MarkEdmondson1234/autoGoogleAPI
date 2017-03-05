@@ -44,4 +44,3 @@ Other Goal functions: \code{\link{Goal.eventDetails.eventConditions}},
   \code{\link{management.goals.insert}},
   \code{\link{management.goals.patch}}
 }
-

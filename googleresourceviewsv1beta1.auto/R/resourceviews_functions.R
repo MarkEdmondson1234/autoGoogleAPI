@@ -2,7 +2,7 @@
 #' The Resource View API allows users to create and manage logical sets of Google Compute Engine instances.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:28:11
+#'  at 2017-03-05 20:10:14
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleresourceviewsv1beta1.auto/R/resourceviews_functions.R
 #' api_json: api_json
 #' 
@@ -23,6 +23,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Add resources to the view.
 #' 
@@ -54,7 +67,7 @@ regionViews.addresources <- function(RegionViewsAddResourcesRequest, projectName
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/regions/%s/resourceViews/%s/addResources", 
         projectName, region, resourceViewName)
     # resourceviews.regionViews.addresources
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(RegionViewsAddResourcesRequest, "gar_RegionViewsAddResourcesRequest"))
     
     f(the_body = RegionViewsAddResourcesRequest)
@@ -88,7 +101,7 @@ regionViews.delete <- function(projectName, region, resourceViewName) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/regions/%s/resourceViews/%s", 
         projectName, region, resourceViewName)
     # resourceviews.regionViews.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -123,7 +136,7 @@ regionViews.get <- function(projectName, region, resourceViewName) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/regions/%s/resourceViews/%s", 
         projectName, region, resourceViewName)
     # resourceviews.regionViews.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -156,7 +169,7 @@ regionViews.insert <- function(ResourceView, projectName, region) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/regions/%s/resourceViews", 
         projectName, region)
     # resourceviews.regionViews.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ResourceView, "gar_ResourceView"))
     
     f(the_body = ResourceView)
@@ -194,8 +207,9 @@ regionViews.list <- function(projectName, region, maxResults = NULL, pageToken =
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/regions/%s/resourceViews", 
         projectName, region)
     # resourceviews.regionViews.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -233,8 +247,9 @@ regionViews.listresources <- function(projectName, region, resourceViewName, max
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/regions/%s/resourceViews/%s/resources", 
         projectName, region, resourceViewName)
     # resourceviews.regionViews.listresources
-    f <- gar_api_generator(url, "POST", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -269,7 +284,7 @@ regionViews.removeresources <- function(RegionViewsRemoveResourcesRequest, proje
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/regions/%s/resourceViews/%s/removeResources", 
         projectName, region, resourceViewName)
     # resourceviews.regionViews.removeresources
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(RegionViewsRemoveResourcesRequest, "gar_RegionViewsRemoveResourcesRequest"))
     
     f(the_body = RegionViewsRemoveResourcesRequest)
@@ -304,9 +319,9 @@ regionViews.removeresources <- function(RegionViewsRemoveResourcesRequest, proje
 zoneViews.addresources <- function(ZoneViewsAddResourcesRequest, projectName, zone, 
     resourceViewName) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/zones/%s/resourceViews/%s/addResources", 
-        projectName, resourceViewName, zone)
+        projectName, zone, resourceViewName)
     # resourceviews.zoneViews.addresources
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ZoneViewsAddResourcesRequest, "gar_ZoneViewsAddResourcesRequest"))
     
     f(the_body = ZoneViewsAddResourcesRequest)
@@ -338,9 +353,9 @@ zoneViews.addresources <- function(ZoneViewsAddResourcesRequest, projectName, zo
 #' @export
 zoneViews.delete <- function(projectName, zone, resourceViewName) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/zones/%s/resourceViews/%s", 
-        projectName, resourceViewName, zone)
+        projectName, zone, resourceViewName)
     # resourceviews.zoneViews.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -373,9 +388,9 @@ zoneViews.delete <- function(projectName, zone, resourceViewName) {
 #' @export
 zoneViews.get <- function(projectName, zone, resourceViewName) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/zones/%s/resourceViews/%s", 
-        projectName, resourceViewName, zone)
+        projectName, zone, resourceViewName)
     # resourceviews.zoneViews.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -408,7 +423,7 @@ zoneViews.insert <- function(ResourceView, projectName, zone) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/zones/%s/resourceViews", 
         projectName, zone)
     # resourceviews.zoneViews.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ResourceView, "gar_ResourceView"))
     
     f(the_body = ResourceView)
@@ -446,8 +461,9 @@ zoneViews.list <- function(projectName, zone, maxResults = NULL, pageToken = NUL
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/zones/%s/resourceViews", 
         projectName, zone)
     # resourceviews.zoneViews.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -483,10 +499,11 @@ zoneViews.list <- function(projectName, zone, maxResults = NULL, pageToken = NUL
 zoneViews.listresources <- function(projectName, zone, resourceViewName, maxResults = NULL, 
     pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/zones/%s/resourceViews/%s/resources", 
-        projectName, resourceViewName, zone)
+        projectName, zone, resourceViewName)
     # resourceviews.zoneViews.listresources
-    f <- gar_api_generator(url, "POST", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -526,9 +543,10 @@ zoneViews.removeresources <- function(ZoneViewsRemoveResourcesRequest, projectNa
     
     
     url <- sprintf("https://www.googleapis.com/resourceviews/v1beta1/projects/%s/zones/%s/resourceViews/%s/removeResources", 
-        projectName, resourceViewName, zone)
+        projectName, zone, resourceViewName)
     # resourceviews.zoneViews.removeresources
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(ZoneViewsRemoveResourcesRequest, "gar_ZoneViewsRemoveResourcesRequest"))
     

@@ -32,4 +32,3 @@ Other AdUnit functions: \code{\link{AdUnit.contentAdsSettings.backupOption}},
   \code{\link{AdUnit.mobileContentAdsSettings}},
   \code{\link{AdUnit}}
 }
-

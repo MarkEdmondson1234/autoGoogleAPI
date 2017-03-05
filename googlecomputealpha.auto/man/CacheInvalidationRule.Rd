@@ -7,7 +7,7 @@
 CacheInvalidationRule(host = NULL, path = NULL)
 }
 \arguments{
-\item{host}{If host is non-empty, this invalidation rule will only apply to requests with a Host header matching host}
+\item{host}{If set, this invalidation rule will only apply to requests with a Host header matching host}
 
 \item{path}{No description}
 }
@@ -24,4 +24,3 @@ No description
 \seealso{
 Other CacheInvalidationRule functions: \code{\link{urlMaps.invalidateCache}}
 }
-

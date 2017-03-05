@@ -5,14 +5,16 @@
 \title{Request a list of all regions/{region}/clusters in a project.}
 \usage{
 projects.regions.clusters.list(projectId, region, pageSize = NULL,
-  pageToken = NULL)
+  filter = NULL, pageToken = NULL)
 }
 \arguments{
-\item{projectId}{[Required] The ID of the Google Cloud Platform project that the cluster belongs to}
+\item{projectId}{Required The ID of the Google Cloud Platform project that the cluster belongs to}
 
-\item{region}{[Required] The Dataproc region in which to handle the request}
+\item{region}{Required The Dataproc region in which to handle the request}
 
 \item{pageSize}{The standard List page size}
+
+\item{filter}{Optional A filter constraining which clusters to list}
 
 \item{pageToken}{The standard List page token}
 }
@@ -32,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/dataproc/}{Google Documentation}
 }
-

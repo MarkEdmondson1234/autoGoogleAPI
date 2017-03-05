@@ -1,5 +1,5 @@
 # googlemirrorv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Mirror API R library
 
 Interacts with Glass users via the timeline.

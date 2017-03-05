@@ -20,4 +20,3 @@ The labels to set for this resource.
 Other ZoneSetLabelsRequest functions: \code{\link{ZoneSetLabelsRequest}},
   \code{\link{disks.setLabels}}
 }
-

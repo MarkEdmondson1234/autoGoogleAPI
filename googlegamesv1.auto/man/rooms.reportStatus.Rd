@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other RoomP2PStatuses functions: \code{\link{RoomP2PStatuses}}
 }
-

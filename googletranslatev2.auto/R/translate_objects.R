@@ -2,7 +2,7 @@
 #' Translates text from one language to another.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:50:08
+#'  at 2017-03-05 20:21:07
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googletranslatev2.auto/R/translate_objects.R
 #' api_json: api_json
 #' 

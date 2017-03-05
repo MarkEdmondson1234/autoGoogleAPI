@@ -8,7 +8,7 @@
 The Publishing API for Google Play Game Services.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:14:04
+ at 2017-03-05 19:52:32
 filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesConfigurationv1configuration.auto/R/gamesConfiguration_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/androidpublisher
 }
 }
-

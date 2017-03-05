@@ -35,4 +35,3 @@ Other ObjectAccessControl functions: \code{\link{ObjectAccessControl}},
   \code{\link{objectAccessControls.insert}},
   \code{\link{objectAccessControls.patch}}
 }
-

@@ -2,7 +2,7 @@
 #' Lets you manage your tasks and task lists.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:49:39
+#'  at 2017-03-05 20:19:39
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googletasksv1.auto/R/tasks_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Deletes the authenticated user's specified task list.
 #' 
@@ -42,7 +55,7 @@ NULL
 tasklists.delete <- function(tasklist) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/users/@me/lists/%s", tasklist)
     # tasks.tasklists.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -70,7 +83,7 @@ tasklists.delete <- function(tasklist) {
 tasklists.get <- function(tasklist) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/users/@me/lists/%s", tasklist)
     # tasks.tasklists.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -98,7 +111,7 @@ tasklists.get <- function(tasklist) {
 tasklists.insert <- function(TaskList) {
     url <- "https://www.googleapis.com/tasks/v1/users/@me/lists"
     # tasks.tasklists.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TaskList, "gar_TaskList"))
     
     f(the_body = TaskList)
@@ -129,8 +142,9 @@ tasklists.insert <- function(TaskList) {
 tasklists.list <- function(maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/tasks/v1/users/@me/lists"
     # tasks.tasklists.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -159,7 +173,7 @@ tasklists.list <- function(maxResults = NULL, pageToken = NULL) {
 tasklists.patch <- function(TaskList, tasklist) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/users/@me/lists/%s", tasklist)
     # tasks.tasklists.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(TaskList, "gar_TaskList"))
     
     f(the_body = TaskList)
@@ -190,7 +204,7 @@ tasklists.patch <- function(TaskList, tasklist) {
 tasklists.update <- function(TaskList, tasklist) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/users/@me/lists/%s", tasklist)
     # tasks.tasklists.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(TaskList, "gar_TaskList"))
     
     f(the_body = TaskList)
@@ -219,7 +233,7 @@ tasklists.update <- function(TaskList, tasklist) {
 clear <- function(tasklist) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/clear", tasklist)
     # tasks.tasks.clear
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -245,10 +259,10 @@ clear <- function(tasklist) {
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 delete <- function(tasklist, task) {
-    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", task, 
-        tasklist)
+    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", tasklist, 
+        task)
     # tasks.tasks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -275,10 +289,10 @@ delete <- function(tasklist, task) {
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 get <- function(tasklist, task) {
-    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", task, 
-        tasklist)
+    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", tasklist, 
+        task)
     # tasks.tasks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -309,7 +323,8 @@ get <- function(tasklist, task) {
 insert <- function(Task, tasklist, parent = NULL, previous = NULL) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks", tasklist)
     # tasks.tasks.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(parent = parent, previous = previous), 
+    pars = list(parent = parent, previous = previous)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Task, "gar_Task"))
     
@@ -352,10 +367,11 @@ list <- function(tasklist, completedMax = NULL, completedMin = NULL, dueMax = NU
     showHidden = NULL, updatedMin = NULL) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks", tasklist)
     # tasks.tasks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(completedMax = completedMax, 
-        completedMin = completedMin, dueMax = dueMax, dueMin = dueMin, maxResults = maxResults, 
-        pageToken = pageToken, showCompleted = showCompleted, showDeleted = showDeleted, 
-        showHidden = showHidden, updatedMin = updatedMin), data_parse_function = function(x) x)
+    pars = list(completedMax = completedMax, completedMin = completedMin, dueMax = dueMax, 
+        dueMin = dueMin, maxResults = maxResults, pageToken = pageToken, showCompleted = showCompleted, 
+        showDeleted = showDeleted, showHidden = showHidden, updatedMin = updatedMin)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -384,9 +400,10 @@ list <- function(tasklist, completedMax = NULL, completedMin = NULL, dueMax = NU
 #' @export
 move <- function(tasklist, task, parent = NULL, previous = NULL) {
     url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s/move", 
-        task, tasklist)
+        tasklist, task)
     # tasks.tasks.move
-    f <- gar_api_generator(url, "POST", pars_args = list(parent = parent, previous = previous), 
+    pars = list(parent = parent, previous = previous)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -415,10 +432,10 @@ move <- function(tasklist, task, parent = NULL, previous = NULL) {
 #' @family Task functions
 #' @export
 patch <- function(Task, tasklist, task) {
-    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", task, 
-        tasklist)
+    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", tasklist, 
+        task)
     # tasks.tasks.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Task, "gar_Task"))
     
     f(the_body = Task)
@@ -454,10 +471,11 @@ patch <- function(Task, tasklist, task) {
 update <- function(Task, tasklist, task) {
     
     
-    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", task, 
-        tasklist)
+    url <- sprintf("https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s", tasklist, 
+        task)
     # tasks.tasks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(Task, "gar_Task"))
     

@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.delete}
 \alias{projects.subscriptions.delete}
-\title{Deletes an existing subscription. All pending messages in the subscription are immediately dropped. Calls to `Pull` after deletion will return `NOT_FOUND`. After a subscription is deleted, a new one may be created with the same name, but the new one has no association with the old subscription, or its topic unless the same topic is specified.}
+\title{Deletes an existing subscription. All messages retained in the subscriptionare immediately dropped. Calls to `Pull` after deletion will return`NOT_FOUND`. After a subscription is deleted, a new one may be created withthe same name, but the new one has no association with the oldsubscription or its topic unless the same topic is specified.}
 \usage{
 projects.subscriptions.delete(subscription)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/pubsub/docs}{Google Documentation}
 }
-

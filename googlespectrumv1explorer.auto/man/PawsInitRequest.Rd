@@ -29,4 +29,3 @@ The initialization request message allows the master device to initiate exchange
 \seealso{
 Other PawsInitRequest functions: \code{\link{paws.init}}
 }
-

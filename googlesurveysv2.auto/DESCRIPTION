@@ -1,0 +1,12 @@
+Package: googlesurveysv2.auto
+Title: Surveys API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

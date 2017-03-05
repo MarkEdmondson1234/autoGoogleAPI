@@ -4,21 +4,22 @@
 \alias{WriteLogEntriesRequest}
 \title{WriteLogEntriesRequest Object}
 \usage{
-WriteLogEntriesRequest(WriteLogEntriesRequest.labels = NULL, logName = NULL,
-  resource = NULL, labels = NULL, entries = NULL, partialSuccess = NULL)
+WriteLogEntriesRequest(WriteLogEntriesRequest.labels = NULL,
+  partialSuccess = NULL, labels = NULL, resource = NULL, logName = NULL,
+  entries = NULL)
 }
 \arguments{
 \item{WriteLogEntriesRequest.labels}{The \link{WriteLogEntriesRequest.labels} object or list of objects}
 
-\item{logName}{Optional}
-
-\item{resource}{Optional}
+\item{partialSuccess}{Optional}
 
 \item{labels}{Optional}
 
-\item{entries}{Required}
+\item{resource}{Optional}
 
-\item{partialSuccess}{Optional}
+\item{logName}{Optional}
+
+\item{entries}{Required}
 }
 \value{
 WriteLogEntriesRequest object
@@ -34,4 +35,3 @@ The parameters to WriteLogEntries.
 Other WriteLogEntriesRequest functions: \code{\link{WriteLogEntriesRequest.labels}},
   \code{\link{entries.write}}
 }
-

@@ -78,4 +78,3 @@ Other JsonSchema functions: \code{\link{JsonSchema.annotations}},
   \code{\link{JsonSchema.variant.map}},
   \code{\link{JsonSchema.variant}}
 }
-

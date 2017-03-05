@@ -19,4 +19,3 @@ No description
 \seealso{
 Other Pageviews functions: \code{\link{Pageviews}}
 }
-

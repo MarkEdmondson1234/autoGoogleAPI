@@ -7,8 +7,7 @@
 objects.insert(Object, bucket, contentEncoding = NULL,
   ifGenerationMatch = NULL, ifGenerationNotMatch = NULL,
   ifMetagenerationMatch = NULL, ifMetagenerationNotMatch = NULL,
-  kmsKeyName = NULL, name = NULL, predefinedAcl = NULL,
-  projection = NULL)
+  name = NULL, predefinedAcl = NULL, projection = NULL)
 }
 \arguments{
 \item{Object}{The \link{Object} object to pass to this method}
@@ -24,8 +23,6 @@ objects.insert(Object, bucket, contentEncoding = NULL,
 \item{ifMetagenerationMatch}{Makes the operation conditional on whether the object's current metageneration matches the given value}
 
 \item{ifMetagenerationNotMatch}{Makes the operation conditional on whether the object's current metageneration does not match the given value}
-
-\item{kmsKeyName}{Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object}
 
 \item{name}{Name of the object}
 
@@ -58,4 +55,3 @@ Other Object functions: \code{\link{Object.customerEncryption}},
   \code{\link{objects.rewrite}},
   \code{\link{objects.update}}
 }
-

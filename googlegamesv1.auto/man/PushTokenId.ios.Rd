@@ -25,4 +25,3 @@ A push token ID for iOS devices.
 Other PushTokenId functions: \code{\link{PushTokenId}},
   \code{\link{pushtokens.remove}}
 }
-

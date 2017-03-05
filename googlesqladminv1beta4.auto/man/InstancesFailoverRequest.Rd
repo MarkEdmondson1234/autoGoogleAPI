@@ -22,4 +22,3 @@ Instance failover request.
 \seealso{
 Other InstancesFailoverRequest functions: \code{\link{sql.instances.failover}}
 }
-

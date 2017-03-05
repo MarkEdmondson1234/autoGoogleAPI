@@ -8,7 +8,7 @@
 Stores and accesses user data in the fitness store from apps on any platform.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:12:46
+ at 2017-03-05 19:50:51
 filename: /Users/mark/dev/R/autoGoogleAPI/googlefitnessv1.auto/R/fitness_functions.R
 api_json: api_json
 }
@@ -17,12 +17,21 @@ Authentication scopes used are:
 \itemize{
   \item https://www.googleapis.com/auth/fitness.activity.read
 \item https://www.googleapis.com/auth/fitness.activity.write
+\item https://www.googleapis.com/auth/fitness.blood_glucose.read
+\item https://www.googleapis.com/auth/fitness.blood_glucose.write
+\item https://www.googleapis.com/auth/fitness.blood_pressure.read
+\item https://www.googleapis.com/auth/fitness.blood_pressure.write
 \item https://www.googleapis.com/auth/fitness.body.read
 \item https://www.googleapis.com/auth/fitness.body.write
+\item https://www.googleapis.com/auth/fitness.body_temperature.read
+\item https://www.googleapis.com/auth/fitness.body_temperature.write
 \item https://www.googleapis.com/auth/fitness.location.read
 \item https://www.googleapis.com/auth/fitness.location.write
 \item https://www.googleapis.com/auth/fitness.nutrition.read
 \item https://www.googleapis.com/auth/fitness.nutrition.write
+\item https://www.googleapis.com/auth/fitness.oxygen_saturation.read
+\item https://www.googleapis.com/auth/fitness.oxygen_saturation.write
+\item https://www.googleapis.com/auth/fitness.reproductive_health.read
+\item https://www.googleapis.com/auth/fitness.reproductive_health.write
 }
 }
-

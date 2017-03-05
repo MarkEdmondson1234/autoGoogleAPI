@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accounttax.patch}
 \alias{accounttax.patch}
-\title{Updates the tax settings of the account. This method supports patch semantics.}
+\title{Updates the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.}
 \usage{
 accounttax.patch(AccountTax, merchantId, accountId, dryRun = NULL)
 }
@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other AccountTax functions: \code{\link{AccountTax}},
   \code{\link{accounttax.update}}
 }
-

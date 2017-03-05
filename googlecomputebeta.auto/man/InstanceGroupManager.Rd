@@ -8,8 +8,9 @@ InstanceGroupManager(autoHealingPolicies = NULL, baseInstanceName = NULL,
   creationTimestamp = NULL, currentActions = NULL, description = NULL,
   failoverAction = NULL, fingerprint = NULL, id = NULL,
   instanceGroup = NULL, instanceTemplate = NULL, name = NULL,
-  namedPorts = NULL, region = NULL, selfLink = NULL, targetPools = NULL,
-  targetSize = NULL, zone = NULL)
+  namedPorts = NULL, region = NULL, selfLink = NULL,
+  serviceAccount = NULL, targetPools = NULL, targetSize = NULL,
+  zone = NULL)
 }
 \arguments{
 \item{autoHealingPolicies}{The autohealing policy for this managed instance group}
@@ -22,7 +23,7 @@ InstanceGroupManager(autoHealingPolicies = NULL, baseInstanceName = NULL,
 
 \item{description}{An optional description of this resource}
 
-\item{failoverAction}{The action to perform in case of zone failure (set only for Regional instance group managers)}
+\item{failoverAction}{The action to perform in case of zone failure}
 
 \item{fingerprint}{[Output Only] The fingerprint of the resource data}
 
@@ -39,6 +40,8 @@ InstanceGroupManager(autoHealingPolicies = NULL, baseInstanceName = NULL,
 \item{region}{[Output Only] The URL of the region where the managed instance group resides (for regional resources)}
 
 \item{selfLink}{[Output Only] The URL for this managed instance group}
+
+\item{serviceAccount}{Service account will be used as credentials for all operations performed by managed instance group on instances}
 
 \item{targetPools}{The URLs for all TargetPool resources to which instances in the instanceGroup field are added}
 
@@ -58,6 +61,9 @@ An Instance Group Manager resource.
 }
 \seealso{
 Other InstanceGroupManager functions: \code{\link{instanceGroupManagers.insert}},
-  \code{\link{regionInstanceGroupManagers.insert}}
+  \code{\link{instanceGroupManagers.patch}},
+  \code{\link{instanceGroupManagers.update}},
+  \code{\link{regionInstanceGroupManagers.insert}},
+  \code{\link{regionInstanceGroupManagers.patch}},
+  \code{\link{regionInstanceGroupManagers.update}}
 }
-

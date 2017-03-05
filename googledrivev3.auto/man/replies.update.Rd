@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Reply functions: \code{\link{Reply}},
   \code{\link{replies.create}}
 }
-

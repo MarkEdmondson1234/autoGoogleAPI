@@ -9,10 +9,10 @@ Object(Object.customerEncryption = NULL, Object.metadata = NULL,
   componentCount = NULL, contentDisposition = NULL,
   contentEncoding = NULL, contentLanguage = NULL, contentType = NULL,
   crc32c = NULL, customerEncryption = NULL, etag = NULL,
-  generation = NULL, id = NULL, kmsKeyName = NULL, md5Hash = NULL,
-  mediaLink = NULL, metadata = NULL, metageneration = NULL, name = NULL,
-  owner = NULL, selfLink = NULL, size = NULL, storageClass = NULL,
-  timeCreated = NULL, timeDeleted = NULL, updated = NULL)
+  generation = NULL, id = NULL, md5Hash = NULL, mediaLink = NULL,
+  metadata = NULL, metageneration = NULL, name = NULL, owner = NULL,
+  selfLink = NULL, size = NULL, storageClass = NULL, timeCreated = NULL,
+  timeDeleted = NULL, timeStorageClassUpdated = NULL, updated = NULL)
 }
 \arguments{
 \item{Object.customerEncryption}{The \link{Object.customerEncryption} object or list of objects}
@@ -45,9 +45,7 @@ Object(Object.customerEncryption = NULL, Object.metadata = NULL,
 
 \item{generation}{The content generation of this object}
 
-\item{id}{The ID of the object}
-
-\item{kmsKeyName}{Cloud KMS Key used to encrypt this object, if the object is encrypted by such a key}
+\item{id}{The ID of the object, including the bucket name, object name, and generation number}
 
 \item{md5Hash}{MD5 hash of the data; encoded using base64}
 
@@ -57,7 +55,7 @@ Object(Object.customerEncryption = NULL, Object.metadata = NULL,
 
 \item{metageneration}{The version of the metadata for this object at this generation}
 
-\item{name}{The name of this object}
+\item{name}{The name of the object}
 
 \item{owner}{The owner of the object}
 
@@ -70,6 +68,8 @@ Object(Object.customerEncryption = NULL, Object.metadata = NULL,
 \item{timeCreated}{The creation time of the object in RFC 3339 format}
 
 \item{timeDeleted}{The deletion time of the object in RFC 3339 format}
+
+\item{timeStorageClassUpdated}{The time at which the object's storage class was last changed}
 
 \item{updated}{The modification time of the object metadata in RFC 3339 format}
 }
@@ -92,4 +92,3 @@ Other Object functions: \code{\link{Object.customerEncryption}},
   \code{\link{objects.rewrite}},
   \code{\link{objects.update}}
 }
-

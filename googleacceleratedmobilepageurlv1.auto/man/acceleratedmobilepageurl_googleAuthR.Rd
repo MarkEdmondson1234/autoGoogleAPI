@@ -8,7 +8,7 @@
 This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:30:17
+ at 2017-03-05 19:19:30
 filename: /Users/mark/dev/R/autoGoogleAPI/googleacceleratedmobilepageurlv1.auto/R/acceleratedmobilepageurl_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

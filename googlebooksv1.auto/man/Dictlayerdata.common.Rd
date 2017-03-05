@@ -38,4 +38,3 @@ Other Dictlayerdata functions: \code{\link{Dictlayerdata.dict.source}},
   \code{\link{Dictlayerdata.dict}},
   \code{\link{Dictlayerdata}}
 }
-

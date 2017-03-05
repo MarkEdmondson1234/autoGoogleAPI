@@ -24,4 +24,3 @@ This is a JSON template for a leave room request.
 \seealso{
 Other RoomLeaveRequest functions: \code{\link{rooms.leave}}
 }
-

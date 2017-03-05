@@ -28,6 +28,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/resource-manager}{Google Documentation}
 
-Other TestIamPermissionsRequest functions: \code{\link{TestIamPermissionsRequest}}
+Other TestIamPermissionsRequest functions: \code{\link{TestIamPermissionsRequest}},
+  \code{\link{organizations.testIamPermissions}}
 }
-

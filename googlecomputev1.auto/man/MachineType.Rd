@@ -54,4 +54,3 @@ A Machine Type resource.
 \seealso{
 Other MachineType functions: \code{\link{MachineType.scratchDisks}}
 }
-

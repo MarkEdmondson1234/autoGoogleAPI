@@ -19,4 +19,3 @@ A map of scoped target vpn gateway lists.
 \seealso{
 Other TargetVpnGatewayAggregatedList functions: \code{\link{TargetVpnGatewayAggregatedList}}
 }
-

@@ -31,4 +31,3 @@ Other AchievementConfiguration functions: \code{\link{AchievementConfiguration}}
   \code{\link{achievementConfigurations.insert}},
   \code{\link{achievementConfigurations.update}}
 }
-

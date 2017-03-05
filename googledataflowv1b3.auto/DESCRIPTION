@@ -3,13 +3,10 @@ Title: Google Dataflow API
 Version: 0.0.0.9000
 Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
                        role = c("aut", "cre")))
-Description: Develops and executes data processing patterns like ETL, batch
-    computation, and continuous computation. Auto-generated via googleAuthR.
-Depends:
-    R (>= 3.3.0)
+Description: Manages Google Cloud Dataflow projects on Google Cloud Platform. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    googleAuthR (>= 0.3)
-RoxygenNote: 5.0.1
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

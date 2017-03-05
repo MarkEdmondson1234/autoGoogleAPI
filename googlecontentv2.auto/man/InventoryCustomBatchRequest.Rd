@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InventoryCustomBatchRequest functions: \code{\link{inventory.custombatch}}
 }
-

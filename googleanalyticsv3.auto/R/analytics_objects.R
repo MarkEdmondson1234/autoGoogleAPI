@@ -2,7 +2,7 @@
 #' Views and manages your Google Analytics data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-04 00:00:29
+#'  at 2017-03-05 19:25:04
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleanalyticsv3.auto/R/analytics_objects.R
 #' api_json: api_json
 #' 
@@ -1009,6 +1009,7 @@ Filters <- function(items = NULL, itemsPerPage = NULL, nextLink = NULL, previous
 #' @param GaData.totalsForAllResults The \link{GaData.totalsForAllResults} object or list of objects
 #' @param columnHeaders Column headers that list dimension names followed by the metric names
 #' @param containsSampledData Determines if Analytics data contains samples
+#' @param dataLastRefreshed The last refreshed time in seconds for Analytics data
 #' @param dataTable No description
 #' @param id Unique ID for this data response
 #' @param itemsPerPage The maximum number of rows the response can contain, regardless of the actual number of rows returned
@@ -1030,20 +1031,20 @@ Filters <- function(items = NULL, itemsPerPage = NULL, nextLink = NULL, previous
 GaData <- function(GaData.columnHeaders = NULL, GaData.dataTable = NULL, GaData.dataTable.cols = NULL, 
     GaData.dataTable.rows = NULL, GaData.dataTable.rows.c = NULL, GaData.profileInfo = NULL, 
     GaData.query = NULL, GaData.totalsForAllResults = NULL, columnHeaders = NULL, 
-    containsSampledData = NULL, dataTable = NULL, id = NULL, itemsPerPage = NULL, 
-    nextLink = NULL, previousLink = NULL, profileInfo = NULL, query = NULL, rows = NULL, 
-    sampleSize = NULL, sampleSpace = NULL, selfLink = NULL, totalResults = NULL, 
-    totalsForAllResults = NULL) {
+    containsSampledData = NULL, dataLastRefreshed = NULL, dataTable = NULL, id = NULL, 
+    itemsPerPage = NULL, nextLink = NULL, previousLink = NULL, profileInfo = NULL, 
+    query = NULL, rows = NULL, sampleSize = NULL, sampleSpace = NULL, selfLink = NULL, 
+    totalResults = NULL, totalsForAllResults = NULL) {
     structure(list(GaData.columnHeaders = GaData.columnHeaders, GaData.dataTable = GaData.dataTable, 
         GaData.dataTable.cols = GaData.dataTable.cols, GaData.dataTable.rows = GaData.dataTable.rows, 
         GaData.dataTable.rows.c = GaData.dataTable.rows.c, GaData.profileInfo = GaData.profileInfo, 
         GaData.query = GaData.query, GaData.totalsForAllResults = GaData.totalsForAllResults, 
         columnHeaders = columnHeaders, containsSampledData = containsSampledData, 
-        dataTable = dataTable, id = id, itemsPerPage = itemsPerPage, kind = `analytics#gaData`, 
-        nextLink = nextLink, previousLink = previousLink, profileInfo = profileInfo, 
-        query = query, rows = rows, sampleSize = sampleSize, sampleSpace = sampleSpace, 
-        selfLink = selfLink, totalResults = totalResults, totalsForAllResults = totalsForAllResults), 
-        class = "gar_GaData")
+        dataLastRefreshed = dataLastRefreshed, dataTable = dataTable, id = id, itemsPerPage = itemsPerPage, 
+        kind = `analytics#gaData`, nextLink = nextLink, previousLink = previousLink, 
+        profileInfo = profileInfo, query = query, rows = rows, sampleSize = sampleSize, 
+        sampleSpace = sampleSpace, selfLink = selfLink, totalResults = totalResults, 
+        totalsForAllResults = totalsForAllResults), class = "gar_GaData")
 }
 
 #' GaData.columnHeaders Object
@@ -1420,7 +1421,7 @@ Goals <- function(items = NULL, itemsPerPage = NULL, nextLink = NULL, previousLi
 #' 
 #' @param daysToLookBack The look-back window lets you specify a time frame for evaluating the behavior that qualifies users for your audience
 #' @param isSmartList Boolean indicating whether this segment is a smart list
-#' @param membershipDurationDays Number of days a user remains in the audience
+#' @param membershipDurationDays Number of days (in the range 1 to 540) a user remains in the audience
 #' @param segment The segment condition that will cause a user to be added to an audience
 #' 
 #' @return IncludeConditions object

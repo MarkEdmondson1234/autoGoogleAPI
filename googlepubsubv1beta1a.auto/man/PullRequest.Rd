@@ -9,7 +9,7 @@ PullRequest(subscription = NULL, returnImmediately = NULL)
 \arguments{
 \item{subscription}{The subscription from which a message should be pulled}
 
-\item{returnImmediately}{If this is specified as true the system will respond immediately even if it is not able to return a message in the Pull response}
+\item{returnImmediately}{If this is specified as true the system will respond immediately even if}
 }
 \value{
 PullRequest object
@@ -24,4 +24,3 @@ Request for the Pull method.
 \seealso{
 Other PullRequest functions: \code{\link{subscriptions.pull}}
 }
-

@@ -2,7 +2,7 @@
 #' Transfers user data from one user to another.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:32:10
+#'  at 2017-03-05 19:22:22
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadmindatatransferv1.auto/R/admin_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Retrieves information about an application for the given application ID.
 #' 
@@ -44,7 +57,7 @@ datatransfer.applications.get <- function(applicationId) {
     url <- sprintf("https://www.googleapis.com/admin/datatransfer/v1/applications/%s", 
         applicationId)
     # datatransfer.applications.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -75,8 +88,9 @@ datatransfer.applications.list <- function(customerId = NULL, maxResults = NULL,
     pageToken = NULL) {
     url <- "https://www.googleapis.com/admin/datatransfer/v1/applications"
     # datatransfer.applications.list
-    f <- gar_api_generator(url, "GET", pars_args = list(customerId = customerId, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(customerId = customerId, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -105,7 +119,7 @@ datatransfer.transfers.get <- function(dataTransferId) {
     url <- sprintf("https://www.googleapis.com/admin/datatransfer/v1/transfers/%s", 
         dataTransferId)
     # datatransfer.transfers.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -133,7 +147,7 @@ datatransfer.transfers.get <- function(dataTransferId) {
 datatransfer.transfers.insert <- function(DataTransfer) {
     url <- "https://www.googleapis.com/admin/datatransfer/v1/transfers"
     # datatransfer.transfers.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(DataTransfer, "gar_DataTransfer"))
     
     f(the_body = DataTransfer)
@@ -179,9 +193,11 @@ datatransfer.transfers.list <- function(customerId = NULL, maxResults = NULL, ne
     
     url <- "https://www.googleapis.com/admin/datatransfer/v1/transfers"
     # datatransfer.transfers.list
-    f <- gar_api_generator(url, "GET", pars_args = list(customerId = customerId, 
-        maxResults = maxResults, newOwnerUserId = newOwnerUserId, oldOwnerUserId = oldOwnerUserId, 
-        pageToken = pageToken, status = status), data_parse_function = function(x) x)
+    pars = list(customerId = customerId, maxResults = maxResults, newOwnerUserId = newOwnerUserId, 
+        oldOwnerUserId = oldOwnerUserId, pageToken = pageToken, status = status)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

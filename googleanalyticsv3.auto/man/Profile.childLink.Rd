@@ -28,4 +28,3 @@ Other Profile functions: \code{\link{Profile.parentLink}},
   \code{\link{management.profiles.patch}},
   \code{\link{management.profiles.update}}
 }
-

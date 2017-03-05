@@ -4,12 +4,12 @@
 \alias{PublishRequest}
 \title{PublishRequest Object}
 \usage{
-PublishRequest(topic = NULL, message = NULL)
+PublishRequest(message = NULL, topic = NULL)
 }
 \arguments{
-\item{topic}{The message in the request will be published on this topic}
-
 \item{message}{The message to publish}
+
+\item{topic}{The message in the request will be published on this topic}
 }
 \value{
 PublishRequest object
@@ -24,4 +24,3 @@ Request for the Publish method.
 \seealso{
 Other PublishRequest functions: \code{\link{topics.publish}}
 }
-

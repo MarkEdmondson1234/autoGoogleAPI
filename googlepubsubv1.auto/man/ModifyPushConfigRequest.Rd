@@ -22,4 +22,3 @@ Request for the ModifyPushConfig method.
 \seealso{
 Other ModifyPushConfigRequest functions: \code{\link{projects.subscriptions.modifyPushConfig}}
 }
-

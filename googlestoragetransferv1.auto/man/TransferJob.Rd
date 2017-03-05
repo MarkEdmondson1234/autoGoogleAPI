@@ -40,4 +40,3 @@ This resource represents the configuration of a transfer job that runs periodica
 \seealso{
 Other TransferJob functions: \code{\link{transferJobs.create}}
 }
-

@@ -27,4 +27,3 @@ Information regarding the source of this review, when the review is not from a G
 Other Review functions: \code{\link{Review.author}},
   \code{\link{Review}}
 }
-

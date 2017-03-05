@@ -22,4 +22,3 @@ No description
 \seealso{
 Other TargetPoolsRemoveInstanceRequest functions: \code{\link{targetPools.removeInstance}}
 }
-

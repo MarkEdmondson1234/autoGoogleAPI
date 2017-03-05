@@ -1,21 +1,12 @@
 Package: googlemonitoringv3.auto
-Title: Google Monitoring API
+Title: Stackdriver Monitoring API
 Version: 0.0.0.9000
 Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
                        role = c("aut", "cre")))
-Description: Manages your Stackdriver monitoring data and configurations.
-    Projects must be associated with a Stackdriver account, except
-    for the following methods: [monitoredResourceDescriptors.list](v3/
-    projects.monitoredResourceDescriptors/list), [monitoredResourceDescriptors.get]
-    (v3/projects.monitoredResourceDescriptors/get), [metricDescriptors.list]
-    (v3/projects.metricDescriptors/list), [metricDescriptors.get](v3/
-    projects.metricDescriptors/get), and [timeSeries.list](v3/projects.timeSeries/
-    list). Auto-generated via googleAuthR.
-Depends:
-    R (>= 3.3.0)
+Description: Manages your Stackdriver Monitoring data and configurations. Most projects must be associated with a Stackdriver account, with a few exceptions as noted on the individual method pages. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    googleAuthR (>= 0.3)
-RoxygenNote: 5.0.1
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

@@ -32,4 +32,3 @@ Other Creative functions: \code{\link{Creative.corrections}},
   \code{\link{Creative.filteringReasons}},
   \code{\link{Creative}}
 }
-

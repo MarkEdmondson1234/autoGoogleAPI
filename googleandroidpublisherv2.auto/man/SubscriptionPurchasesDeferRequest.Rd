@@ -22,4 +22,3 @@ No description
 \seealso{
 Other SubscriptionPurchasesDeferRequest functions: \code{\link{purchases.subscriptions.defer}}
 }
-

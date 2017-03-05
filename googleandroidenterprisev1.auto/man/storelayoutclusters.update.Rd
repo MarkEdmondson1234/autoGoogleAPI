@@ -35,4 +35,3 @@ Other StoreCluster functions: \code{\link{StoreCluster}},
   \code{\link{storelayoutclusters.insert}},
   \code{\link{storelayoutclusters.patch}}
 }
-

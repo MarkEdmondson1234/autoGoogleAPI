@@ -22,4 +22,3 @@ No description
 \seealso{
 Other RollbackRequest functions: \code{\link{datasets.rollback}}
 }
-

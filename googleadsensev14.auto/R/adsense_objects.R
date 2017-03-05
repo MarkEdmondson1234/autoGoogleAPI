@@ -2,7 +2,7 @@
 #' Accesses AdSense publishers' inventory and generates performance reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:33:30
+#'  at 2017-03-05 19:23:57
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadsensev14.auto/R/adsense_objects.R
 #' api_json: api_json
 #' 
@@ -27,7 +27,7 @@
 #' @export
 Account <- function(creation_time = NULL, id = NULL, name = NULL, premium = NULL, 
     subAccounts = NULL, timezone = NULL) {
-    structure(list(creation_time = creation_time, id = id, kind = "adsense#account", 
+    structure(list(creation_time = creation_time, id = id, kind = `adsense#account`, 
         name = name, premium = premium, subAccounts = subAccounts, timezone = timezone), 
         class = "gar_Account")
 }
@@ -47,7 +47,7 @@ Account <- function(creation_time = NULL, id = NULL, name = NULL, premium = NULL
 #' @family Accounts functions
 #' @export
 Accounts <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsense#accounts", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsense#accounts`, nextPageToken = nextPageToken), 
         class = "gar_Accounts")
 }
 
@@ -67,7 +67,7 @@ Accounts <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family AdClient functions
 #' @export
 AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsReporting = NULL) {
-    structure(list(arcOptIn = arcOptIn, id = id, kind = "adsense#adClient", productCode = productCode, 
+    structure(list(arcOptIn = arcOptIn, id = id, kind = `adsense#adClient`, productCode = productCode, 
         supportsReporting = supportsReporting), class = "gar_AdClient")
 }
 
@@ -86,7 +86,7 @@ AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsRep
 #' @family AdClients functions
 #' @export
 AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsense#adClients", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsense#adClients`, nextPageToken = nextPageToken), 
         class = "gar_AdClients")
 }
 
@@ -103,7 +103,7 @@ AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family AdCode functions
 #' @export
 AdCode <- function(adCode = NULL) {
-    structure(list(adCode = adCode, kind = "adsense#adCode"), class = "gar_AdCode")
+    structure(list(adCode = adCode, kind = `adsense#adCode`), class = "gar_AdCode")
 }
 
 #' AdStyle Object
@@ -115,7 +115,7 @@ AdCode <- function(adCode = NULL) {
 #' @param AdStyle.colors The \link{AdStyle.colors} object or list of objects
 #' @param AdStyle.font The \link{AdStyle.font} object or list of objects
 #' @param colors The colors which are included in the style
-#' @param corners The style of the corners in the ad
+#' @param corners The style of the corners in the ad (deprecated: never populated, ignored)
 #' @param font The font which is included in the style
 #' 
 #' @return AdStyle object
@@ -125,7 +125,7 @@ AdCode <- function(adCode = NULL) {
 AdStyle <- function(AdStyle.colors = NULL, AdStyle.font = NULL, colors = NULL, corners = NULL, 
     font = NULL) {
     structure(list(AdStyle.colors = AdStyle.colors, AdStyle.font = AdStyle.font, 
-        colors = colors, corners = corners, font = font, kind = "adsense#adStyle"), 
+        colors = colors, corners = corners, font = font, kind = `adsense#adStyle`), 
         class = "gar_AdStyle")
 }
 
@@ -199,7 +199,7 @@ AdUnit <- function(AdUnit.contentAdsSettings = NULL, AdUnit.contentAdsSettings.b
     structure(list(AdUnit.contentAdsSettings = AdUnit.contentAdsSettings, AdUnit.contentAdsSettings.backupOption = AdUnit.contentAdsSettings.backupOption, 
         AdUnit.feedAdsSettings = AdUnit.feedAdsSettings, AdUnit.mobileContentAdsSettings = AdUnit.mobileContentAdsSettings, 
         code = code, contentAdsSettings = contentAdsSettings, customStyle = customStyle, 
-        feedAdsSettings = feedAdsSettings, id = id, kind = "adsense#adUnit", mobileContentAdsSettings = mobileContentAdsSettings, 
+        feedAdsSettings = feedAdsSettings, id = id, kind = `adsense#adUnit`, mobileContentAdsSettings = mobileContentAdsSettings, 
         name = name, savedStyleId = savedStyleId, status = status), class = "gar_AdUnit")
 }
 
@@ -299,7 +299,7 @@ AdUnit.mobileContentAdsSettings <- function(markupLanguage = NULL, scriptingLang
 #' @family AdUnits functions
 #' @export
 AdUnits <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsense#adUnits", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsense#adUnits`, nextPageToken = nextPageToken), 
         class = "gar_AdUnits")
 }
 
@@ -327,7 +327,7 @@ AdsenseReportsGenerateResponse <- function(AdsenseReportsGenerateResponse.header
     averages = NULL, endDate = NULL, headers = NULL, rows = NULL, startDate = NULL, 
     totalMatchedRows = NULL, totals = NULL, warnings = NULL) {
     structure(list(AdsenseReportsGenerateResponse.headers = AdsenseReportsGenerateResponse.headers, 
-        averages = averages, endDate = endDate, headers = headers, kind = "adsense#report", 
+        averages = averages, endDate = endDate, headers = headers, kind = `adsense#report`, 
         rows = rows, startDate = startDate, totalMatchedRows = totalMatchedRows, 
         totals = totals, warnings = warnings), class = "gar_AdsenseReportsGenerateResponse")
 }
@@ -366,7 +366,7 @@ AdsenseReportsGenerateResponse.headers <- function() {
 #' @export
 Alert <- function(id = NULL, isDismissible = NULL, message = NULL, severity = NULL, 
     type = NULL) {
-    structure(list(id = id, isDismissible = isDismissible, kind = "adsense#alert", 
+    structure(list(id = id, isDismissible = isDismissible, kind = `adsense#alert`, 
         message = message, severity = severity, type = type), class = "gar_Alert")
 }
 
@@ -383,7 +383,7 @@ Alert <- function(id = NULL, isDismissible = NULL, message = NULL, severity = NU
 #' @family Alerts functions
 #' @export
 Alerts <- function(items = NULL) {
-    structure(list(items = items, kind = "adsense#alerts"), class = "gar_Alerts")
+    structure(list(items = items, kind = `adsense#alerts`), class = "gar_Alerts")
 }
 
 #' CustomChannel Object
@@ -405,7 +405,7 @@ Alerts <- function(items = NULL) {
 CustomChannel <- function(CustomChannel.targetingInfo = NULL, code = NULL, id = NULL, 
     name = NULL, targetingInfo = NULL) {
     structure(list(CustomChannel.targetingInfo = CustomChannel.targetingInfo, code = code, 
-        id = id, kind = "adsense#customChannel", name = name, targetingInfo = targetingInfo), 
+        id = id, kind = `adsense#customChannel`, name = name, targetingInfo = targetingInfo), 
         class = "gar_CustomChannel")
 }
 
@@ -445,7 +445,7 @@ CustomChannel.targetingInfo <- function(adsAppearOn = NULL, description = NULL, 
 #' @family CustomChannels functions
 #' @export
 CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsense#customChannels", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsense#customChannels`, nextPageToken = nextPageToken), 
         class = "gar_CustomChannels")
 }
 
@@ -462,7 +462,7 @@ CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family Metadata functions
 #' @export
 Metadata <- function(items = NULL) {
-    structure(list(items = items, kind = "adsense#metadata"), class = "gar_Metadata")
+    structure(list(items = items, kind = `adsense#metadata`), class = "gar_Metadata")
 }
 
 #' Payment Object
@@ -482,7 +482,7 @@ Metadata <- function(items = NULL) {
 #' @export
 Payment <- function(id = NULL, paymentAmount = NULL, paymentAmountCurrencyCode = NULL, 
     paymentDate = NULL) {
-    structure(list(id = id, kind = "adsense#payment", paymentAmount = paymentAmount, 
+    structure(list(id = id, kind = `adsense#payment`, paymentAmount = paymentAmount, 
         paymentAmountCurrencyCode = paymentAmountCurrencyCode, paymentDate = paymentDate), 
         class = "gar_Payment")
 }
@@ -500,7 +500,7 @@ Payment <- function(id = NULL, paymentAmount = NULL, paymentAmountCurrencyCode =
 #' @family Payments functions
 #' @export
 Payments <- function(items = NULL) {
-    structure(list(items = items, kind = "adsense#payments"), class = "gar_Payments")
+    structure(list(items = items, kind = `adsense#payments`), class = "gar_Payments")
 }
 
 #' ReportingMetadataEntry Object
@@ -523,7 +523,7 @@ Payments <- function(items = NULL) {
 ReportingMetadataEntry <- function(compatibleDimensions = NULL, compatibleMetrics = NULL, 
     id = NULL, requiredDimensions = NULL, requiredMetrics = NULL, supportedProducts = NULL) {
     structure(list(compatibleDimensions = compatibleDimensions, compatibleMetrics = compatibleMetrics, 
-        id = id, kind = "adsense#reportingMetadataEntry", requiredDimensions = requiredDimensions, 
+        id = id, kind = `adsense#reportingMetadataEntry`, requiredDimensions = requiredDimensions, 
         requiredMetrics = requiredMetrics, supportedProducts = supportedProducts), 
         class = "gar_ReportingMetadataEntry")
 }
@@ -543,7 +543,7 @@ ReportingMetadataEntry <- function(compatibleDimensions = NULL, compatibleMetric
 #' @family SavedAdStyle functions
 #' @export
 SavedAdStyle <- function(adStyle = NULL, id = NULL, name = NULL) {
-    structure(list(adStyle = adStyle, id = id, kind = "adsense#savedAdStyle", name = name), 
+    structure(list(adStyle = adStyle, id = id, kind = `adsense#savedAdStyle`, name = name), 
         class = "gar_SavedAdStyle")
 }
 
@@ -562,7 +562,7 @@ SavedAdStyle <- function(adStyle = NULL, id = NULL, name = NULL) {
 #' @family SavedAdStyles functions
 #' @export
 SavedAdStyles <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsense#savedAdStyles", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsense#savedAdStyles`, nextPageToken = nextPageToken), 
         class = "gar_SavedAdStyles")
 }
 
@@ -580,7 +580,7 @@ SavedAdStyles <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family SavedReport functions
 #' @export
 SavedReport <- function(id = NULL, name = NULL) {
-    structure(list(id = id, kind = "adsense#savedReport", name = name), class = "gar_SavedReport")
+    structure(list(id = id, kind = `adsense#savedReport`, name = name), class = "gar_SavedReport")
 }
 
 #' SavedReports Object
@@ -598,7 +598,7 @@ SavedReport <- function(id = NULL, name = NULL) {
 #' @family SavedReports functions
 #' @export
 SavedReports <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsense#savedReports", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsense#savedReports`, nextPageToken = nextPageToken), 
         class = "gar_SavedReports")
 }
 
@@ -616,7 +616,7 @@ SavedReports <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family UrlChannel functions
 #' @export
 UrlChannel <- function(id = NULL, urlPattern = NULL) {
-    structure(list(id = id, kind = "adsense#urlChannel", urlPattern = urlPattern), 
+    structure(list(id = id, kind = `adsense#urlChannel`, urlPattern = urlPattern), 
         class = "gar_UrlChannel")
 }
 
@@ -641,7 +641,7 @@ UrlChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
     
     
     
-    structure(list(etag = etag, items = items, kind = "adsense#urlChannels", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsense#urlChannels`, nextPageToken = nextPageToken), 
         class = "gar_UrlChannels")
 }
 

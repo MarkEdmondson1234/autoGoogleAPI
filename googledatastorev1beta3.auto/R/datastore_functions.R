@@ -2,7 +2,7 @@
 #' Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:05:50
+#'  at 2017-03-05 19:44:35
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googledatastorev1beta3.auto/R/datastore_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Queries for entities.
 #' 
@@ -46,7 +59,7 @@ projects.runQuery <- function(RunQueryRequest, projectId) {
     url <- sprintf("https://datastore.googleapis.com/v1beta3/projects/%s:runQuery", 
         projectId)
     # datastore.projects.runQuery
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(RunQueryRequest, "gar_RunQueryRequest"))
     
     f(the_body = RunQueryRequest)
@@ -79,7 +92,7 @@ projects.beginTransaction <- function(BeginTransactionRequest, projectId) {
     url <- sprintf("https://datastore.googleapis.com/v1beta3/projects/%s:beginTransaction", 
         projectId)
     # datastore.projects.beginTransaction
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(BeginTransactionRequest, "gar_BeginTransactionRequest"))
     
     f(the_body = BeginTransactionRequest)
@@ -112,7 +125,7 @@ projects.allocateIds <- function(AllocateIdsRequest, projectId) {
     url <- sprintf("https://datastore.googleapis.com/v1beta3/projects/%s:allocateIds", 
         projectId)
     # datastore.projects.allocateIds
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AllocateIdsRequest, "gar_AllocateIdsRequest"))
     
     f(the_body = AllocateIdsRequest)
@@ -145,7 +158,7 @@ projects.lookup <- function(LookupRequest, projectId) {
     url <- sprintf("https://datastore.googleapis.com/v1beta3/projects/%s:lookup", 
         projectId)
     # datastore.projects.lookup
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(LookupRequest, "gar_LookupRequest"))
     
     f(the_body = LookupRequest)
@@ -178,7 +191,7 @@ projects.commit <- function(CommitRequest, projectId) {
     url <- sprintf("https://datastore.googleapis.com/v1beta3/projects/%s:commit", 
         projectId)
     # datastore.projects.commit
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(CommitRequest, "gar_CommitRequest"))
     
     f(the_body = CommitRequest)
@@ -216,7 +229,8 @@ projects.rollback <- function(RollbackRequest, projectId) {
     url <- sprintf("https://datastore.googleapis.com/v1beta3/projects/%s:rollback", 
         projectId)
     # datastore.projects.rollback
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(RollbackRequest, "gar_RollbackRequest"))
     

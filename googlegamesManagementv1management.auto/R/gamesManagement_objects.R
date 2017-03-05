@@ -2,7 +2,7 @@
 #' The Management API for Google Play Game Services.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:14:20
+#'  at 2017-03-05 19:52:53
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesManagementv1management.auto/R/gamesManagement_objects.R
 #' api_json: api_json
 #' 

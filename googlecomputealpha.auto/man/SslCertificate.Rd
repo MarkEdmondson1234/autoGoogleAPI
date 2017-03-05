@@ -36,4 +36,3 @@ An SslCertificate resource. This resource provides a mechanism to upload an SSL 
 \seealso{
 Other SslCertificate functions: \code{\link{sslCertificates.insert}}
 }
-

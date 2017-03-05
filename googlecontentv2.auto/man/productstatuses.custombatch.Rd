@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{productstatuses.custombatch}
 \alias{productstatuses.custombatch}
-\title{Gets the statuses of multiple products in a single request.}
+\title{Gets the statuses of multiple products in a single request. This method can only be called for non-multi-client accounts.}
 \usage{
 productstatuses.custombatch(ProductstatusesCustomBatchRequest)
 }
@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ProductstatusesCustomBatchRequest functions: \code{\link{ProductstatusesCustomBatchRequest}}
 }
-

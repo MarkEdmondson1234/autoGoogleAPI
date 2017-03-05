@@ -37,4 +37,3 @@ Other Database functions: \code{\link{sql.databases.insert}},
   \code{\link{sql.databases.patch}},
   \code{\link{sql.databases.update}}
 }
-

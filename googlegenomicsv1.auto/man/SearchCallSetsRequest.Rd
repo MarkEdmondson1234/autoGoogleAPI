@@ -4,17 +4,17 @@
 \alias{SearchCallSetsRequest}
 \title{SearchCallSetsRequest Object}
 \usage{
-SearchCallSetsRequest(variantSetIds = NULL, name = NULL, pageToken = NULL,
-  pageSize = NULL)
+SearchCallSetsRequest(name = NULL, pageToken = NULL, pageSize = NULL,
+  variantSetIds = NULL)
 }
 \arguments{
-\item{variantSetIds}{Restrict the query to call sets within the given variant sets}
-
-\item{name}{Only return call sets for which a substring of the name matches this string}
+\item{name}{Only return call sets for which a substring of the name matches this}
 
 \item{pageToken}{The continuation token, which is used to page through large result sets}
 
 \item{pageSize}{The maximum number of results to return in a single page}
+
+\item{variantSetIds}{Restrict the query to call sets within the given variant sets}
 }
 \value{
 SearchCallSetsRequest object
@@ -29,4 +29,3 @@ The call set search request.
 \seealso{
 Other SearchCallSetsRequest functions: \code{\link{callsets.search}}
 }
-

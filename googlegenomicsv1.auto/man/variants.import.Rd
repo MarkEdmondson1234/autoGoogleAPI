@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{variants.import}
 \alias{variants.import}
-\title{Creates variant data by asynchronously importing the provided information. For the definitions of variant sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics) The variants for import will be merged with any existing variant that matches its reference sequence, start, end, reference bases, and alternative bases. If no such variant exists, a new one will be created. When variants are merged, the call information from the new variant is added to the existing variant, and Variant info fields are merged as specified in infoMergeConfig. As a special case, for single-sample VCF files, QUAL and FILTER fields will be moved to the call level; these are sometimes interpreted in a call-specific context. Imported VCF headers are appended to the metadata already in a variant set.}
+\title{Creates variant data by asynchronously importing the provided information.For the definitions of variant sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)The variants for import will be merged with any existing variant thatmatches its reference sequence, start, end, reference bases, andalternative bases. If no such variant exists, a new one will be created.When variants are merged, the call information from the new variantis added to the existing variant, and Variant info fields are mergedas specified ininfoMergeConfig.As a special case, for single-sample VCF files, QUAL and FILTER fields willbe moved to the call level; these are sometimes interpreted in acall-specific context.Imported VCF headers are appended to the metadata already in a variant set.}
 \usage{
 variants.import(ImportVariantsRequest)
 }
@@ -26,9 +26,8 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other ImportVariantsRequest functions: \code{\link{ImportVariantsRequest.infoMergeConfig}},
   \code{\link{ImportVariantsRequest}}
 }
-

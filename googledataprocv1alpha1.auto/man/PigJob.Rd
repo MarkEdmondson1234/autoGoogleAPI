@@ -5,28 +5,28 @@
 \title{PigJob Object}
 \usage{
 PigJob(PigJob.scriptVariables = NULL, PigJob.properties = NULL,
-  queryFileUri = NULL, queryList = NULL, continueOnFailure = NULL,
-  scriptVariables = NULL, properties = NULL, jarFileUris = NULL,
-  loggingConfiguration = NULL)
+  jarFileUris = NULL, scriptVariables = NULL, loggingConfiguration = NULL,
+  properties = NULL, continueOnFailure = NULL, queryList = NULL,
+  queryFileUri = NULL)
 }
 \arguments{
 \item{PigJob.scriptVariables}{The \link{PigJob.scriptVariables} object or list of objects}
 
 \item{PigJob.properties}{The \link{PigJob.properties} object or list of objects}
 
-\item{queryFileUri}{The HCFS URI of the script that contains the Pig queries}
+\item{jarFileUris}{Optional HCFS URIs of jar files to add to the CLASSPATH of the Pig Client and Hadoop MapReduce (MR) tasks}
+
+\item{scriptVariables}{Optional Mapping of query variable names to values (equivalent to the Pig command: 'name=value')}
+
+\item{loggingConfiguration}{Optional The runtime log configuration for job execution}
+
+\item{properties}{Optional A mapping of property names to values, used to configure Pig}
+
+\item{continueOnFailure}{Optional Whether to continue executing queries if a query fails}
 
 \item{queryList}{A list of queries}
 
-\item{continueOnFailure}{[Optional] Whether to continue executing queries if a query fails}
-
-\item{scriptVariables}{[Optional] Mapping of query variable names to values (equivalent to the Pig command: 'name=[value]')}
-
-\item{properties}{[Optional] A mapping of property names to values, used to configure Pig}
-
-\item{jarFileUris}{[Optional] HCFS URIs of jar files to add to the CLASSPATH of the Pig Client and Hadoop MapReduce (MR) tasks}
-
-\item{loggingConfiguration}{[Optional] The runtime log configuration for job execution}
+\item{queryFileUri}{The HCFS URI of the script that contains the Pig queries}
 }
 \value{
 PigJob object
@@ -42,4 +42,3 @@ A Cloud Dataproc job for running Pig queries on YARN.
 Other PigJob functions: \code{\link{PigJob.properties}},
   \code{\link{PigJob.scriptVariables}}
 }
-

@@ -19,4 +19,3 @@ No description
 \seealso{
 Other MachineType functions: \code{\link{MachineType}}
 }
-

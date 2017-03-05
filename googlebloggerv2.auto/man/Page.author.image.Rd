@@ -23,4 +23,3 @@ The page author's avatar.
 Other Page functions: \code{\link{Page.author}},
   \code{\link{Page.blog}}, \code{\link{Page}}
 }
-

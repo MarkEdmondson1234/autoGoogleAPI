@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Table functions: \code{\link{Table}},
   \code{\link{table.patch}}, \code{\link{table.update}}
 }
-

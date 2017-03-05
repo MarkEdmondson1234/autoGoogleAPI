@@ -2,7 +2,7 @@
 % Please edit documentation in R/compute_functions.R
 \name{urlMaps.patch}
 \alias{urlMaps.patch}
-\title{Updates the entire content of the UrlMap resource. This method supports patch semantics.}
+\title{Updates the specified UrlMap resource with the data included in the request. This method supports patch semantics.}
 \usage{
 urlMaps.patch(UrlMap, project, urlMap)
 }
@@ -34,4 +34,3 @@ Other UrlMap functions: \code{\link{UrlMap}},
   \code{\link{urlMaps.insert}},
   \code{\link{urlMaps.update}}
 }
-

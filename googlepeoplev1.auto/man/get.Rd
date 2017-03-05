@@ -2,7 +2,7 @@
 % Please edit documentation in R/people_functions.R
 \name{get}
 \alias{get}
-\title{Provides information about a person resource for a resource name. Use `people/me` to indicate the authenticated user.}
+\title{Provides information about a person resource for a resource name. Use`people/me` to indicate the authenticated user.}
 \usage{
 get(resourceName, requestMask.includeField = NULL)
 }
@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/people/}{Google Documentation}
 }
-

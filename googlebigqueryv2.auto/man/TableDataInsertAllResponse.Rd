@@ -25,4 +25,3 @@ No description
 \seealso{
 Other TableDataInsertAllResponse functions: \code{\link{TableDataInsertAllResponse.insertErrors}}
 }
-

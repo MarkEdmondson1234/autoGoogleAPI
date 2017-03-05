@@ -60,7 +60,7 @@ Analyze object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:26:45
+ at 2017-03-05 20:07:01
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepredictionv16.auto/R/prediction_objects.R
 api_json: api_json
 }
@@ -86,4 +86,3 @@ Other Analyze functions: \code{\link{Analyze.dataDescription.features.categorica
   \code{\link{Analyze.modelDescription.confusionMatrix}},
   \code{\link{Analyze.modelDescription}}
 }
-

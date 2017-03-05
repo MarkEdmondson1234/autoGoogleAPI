@@ -4,17 +4,19 @@
 \alias{Spreadsheet}
 \title{Spreadsheet Object}
 \usage{
-Spreadsheet(spreadsheetId = NULL, properties = NULL, sheets = NULL,
-  namedRanges = NULL)
+Spreadsheet(properties = NULL, spreadsheetId = NULL, sheets = NULL,
+  namedRanges = NULL, spreadsheetUrl = NULL)
 }
 \arguments{
-\item{spreadsheetId}{The ID of the spreadsheet}
-
 \item{properties}{Overall properties of a spreadsheet}
+
+\item{spreadsheetId}{The ID of the spreadsheet}
 
 \item{sheets}{The sheets that are part of a spreadsheet}
 
 \item{namedRanges}{The named ranges defined in a spreadsheet}
+
+\item{spreadsheetUrl}{The url of the spreadsheet}
 }
 \value{
 Spreadsheet object
@@ -29,4 +31,3 @@ Resource that represents a spreadsheet.
 \seealso{
 Other Spreadsheet functions: \code{\link{spreadcreate}}
 }
-

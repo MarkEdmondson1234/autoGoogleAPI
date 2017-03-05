@@ -84,4 +84,3 @@ Other ChromeOsDevice functions: \code{\link{ChromeOsDevice.activeTimeRanges}},
   \code{\link{directory.chromeosdevices.patch}},
   \code{\link{directory.chromeosdevices.update}}
 }
-

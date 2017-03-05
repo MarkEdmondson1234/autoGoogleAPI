@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{entitlements.list}
 \alias{entitlements.list}
-\title{List of all entitlements for the specified user. Only the ID is set.}
+\title{Lists all entitlements for the specified user. Only the ID is set.}
 \usage{
 entitlements.list(enterpriseId, userId)
 }
@@ -27,4 +27,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/android/work/play/emm-api}{Google Documentation}
 }
-

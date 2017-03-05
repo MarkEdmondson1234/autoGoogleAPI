@@ -20,4 +20,3 @@ Extra arguments for this worker pool.
 Other WorkerPool functions: \code{\link{WorkerPool.metadata}},
   \code{\link{WorkerPool}}
 }
-

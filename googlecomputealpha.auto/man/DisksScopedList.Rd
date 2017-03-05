@@ -30,4 +30,3 @@ No description
 Other DisksScopedList functions: \code{\link{DisksScopedList.warning.data}},
   \code{\link{DisksScopedList.warning}}
 }
-

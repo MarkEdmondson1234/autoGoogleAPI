@@ -19,4 +19,3 @@ The codec to use to encode data being written via this output.
 \seealso{
 Other InstructionOutput functions: \code{\link{InstructionOutput}}
 }
-

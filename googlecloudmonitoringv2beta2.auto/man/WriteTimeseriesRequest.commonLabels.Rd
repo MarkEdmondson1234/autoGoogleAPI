@@ -20,4 +20,3 @@ The label's name.
 Other WriteTimeseriesRequest functions: \code{\link{WriteTimeseriesRequest}},
   \code{\link{timeseries.write}}
 }
-

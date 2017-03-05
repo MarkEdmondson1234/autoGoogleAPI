@@ -20,4 +20,3 @@ The sink to write to, plus its parameters.
 Other Sink functions: \code{\link{Sink.codec}},
   \code{\link{Sink}}
 }
-

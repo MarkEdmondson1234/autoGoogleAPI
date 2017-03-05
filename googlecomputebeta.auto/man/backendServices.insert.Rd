@@ -30,6 +30,8 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other BackendService functions: \code{\link{BackendService}},
   \code{\link{backendServices.patch}},
-  \code{\link{backendServices.update}}
+  \code{\link{backendServices.update}},
+  \code{\link{regionBackendServices.insert}},
+  \code{\link{regionBackendServices.patch}},
+  \code{\link{regionBackendServices.update}}
 }
-

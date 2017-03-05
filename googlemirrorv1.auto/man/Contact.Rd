@@ -47,4 +47,3 @@ Other Contact functions: \code{\link{contacts.insert}},
   \code{\link{contacts.patch}},
   \code{\link{contacts.update}}
 }
-

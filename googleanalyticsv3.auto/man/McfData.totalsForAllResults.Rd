@@ -21,4 +21,3 @@ Other McfData functions: \code{\link{McfData.columnHeaders}},
   \code{\link{McfData.profileInfo}},
   \code{\link{McfData.query}}, \code{\link{McfData}}
 }
-

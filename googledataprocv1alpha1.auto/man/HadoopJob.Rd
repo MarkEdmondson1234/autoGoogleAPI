@@ -4,28 +4,28 @@
 \alias{HadoopJob}
 \title{HadoopJob Object}
 \usage{
-HadoopJob(HadoopJob.properties = NULL, mainJarFileUri = NULL,
-  mainClass = NULL, args = NULL, jarFileUris = NULL, fileUris = NULL,
-  archiveUris = NULL, properties = NULL, loggingConfiguration = NULL)
+HadoopJob(HadoopJob.properties = NULL, args = NULL, fileUris = NULL,
+  mainClass = NULL, archiveUris = NULL, mainJarFileUri = NULL,
+  jarFileUris = NULL, loggingConfiguration = NULL, properties = NULL)
 }
 \arguments{
 \item{HadoopJob.properties}{The \link{HadoopJob.properties} object or list of objects}
 
-\item{mainJarFileUri}{The Hadoop Compatible Filesystem (HCFS) URI of the jar file containing the main class}
+\item{args}{Optional The arguments to pass to the driver}
+
+\item{fileUris}{Optional HCFS URIs of files to be copied to the working directory of Hadoop drivers and distributed tasks}
 
 \item{mainClass}{The name of the driver's main class}
 
-\item{args}{[Optional] The arguments to pass to the driver}
+\item{archiveUris}{Optional HCFS URIs of archives to be extracted in the working directory of Hadoop drivers and tasks}
 
-\item{jarFileUris}{[Optional] Jar file URIs to add to the CLASSPATHs of the Hadoop driver and tasks}
+\item{mainJarFileUri}{The Hadoop Compatible Filesystem (HCFS) URI of the jar file containing the main class}
 
-\item{fileUris}{[Optional] HCFS URIs of files to be copied to the working directory of Hadoop drivers and distributed tasks}
+\item{jarFileUris}{Optional Jar file URIs to add to the CLASSPATHs of the Hadoop driver and tasks}
 
-\item{archiveUris}{[Optional] HCFS URIs of archives to be extracted in the working directory of Hadoop drivers and tasks}
+\item{loggingConfiguration}{Optional The runtime log configuration for job execution}
 
-\item{properties}{[Optional] A mapping of property names to values, used to configure Hadoop}
-
-\item{loggingConfiguration}{[Optional] The runtime log configuration for job execution}
+\item{properties}{Optional A mapping of property names to values, used to configure Hadoop}
 }
 \value{
 HadoopJob object
@@ -40,4 +40,3 @@ A Cloud Dataproc job for running Hadoop MapReduce jobs on YARN.
 \seealso{
 Other HadoopJob functions: \code{\link{HadoopJob.properties}}
 }
-

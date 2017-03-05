@@ -2,7 +2,7 @@
 #' Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:59:06
+#'  at 2017-03-05 19:31:00
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecivicinfov2.auto/R/civicinfo_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Searches for political divisions by their natural name or OCD ID.
 #' 
@@ -35,14 +48,20 @@ NULL
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
+#' @param DivisionSearchRequest The \link{DivisionSearchRequest} object to pass to this method
 #' @param query The search query
 #' @importFrom googleAuthR gar_api_generator
+#' @family DivisionSearchRequest functions
 #' @export
-divisions.search <- function(query = NULL) {
+divisions.search <- function(DivisionSearchRequest, query = NULL) {
     url <- "https://www.googleapis.com/civicinfo/v2/divisions"
     # civicinfo.divisions.search
-    f <- gar_api_generator(url, "GET", pars_args = list(query = query), data_parse_function = function(x) x)
-    f()
+    pars = list(query = query)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    stopifnot(inherits(DivisionSearchRequest, "gar_DivisionSearchRequest"))
+    
+    f(the_body = DivisionSearchRequest)
     
 }
 
@@ -62,13 +81,17 @@ divisions.search <- function(query = NULL) {
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
+#' @param ElectionsQueryRequest The \link{ElectionsQueryRequest} object to pass to this method
 #' #' @importFrom googleAuthR gar_api_generator
+#' @family ElectionsQueryRequest functions
 #' @export
-elections.electionQuery <- function() {
+elections.electionQuery <- function(ElectionsQueryRequest) {
     url <- "https://www.googleapis.com/civicinfo/v2/elections"
     # civicinfo.elections.electionQuery
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
-    f()
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    stopifnot(inherits(ElectionsQueryRequest, "gar_ElectionsQueryRequest"))
+    
+    f(the_body = ElectionsQueryRequest)
     
 }
 
@@ -88,20 +111,25 @@ elections.electionQuery <- function() {
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
+#' @param VoterInfoRequest The \link{VoterInfoRequest} object to pass to this method
 #' @param address The registered address of the voter to look up
 #' @param electionId The unique ID of the election to look up
 #' @param officialOnly If set to true, only data from official state sources will be returned
 #' @param returnAllAvailableData If set to true, the query will return the success codeand include any partial information when it is unable to determine a matching address or unable to determine the election for electionId=0 queries
 #' @importFrom googleAuthR gar_api_generator
+#' @family VoterInfoRequest functions
 #' @export
-elections.voterInfoQuery <- function(address, electionId = NULL, officialOnly = NULL, 
-    returnAllAvailableData = NULL) {
+elections.voterInfoQuery <- function(VoterInfoRequest, address, electionId = NULL, 
+    officialOnly = NULL, returnAllAvailableData = NULL) {
     url <- "https://www.googleapis.com/civicinfo/v2/voterinfo"
     # civicinfo.elections.voterInfoQuery
-    f <- gar_api_generator(url, "GET", pars_args = list(address = address, electionId = electionId, 
-        officialOnly = officialOnly, returnAllAvailableData = returnAllAvailableData), 
+    pars = list(address = address, electionId = electionId, officialOnly = officialOnly, 
+        returnAllAvailableData = returnAllAvailableData)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
-    f()
+    stopifnot(inherits(VoterInfoRequest, "gar_VoterInfoRequest"))
+    
+    f(the_body = VoterInfoRequest)
     
 }
 
@@ -121,19 +149,25 @@ elections.voterInfoQuery <- function(address, electionId = NULL, officialOnly = 
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
+#' @param RepresentativeInfoRequest The \link{RepresentativeInfoRequest} object to pass to this method
 #' @param address The address to look up
 #' @param includeOffices Whether to return information about offices and officials
 #' @param levels A list of office levels to filter by
 #' @param roles A list of office roles to filter by
 #' @importFrom googleAuthR gar_api_generator
+#' @family RepresentativeInfoRequest functions
 #' @export
-representatives.representativeInfoByAddress <- function(address = NULL, includeOffices = NULL, 
-    levels = NULL, roles = NULL) {
+representatives.representativeInfoByAddress <- function(RepresentativeInfoRequest, 
+    address = NULL, includeOffices = NULL, levels = NULL, roles = NULL) {
     url <- "https://www.googleapis.com/civicinfo/v2/representatives"
     # civicinfo.representatives.representativeInfoByAddress
-    f <- gar_api_generator(url, "GET", pars_args = list(address = address, includeOffices = includeOffices, 
-        levels = levels, roles = roles), data_parse_function = function(x) x)
-    f()
+    pars = list(address = address, includeOffices = includeOffices, levels = levels, 
+        roles = roles)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    stopifnot(inherits(RepresentativeInfoRequest, "gar_RepresentativeInfoRequest"))
+    
+    f(the_body = RepresentativeInfoRequest)
     
 }
 
@@ -154,6 +188,7 @@ representatives.representativeInfoByAddress <- function(address = NULL, includeO
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
+#' @param DivisionRepresentativeInfoRequest The \link{DivisionRepresentativeInfoRequest} object to pass to this method
 #' @param ocdId The Open Civic Data division identifier of the division to look up
 
 #' @param levels A list of office levels to filter by
@@ -162,20 +197,25 @@ representatives.representativeInfoByAddress <- function(address = NULL, includeO
 
 #' @param roles A list of office roles to filter by
 #' @importFrom googleAuthR gar_api_generator
+#' @family DivisionRepresentativeInfoRequest functions
 #' @export
 
 
-representatives.representativeInfoByDivision <- function(ocdId, levels = NULL, recursive = NULL, 
-    roles = NULL) {
+representatives.representativeInfoByDivision <- function(DivisionRepresentativeInfoRequest, 
+    ocdId, levels = NULL, recursive = NULL, roles = NULL) {
     
     
     url <- sprintf("https://www.googleapis.com/civicinfo/v2/representatives/%s", 
         ocdId)
     # civicinfo.representatives.representativeInfoByDivision
-    f <- gar_api_generator(url, "GET", pars_args = list(levels = levels, recursive = recursive, 
-        roles = roles), data_parse_function = function(x) x)
+    pars = list(levels = levels, recursive = recursive, roles = roles)
     
-    f()
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    
+    stopifnot(inherits(DivisionRepresentativeInfoRequest, "gar_DivisionRepresentativeInfoRequest"))
+    
+    f(the_body = DivisionRepresentativeInfoRequest)
     
     
 }

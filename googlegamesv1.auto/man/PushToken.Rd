@@ -26,4 +26,3 @@ This is a JSON template for a push token resource.
 \seealso{
 Other PushToken functions: \code{\link{pushtokens.update}}
 }
-

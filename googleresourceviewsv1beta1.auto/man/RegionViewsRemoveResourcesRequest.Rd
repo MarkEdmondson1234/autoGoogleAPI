@@ -22,4 +22,3 @@ The request to remove resources from the resource view.
 \seealso{
 Other RegionViewsRemoveResourcesRequest functions: \code{\link{regionViews.removeresources}}
 }
-

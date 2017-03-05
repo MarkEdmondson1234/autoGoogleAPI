@@ -25,4 +25,3 @@ No description
 \seealso{
 Other InstanceGroupManagersResizeAdvancedRequest functions: \code{\link{instanceGroupManagers.resizeAdvanced}}
 }
-

@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{datafeeds.delete}
 \alias{datafeeds.delete}
-\title{Deletes a datafeed from your Merchant Center account.}
+\title{Deletes a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.}
 \usage{
 datafeeds.delete(merchantId, datafeedId, dryRun = NULL)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

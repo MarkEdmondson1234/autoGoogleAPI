@@ -40,4 +40,3 @@ Other OrgUnit functions: \code{\link{directory.orgunits.insert}},
   \code{\link{directory.orgunits.patch}},
   \code{\link{directory.orgunits.update}}
 }
-

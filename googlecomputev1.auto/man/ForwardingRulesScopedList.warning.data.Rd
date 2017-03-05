@@ -20,4 +20,3 @@ No description
 Other ForwardingRulesScopedList functions: \code{\link{ForwardingRulesScopedList.warning}},
   \code{\link{ForwardingRulesScopedList}}
 }
-

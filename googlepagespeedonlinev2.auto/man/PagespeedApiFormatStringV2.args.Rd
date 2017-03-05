@@ -27,4 +27,3 @@ Other PagespeedApiFormatStringV2 functions: \code{\link{PagespeedApiFormatString
   \code{\link{PagespeedApiFormatStringV2.args.secondary_rects}},
   \code{\link{PagespeedApiFormatStringV2}}
 }
-

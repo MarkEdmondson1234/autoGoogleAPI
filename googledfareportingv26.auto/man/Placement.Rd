@@ -104,4 +104,3 @@ Other Placement functions: \code{\link{placements.insert}},
   \code{\link{placements.patch}},
   \code{\link{placements.update}}
 }
-

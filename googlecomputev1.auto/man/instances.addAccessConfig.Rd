@@ -37,4 +37,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other AccessConfig functions: \code{\link{AccessConfig}}
 }
-

@@ -38,4 +38,3 @@ Other Object functions: \code{\link{Object.metadata}},
   \code{\link{objects.insert}},
   \code{\link{objects.patch}}, \code{\link{objects.update}}
 }
-

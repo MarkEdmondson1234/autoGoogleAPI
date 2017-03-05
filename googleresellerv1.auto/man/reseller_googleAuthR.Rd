@@ -8,7 +8,7 @@
 Creates and manages your customers and their subscriptions.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:27:56
+ at 2017-03-05 20:09:52
 filename: /Users/mark/dev/R/autoGoogleAPI/googleresellerv1.auto/R/reseller_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/apps.order.readonly
 }
 }
-

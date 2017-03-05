@@ -20,4 +20,3 @@ No description
 Other VpnTunnelsScopedList functions: \code{\link{VpnTunnelsScopedList.warning}},
   \code{\link{VpnTunnelsScopedList}}
 }
-

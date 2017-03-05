@@ -4,24 +4,29 @@
 \alias{GceClusterConfig}
 \title{GceClusterConfig Object}
 \usage{
-GceClusterConfig(GceClusterConfig.metadata = NULL, zoneUri = NULL,
-  networkUri = NULL, subnetworkUri = NULL, serviceAccountScopes = NULL,
-  tags = NULL, metadata = NULL)
+GceClusterConfig(GceClusterConfig.metadata = NULL, metadata = NULL,
+  internalIpOnly = NULL, serviceAccountScopes = NULL, tags = NULL,
+  serviceAccount = NULL, subnetworkUri = NULL, networkUri = NULL,
+  zoneUri = NULL)
 }
 \arguments{
 \item{GceClusterConfig.metadata}{The \link{GceClusterConfig.metadata} object or list of objects}
 
-\item{zoneUri}{[Required] The zone where the Google Compute Engine cluster will be located}
+\item{metadata}{The Google Compute Engine metadata entries to add to all instances (see Project and instance metadata (https://cloud}
 
-\item{networkUri}{The Google Compute Engine network to be used for machine communications}
+\item{internalIpOnly}{Optional If true, all instances in the cluster will only have internal IP addresses}
 
-\item{subnetworkUri}{The Google Compute Engine subnetwork to be used for machine communications}
+\item{serviceAccountScopes}{Optional The URIs of service account scopes to be included in Google Compute Engine instances}
 
-\item{serviceAccountScopes}{The URIs of service account scopes to be included in Google Compute Engine instances}
+\item{tags}{The Google Compute Engine tags to add to all instances (see Tagging instances)}
 
-\item{tags}{The Google Compute Engine tags to add to all instances}
+\item{serviceAccount}{Optional The service account of the instances}
 
-\item{metadata}{The Google Compute Engine metadata entries to add to all instances}
+\item{subnetworkUri}{Optional The Google Compute Engine subnetwork to be used for machine communications}
+
+\item{networkUri}{Optional The Google Compute Engine network to be used for machine communications}
+
+\item{zoneUri}{Required The zone where the Google Compute Engine cluster will be located}
 }
 \value{
 GceClusterConfig object
@@ -36,4 +41,3 @@ Common config settings for resources of Google Compute Engine cluster instances,
 \seealso{
 Other GceClusterConfig functions: \code{\link{GceClusterConfig.metadata}}
 }
-

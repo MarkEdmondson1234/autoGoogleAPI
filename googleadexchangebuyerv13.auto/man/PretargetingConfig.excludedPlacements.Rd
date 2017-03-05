@@ -24,4 +24,3 @@ Other PretargetingConfig functions: \code{\link{PretargetingConfig.dimensions}},
   \code{\link{pretargetingConfig.patch}},
   \code{\link{pretargetingConfig.update}}
 }
-

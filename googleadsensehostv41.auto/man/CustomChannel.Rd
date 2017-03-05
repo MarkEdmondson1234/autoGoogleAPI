@@ -28,4 +28,3 @@ Other CustomChannel functions: \code{\link{customchannels.insert}},
   \code{\link{customchannels.patch}},
   \code{\link{customchannels.update}}
 }
-

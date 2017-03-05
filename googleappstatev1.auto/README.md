@@ -1,5 +1,5 @@
 # googleappstatev1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google App State API R library
 
 The Google App State API.

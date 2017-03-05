@@ -2,7 +2,7 @@
 % Please edit documentation in R/cloudresourcemanager_functions.R
 \name{projects.getIamPolicy}
 \alias{projects.getIamPolicy}
-\title{Returns the IAM access control policy for the specified Project. Permission is denied if the policy or the resource does not exist.}
+\title{Returns the IAM access control policy for the specified Project.Permission is denied if the policy or the resource does not exist.}
 \usage{
 projects.getIamPolicy(GetIamPolicyRequest, resource)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other GetIamPolicyRequest functions: \code{\link{GetIamPolicyRequest}},
   \code{\link{organizations.getIamPolicy}}
 }
-

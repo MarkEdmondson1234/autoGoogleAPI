@@ -33,4 +33,3 @@ Other CustomChannel functions: \code{\link{CustomChannel}},
   \code{\link{customchannels.insert}},
   \code{\link{customchannels.update}}
 }
-

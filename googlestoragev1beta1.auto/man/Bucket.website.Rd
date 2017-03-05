@@ -26,4 +26,3 @@ Other Bucket functions: \code{\link{Bucket.owner}},
   \code{\link{Bucket}}, \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

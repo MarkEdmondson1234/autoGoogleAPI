@@ -34,4 +34,3 @@ Represents a complete StyleSettings object. The primary key is a combination of 
 Other StyleSetting functions: \code{\link{style.insert}},
   \code{\link{style.patch}}, \code{\link{style.update}}
 }
-

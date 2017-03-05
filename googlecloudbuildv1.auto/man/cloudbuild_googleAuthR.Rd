@@ -8,7 +8,7 @@
 Builds container images in the cloud.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:59:21
+ at 2017-03-05 19:31:25
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecloudbuildv1.auto/R/cloudbuild_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

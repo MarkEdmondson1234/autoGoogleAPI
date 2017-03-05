@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{annotations.search}
 \alias{annotations.search}
-\title{Searches for annotations that match the given criteria. Results are ordered by genomic coordinate (by reference sequence, then position). Annotations with equivalent genomic coordinates are returned in an unspecified order. This order is consistent, such that two queries for the same content (regardless of page size) yield annotations in the same order across their respective streams of paginated responses. Caller must have READ permission for the queried annotation sets.}
+\title{Searches for annotations that match the given criteria. Results areordered by genomic coordinate (by reference sequence, then position).Annotations with equivalent genomic coordinates are returned in anunspecified order. This order is consistent, such that two queries for thesame content (regardless of page size) yield annotations in the same orderacross their respective streams of paginated responses. Caller must haveREAD permission for the queried annotation sets.}
 \usage{
 annotations.search(SearchAnnotationsRequest)
 }
@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other SearchAnnotationsRequest functions: \code{\link{SearchAnnotationsRequest}}
 }
-

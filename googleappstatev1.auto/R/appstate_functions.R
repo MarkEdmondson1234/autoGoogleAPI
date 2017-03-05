@@ -2,7 +2,7 @@
 #' The Google App State API.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:36:04
+#'  at 2017-03-05 19:28:32
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleappstatev1.auto/R/appstate_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Clears (sets to empty) the data for the passed key if and only if the passed version matches the currently stored version. This method results in a conflict error on version mismatch.
 #' 
@@ -42,7 +55,8 @@ NULL
 states.clear <- function(stateKey, currentDataVersion = NULL) {
     url <- sprintf("https://www.googleapis.com/appstate/v1/states/%s/clear", stateKey)
     # appstate.states.clear
-    f <- gar_api_generator(url, "POST", pars_args = list(currentDataVersion = currentDataVersion), 
+    pars = list(currentDataVersion = currentDataVersion)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -70,7 +84,7 @@ states.clear <- function(stateKey, currentDataVersion = NULL) {
 states.delete <- function(stateKey) {
     url <- sprintf("https://www.googleapis.com/appstate/v1/states/%s", stateKey)
     # appstate.states.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -97,7 +111,7 @@ states.delete <- function(stateKey) {
 states.get <- function(stateKey) {
     url <- sprintf("https://www.googleapis.com/appstate/v1/states/%s", stateKey)
     # appstate.states.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -124,7 +138,8 @@ states.get <- function(stateKey) {
 states.list <- function(includeData = NULL) {
     url <- "https://www.googleapis.com/appstate/v1/states"
     # appstate.states.list
-    f <- gar_api_generator(url, "GET", pars_args = list(includeData = includeData), 
+    pars = list(includeData = includeData)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -161,7 +176,9 @@ states.update <- function(UpdateRequest, stateKey, currentStateVersion = NULL) {
     
     url <- sprintf("https://www.googleapis.com/appstate/v1/states/%s", stateKey)
     # appstate.states.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(currentStateVersion = currentStateVersion), 
+    pars = list(currentStateVersion = currentStateVersion)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     stopifnot(inherits(UpdateRequest, "gar_UpdateRequest"))

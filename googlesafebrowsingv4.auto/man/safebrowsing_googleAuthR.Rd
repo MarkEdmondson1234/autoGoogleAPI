@@ -8,7 +8,7 @@
 Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:22:47
+ at 2017-03-05 19:58:28
 filename: /Users/mark/dev/R/autoGoogleAPI/googlesafebrowsingv4.auto/R/safebrowsing_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

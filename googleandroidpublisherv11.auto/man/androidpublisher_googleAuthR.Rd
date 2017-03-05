@@ -8,7 +8,7 @@
 Lets Android application developers access their Google Play accounts.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:35:20
+ at 2017-03-05 19:26:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googleandroidpublisherv11.auto/R/androidpublisher_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/androidpublisher
 }
 }
-

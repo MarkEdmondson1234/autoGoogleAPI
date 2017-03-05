@@ -65,4 +65,3 @@ Other RollingUpdate functions: \code{\link{RollingUpdate.error.errors}},
   \code{\link{RollingUpdate.policy}},
   \code{\link{rollingUpdates.insert}}
 }
-

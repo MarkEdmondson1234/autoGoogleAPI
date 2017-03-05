@@ -4,10 +4,12 @@
 \alias{representatives.representativeInfoByAddress}
 \title{Looks up political geography and representative information for a single address.}
 \usage{
-representatives.representativeInfoByAddress(address = NULL,
-  includeOffices = NULL, levels = NULL, roles = NULL)
+representatives.representativeInfoByAddress(RepresentativeInfoRequest,
+  address = NULL, includeOffices = NULL, levels = NULL, roles = NULL)
 }
 \arguments{
+\item{RepresentativeInfoRequest}{The \link{RepresentativeInfoRequest} object to pass to this method}
+
 \item{address}{The address to look up}
 
 \item{includeOffices}{Whether to return information about offices and officials}
@@ -31,5 +33,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
 \href{https://developers.google.com/civic-information}{Google Documentation}
-}
 
+Other RepresentativeInfoRequest functions: \code{\link{RepresentativeInfoRequest}}
+}

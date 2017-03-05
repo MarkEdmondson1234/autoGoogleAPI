@@ -2,7 +2,7 @@
 #' Groups Migration Api.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:15:13
+#'  at 2017-03-05 19:54:29
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegroupsmigrationv1.auto/R/groupsmigration_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Inserts a new mail into the archive of the Google group.
@@ -46,7 +59,8 @@ archive.insert <- function(groupId) {
     
     url <- sprintf("https://www.googleapis.com/groups/v1/groups/%s/archive", groupId)
     # groupsmigration.archive.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     f()
     

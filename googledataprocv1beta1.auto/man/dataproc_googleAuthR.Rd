@@ -8,7 +8,7 @@
 Manages Hadoop-based clusters and jobs on Google Cloud Platform.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:19:06
+ at 2017-03-05 19:43:01
 filename: /Users/mark/dev/R/autoGoogleAPI/googledataprocv1beta1.auto/R/dataproc_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

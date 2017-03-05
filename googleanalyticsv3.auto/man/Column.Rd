@@ -26,4 +26,3 @@ JSON template for a metadata column.
 \seealso{
 Other Column functions: \code{\link{Column.attributes}}
 }
-

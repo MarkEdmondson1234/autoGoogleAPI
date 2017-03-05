@@ -24,4 +24,3 @@ A set of instance tags.
 \seealso{
 Other Tags functions: \code{\link{instances.setTags}}
 }
-

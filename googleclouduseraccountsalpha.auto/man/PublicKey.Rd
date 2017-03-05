@@ -31,4 +31,3 @@ A public key for authenticating to guests.
 \seealso{
 Other PublicKey functions: \code{\link{users.addPublicKey}}
 }
-

@@ -22,4 +22,3 @@ The request for FirebaseRulesService.TestRuleset.
 \seealso{
 Other TestRulesetRequest functions: \code{\link{projects.test}}
 }
-

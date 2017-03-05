@@ -37,4 +37,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ReplicasDeleteRequest functions: \code{\link{ReplicasDeleteRequest}}
 }
-

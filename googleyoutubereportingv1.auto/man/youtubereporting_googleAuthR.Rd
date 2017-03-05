@@ -8,15 +8,14 @@
 Schedules reporting jobs containing your YouTube Analytics data and downloads the resulting bulk data reports in the form of CSV files.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:23:23
+ at 2017-03-05 20:24:10
 filename: /Users/mark/dev/R/autoGoogleAPI/googleyoutubereportingv1.auto/R/youtubereporting_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/yt-analytics-monetary.readonly
-\item https://www.googleapis.com/auth/yt-analytics.readonly
+  \item https://www.googleapis.com/auth/yt-analytics.readonly
+\item https://www.googleapis.com/auth/yt-analytics-monetary.readonly
 }
 }
-

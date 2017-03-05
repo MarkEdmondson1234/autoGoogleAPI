@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.setIamPolicy}
 \alias{projects.subscriptions.setIamPolicy}
-\title{Sets the access control policy on the specified resource. Replaces any existing policy.}
+\title{Sets the access control policy on the specified resource. Replaces anyexisting policy.}
 \usage{
 projects.subscriptions.setIamPolicy(SetIamPolicyRequest, resource)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other SetIamPolicyRequest functions: \code{\link{SetIamPolicyRequest}},
   \code{\link{projects.topics.setIamPolicy}}
 }
-

@@ -25,4 +25,3 @@ This is a JSON template for a push token ID resource.
 Other PushTokenId functions: \code{\link{PushTokenId.ios}},
   \code{\link{pushtokens.remove}}
 }
-

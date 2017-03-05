@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/speed/docs/insights/v1/getting_started}{Google Documentation}
 }
-

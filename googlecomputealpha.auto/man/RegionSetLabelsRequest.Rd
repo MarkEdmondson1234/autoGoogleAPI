@@ -26,6 +26,8 @@ No description
 }
 \seealso{
 Other RegionSetLabelsRequest functions: \code{\link{RegionSetLabelsRequest.labels}},
-  \code{\link{regionDisks.setLabels}}
+  \code{\link{addresses.setLabels}},
+  \code{\link{forwardingRules.setLabels}},
+  \code{\link{regionDisks.setLabels}},
+  \code{\link{vpnTunnels.setLabels}}
 }
-

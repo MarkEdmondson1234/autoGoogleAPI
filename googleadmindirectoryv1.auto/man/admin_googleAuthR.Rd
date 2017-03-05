@@ -8,7 +8,7 @@
 The Admin SDK Directory API lets you view and manage enterprise resources such as users and groups, administrative notifications, security features, and more.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:32:24
+ at 2017-03-05 19:22:43
 filename: /Users/mark/dev/R/autoGoogleAPI/googleadmindirectoryv1.auto/R/admin_functions.R
 api_json: api_json
 }
@@ -44,4 +44,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/admin.directory.userschema.readonly
 }
 }
-

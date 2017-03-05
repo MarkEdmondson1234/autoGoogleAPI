@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.gettestordertemplate}
 \alias{orders.gettestordertemplate}
-\title{Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox.}
+\title{Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.gettestordertemplate(merchantId, templateName)
 }
@@ -27,4 +27,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

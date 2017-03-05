@@ -31,4 +31,3 @@ Other Activity functions: \code{\link{Activity.events.parameters}},
   \code{\link{Activity.events}}, \code{\link{Activity.id}},
   \code{\link{Activity}}
 }
-

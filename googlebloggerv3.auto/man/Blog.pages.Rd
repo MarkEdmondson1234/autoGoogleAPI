@@ -25,4 +25,3 @@ The container of pages in this blog.
 Other Blog functions: \code{\link{Blog.locale}},
   \code{\link{Blog.posts}}, \code{\link{Blog}}
 }
-

@@ -19,4 +19,3 @@ How to interpret the source element(s) as a side input value.
 \seealso{
 Other SideInputInfo functions: \code{\link{SideInputInfo}}
 }
-

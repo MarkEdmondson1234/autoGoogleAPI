@@ -2,7 +2,7 @@
 #' Creates and manages users and groups for accessing Google Compute Engine virtual machines.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:00:04
+#'  at 2017-03-05 19:34:23
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleclouduseraccountsalpha.auto/R/clouduseraccounts_functions.R
 #' api_json: api_json
 #' 
@@ -21,6 +21,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Deletes the specified operation resource.
 #' 
@@ -45,9 +58,9 @@ NULL
 #' @export
 globalAccountsOperations.delete <- function(project, operation) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/operations/%s", 
-        operation, project)
+        project, operation)
     # clouduseraccounts.globalAccountsOperations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -77,9 +90,9 @@ globalAccountsOperations.delete <- function(project, operation) {
 #' @export
 globalAccountsOperations.get <- function(project, operation) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/operations/%s", 
-        operation, project)
+        project, operation)
     # clouduseraccounts.globalAccountsOperations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -115,8 +128,9 @@ globalAccountsOperations.list <- function(project, filter = NULL, maxResults = N
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/operations", 
         project)
     # clouduseraccounts.globalAccountsOperations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -146,9 +160,9 @@ globalAccountsOperations.list <- function(project, filter = NULL, maxResults = N
 #' @export
 groups.addMember <- function(GroupsAddMemberRequest, project, groupName) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups/%s/addMember", 
-        groupName, project)
+        project, groupName)
     # clouduseraccounts.groups.addMember
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(GroupsAddMemberRequest, "gar_GroupsAddMemberRequest"))
     
     f(the_body = GroupsAddMemberRequest)
@@ -178,9 +192,9 @@ groups.addMember <- function(GroupsAddMemberRequest, project, groupName) {
 #' @export
 groups.delete <- function(project, groupName) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups/%s", 
-        groupName, project)
+        project, groupName)
     # clouduseraccounts.groups.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -210,9 +224,9 @@ groups.delete <- function(project, groupName) {
 #' @export
 groups.get <- function(project, groupName) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups/%s", 
-        groupName, project)
+        project, groupName)
     # clouduseraccounts.groups.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -244,7 +258,7 @@ groups.getIamPolicy <- function(project, resource) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups/%s/getIamPolicy", 
         project, resource)
     # clouduseraccounts.groups.getIamPolicy
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -275,7 +289,7 @@ groups.insert <- function(Group, project) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups", 
         project)
     # clouduseraccounts.groups.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Group, "gar_Group"))
     
     f(the_body = Group)
@@ -313,8 +327,9 @@ groups.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NUL
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups", 
         project)
     # clouduseraccounts.groups.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -344,9 +359,9 @@ groups.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NUL
 #' @export
 groups.removeMember <- function(GroupsRemoveMemberRequest, project, groupName) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups/%s/removeMember", 
-        groupName, project)
+        project, groupName)
     # clouduseraccounts.groups.removeMember
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(GroupsRemoveMemberRequest, "gar_GroupsRemoveMemberRequest"))
     
     f(the_body = GroupsRemoveMemberRequest)
@@ -382,7 +397,7 @@ groups.setIamPolicy <- function(Policy, project, resource) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups/%s/setIamPolicy", 
         project, resource)
     # clouduseraccounts.groups.setIamPolicy
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Policy, "gar_Policy"))
     
     f(the_body = Policy)
@@ -418,7 +433,7 @@ groups.testIamPermissions <- function(TestPermissionsRequest, project, resource)
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/groups/%s/testIamPermissions", 
         project, resource)
     # clouduseraccounts.groups.testIamPermissions
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TestPermissionsRequest, "gar_TestPermissionsRequest"))
     
     f(the_body = TestPermissionsRequest)
@@ -453,9 +468,10 @@ groups.testIamPermissions <- function(TestPermissionsRequest, project, resource)
 #' @export
 linux.getAuthorizedKeysView <- function(project, zone, user, instance, login = NULL) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/zones/%s/authorizedKeysView/%s", 
-        project, user, zone)
+        project, zone, user)
     # clouduseraccounts.linux.getAuthorizedKeysView
-    f <- gar_api_generator(url, "POST", pars_args = list(instance = instance, login = login), 
+    pars = list(instance = instance, login = login)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -494,8 +510,10 @@ linux.getLinuxAccountViews <- function(project, zone, instance, filter = NULL, m
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/zones/%s/linuxAccountViews", 
         project, zone)
     # clouduseraccounts.linux.getLinuxAccountViews
-    f <- gar_api_generator(url, "POST", pars_args = list(filter = filter, instance = instance, 
-        maxResults = maxResults, orderBy = orderBy, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(instance = instance, filter = filter, maxResults = maxResults, orderBy = orderBy, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -527,7 +545,7 @@ users.addPublicKey <- function(PublicKey, project, user) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users/%s/addPublicKey", 
         project, user)
     # clouduseraccounts.users.addPublicKey
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PublicKey, "gar_PublicKey"))
     
     f(the_body = PublicKey)
@@ -559,7 +577,7 @@ users.delete <- function(project, user) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users/%s", 
         project, user)
     # clouduseraccounts.users.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -591,7 +609,7 @@ users.get <- function(project, user) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users/%s", 
         project, user)
     # clouduseraccounts.users.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -623,7 +641,7 @@ users.getIamPolicy <- function(project, resource) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users/%s/getIamPolicy", 
         project, resource)
     # clouduseraccounts.users.getIamPolicy
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -654,7 +672,7 @@ users.insert <- function(User, project) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users", 
         project)
     # clouduseraccounts.users.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(User, "gar_User"))
     
     f(the_body = User)
@@ -692,8 +710,9 @@ users.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users", 
         project)
     # clouduseraccounts.users.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -724,7 +743,8 @@ users.removePublicKey <- function(project, user, fingerprint) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users/%s/removePublicKey", 
         project, user)
     # clouduseraccounts.users.removePublicKey
-    f <- gar_api_generator(url, "POST", pars_args = list(fingerprint = fingerprint), 
+    pars = list(fingerprint = fingerprint)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -759,7 +779,7 @@ users.setIamPolicy <- function(Policy, project, resource) {
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users/%s/setIamPolicy", 
         project, resource)
     # clouduseraccounts.users.setIamPolicy
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Policy, "gar_Policy"))
     
     f(the_body = Policy)
@@ -801,7 +821,8 @@ users.testIamPermissions <- function(TestPermissionsRequest, project, resource) 
     url <- sprintf("https://www.googleapis.com/clouduseraccounts/alpha/projects/%s/global/users/%s/testIamPermissions", 
         project, resource)
     # clouduseraccounts.users.testIamPermissions
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(TestPermissionsRequest, "gar_TestPermissionsRequest"))
     

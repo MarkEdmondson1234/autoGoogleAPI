@@ -25,4 +25,3 @@ The position of the place.
 Other Place functions: \code{\link{Place.address}},
   \code{\link{Place}}
 }
-

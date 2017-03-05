@@ -4,12 +4,12 @@
 \alias{PullRequest}
 \title{PullRequest Object}
 \usage{
-PullRequest(returnImmediately = NULL, maxMessages = NULL)
+PullRequest(maxMessages = NULL, returnImmediately = NULL)
 }
 \arguments{
-\item{returnImmediately}{If this is specified as true the system will respond immediately even if it is not able to return a message in the `Pull` response}
-
 \item{maxMessages}{The maximum number of messages returned for this request}
+
+\item{returnImmediately}{If this field set to true, the system will respond immediately even if}
 }
 \value{
 PullRequest object
@@ -24,4 +24,3 @@ Request for the `Pull` method.
 \seealso{
 Other PullRequest functions: \code{\link{projects.subscriptions.pull}}
 }
-

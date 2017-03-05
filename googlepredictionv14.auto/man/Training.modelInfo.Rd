@@ -49,4 +49,3 @@ Other Training functions: \code{\link{Training.dataAnalysis}},
   \code{\link{Training}},
   \code{\link{trainedmodels.insert}}
 }
-

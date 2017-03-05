@@ -35,6 +35,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other Policy functions: \code{\link{Policy}},
   \code{\link{backendBuckets.setIamPolicy}},
+  \code{\link{hosts.setIamPolicy}},
   \code{\link{subnetworks.setIamPolicy}}
 }
-

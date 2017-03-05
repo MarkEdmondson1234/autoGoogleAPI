@@ -22,4 +22,3 @@ No description
 \seealso{
 Other DatafeedstatusesCustomBatchRequest functions: \code{\link{datafeedstatuses.custombatch}}
 }
-

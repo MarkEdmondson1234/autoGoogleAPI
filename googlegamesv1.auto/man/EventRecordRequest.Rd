@@ -27,4 +27,3 @@ This is a JSON template for an event period update resource.
 \seealso{
 Other EventRecordRequest functions: \code{\link{events.record}}
 }
-

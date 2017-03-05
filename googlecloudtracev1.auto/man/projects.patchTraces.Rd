@@ -2,7 +2,7 @@
 % Please edit documentation in R/cloudtrace_functions.R
 \name{projects.patchTraces}
 \alias{projects.patchTraces}
-\title{Sends new traces to Stackdriver Trace or updates existing traces. If the ID of a trace that you send matches that of an existing trace, any fields in the existing trace and its spans are overwritten by the provided values, and any new fields provided are merged with the existing trace data. If the ID does not match, a new trace is created.}
+\title{Sends new traces to Stackdriver Trace or updates existing traces. If the IDof a trace that you send matches that of an existing trace, any fieldsin the existing trace and its spans are overwritten by the provided values,and any new fields provided are merged with the existing trace data. If theID does not match, a new trace is created.}
 \usage{
 projects.patchTraces(Traces, projectId)
 }
@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/tools/cloud-trace}{Google Documentation}
+\href{https://cloud.google.com/trace}{Google Documentation}
 
 Other Traces functions: \code{\link{Traces}}
 }
-

@@ -22,4 +22,3 @@ No description
 \seealso{
 Other TargetSslProxiesSetProxyHeaderRequest functions: \code{\link{targetSslProxies.setProxyHeader}}
 }
-

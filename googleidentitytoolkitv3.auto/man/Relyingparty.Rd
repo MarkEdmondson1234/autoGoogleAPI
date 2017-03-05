@@ -35,4 +35,3 @@ Request of getting a code for user confirmation (reset password, change email et
 \seealso{
 Other Relyingparty functions: \code{\link{relyingparty.getOobConfirmationCode}}
 }
-

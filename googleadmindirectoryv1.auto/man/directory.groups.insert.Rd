@@ -30,4 +30,3 @@ Other Group functions: \code{\link{Group}},
   \code{\link{directory.groups.patch}},
   \code{\link{directory.groups.update}}
 }
-

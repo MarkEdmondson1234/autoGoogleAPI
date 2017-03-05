@@ -25,4 +25,3 @@ No description
 \seealso{
 Other InstanceGroupManagersSetTargetPoolsRequest functions: \code{\link{instanceGroupManagers.setTargetPools}}
 }
-

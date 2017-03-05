@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/bigquery/}{Google Documentation}
 }
-

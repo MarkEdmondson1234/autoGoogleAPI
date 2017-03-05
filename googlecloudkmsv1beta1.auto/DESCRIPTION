@@ -1,0 +1,12 @@
+Package: googlecloudkmsv1beta1.auto
+Title: Google Cloud Key Management Service (KMS) API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Manages encryption for your cloud services the same way you do on-premise. You can generate, use, rotate, and destroy AES256 encryption keys. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

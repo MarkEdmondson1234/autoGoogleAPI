@@ -1,5 +1,5 @@
 # googlelicensingv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Enterprise License Manager API R library
 
 Licensing API to view and manage license for your domain.

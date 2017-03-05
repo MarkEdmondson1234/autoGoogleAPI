@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstanceGroupsAddInstancesRequest functions: \code{\link{instanceGroups.addInstances}}
 }
-

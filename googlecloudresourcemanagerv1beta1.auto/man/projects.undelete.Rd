@@ -2,7 +2,7 @@
 % Please edit documentation in R/cloudresourcemanager_functions.R
 \name{projects.undelete}
 \alias{projects.undelete}
-\title{Restores the Project identified by the specified `project_id` (for example, `my-project-123`). You can only use this method for a Project that has a lifecycle state of DELETE_REQUESTED. After deletion starts, the Project cannot be restored. The caller must have modify permissions for this Project.}
+\title{Restores the Project identified by the specified`project_id` (for example, `my-project-123`).You can only use this method for a Project that has a lifecycle state ofDELETE_REQUESTED.After deletion starts, the Project cannot be restored.The caller must have modify permissions for this Project.}
 \usage{
 projects.undelete(UndeleteProjectRequest, projectId)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other UndeleteProjectRequest functions: \code{\link{UndeleteProjectRequest}}
 }
-

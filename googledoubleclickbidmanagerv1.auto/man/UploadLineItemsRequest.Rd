@@ -26,4 +26,3 @@ Request to upload line items.
 \seealso{
 Other UploadLineItemsRequest functions: \code{\link{lineitems.uploadlineitems}}
 }
-

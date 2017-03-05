@@ -2,7 +2,7 @@
 #' Analyzes the performance of a web page and provides tailored suggestions to make that page faster.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:24:56
+#'  at 2017-03-05 20:04:02
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlepagespeedonlinev2.auto/R/pagespeedonline_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information.
@@ -57,9 +70,11 @@ pagespeedapi.runpagespeed <- function(url, filter_third_party_resources = NULL, 
     
     url <- "https://www.googleapis.com/pagespeedonline/v2/runPagespeed"
     # pagespeedonline.pagespeedapi.runpagespeed
-    f <- gar_api_generator(url, "GET", pars_args = list(filter_third_party_resources = filter_third_party_resources, 
-        locale = locale, rule = rule, screenshot = screenshot, strategy = strategy, 
-        url = url), data_parse_function = function(x) x)
+    pars = list(url = url, filter_third_party_resources = filter_third_party_resources, 
+        locale = locale, rule = rule, screenshot = screenshot, strategy = strategy)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

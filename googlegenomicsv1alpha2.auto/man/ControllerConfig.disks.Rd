@@ -22,4 +22,3 @@ Other ControllerConfig functions: \code{\link{ControllerConfig.gcsSinks}},
   \code{\link{ControllerConfig.vars}},
   \code{\link{ControllerConfig}}
 }
-

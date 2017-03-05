@@ -1,5 +1,5 @@
 # googlegamesv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Play Game Services API R library
 
 The API for Google Play Game Services.

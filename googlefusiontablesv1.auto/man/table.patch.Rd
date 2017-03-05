@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Table functions: \code{\link{Table}},
   \code{\link{table.insert}}, \code{\link{table.update}}
 }
-

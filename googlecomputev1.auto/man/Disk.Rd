@@ -69,4 +69,3 @@ A Disk resource.
 \seealso{
 Other Disk functions: \code{\link{disks.insert}}
 }
-

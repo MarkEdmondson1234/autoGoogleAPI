@@ -22,4 +22,3 @@ Request for the Publish method.
 \seealso{
 Other PublishRequest functions: \code{\link{projects.topics.publish}}
 }
-

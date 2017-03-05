@@ -34,4 +34,3 @@ Other Property functions: \code{\link{Property}},
   \code{\link{properties.patch}},
   \code{\link{properties.update}}
 }
-

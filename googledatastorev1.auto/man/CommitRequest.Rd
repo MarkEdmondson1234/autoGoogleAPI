@@ -26,4 +26,3 @@ The request for Datastore.Commit.
 \seealso{
 Other CommitRequest functions: \code{\link{projects.commit}}
 }
-

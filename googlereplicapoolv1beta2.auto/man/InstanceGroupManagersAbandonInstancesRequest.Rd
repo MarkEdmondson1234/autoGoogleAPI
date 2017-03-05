@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstanceGroupManagersAbandonInstancesRequest functions: \code{\link{instanceGroupManagers.abandonInstances}}
 }
-

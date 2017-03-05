@@ -5,23 +5,23 @@
 \title{Operation Object}
 \usage{
 Operation(Operation.metadata = NULL, Operation.response = NULL,
-  name = NULL, metadata = NULL, done = NULL, error = NULL,
-  response = NULL)
+  metadata = NULL, done = NULL, response = NULL, name = NULL,
+  error = NULL)
 }
 \arguments{
 \item{Operation.metadata}{The \link{Operation.metadata} object or list of objects}
 
 \item{Operation.response}{The \link{Operation.response} object or list of objects}
 
-\item{name}{The server-assigned name, which is only unique within the same service that originally returns it}
-
 \item{metadata}{Service-specific metadata associated with the operation}
 
-\item{done}{If the value is `false`, it means the operation is still in progress}
-
-\item{error}{The error result of the operation in case of failure}
+\item{done}{If the value is false, it means the operation is still in progress}
 
 \item{response}{The normal response of the operation in case of success}
+
+\item{name}{The server-assigned name, which is only unique within the same service that originally returns it}
+
+\item{error}{The error result of the operation in case of failure or cancellation}
 }
 \value{
 Operation object
@@ -37,4 +37,3 @@ This resource represents a long-running operation that is the result of a networ
 Other Operation functions: \code{\link{Operation.metadata}},
   \code{\link{Operation.response}}
 }
-

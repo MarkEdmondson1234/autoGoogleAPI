@@ -38,4 +38,3 @@ Other Property functions: \code{\link{Property}},
   \code{\link{properties.insert}},
   \code{\link{properties.patch}}
 }
-

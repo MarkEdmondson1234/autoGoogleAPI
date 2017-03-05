@@ -19,4 +19,3 @@ A request to collect cluster diagnostic information.
 \seealso{
 Other DiagnoseClusterRequest functions: \code{\link{projects.regions.clusters.diagnose}}
 }
-

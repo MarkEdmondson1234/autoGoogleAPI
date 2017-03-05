@@ -24,4 +24,3 @@ Other ComposeRequest functions: \code{\link{ComposeRequest.sourceObjects}},
   \code{\link{ComposeRequest}},
   \code{\link{objects.compose}}
 }
-

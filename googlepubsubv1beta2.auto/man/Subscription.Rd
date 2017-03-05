@@ -4,17 +4,17 @@
 \alias{Subscription}
 \title{Subscription Object}
 \usage{
-Subscription(name = NULL, topic = NULL, pushConfig = NULL,
-  ackDeadlineSeconds = NULL)
+Subscription(pushConfig = NULL, ackDeadlineSeconds = NULL, name = NULL,
+  topic = NULL)
 }
 \arguments{
+\item{pushConfig}{If push delivery is used with this subscription, this field is}
+
+\item{ackDeadlineSeconds}{This value is the maximum time after a subscriber receives a message}
+
 \item{name}{The name of the subscription}
 
 \item{topic}{The name of the topic from which this subscription is receiving messages}
-
-\item{pushConfig}{If push delivery is used with this subscription, this field is used to configure it}
-
-\item{ackDeadlineSeconds}{This value is the maximum time after a subscriber receives a message before the subscriber should acknowledge the message}
 }
 \value{
 Subscription object
@@ -29,4 +29,3 @@ A subscription resource.
 \seealso{
 Other Subscription functions: \code{\link{projects.subscriptions.create}}
 }
-

@@ -31,4 +31,3 @@ Informational warning which replaces the list of addresses when the list is empt
 Other TargetInstancesScopedList functions: \code{\link{TargetInstancesScopedList.warning.data}},
   \code{\link{TargetInstancesScopedList}}
 }
-

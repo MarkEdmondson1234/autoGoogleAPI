@@ -48,4 +48,3 @@ Represents a table.
 Other Table functions: \code{\link{table.insert}},
   \code{\link{table.patch}}, \code{\link{table.update}}
 }
-

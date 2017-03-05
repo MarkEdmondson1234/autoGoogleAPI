@@ -2,7 +2,7 @@
 % Please edit documentation in R/cloudresourcemanager_functions.R
 \name{operations.get}
 \alias{operations.get}
-\title{Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.}
+\title{Gets the latest state of a long-running operation.  Clients can use thismethod to poll the operation result at intervals as recommended by the APIservice.}
 \usage{
 operations.get(name)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/resource-manager}{Google Documentation}
 }
-

@@ -27,4 +27,3 @@ This is a JSON template for a join room request.
 \seealso{
 Other RoomJoinRequest functions: \code{\link{rooms.join}}
 }
-

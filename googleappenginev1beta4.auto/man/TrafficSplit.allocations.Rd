@@ -19,4 +19,3 @@ Mapping from version IDs within the module to fractional (0.000, 1] allocations 
 \seealso{
 Other TrafficSplit functions: \code{\link{TrafficSplit}}
 }
-

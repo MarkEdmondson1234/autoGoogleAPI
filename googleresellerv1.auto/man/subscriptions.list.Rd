@@ -2,19 +2,19 @@
 % Please edit documentation in R/reseller_functions.R
 \name{subscriptions.list}
 \alias{subscriptions.list}
-\title{Lists subscriptions of a reseller, optionally filtered by a customer name prefix.}
+\title{List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions.}
 \usage{
 subscriptions.list(customerAuthToken = NULL, customerId = NULL,
   customerNamePrefix = NULL, maxResults = NULL, pageToken = NULL)
 }
 \arguments{
-\item{customerAuthToken}{An auth token needed if the customer is not a resold customer of this reseller}
+\item{customerAuthToken}{The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management}
 
-\item{customerId}{Id of the Customer}
+\item{customerId}{Either the customer's primary domain name or the customer's unique identifier}
 
-\item{customerNamePrefix}{Prefix of the customer's domain name by which the subscriptions should be filtered}
+\item{customerNamePrefix}{When retrieving all of your subscriptions and filtering for specific customers, you can enter a prefix for a customer name}
 
-\item{maxResults}{Maximum number of results to return}
+\item{maxResults}{When retrieving a large list, the maxResults is the maximum number of results per page}
 
 \item{pageToken}{Token to specify next page in the list}
 }
@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/google-apps/reseller/}{Google Documentation}
 }
-

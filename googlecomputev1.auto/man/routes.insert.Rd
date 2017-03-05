@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Route functions: \code{\link{Route.warnings.data}},
   \code{\link{Route.warnings}}, \code{\link{Route}}
 }
-

@@ -29,4 +29,3 @@ A reference to a file's parent.
 \seealso{
 Other ParentReference functions: \code{\link{parents.insert}}
 }
-

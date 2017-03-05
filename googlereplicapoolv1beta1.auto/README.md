@@ -1,5 +1,5 @@
 # googlereplicapoolv1beta1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Replica Pool API R library
 
 The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.

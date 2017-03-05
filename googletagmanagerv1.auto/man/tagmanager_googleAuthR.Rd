@@ -8,7 +8,7 @@
 Accesses Tag Manager accounts and containers.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:48:57
+ at 2017-03-05 20:18:35
 filename: /Users/mark/dev/R/autoGoogleAPI/googletagmanagerv1.auto/R/tagmanager_functions.R
 api_json: api_json
 }
@@ -24,4 +24,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/tagmanager.readonly
 }
 }
-

@@ -33,4 +33,3 @@ No description
 Other Volumeseriesinfo functions: \code{\link{Volumeseriesinfo.volumeSeries.issue}},
   \code{\link{Volumeseriesinfo.volumeSeries}}
 }
-

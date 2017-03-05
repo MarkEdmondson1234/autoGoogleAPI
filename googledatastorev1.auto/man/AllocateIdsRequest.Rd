@@ -22,4 +22,3 @@ The request for Datastore.AllocateIds.
 \seealso{
 Other AllocateIdsRequest functions: \code{\link{projects.allocateIds}}
 }
-

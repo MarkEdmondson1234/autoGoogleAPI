@@ -2,7 +2,7 @@
 #' Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:23:08
+#'  at 2017-03-05 19:58:43
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragetransferv1.auto/R/storagetransfer_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Returns the Google service account that is used by Storage Transfer Service to access buckets in the project where transfers run or in other projects. Each Google service account is associated with one Google Developers Console project. Users should add this service account to the Google Cloud Storage bucket ACLs to grant access to Storage Transfer Service. This service account is created and owned by Storage Transfer Service and can only be used by Storage Transfer Service.
 #' 
@@ -42,7 +55,7 @@ googleServiceAccounts.get <- function(projectId) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/googleServiceAccounts/%s", 
         projectId)
     # storagetransfer.googleServiceAccounts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -69,7 +82,9 @@ googleServiceAccounts.get <- function(projectId) {
 getGoogleServiceAccount <- function(projectId = NULL) {
     url <- "https://storagetransfer.googleapis.com/v1:getGoogleServiceAccount"
     # storagetransfer.getGoogleServiceAccount
-    f <- gar_api_generator(url, "GET", pars_args = list(projectId = projectId), data_parse_function = function(x) x)
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -97,7 +112,7 @@ getGoogleServiceAccount <- function(projectId = NULL) {
 transferJobs.create <- function(TransferJob) {
     url <- "https://storagetransfer.googleapis.com/v1/transferJobs"
     # storagetransfer.transferJobs.create
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TransferJob, "gar_TransferJob"))
     
     f(the_body = TransferJob)
@@ -128,7 +143,7 @@ transferJobs.create <- function(TransferJob) {
 transferJobs.patch <- function(UpdateTransferJobRequest, jobName) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+jobName}", jobName)
     # storagetransfer.transferJobs.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(UpdateTransferJobRequest, "gar_UpdateTransferJobRequest"))
     
     f(the_body = UpdateTransferJobRequest)
@@ -158,7 +173,9 @@ transferJobs.patch <- function(UpdateTransferJobRequest, jobName) {
 transferJobs.get <- function(jobName, projectId = NULL) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+jobName}", jobName)
     # storagetransfer.transferJobs.get
-    f <- gar_api_generator(url, "GET", pars_args = list(projectId = projectId), data_parse_function = function(x) x)
+    pars = list(projectId = projectId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -187,8 +204,9 @@ transferJobs.get <- function(jobName, projectId = NULL) {
 transferJobs.list <- function(filter = NULL, pageSize = NULL, pageToken = NULL) {
     url <- "https://storagetransfer.googleapis.com/v1/transferJobs"
     # storagetransfer.transferJobs.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, pageSize = pageSize, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, pageSize = pageSize, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -217,7 +235,7 @@ transferJobs.list <- function(filter = NULL, pageSize = NULL, pageToken = NULL) 
 transferOperations.pause <- function(PauseTransferOperationRequest, name) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+name}:pause", name)
     # storagetransfer.transferOperations.pause
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PauseTransferOperationRequest, "gar_PauseTransferOperationRequest"))
     
     f(the_body = PauseTransferOperationRequest)
@@ -248,7 +266,7 @@ transferOperations.pause <- function(PauseTransferOperationRequest, name) {
 transferOperations.resume <- function(ResumeTransferOperationRequest, name) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+name}:resume", name)
     # storagetransfer.transferOperations.resume
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ResumeTransferOperationRequest, "gar_ResumeTransferOperationRequest"))
     
     f(the_body = ResumeTransferOperationRequest)
@@ -277,7 +295,7 @@ transferOperations.resume <- function(ResumeTransferOperationRequest, name) {
 transferOperations.get <- function(name) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+name}", name)
     # storagetransfer.transferOperations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -307,8 +325,9 @@ transferOperations.get <- function(name) {
 transferOperations.list <- function(name, filter = NULL, pageSize = NULL, pageToken = NULL) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+name}", name)
     # storagetransfer.transferOperations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, pageSize = pageSize, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, pageSize = pageSize, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -335,7 +354,7 @@ transferOperations.list <- function(name, filter = NULL, pageSize = NULL, pageTo
 transferOperations.cancel <- function(name) {
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+name}:cancel", name)
     # storagetransfer.transferOperations.cancel
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -367,7 +386,8 @@ transferOperations.delete <- function(name) {
     
     url <- sprintf("https://storagetransfer.googleapis.com/v1/{+name}", name)
     # storagetransfer.transferOperations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     
     f()
     

@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.acknowledge}
 \alias{projects.subscriptions.acknowledge}
-\title{Acknowledges the messages associated with the `ack_ids` in the `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages from the subscription. Acknowledging a message whose ack deadline has expired may succeed, but such a message may be redelivered later. Acknowledging a message more than once will not result in an error.}
+\title{Acknowledges the messages associated with the `ack_ids` in the`AcknowledgeRequest`. The Pub/Sub system can remove the relevant messagesfrom the subscription.Acknowledging a message whose ack deadline has expired may succeed,but such a message may be redelivered later. Acknowledging a message morethan once will not result in an error.}
 \usage{
 projects.subscriptions.acknowledge(AcknowledgeRequest, subscription)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other AcknowledgeRequest functions: \code{\link{AcknowledgeRequest}}
 }
-

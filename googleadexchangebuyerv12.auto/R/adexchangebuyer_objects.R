@@ -2,7 +2,7 @@
 #' Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:30:24
+#'  at 2017-03-05 19:19:45
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangebuyerv12.auto/R/adexchangebuyer_objects.R
 #' api_json: api_json
 #' 
@@ -32,7 +32,7 @@ Account <- function(Account.bidderLocation = NULL, bidderLocation = NULL, cookie
     numberActiveCreatives = NULL) {
     structure(list(Account.bidderLocation = Account.bidderLocation, bidderLocation = bidderLocation, 
         cookieMatchingNid = cookieMatchingNid, cookieMatchingUrl = cookieMatchingUrl, 
-        id = id, kind = "adexchangebuyer#account", maximumActiveCreatives = maximumActiveCreatives, 
+        id = id, kind = `adexchangebuyer#account`, maximumActiveCreatives = maximumActiveCreatives, 
         maximumTotalQps = maximumTotalQps, numberActiveCreatives = numberActiveCreatives), 
         class = "gar_Account")
 }
@@ -66,7 +66,7 @@ Account.bidderLocation <- function() {
 #' @family AccountsList functions
 #' @export
 AccountsList <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#accountsList"), class = "gar_AccountsList")
+    structure(list(items = items, kind = `adexchangebuyer#accountsList`), class = "gar_AccountsList")
 }
 
 #' Creative Object
@@ -120,7 +120,7 @@ Creative <- function(Creative.corrections = NULL, Creative.disapprovalReasons = 
         advertiserName = advertiserName, agencyId = agencyId, apiUploadTimestamp = apiUploadTimestamp, 
         attribute = attribute, buyerCreativeId = buyerCreativeId, clickThroughUrl = clickThroughUrl, 
         corrections = corrections, disapprovalReasons = disapprovalReasons, filteringReasons = filteringReasons, 
-        height = height, impressionTrackingUrl = impressionTrackingUrl, kind = "adexchangebuyer#creative", 
+        height = height, impressionTrackingUrl = impressionTrackingUrl, kind = `adexchangebuyer#creative`, 
         productCategories = productCategories, restrictedCategories = restrictedCategories, 
         sensitiveCategories = sensitiveCategories, status = status, vendorType = vendorType, 
         version = version, videoURL = videoURL, width = width), class = "gar_Creative")
@@ -214,7 +214,7 @@ CreativesList <- function(items = NULL, nextPageToken = NULL) {
     
     
     
-    structure(list(items = items, kind = "adexchangebuyer#creativesList", nextPageToken = nextPageToken), 
+    structure(list(items = items, kind = `adexchangebuyer#creativesList`, nextPageToken = nextPageToken), 
         class = "gar_CreativesList")
 }
 

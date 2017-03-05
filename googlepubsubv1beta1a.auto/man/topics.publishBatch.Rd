@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{topics.publishBatch}
 \alias{topics.publishBatch}
-\title{Adds one or more messages to the topic. Returns NOT_FOUND if the topic does not exist.}
+\title{Adds one or more messages to the topic. Returns NOT_FOUND if the topic doesnot exist.}
 \usage{
 topics.publishBatch(PublishBatchRequest)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other PublishBatchRequest functions: \code{\link{PublishBatchRequest}}
 }
-

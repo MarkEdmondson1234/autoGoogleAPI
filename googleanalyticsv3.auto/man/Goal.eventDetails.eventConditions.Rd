@@ -28,4 +28,3 @@ Other Goal functions: \code{\link{Goal.eventDetails}},
   \code{\link{management.goals.patch}},
   \code{\link{management.goals.update}}
 }
-

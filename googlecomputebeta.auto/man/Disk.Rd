@@ -79,4 +79,3 @@ A Disk resource.
 Other Disk functions: \code{\link{Disk.labels}},
   \code{\link{disks.insert}}
 }
-

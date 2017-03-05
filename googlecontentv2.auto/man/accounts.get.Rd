@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accounts.get}
 \alias{accounts.get}
-\title{Retrieves a Merchant Center account.}
+\title{Retrieves a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.}
 \usage{
 accounts.get(merchantId, accountId)
 }
@@ -27,4 +27,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

@@ -4,21 +4,17 @@
 \alias{LogEntry}
 \title{LogEntry Object}
 \usage{
-LogEntry(LogEntry.structPayload = NULL, LogEntry.labels = NULL,
-  LogEntry.protoPayload = NULL, textPayload = NULL, structPayload = NULL,
-  labels = NULL, severity = NULL, name = NULL, protoPayload = NULL,
-  timestamp = NULL, insertId = NULL)
+LogEntry(LogEntry.labels = NULL, LogEntry.structPayload = NULL,
+  LogEntry.protoPayload = NULL, labels = NULL, severity = NULL,
+  name = NULL, insertId = NULL, structPayload = NULL,
+  textPayload = NULL, protoPayload = NULL, timestamp = NULL)
 }
 \arguments{
-\item{LogEntry.structPayload}{The \link{LogEntry.structPayload} object or list of objects}
-
 \item{LogEntry.labels}{The \link{LogEntry.labels} object or list of objects}
 
+\item{LogEntry.structPayload}{The \link{LogEntry.structPayload} object or list of objects}
+
 \item{LogEntry.protoPayload}{The \link{LogEntry.protoPayload} object or list of objects}
-
-\item{textPayload}{The log entry payload, represented as a Unicode string (UTF-8)}
-
-\item{structPayload}{The log entry payload, represented as a structure that}
 
 \item{labels}{A set of user-defined (key, value) data that provides additional}
 
@@ -26,11 +22,15 @@ LogEntry(LogEntry.structPayload = NULL, LogEntry.labels = NULL,
 
 \item{name}{Required}
 
+\item{insertId}{A unique ID for the log entry used for deduplication}
+
+\item{structPayload}{The log entry payload, represented as a structure that}
+
+\item{textPayload}{The log entry payload, represented as a Unicode string (UTF-8)}
+
 \item{protoPayload}{The log entry payload, represented as a protocol buffer that is}
 
 \item{timestamp}{The time the event described by the log entry occurred}
-
-\item{insertId}{A unique ID for the log entry used for deduplication}
 }
 \value{
 LogEntry object
@@ -47,4 +47,3 @@ Other LogEntry functions: \code{\link{LogEntry.labels}},
   \code{\link{LogEntry.protoPayload}},
   \code{\link{LogEntry.structPayload}}
 }
-

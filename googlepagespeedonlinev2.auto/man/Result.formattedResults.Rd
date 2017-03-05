@@ -30,4 +30,3 @@ Other Result functions: \code{\link{Result.formattedResults.ruleResults}},
   \code{\link{Result.ruleGroups}},
   \code{\link{Result.version}}, \code{\link{Result}}
 }
-

@@ -22,4 +22,3 @@ No description
 \seealso{
 Other ProjectsEnableXpnResourceRequest functions: \code{\link{projects.enableXpnResource}}
 }
-

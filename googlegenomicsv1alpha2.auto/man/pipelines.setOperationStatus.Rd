@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{pipelines.setOperationStatus}
 \alias{pipelines.setOperationStatus}
-\title{Sets status of a given operation. Any new timestamps (as determined by description) are appended to TimestampEvents. Should only be called by VMs created by the Pipelines Service and not by end users.}
+\title{Sets status of a given operation. Any new timestamps (as determined bydescription) are appended to TimestampEvents. Should only be called by VMscreated by the Pipelines Service and not by end users.}
 \usage{
 pipelines.setOperationStatus(SetOperationStatusRequest)
 }
@@ -25,8 +25,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other SetOperationStatusRequest functions: \code{\link{SetOperationStatusRequest}}
 }
-

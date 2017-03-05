@@ -39,4 +39,3 @@ JSON template for Customer Resource object in Directory API.
 Other Customer functions: \code{\link{directory.customers.patch}},
   \code{\link{directory.customers.update}}
 }
-

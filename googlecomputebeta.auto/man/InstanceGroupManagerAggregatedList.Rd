@@ -32,4 +32,3 @@ No description
 \seealso{
 Other InstanceGroupManagerAggregatedList functions: \code{\link{InstanceGroupManagerAggregatedList.items}}
 }
-

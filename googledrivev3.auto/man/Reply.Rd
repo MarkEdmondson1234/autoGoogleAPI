@@ -38,4 +38,3 @@ A reply to a comment on a file.
 Other Reply functions: \code{\link{replies.create}},
   \code{\link{replies.update}}
 }
-

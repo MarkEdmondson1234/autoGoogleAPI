@@ -2,7 +2,7 @@
 #' Builds on top of the Google+ platform.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:25:10
+#'  at 2017-03-05 20:04:45
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleplusv1.auto/R/plus_functions.R
 #' api_json: api_json
 #' 
@@ -21,6 +21,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Get an activity.
 #' 
@@ -45,7 +58,7 @@ NULL
 activities.get <- function(activityId) {
     url <- sprintf("https://www.googleapis.com/plus/v1/activities/%s", activityId)
     # plus.activities.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -75,10 +88,11 @@ activities.get <- function(activityId) {
 #' @export
 activities.list <- function(userId, collection, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/plus/v1/people/%s/activities/%s", 
-        collection, userId)
+        userId, collection)
     # plus.activities.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -111,8 +125,10 @@ activities.search <- function(query, language = NULL, maxResults = NULL, orderBy
     pageToken = NULL) {
     url <- "https://www.googleapis.com/plus/v1/activities"
     # plus.activities.search
-    f <- gar_api_generator(url, "GET", pars_args = list(language = language, maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken, query = query), data_parse_function = function(x) x)
+    pars = list(query = query, language = language, maxResults = maxResults, orderBy = orderBy, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -140,7 +156,7 @@ activities.search <- function(query, language = NULL, maxResults = NULL, orderBy
 comments.get <- function(commentId) {
     url <- sprintf("https://www.googleapis.com/plus/v1/comments/%s", commentId)
     # plus.comments.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -171,8 +187,9 @@ comments.get <- function(commentId) {
 comments.list <- function(activityId, maxResults = NULL, pageToken = NULL, sortOrder = NULL) {
     url <- sprintf("https://www.googleapis.com/plus/v1/activities/%s/comments", activityId)
     # plus.comments.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, sortOrder = sortOrder), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, sortOrder = sortOrder)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -202,7 +219,7 @@ comments.list <- function(activityId, maxResults = NULL, pageToken = NULL, sortO
 people.get <- function(userId) {
     url <- sprintf("https://www.googleapis.com/plus/v1/people/%s", userId)
     # plus.people.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -232,11 +249,12 @@ people.get <- function(userId) {
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 people.list <- function(userId, collection, maxResults = NULL, orderBy = NULL, pageToken = NULL) {
-    url <- sprintf("https://www.googleapis.com/plus/v1/people/%s/people/%s", collection, 
-        userId)
+    url <- sprintf("https://www.googleapis.com/plus/v1/people/%s/people/%s", userId, 
+        collection)
     # plus.people.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -268,8 +286,9 @@ people.listByActivity <- function(activityId, collection, maxResults = NULL, pag
     url <- sprintf("https://www.googleapis.com/plus/v1/activities/%s/people/%s", 
         activityId, collection)
     # plus.people.listByActivity
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -308,8 +327,10 @@ people.search <- function(query, language = NULL, maxResults = NULL, pageToken =
     
     url <- "https://www.googleapis.com/plus/v1/people"
     # plus.people.search
-    f <- gar_api_generator(url, "GET", pars_args = list(language = language, maxResults = maxResults, 
-        pageToken = pageToken, query = query), data_parse_function = function(x) x)
+    pars = list(query = query, language = language, maxResults = maxResults, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

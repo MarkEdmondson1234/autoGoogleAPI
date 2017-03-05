@@ -31,4 +31,3 @@ Informational warning which replaces the list of forwarding rules when the list 
 Other ForwardingRulesScopedList functions: \code{\link{ForwardingRulesScopedList.warning.data}},
   \code{\link{ForwardingRulesScopedList}}
 }
-

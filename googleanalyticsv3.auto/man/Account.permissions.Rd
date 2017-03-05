@@ -20,4 +20,3 @@ Permissions the user has for this account.
 Other Account functions: \code{\link{Account.childLink}},
   \code{\link{Account}}
 }
-

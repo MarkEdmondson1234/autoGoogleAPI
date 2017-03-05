@@ -2,7 +2,7 @@
 #' Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and detection of explicit content, into applications.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:50:21
+#'  at 2017-03-05 20:21:47
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlevisionv1.auto/R/vision_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Run image detection and annotation for a batch of images.
@@ -47,7 +60,8 @@ images.annotate <- function(BatchAnnotateImagesRequest) {
     
     url <- "https://vision.googleapis.com/v1/images:annotate"
     # vision.images.annotate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(BatchAnnotateImagesRequest, "gar_BatchAnnotateImagesRequest"))
     

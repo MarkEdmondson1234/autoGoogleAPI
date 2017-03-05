@@ -31,4 +31,3 @@ No description
 \seealso{
 Other TargetInstanceAggregatedList functions: \code{\link{TargetInstanceAggregatedList.items}}
 }
-

@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other TripsSearchRequest functions: \code{\link{TripsSearchRequest}}
 }
-

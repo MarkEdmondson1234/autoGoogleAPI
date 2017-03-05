@@ -4,14 +4,18 @@
 \alias{ForwardingRule}
 \title{ForwardingRule Object}
 \usage{
-ForwardingRule(IPAddress = NULL, IPProtocol = NULL,
-  creationTimestamp = NULL, description = NULL, id = NULL, name = NULL,
-  portRange = NULL, region = NULL, selfLink = NULL, target = NULL)
+ForwardingRule(IPAddress = NULL, IPProtocol = NULL, backendService = NULL,
+  creationTimestamp = NULL, description = NULL, id = NULL,
+  loadBalancingScheme = NULL, name = NULL, network = NULL,
+  portRange = NULL, ports = NULL, region = NULL, selfLink = NULL,
+  subnetwork = NULL, target = NULL)
 }
 \arguments{
 \item{IPAddress}{The IP address that this forwarding rule is serving on behalf of}
 
 \item{IPProtocol}{The IP protocol to which this rule applies}
+
+\item{backendService}{This field is not used for external load balancing}
 
 \item{creationTimestamp}{[Output Only] Creation timestamp in RFC3339 text format}
 
@@ -19,13 +23,21 @@ ForwardingRule(IPAddress = NULL, IPProtocol = NULL,
 
 \item{id}{[Output Only] The unique identifier for the resource}
 
+\item{loadBalancingScheme}{This signifies what the ForwardingRule will be used for and can only take the following values: INTERNAL, EXTERNAL The value of INTERNAL means that this will be used for Internal Network Load Balancing (TCP, UDP)}
+
 \item{name}{Name of the resource; provided by the client when the resource is created}
 
+\item{network}{This field is not used for external load balancing}
+
 \item{portRange}{Applicable only when IPProtocol is TCP, UDP, or SCTP, only packets addressed to ports in the specified range will be forwarded to target}
+
+\item{ports}{This field is not used for external load balancing}
 
 \item{region}{[Output Only] URL of the region where the regional forwarding rule resides}
 
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
+
+\item{subnetwork}{This field is not used for external load balancing}
 
 \item{target}{The URL of the target resource to receive the matched traffic}
 }
@@ -43,4 +55,3 @@ A ForwardingRule resource. A ForwardingRule resource specifies which pool of tar
 Other ForwardingRule functions: \code{\link{forwardingRules.insert}},
   \code{\link{globalForwardingRules.insert}}
 }
-

@@ -1,5 +1,5 @@
 # googledoubleclickbidmanagerv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 DoubleClick Bid Manager API R library
 
 API for viewing and managing your reports in DoubleClick Bid Manager.

@@ -38,6 +38,7 @@ Other TestPermissionsRequest functions: \code{\link{addresses.testIamPermissions
   \code{\link{instances.testIamPermissions}},
   \code{\link{networks.testIamPermissions}},
   \code{\link{regionAutoscalers.testIamPermissions}},
+  \code{\link{regionBackendServices.testIamPermissions}},
   \code{\link{regionInstanceGroupManagers.testIamPermissions}},
   \code{\link{regionInstanceGroups.testIamPermissions}},
   \code{\link{routers.testIamPermissions}},
@@ -54,4 +55,3 @@ Other TestPermissionsRequest functions: \code{\link{addresses.testIamPermissions
   \code{\link{urlMaps.testIamPermissions}},
   \code{\link{vpnTunnels.testIamPermissions}}
 }
-

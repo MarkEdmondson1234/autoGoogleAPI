@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{pipelines.run}
 \alias{pipelines.run}
-\title{Runs a pipeline. If `pipelineId` is specified in the request, then run a saved pipeline. If `ephemeralPipeline` is specified, then run that pipeline once without saving a copy. The caller must have READ permission to the project where the pipeline is stored and WRITE permission to the project where the pipeline will be run, as VMs will be created and storage will be used.}
+\title{Runs a pipeline. If `pipelineId` is specified in the request, thenrun a saved pipeline. If `ephemeralPipeline` is specified, then runthat pipeline once without saving a copy.The caller must have READ permission to the project where the pipelineis stored and WRITE permission to the project where the pipeline will berun, as VMs will be created and storage will be used.If a pipeline operation is still running after 6 days, it will be canceled.}
 \usage{
 pipelines.run(RunPipelineRequest)
 }
@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other RunPipelineRequest functions: \code{\link{RunPipelineRequest}}
 }
-

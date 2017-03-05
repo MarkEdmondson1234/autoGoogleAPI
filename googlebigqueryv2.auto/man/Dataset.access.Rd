@@ -22,4 +22,3 @@ Other Dataset functions: \code{\link{Dataset.labels}},
   \code{\link{datasets.patch}},
   \code{\link{datasets.update}}
 }
-

@@ -5,25 +5,25 @@
 \title{HiveJob Object}
 \usage{
 HiveJob(HiveJob.scriptVariables = NULL, HiveJob.properties = NULL,
-  queryFileUri = NULL, queryList = NULL, continueOnFailure = NULL,
-  scriptVariables = NULL, properties = NULL, jarFileUris = NULL)
+  continueOnFailure = NULL, queryFileUri = NULL, queryList = NULL,
+  jarFileUris = NULL, scriptVariables = NULL, properties = NULL)
 }
 \arguments{
 \item{HiveJob.scriptVariables}{The \link{HiveJob.scriptVariables} object or list of objects}
 
 \item{HiveJob.properties}{The \link{HiveJob.properties} object or list of objects}
 
+\item{continueOnFailure}{Optional Whether to continue executing queries if a query fails}
+
 \item{queryFileUri}{The HCFS URI of the script that contains Hive queries}
 
 \item{queryList}{A list of queries}
 
-\item{continueOnFailure}{[Optional] Whether to continue executing queries if a query fails}
+\item{jarFileUris}{Optional HCFS URIs of jar files to add to the CLASSPATH of the Hive server and Hadoop MapReduce (MR) tasks}
 
-\item{scriptVariables}{[Optional] Mapping of query variable names to values (equivalent to the Hive command: `SET name='value';`)}
+\item{scriptVariables}{Optional Mapping of query variable names to values (equivalent to the Hive command: SET name='value';)}
 
-\item{properties}{[Optional] A mapping of property names and values, used to configure Hive}
-
-\item{jarFileUris}{[Optional] HCFS URIs of jar files to add to the CLASSPATH of the Hive server and Hadoop MapReduce (MR) tasks}
+\item{properties}{Optional A mapping of property names and values, used to configure Hive}
 }
 \value{
 HiveJob object
@@ -39,4 +39,3 @@ A Cloud Dataproc job for running Hive queries on YARN.
 Other HiveJob functions: \code{\link{HiveJob.properties}},
   \code{\link{HiveJob.scriptVariables}}
 }
-

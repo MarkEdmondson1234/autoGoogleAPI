@@ -26,4 +26,3 @@ An entity.
 \seealso{
 Other Entity functions: \code{\link{Entity.properties}}
 }
-

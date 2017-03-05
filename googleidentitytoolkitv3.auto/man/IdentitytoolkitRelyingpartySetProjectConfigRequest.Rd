@@ -47,4 +47,3 @@ Request to set the project configuration.
 \seealso{
 Other IdentitytoolkitRelyingpartySetProjectConfigRequest functions: \code{\link{relyingparty.setProjectConfig}}
 }
-

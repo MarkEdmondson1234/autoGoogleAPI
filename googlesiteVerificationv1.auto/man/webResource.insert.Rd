@@ -33,4 +33,3 @@ Other SiteVerificationWebResourceResource functions: \code{\link{SiteVerificatio
   \code{\link{webResource.patch}},
   \code{\link{webResource.update}}
 }
-

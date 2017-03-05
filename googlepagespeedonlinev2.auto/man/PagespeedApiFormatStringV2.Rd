@@ -26,7 +26,7 @@ PagespeedApiFormatStringV2 object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:24:56
+ at 2017-03-05 20:04:02
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepagespeedonlinev2.auto/R/pagespeedonline_objects.R
 api_json: api_json
 }
@@ -43,4 +43,3 @@ Other PagespeedApiFormatStringV2 functions: \code{\link{PagespeedApiFormatString
   \code{\link{PagespeedApiFormatStringV2.args.secondary_rects}},
   \code{\link{PagespeedApiFormatStringV2.args}}
 }
-

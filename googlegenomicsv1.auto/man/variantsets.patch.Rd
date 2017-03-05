@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{variantsets.patch}
 \alias{variantsets.patch}
-\title{Updates a variant set using patch semantics. For the definitions of variant sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
+\title{Updates a variant set using patch semantics.For the definitions of variant sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
 \usage{
 variantsets.patch(VariantSet, variantSetId, updateMask = NULL)
 }
@@ -28,9 +28,8 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other VariantSet functions: \code{\link{VariantSet}},
   \code{\link{variantsets.create}}
 }
-

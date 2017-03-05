@@ -31,4 +31,3 @@ No description
 \seealso{
 Other MachineTypeAggregatedList functions: \code{\link{MachineTypeAggregatedList.items}}
 }
-

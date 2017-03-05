@@ -37,4 +37,3 @@ Other UnsampledReport functions: \code{\link{UnsampledReport.cloudStorageDownloa
   \code{\link{UnsampledReport.driveDownloadDetails}},
   \code{\link{UnsampledReport}}
 }
-

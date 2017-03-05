@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/sql/docs/reference/latest}{Google Documentation}
 }
-

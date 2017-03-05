@@ -8,7 +8,7 @@
 Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:59:06
+ at 2017-03-05 19:31:00
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecivicinfov2.auto/R/civicinfo_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

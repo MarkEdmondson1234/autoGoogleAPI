@@ -10,7 +10,7 @@ buckets.list(project, maxResults = NULL, pageToken = NULL, prefix = NULL,
 \arguments{
 \item{project}{A valid API project identifier}
 
-\item{maxResults}{Maximum number of buckets to return}
+\item{maxResults}{Maximum number of buckets to return in a single response}
 
 \item{pageToken}{A previously-returned page token representing part of the larger set of results to view}
 
@@ -38,4 +38,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/storage/docs/json_api/}{Google Documentation}
 }
-

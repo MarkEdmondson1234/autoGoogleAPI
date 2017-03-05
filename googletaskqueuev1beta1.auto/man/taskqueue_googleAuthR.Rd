@@ -8,7 +8,7 @@
 Accesses a Google App Engine Pull Task Queue over REST.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:49:12
+ at 2017-03-05 20:18:57
 filename: /Users/mark/dev/R/autoGoogleAPI/googletaskqueuev1beta1.auto/R/taskqueue_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/taskqueue.consumer
 }
 }
-

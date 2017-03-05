@@ -26,4 +26,3 @@ Other Group functions: \code{\link{Group.snippet}},
   \code{\link{Group}}, \code{\link{groups.insert}},
   \code{\link{groups.update}}
 }
-

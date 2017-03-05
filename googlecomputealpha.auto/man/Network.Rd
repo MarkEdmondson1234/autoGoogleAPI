@@ -5,8 +5,9 @@
 \title{Network Object}
 \usage{
 Network(IPv4Range = NULL, autoCreateSubnetworks = NULL,
-  creationTimestamp = NULL, description = NULL, gatewayIPv4 = NULL,
-  id = NULL, name = NULL, selfLink = NULL, subnetworks = NULL)
+  creationTimestamp = NULL, crossVmEncryption = NULL, description = NULL,
+  gatewayIPv4 = NULL, id = NULL, loadBalancerVmEncryption = NULL,
+  name = NULL, peerings = NULL, selfLink = NULL, subnetworks = NULL)
 }
 \arguments{
 \item{IPv4Range}{The range of internal addresses that are legal on this network}
@@ -15,13 +16,19 @@ Network(IPv4Range = NULL, autoCreateSubnetworks = NULL,
 
 \item{creationTimestamp}{[Output Only] Creation timestamp in RFC3339 text format}
 
+\item{crossVmEncryption}{[Output Only] Type of VM-to-VM traffic encryption for this network}
+
 \item{description}{An optional description of this resource}
 
 \item{gatewayIPv4}{A gateway address for default routing to other networks}
 
 \item{id}{[Output Only] The unique identifier for the resource}
 
+\item{loadBalancerVmEncryption}{[Output Only] Type of LB-to-VM traffic encryption for this network}
+
 \item{name}{Name of the resource}
+
+\item{peerings}{[Output Only] List of network peerings for the resource}
 
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 
@@ -40,4 +47,3 @@ Represents a Network resource. Read Networks and Firewalls for more information.
 \seealso{
 Other Network functions: \code{\link{networks.insert}}
 }
-

@@ -2,7 +2,7 @@
 #' Retrieves Google Developers Console billing accounts and associates them with projects.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:16:46
+#'  at 2017-03-05 19:56:43
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecloudbillingv1.auto/R/cloudbilling_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Gets information about a billing account. The current authenticated user must be an [owner of the billing account](https://support.google.com/cloud/answer/4430947).
 #' 
@@ -41,7 +54,7 @@ NULL
 billingAccounts.get <- function(name) {
     url <- sprintf("https://cloudbilling.googleapis.com/v1/{+name}", name)
     # cloudbilling.billingAccounts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -69,7 +82,8 @@ billingAccounts.get <- function(name) {
 billingAccounts.list <- function(pageSize = NULL, pageToken = NULL) {
     url <- "https://cloudbilling.googleapis.com/v1/billingAccounts"
     # cloudbilling.billingAccounts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(pageSize = pageSize, pageToken = pageToken), 
+    pars = list(pageSize = pageSize, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -98,7 +112,7 @@ projects.getBillingInfo <- function(name) {
     url <- sprintf("https://cloudbilling.googleapis.com/v1/{+name}/billingInfo", 
         name)
     # cloudbilling.projects.getBillingInfo
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -133,7 +147,8 @@ projects.updateBillingInfo <- function(ProjectBillingInfo, name) {
     url <- sprintf("https://cloudbilling.googleapis.com/v1/{+name}/billingInfo", 
         name)
     # cloudbilling.projects.updateBillingInfo
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(ProjectBillingInfo, "gar_ProjectBillingInfo"))
     

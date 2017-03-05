@@ -35,4 +35,3 @@ Other DatabaseInstance functions: \code{\link{DatabaseInstance.failoverReplica}}
   \code{\link{sql.instances.insert}},
   \code{\link{sql.instances.patch}}
 }
-

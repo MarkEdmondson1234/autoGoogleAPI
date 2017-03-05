@@ -5,23 +5,23 @@
 \title{Operation Object}
 \usage{
 Operation(Operation.metadata = NULL, Operation.response = NULL,
-  name = NULL, metadata = NULL, done = NULL, error = NULL,
-  response = NULL)
+  metadata = NULL, done = NULL, response = NULL, name = NULL,
+  error = NULL)
 }
 \arguments{
 \item{Operation.metadata}{The \link{Operation.metadata} object or list of objects}
 
 \item{Operation.response}{The \link{Operation.response} object or list of objects}
 
-\item{name}{The name of the operation resource, in the format projects/[project_id]/operations/[operation_id]}
-
 \item{metadata}{Service-specific metadata associated with the operation}
 
 \item{done}{Indicates if the operation is done}
 
-\item{error}{The error result of the operation in case of failure}
-
 \item{response}{The operation response}
+
+\item{name}{The name of the operation resource, in the format projects/project_id/operations/operation_id}
+
+\item{error}{The error result of the operation in case of failure}
 }
 \value{
 Operation object
@@ -37,4 +37,3 @@ An asynchronous operation in a project that runs over a given cluster. Used to t
 Other Operation functions: \code{\link{Operation.metadata}},
   \code{\link{Operation.response}}
 }
-

@@ -27,4 +27,3 @@ Request passed to UpdateTransferJob.
 \seealso{
 Other UpdateTransferJobRequest functions: \code{\link{transferJobs.patch}}
 }
-

@@ -4,7 +4,7 @@
 \alias{disks.insert}
 \title{Creates a persistent disk in the specified project using the data in the request. You can create a disk with a sourceImage, a sourceSnapshot, or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property.}
 \usage{
-disks.insert(Disk, project, zone, sourceImage = NULL)
+disks.insert(Disk, project, zone, requestId = NULL, sourceImage = NULL)
 }
 \arguments{
 \item{Disk}{The \link{Disk} object to pass to this method}
@@ -12,6 +12,8 @@ disks.insert(Disk, project, zone, sourceImage = NULL)
 \item{project}{Project ID for this request}
 
 \item{zone}{The name of the zone for this request}
+
+\item{requestId}{begin_interface: MixerMutationRequestBuilder Request ID to support idempotency}
 
 \item{sourceImage}{Optional}
 }
@@ -35,4 +37,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Disk functions: \code{\link{Disk.labels}},
   \code{\link{Disk}}, \code{\link{regionDisks.insert}}
 }
-

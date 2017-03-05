@@ -46,7 +46,7 @@ Task object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:49:39
+ at 2017-03-05 20:19:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googletasksv1.auto/R/tasks_objects.R
 api_json: api_json
 }
@@ -63,4 +63,3 @@ Other Task functions: \code{\link{Task.links}},
   \code{\link{insert}}, \code{\link{patch}},
   \code{\link{update}}
 }
-

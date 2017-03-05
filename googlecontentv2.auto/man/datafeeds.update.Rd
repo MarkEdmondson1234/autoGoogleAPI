@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{datafeeds.update}
 \alias{datafeeds.update}
-\title{Updates a datafeed of your Merchant Center account.}
+\title{Updates a datafeed of your Merchant Center account. This method can only be called for non-multi-client accounts.}
 \usage{
 datafeeds.update(Datafeed, merchantId, datafeedId, dryRun = NULL)
 }
@@ -35,4 +35,3 @@ Other Datafeed functions: \code{\link{Datafeed}},
   \code{\link{datafeeds.insert}},
   \code{\link{datafeeds.patch}}
 }
-

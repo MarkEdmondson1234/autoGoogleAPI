@@ -8,7 +8,7 @@
 Manages classes, rosters, and invitations in Google Classroom.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:16:30
+ at 2017-03-05 19:56:19
 filename: /Users/mark/dev/R/autoGoogleAPI/googleclassroomv1.auto/R/classroom_functions.R
 api_json: api_json
 }
@@ -30,4 +30,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/classroom.student-submissions.students.readonly
 }
 }
-

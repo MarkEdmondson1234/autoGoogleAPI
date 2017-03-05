@@ -2,7 +2,7 @@
 #' Configures and serves authoritative DNS records.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:10:46
+#'  at 2017-03-05 19:47:56
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlednsv1.auto/R/dns_functions.R
 #' api_json: api_json
 #' 
@@ -21,6 +21,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Atomically update the ResourceRecordSet collection.
 #' 
@@ -47,9 +60,9 @@ NULL
 #' @export
 changes.create <- function(Change, project, managedZone) {
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones/%s/changes", 
-        managedZone, project)
+        project, managedZone)
     # dns.changes.create
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Change, "gar_Change"))
     
     f(the_body = Change)
@@ -82,9 +95,9 @@ changes.create <- function(Change, project, managedZone) {
 #' @export
 changes.get <- function(project, managedZone, changeId) {
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones/%s/changes/%s", 
-        changeId, managedZone, project)
+        project, managedZone, changeId)
     # dns.changes.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -119,10 +132,12 @@ changes.get <- function(project, managedZone, changeId) {
 changes.list <- function(project, managedZone, maxResults = NULL, pageToken = NULL, 
     sortBy = NULL, sortOrder = NULL) {
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones/%s/changes", 
-        managedZone, project)
+        project, managedZone)
     # dns.changes.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, sortBy = sortBy, sortOrder = sortOrder), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, sortBy = sortBy, 
+        sortOrder = sortOrder)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -153,7 +168,7 @@ managedZones.create <- function(ManagedZone, project) {
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones", 
         project)
     # dns.managedZones.create
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ManagedZone, "gar_ManagedZone"))
     
     f(the_body = ManagedZone)
@@ -183,9 +198,9 @@ managedZones.create <- function(ManagedZone, project) {
 #' @export
 managedZones.delete <- function(project, managedZone) {
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones/%s", 
-        managedZone, project)
+        project, managedZone)
     # dns.managedZones.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -215,9 +230,9 @@ managedZones.delete <- function(project, managedZone) {
 #' @export
 managedZones.get <- function(project, managedZone) {
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones/%s", 
-        managedZone, project)
+        project, managedZone)
     # dns.managedZones.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -251,8 +266,9 @@ managedZones.list <- function(project, dnsName = NULL, maxResults = NULL, pageTo
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones", 
         project)
     # dns.managedZones.list
-    f <- gar_api_generator(url, "GET", pars_args = list(dnsName = dnsName, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(dnsName = dnsName, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -282,7 +298,7 @@ managedZones.list <- function(project, dnsName = NULL, maxResults = NULL, pageTo
 projects.get <- function(project) {
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s", project)
     # dns.projects.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -327,10 +343,12 @@ resourceRecordSets.list <- function(project, managedZone, maxResults = NULL, nam
     
     
     url <- sprintf("https://www.googleapis.com/dns/v1/projects/%s/managedZones/%s/rrsets", 
-        managedZone, project)
+        project, managedZone)
     # dns.resourceRecordSets.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        name = name, pageToken = pageToken, type = type), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, name = name, pageToken = pageToken, type = type)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

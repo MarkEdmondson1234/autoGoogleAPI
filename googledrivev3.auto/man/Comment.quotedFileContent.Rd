@@ -26,4 +26,3 @@ Other Comment functions: \code{\link{Comment}},
   \code{\link{comments.create}},
   \code{\link{comments.update}}
 }
-

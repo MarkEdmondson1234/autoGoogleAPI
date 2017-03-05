@@ -8,7 +8,7 @@
 Views and manages your Google Analytics data.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:34:00
+ at 2017-03-05 19:24:42
 filename: /Users/mark/dev/R/autoGoogleAPI/googleanalyticsv24.auto/R/analytics_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/analytics.readonly
 }
 }
-

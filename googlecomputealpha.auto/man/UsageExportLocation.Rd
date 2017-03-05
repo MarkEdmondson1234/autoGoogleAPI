@@ -24,4 +24,3 @@ The location in Cloud Storage and naming method of the daily usage report. Conta
 \seealso{
 Other UsageExportLocation functions: \code{\link{projects.setUsageExportBucket}}
 }
-

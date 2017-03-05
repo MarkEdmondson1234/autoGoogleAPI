@@ -29,4 +29,3 @@ Other Comment functions: \code{\link{Comment.actor.clientSpecificActorInfo.youtu
   \code{\link{Comment.object}}, \code{\link{Comment}},
   \code{\link{comments.insert}}
 }
-

@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{productstatuses.get}
 \alias{productstatuses.get}
-\title{Gets the status of a product from your Merchant Center account.}
+\title{Gets the status of a product from your Merchant Center account. This method can only be called for non-multi-client accounts.}
 \usage{
 productstatuses.get(merchantId, productId)
 }
@@ -27,4 +27,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

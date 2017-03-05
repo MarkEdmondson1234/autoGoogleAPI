@@ -8,7 +8,7 @@
 A data platform for customers to create, manage, share and query data.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:57:35
+ at 2017-03-05 19:28:52
 filename: /Users/mark/dev/R/autoGoogleAPI/googlebigqueryv2.auto/R/bigquery_functions.R
 api_json: api_json
 }
@@ -24,4 +24,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/devstorage.read_write
 }
 }
-

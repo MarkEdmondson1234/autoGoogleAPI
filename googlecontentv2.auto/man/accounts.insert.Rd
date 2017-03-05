@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accounts.insert}
 \alias{accounts.insert}
-\title{Creates a Merchant Center sub-account.}
+\title{Creates a Merchant Center sub-account. This method can only be called for multi-client accounts.}
 \usage{
 accounts.insert(Account, merchantId, dryRun = NULL)
 }
@@ -33,4 +33,3 @@ Other Account functions: \code{\link{Account}},
   \code{\link{accounts.patch}},
   \code{\link{accounts.update}}
 }
-

@@ -29,4 +29,3 @@ The targeting information of this custom channel, if activated.
 \seealso{
 Other CustomChannel functions: \code{\link{CustomChannel}}
 }
-

@@ -8,7 +8,7 @@
 The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:27:09
+ at 2017-03-05 20:08:46
 filename: /Users/mark/dev/R/autoGoogleAPI/googlereplicapoolv1beta1.auto/R/replicapool_functions.R
 api_json: api_json
 }
@@ -23,4 +23,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/replicapool.readonly
 }
 }
-

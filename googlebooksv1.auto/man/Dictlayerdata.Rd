@@ -88,4 +88,3 @@ Other Dictlayerdata functions: \code{\link{Dictlayerdata.common}},
   \code{\link{Dictlayerdata.dict.words}},
   \code{\link{Dictlayerdata.dict}}
 }
-

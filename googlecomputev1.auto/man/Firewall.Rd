@@ -48,4 +48,3 @@ Other Firewall functions: \code{\link{Firewall.allowed}},
   \code{\link{firewalls.patch}},
   \code{\link{firewalls.update}}
 }
-

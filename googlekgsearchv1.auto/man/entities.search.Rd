@@ -2,23 +2,23 @@
 % Please edit documentation in R/kgsearch_functions.R
 \name{entities.search}
 \alias{entities.search}
-\title{Searches Knowledge Graph for entities that match the constraints. A list of matched entities will be returned in response, which will be in JSON-LD format and compatible with http://schema.org}
+\title{Searches Knowledge Graph for entities that match the constraints.A list of matched entities will be returned in response, which will be inJSON-LD format and compatible with http://schema.org}
 \usage{
-entities.search(query = NULL, ids = NULL, languages = NULL,
-  types = NULL, indent = NULL, prefix = NULL, limit = NULL)
+entities.search(prefix = NULL, query = NULL, types = NULL,
+  indent = NULL, languages = NULL, ids = NULL, limit = NULL)
 }
 \arguments{
+\item{prefix}{Enables prefix match against names and aliases of entities}
+
 \item{query}{The literal query string for search}
-
-\item{ids}{The list of entity id to be used for search instead of query string}
-
-\item{languages}{The list of language codes (defined in ISO 693) to run the query with, e}
 
 \item{types}{Restricts returned entities with these types, e}
 
 \item{indent}{Enables indenting of json results}
 
-\item{prefix}{Enables prefix match against names and aliases of entities}
+\item{languages}{The list of language codes (defined in ISO 693) to run the query with,}
+
+\item{ids}{The list of entity id to be used for search instead of query string}
 
 \item{limit}{Limits the number of entities to be returned}
 }
@@ -38,4 +38,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/knowledge-graph/}{Google Documentation}
 }
-

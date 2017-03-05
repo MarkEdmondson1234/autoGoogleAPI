@@ -48,4 +48,3 @@ Other CustomMetric functions: \code{\link{CustomMetric.parentLink}},
   \code{\link{management.customMetrics.patch}},
   \code{\link{management.customMetrics.update}}
 }
-

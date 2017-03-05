@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other ForwardingRule functions: \code{\link{ForwardingRule}},
   \code{\link{globalForwardingRules.insert}}
 }
-

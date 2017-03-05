@@ -19,4 +19,3 @@ No description
 \seealso{
 Other Report functions: \code{\link{Report}}
 }
-

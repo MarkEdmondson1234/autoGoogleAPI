@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.acknowledge}
 \alias{orders.acknowledge}
-\title{Marks an order as acknowledged.}
+\title{Marks an order as acknowledged. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.acknowledge(OrdersAcknowledgeRequest, merchantId, orderId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersAcknowledgeRequest functions: \code{\link{OrdersAcknowledgeRequest}}
 }
-

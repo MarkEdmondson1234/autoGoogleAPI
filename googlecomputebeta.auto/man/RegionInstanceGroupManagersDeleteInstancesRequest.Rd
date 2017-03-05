@@ -22,4 +22,3 @@ No description
 \seealso{
 Other RegionInstanceGroupManagersDeleteInstancesRequest functions: \code{\link{regionInstanceGroupManagers.deleteInstances}}
 }
-

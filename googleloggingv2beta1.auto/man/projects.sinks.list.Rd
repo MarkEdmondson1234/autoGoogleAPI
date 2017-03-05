@@ -4,10 +4,10 @@
 \alias{projects.sinks.list}
 \title{Lists sinks.}
 \usage{
-projects.sinks.list(projectName, pageToken = NULL, pageSize = NULL)
+projects.sinks.list(parent, pageToken = NULL, pageSize = NULL)
 }
 \arguments{
-\item{projectName}{Required}
+\item{parent}{Required}
 
 \item{pageToken}{Optional}
 
@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/logging/docs/}{Google Documentation}
 }
-

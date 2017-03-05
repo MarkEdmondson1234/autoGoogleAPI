@@ -29,7 +29,7 @@ Task object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:49:25
+ at 2017-03-05 20:19:18
 filename: /Users/mark/dev/R/autoGoogleAPI/googletaskqueuev1beta2.auto/R/taskqueue_objects.R
 api_json: api_json
 }
@@ -45,4 +45,3 @@ No description
 Other Task functions: \code{\link{tasks.insert}},
   \code{\link{tasks.patch}}, \code{\link{tasks.update}}
 }
-

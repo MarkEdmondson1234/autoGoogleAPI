@@ -2,7 +2,7 @@
 #' Lets you access a cloud hosted machine learning service that makes it easy to build smart apps
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:26:00
+#'  at 2017-03-05 20:05:57
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlepredictionv13.auto/R/prediction_functions.R
 #' api_json: api_json
 #' 
@@ -21,6 +21,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Submit input and request an output against a hosted model
 #' 
@@ -47,7 +60,7 @@ hostedmodels.predict <- function(Input, hostedModelName) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.3/hostedmodels/%s/predict", 
         hostedModelName)
     # prediction.hostedmodels.predict
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Input, "gar_Input"))
     
     f(the_body = Input)
@@ -76,7 +89,7 @@ hostedmodels.predict <- function(Input, hostedModelName) {
 training.delete <- function(data) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.3/training/%s", data)
     # prediction.training.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -103,7 +116,7 @@ training.delete <- function(data) {
 training.get <- function(data) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.3/training/%s", data)
     # prediction.training.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -134,7 +147,7 @@ training.get <- function(data) {
 training.insert <- function(Training) {
     url <- "https://www.googleapis.com/prediction/v1.3/training"
     # prediction.training.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Training, "gar_Training"))
     
     f(the_body = Training)
@@ -166,7 +179,7 @@ training.predict <- function(Input, data) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.3/training/%s/predict", 
         data)
     # prediction.training.predict
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Input, "gar_Input"))
     
     f(the_body = Input)
@@ -202,7 +215,8 @@ training.update <- function(Update, data) {
     
     url <- sprintf("https://www.googleapis.com/prediction/v1.3/training/%s", data)
     # prediction.training.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(Update, "gar_Update"))
     

@@ -40,4 +40,3 @@ A Subnetwork resource.
 \seealso{
 Other Subnetwork functions: \code{\link{subnetworks.insert}}
 }
-

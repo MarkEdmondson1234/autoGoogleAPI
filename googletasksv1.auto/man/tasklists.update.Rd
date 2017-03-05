@@ -31,4 +31,3 @@ Other TaskList functions: \code{\link{TaskList}},
   \code{\link{tasklists.insert}},
   \code{\link{tasklists.patch}}
 }
-

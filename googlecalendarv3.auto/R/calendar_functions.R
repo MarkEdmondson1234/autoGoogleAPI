@@ -2,7 +2,7 @@
 #' Manipulates events and other calendar data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-04 00:00:52
+#'  at 2017-03-05 19:30:35
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecalendarv3.auto/R/calendar_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Deletes an access control rule.
 #' 
@@ -44,7 +57,7 @@ acl.delete <- function(calendarId, ruleId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/acl/%s", 
         calendarId, ruleId)
     # calendar.acl.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -74,7 +87,7 @@ acl.get <- function(calendarId, ruleId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/acl/%s", 
         calendarId, ruleId)
     # calendar.acl.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -103,7 +116,7 @@ acl.get <- function(calendarId, ruleId) {
 acl.insert <- function(AclRule, calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/acl", calendarId)
     # calendar.acl.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AclRule, "gar_AclRule"))
     
     f(the_body = AclRule)
@@ -137,8 +150,9 @@ acl.list <- function(calendarId, maxResults = NULL, pageToken = NULL, showDelete
     syncToken = NULL) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/acl", calendarId)
     # calendar.acl.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, showDeleted = showDeleted, syncToken = syncToken), 
+    pars = list(maxResults = maxResults, pageToken = pageToken, showDeleted = showDeleted, 
+        syncToken = syncToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -170,7 +184,7 @@ acl.patch <- function(AclRule, calendarId, ruleId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/acl/%s", 
         calendarId, ruleId)
     # calendar.acl.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(AclRule, "gar_AclRule"))
     
     f(the_body = AclRule)
@@ -203,7 +217,7 @@ acl.update <- function(AclRule, calendarId, ruleId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/acl/%s", 
         calendarId, ruleId)
     # calendar.acl.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(AclRule, "gar_AclRule"))
     
     f(the_body = AclRule)
@@ -240,8 +254,9 @@ acl.watch <- function(Channel, calendarId, maxResults = NULL, pageToken = NULL, 
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/acl/watch", 
         calendarId)
     # calendar.acl.watch
-    f <- gar_api_generator(url, "POST", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, showDeleted = showDeleted, syncToken = syncToken), 
+    pars = list(maxResults = maxResults, pageToken = pageToken, showDeleted = showDeleted, 
+        syncToken = syncToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
@@ -272,7 +287,7 @@ ist.delete <- function(calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/users/me/calendarList/%s", 
         calendarId)
     # calendar.calendarList.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -301,7 +316,7 @@ ist.get <- function(calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/users/me/calendarList/%s", 
         calendarId)
     # calendar.calendarList.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -330,7 +345,8 @@ ist.get <- function(calendarId) {
 ist.insert <- function(CalendarListEntry, colorRgbFormat = NULL) {
     url <- "https://www.googleapis.com/calendar/v3/users/me/calendarList"
     # calendar.calendarList.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(colorRgbFormat = colorRgbFormat), 
+    pars = list(colorRgbFormat = colorRgbFormat)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(CalendarListEntry, "gar_CalendarListEntry"))
     
@@ -367,9 +383,10 @@ ist.list <- function(maxResults = NULL, minAccessRole = NULL, pageToken = NULL, 
     showHidden = NULL, syncToken = NULL) {
     url <- "https://www.googleapis.com/calendar/v3/users/me/calendarList"
     # calendar.calendarList.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        minAccessRole = minAccessRole, pageToken = pageToken, showDeleted = showDeleted, 
-        showHidden = showHidden, syncToken = syncToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, minAccessRole = minAccessRole, pageToken = pageToken, 
+        showDeleted = showDeleted, showHidden = showHidden, syncToken = syncToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -400,7 +417,8 @@ ist.patch <- function(CalendarListEntry, calendarId, colorRgbFormat = NULL) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/users/me/calendarList/%s", 
         calendarId)
     # calendar.calendarList.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(colorRgbFormat = colorRgbFormat), 
+    pars = list(colorRgbFormat = colorRgbFormat)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(CalendarListEntry, "gar_CalendarListEntry"))
     
@@ -434,7 +452,8 @@ ist.update <- function(CalendarListEntry, calendarId, colorRgbFormat = NULL) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/users/me/calendarList/%s", 
         calendarId)
     # calendar.calendarList.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(colorRgbFormat = colorRgbFormat), 
+    pars = list(colorRgbFormat = colorRgbFormat)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(CalendarListEntry, "gar_CalendarListEntry"))
     
@@ -473,9 +492,10 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
     showDeleted = NULL, showHidden = NULL, syncToken = NULL) {
     url <- "https://www.googleapis.com/calendar/v3/users/me/calendarList/watch"
     # calendar.calendarList.watch
-    f <- gar_api_generator(url, "POST", pars_args = list(maxResults = maxResults, 
-        minAccessRole = minAccessRole, pageToken = pageToken, showDeleted = showDeleted, 
-        showHidden = showHidden, syncToken = syncToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, minAccessRole = minAccessRole, pageToken = pageToken, 
+        showDeleted = showDeleted, showHidden = showHidden, syncToken = syncToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
     f(the_body = Channel)
@@ -504,7 +524,7 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
 .clear <- function(calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/clear", calendarId)
     # calendar.calendars.clear
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -531,7 +551,7 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
 .delete <- function(calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s", calendarId)
     # calendar.calendars.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -559,7 +579,7 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
 .get <- function(calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s", calendarId)
     # calendar.calendars.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -587,7 +607,7 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
 .insert <- function(Calendar) {
     url <- "https://www.googleapis.com/calendar/v3/calendars"
     # calendar.calendars.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Calendar, "gar_Calendar"))
     
     f(the_body = Calendar)
@@ -618,7 +638,7 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
 .patch <- function(Calendar, calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s", calendarId)
     # calendar.calendars.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Calendar, "gar_Calendar"))
     
     f(the_body = Calendar)
@@ -649,7 +669,7 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
 .update <- function(Calendar, calendarId) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s", calendarId)
     # calendar.calendars.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Calendar, "gar_Calendar"))
     
     f(the_body = Calendar)
@@ -680,7 +700,7 @@ ist.watch <- function(Channel, maxResults = NULL, minAccessRole = NULL, pageToke
 channels.stop <- function(Channel) {
     url <- "https://www.googleapis.com/calendar/v3/channels/stop"
     # calendar.channels.stop
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
     f(the_body = Channel)
@@ -709,7 +729,7 @@ channels.stop <- function(Channel) {
 colors.get <- function() {
     url <- "https://www.googleapis.com/calendar/v3/colors"
     # calendar.colors.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -739,7 +759,8 @@ events.delete <- function(calendarId, eventId, sendNotifications = NULL) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/%s", 
         calendarId, eventId)
     # calendar.events.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(sendNotifications = sendNotifications), 
+    pars = list(sendNotifications = sendNotifications)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -774,8 +795,10 @@ events.get <- function(calendarId, eventId, alwaysIncludeEmail = NULL, maxAttend
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/%s", 
         calendarId, eventId)
     # calendar.events.get
-    f <- gar_api_generator(url, "GET", pars_args = list(alwaysIncludeEmail = alwaysIncludeEmail, 
-        maxAttendees = maxAttendees, timeZone = timeZone), data_parse_function = function(x) x)
+    pars = list(alwaysIncludeEmail = alwaysIncludeEmail, maxAttendees = maxAttendees, 
+        timeZone = timeZone)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -806,7 +829,8 @@ events.import <- function(Event, calendarId, supportsAttachments = NULL) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/import", 
         calendarId)
     # calendar.events.import
-    f <- gar_api_generator(url, "POST", pars_args = list(supportsAttachments = supportsAttachments), 
+    pars = list(supportsAttachments = supportsAttachments)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Event, "gar_Event"))
     
@@ -843,8 +867,9 @@ events.insert <- function(Event, calendarId, maxAttendees = NULL, sendNotificati
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events", 
         calendarId)
     # calendar.events.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(maxAttendees = maxAttendees, 
-        sendNotifications = sendNotifications, supportsAttachments = supportsAttachments), 
+    pars = list(maxAttendees = maxAttendees, sendNotifications = sendNotifications, 
+        supportsAttachments = supportsAttachments)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Event, "gar_Event"))
     
@@ -888,10 +913,11 @@ events.instances <- function(calendarId, eventId, alwaysIncludeEmail = NULL, max
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/%s/instances", 
         calendarId, eventId)
     # calendar.events.instances
-    f <- gar_api_generator(url, "GET", pars_args = list(alwaysIncludeEmail = alwaysIncludeEmail, 
-        maxAttendees = maxAttendees, maxResults = maxResults, originalStart = originalStart, 
-        pageToken = pageToken, showDeleted = showDeleted, timeMax = timeMax, timeMin = timeMin, 
-        timeZone = timeZone), data_parse_function = function(x) x)
+    pars = list(alwaysIncludeEmail = alwaysIncludeEmail, maxAttendees = maxAttendees, 
+        maxResults = maxResults, originalStart = originalStart, pageToken = pageToken, 
+        showDeleted = showDeleted, timeMax = timeMax, timeMin = timeMin, timeZone = timeZone)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -941,13 +967,14 @@ events.list <- function(calendarId, alwaysIncludeEmail = NULL, iCalUID = NULL, m
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events", 
         calendarId)
     # calendar.events.list
-    f <- gar_api_generator(url, "GET", pars_args = list(alwaysIncludeEmail = alwaysIncludeEmail, 
-        iCalUID = iCalUID, maxAttendees = maxAttendees, maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken, privateExtendedProperty = privateExtendedProperty, 
+    pars = list(alwaysIncludeEmail = alwaysIncludeEmail, iCalUID = iCalUID, maxAttendees = maxAttendees, 
+        maxResults = maxResults, orderBy = orderBy, pageToken = pageToken, privateExtendedProperty = privateExtendedProperty, 
         q = q, sharedExtendedProperty = sharedExtendedProperty, showDeleted = showDeleted, 
         showHiddenInvitations = showHiddenInvitations, singleEvents = singleEvents, 
         syncToken = syncToken, timeMax = timeMax, timeMin = timeMin, timeZone = timeZone, 
-        updatedMin = updatedMin), data_parse_function = function(x) x)
+        updatedMin = updatedMin)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -978,8 +1005,9 @@ events.move <- function(calendarId, eventId, destination, sendNotifications = NU
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/%s/move", 
         calendarId, eventId)
     # calendar.events.move
-    f <- gar_api_generator(url, "POST", pars_args = list(destination = destination, 
-        sendNotifications = sendNotifications), data_parse_function = function(x) x)
+    pars = list(destination = destination, sendNotifications = sendNotifications)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1015,8 +1043,9 @@ events.patch <- function(Event, calendarId, eventId, alwaysIncludeEmail = NULL, 
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/%s", 
         calendarId, eventId)
     # calendar.events.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(alwaysIncludeEmail = alwaysIncludeEmail, 
-        maxAttendees = maxAttendees, sendNotifications = sendNotifications, supportsAttachments = supportsAttachments), 
+    pars = list(alwaysIncludeEmail = alwaysIncludeEmail, maxAttendees = maxAttendees, 
+        sendNotifications = sendNotifications, supportsAttachments = supportsAttachments)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Event, "gar_Event"))
     
@@ -1049,8 +1078,9 @@ events.quickAdd <- function(calendarId, text, sendNotifications = NULL) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/quickAdd", 
         calendarId)
     # calendar.events.quickAdd
-    f <- gar_api_generator(url, "POST", pars_args = list(sendNotifications = sendNotifications, 
-        text = text), data_parse_function = function(x) x)
+    pars = list(text = text, sendNotifications = sendNotifications)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1086,8 +1116,9 @@ events.update <- function(Event, calendarId, eventId, alwaysIncludeEmail = NULL,
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/%s", 
         calendarId, eventId)
     # calendar.events.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(alwaysIncludeEmail = alwaysIncludeEmail, 
-        maxAttendees = maxAttendees, sendNotifications = sendNotifications, supportsAttachments = supportsAttachments), 
+    pars = list(alwaysIncludeEmail = alwaysIncludeEmail, maxAttendees = maxAttendees, 
+        sendNotifications = sendNotifications, supportsAttachments = supportsAttachments)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Event, "gar_Event"))
     
@@ -1142,13 +1173,14 @@ events.watch <- function(Channel, calendarId, alwaysIncludeEmail = NULL, iCalUID
     url <- sprintf("https://www.googleapis.com/calendar/v3/calendars/%s/events/watch", 
         calendarId)
     # calendar.events.watch
-    f <- gar_api_generator(url, "POST", pars_args = list(alwaysIncludeEmail = alwaysIncludeEmail, 
-        iCalUID = iCalUID, maxAttendees = maxAttendees, maxResults = maxResults, 
-        orderBy = orderBy, pageToken = pageToken, privateExtendedProperty = privateExtendedProperty, 
+    pars = list(alwaysIncludeEmail = alwaysIncludeEmail, iCalUID = iCalUID, maxAttendees = maxAttendees, 
+        maxResults = maxResults, orderBy = orderBy, pageToken = pageToken, privateExtendedProperty = privateExtendedProperty, 
         q = q, sharedExtendedProperty = sharedExtendedProperty, showDeleted = showDeleted, 
         showHiddenInvitations = showHiddenInvitations, singleEvents = singleEvents, 
         syncToken = syncToken, timeMax = timeMax, timeMin = timeMin, timeZone = timeZone, 
-        updatedMin = updatedMin), data_parse_function = function(x) x)
+        updatedMin = updatedMin)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
     f(the_body = Channel)
@@ -1179,7 +1211,7 @@ events.watch <- function(Channel, calendarId, alwaysIncludeEmail = NULL, iCalUID
 freebusy.query <- function(FreeBusyRequest) {
     url <- "https://www.googleapis.com/calendar/v3/freeBusy"
     # calendar.freebusy.query
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(FreeBusyRequest, "gar_FreeBusyRequest"))
     
     f(the_body = FreeBusyRequest)
@@ -1210,7 +1242,7 @@ settings.get <- function(setting) {
     url <- sprintf("https://www.googleapis.com/calendar/v3/users/me/settings/%s", 
         setting)
     # calendar.settings.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1240,8 +1272,9 @@ settings.get <- function(setting) {
 settings.list <- function(maxResults = NULL, pageToken = NULL, syncToken = NULL) {
     url <- "https://www.googleapis.com/calendar/v3/users/me/settings"
     # calendar.settings.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, syncToken = syncToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, syncToken = syncToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1280,8 +1313,10 @@ settings.watch <- function(Channel, maxResults = NULL, pageToken = NULL, syncTok
     
     url <- "https://www.googleapis.com/calendar/v3/users/me/settings/watch"
     # calendar.settings.watch
-    f <- gar_api_generator(url, "POST", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, syncToken = syncToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, syncToken = syncToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     stopifnot(inherits(Channel, "gar_Channel"))
     

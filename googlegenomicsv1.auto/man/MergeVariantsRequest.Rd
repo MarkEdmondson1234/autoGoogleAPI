@@ -14,7 +14,7 @@ MergeVariantsRequest(MergeVariantsRequest.infoMergeConfig = NULL,
 
 \item{variants}{The variants to be merged with existing variants}
 
-\item{infoMergeConfig}{A mapping between info field keys and the InfoMergeOperations to be performed on them}
+\item{infoMergeConfig}{A mapping between info field keys and the InfoMergeOperations to}
 }
 \value{
 MergeVariantsRequest object
@@ -30,4 +30,3 @@ No description
 Other MergeVariantsRequest functions: \code{\link{MergeVariantsRequest.infoMergeConfig}},
   \code{\link{variants.merge}}
 }
-

@@ -31,6 +31,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
 
-Other ResourceGroupReference functions: \code{\link{ResourceGroupReference}}
+Other ResourceGroupReference functions: \code{\link{ResourceGroupReference}},
+  \code{\link{regionBackendServices.getHealth}}
 }
-

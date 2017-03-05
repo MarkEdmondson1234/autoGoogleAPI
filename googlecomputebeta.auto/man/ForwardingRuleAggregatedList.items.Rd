@@ -19,4 +19,3 @@ A map of scoped forwarding rule lists.
 \seealso{
 Other ForwardingRuleAggregatedList functions: \code{\link{ForwardingRuleAggregatedList}}
 }
-

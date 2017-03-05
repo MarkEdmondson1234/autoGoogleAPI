@@ -2,7 +2,7 @@
 % Please edit documentation in R/speech_functions.R
 \name{asyncrecognize}
 \alias{asyncrecognize}
-\title{Perform asynchronous speech-recognition: receive results via thegoogle.longrunning.Operations interface. Returns either an`Operation.error` or an `Operation.response` which containsan `AsyncRecognizeResponse` message.}
+\title{Performs asynchronous speech recognition: receive results via the[google.longrunning.Operations](/speech/reference/rest/v1beta1/operations#Operation)interface. Returns either an`Operation.error` or an `Operation.response` which containsan `AsyncRecognizeResponse` message.}
 \usage{
 asyncrecognize(AsyncRecognizeRequest)
 }
@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other AsyncRecognizeRequest functions: \code{\link{AsyncRecognizeRequest}}
 }
-

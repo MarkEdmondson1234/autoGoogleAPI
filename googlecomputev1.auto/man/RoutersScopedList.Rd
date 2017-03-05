@@ -30,4 +30,3 @@ No description
 Other RoutersScopedList functions: \code{\link{RoutersScopedList.warning.data}},
   \code{\link{RoutersScopedList.warning}}
 }
-

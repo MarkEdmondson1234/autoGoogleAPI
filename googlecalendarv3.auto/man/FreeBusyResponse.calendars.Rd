@@ -20,4 +20,3 @@ List of free/busy information for calendars.
 Other FreeBusyResponse functions: \code{\link{FreeBusyResponse.groups}},
   \code{\link{FreeBusyResponse}}
 }
-

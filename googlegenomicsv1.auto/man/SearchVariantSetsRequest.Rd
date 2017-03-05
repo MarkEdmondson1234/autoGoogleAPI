@@ -4,15 +4,15 @@
 \alias{SearchVariantSetsRequest}
 \title{SearchVariantSetsRequest Object}
 \usage{
-SearchVariantSetsRequest(datasetIds = NULL, pageToken = NULL,
-  pageSize = NULL)
+SearchVariantSetsRequest(pageToken = NULL, pageSize = NULL,
+  datasetIds = NULL)
 }
 \arguments{
-\item{datasetIds}{Exactly one dataset ID must be provided here}
-
 \item{pageToken}{The continuation token, which is used to page through large result sets}
 
 \item{pageSize}{The maximum number of results to return in a single page}
+
+\item{datasetIds}{Exactly one dataset ID must be provided here}
 }
 \value{
 SearchVariantSetsRequest object
@@ -27,4 +27,3 @@ The search variant sets request.
 \seealso{
 Other SearchVariantSetsRequest functions: \code{\link{variantsets.search}}
 }
-

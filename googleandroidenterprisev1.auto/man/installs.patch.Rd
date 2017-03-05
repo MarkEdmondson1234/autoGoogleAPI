@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{installs.patch}
 \alias{installs.patch}
-\title{Requests to install the latest version of an app to a device. If the app is already installed then it is updated to the latest version if necessary. This method supports patch semantics.}
+\title{Requests to install the latest version of an app to a device. If the app is already installed, then it is updated to the latest version if necessary. This method supports patch semantics.}
 \usage{
 installs.patch(Install, enterpriseId, userId, deviceId, installId)
 }
@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Install functions: \code{\link{Install}},
   \code{\link{installs.update}}
 }
-

@@ -22,4 +22,3 @@ No description
 \seealso{
 Other TargetHttpsProxiesSetSslCertificatesRequest functions: \code{\link{targetHttpsProxies.setSslCertificates}}
 }
-

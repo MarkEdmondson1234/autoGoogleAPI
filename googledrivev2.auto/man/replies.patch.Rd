@@ -36,4 +36,3 @@ Other CommentReply functions: \code{\link{CommentReply}},
   \code{\link{replies.insert}},
   \code{\link{replies.update}}
 }
-

@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{pipelines.getControllerConfig}
 \alias{pipelines.getControllerConfig}
-\title{Gets controller configuration information. Should only be called by VMs created by the Pipelines Service and not by end users.}
+\title{Gets controller configuration information. Should only be calledby VMs created by the Pipelines Service and not by end users.}
 \usage{
 pipelines.getControllerConfig(operationId = NULL, validationToken = NULL)
 }
@@ -26,6 +26,5 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 }
-

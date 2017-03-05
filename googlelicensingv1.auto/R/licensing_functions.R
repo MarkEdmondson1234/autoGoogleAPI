@@ -2,7 +2,7 @@
 #' Licensing API to view and manage license for your domain.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:24:00
+#'  at 2017-03-05 20:00:39
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlelicensingv1.auto/R/licensing_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Revoke License.
 #' 
@@ -44,7 +57,7 @@ licenseAssignments.delete <- function(productId, skuId, userId) {
     url <- sprintf("https://www.googleapis.com/apps/licensing/v1/product/%s/sku/%s/user/%s", 
         productId, skuId, userId)
     # licensing.licenseAssignments.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -74,7 +87,7 @@ licenseAssignments.get <- function(productId, skuId, userId) {
     url <- sprintf("https://www.googleapis.com/apps/licensing/v1/product/%s/sku/%s/user/%s", 
         productId, skuId, userId)
     # licensing.licenseAssignments.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -105,7 +118,7 @@ licenseAssignments.insert <- function(LicenseAssignmentInsert, productId, skuId)
     url <- sprintf("https://www.googleapis.com/apps/licensing/v1/product/%s/sku/%s/user", 
         productId, skuId)
     # licensing.licenseAssignments.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(LicenseAssignmentInsert, "gar_LicenseAssignmentInsert"))
     
     f(the_body = LicenseAssignmentInsert)
@@ -139,8 +152,9 @@ licenseAssignments.listForProduct <- function(productId, customerId, maxResults 
     url <- sprintf("https://www.googleapis.com/apps/licensing/v1/product/%s/users", 
         productId)
     # licensing.licenseAssignments.listForProduct
-    f <- gar_api_generator(url, "GET", pars_args = list(customerId = customerId, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(customerId = customerId, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -173,8 +187,9 @@ licenseAssignments.listForProductAndSku <- function(productId, skuId, customerId
     url <- sprintf("https://www.googleapis.com/apps/licensing/v1/product/%s/sku/%s/users", 
         productId, skuId)
     # licensing.licenseAssignments.listForProductAndSku
-    f <- gar_api_generator(url, "GET", pars_args = list(customerId = customerId, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(customerId = customerId, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -206,7 +221,7 @@ licenseAssignments.patch <- function(LicenseAssignment, productId, skuId, userId
     url <- sprintf("https://www.googleapis.com/apps/licensing/v1/product/%s/sku/%s/user/%s", 
         productId, skuId, userId)
     # licensing.licenseAssignments.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(LicenseAssignment, "gar_LicenseAssignment"))
     
     f(the_body = LicenseAssignment)
@@ -247,7 +262,8 @@ licenseAssignments.update <- function(LicenseAssignment, productId, skuId, userI
     url <- sprintf("https://www.googleapis.com/apps/licensing/v1/product/%s/sku/%s/user/%s", 
         productId, skuId, userId)
     # licensing.licenseAssignments.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(LicenseAssignment, "gar_LicenseAssignment"))
     

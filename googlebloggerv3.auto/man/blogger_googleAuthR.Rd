@@ -8,7 +8,7 @@
 API for access to the data within Blogger.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:58:08
+ at 2017-03-05 19:29:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googlebloggerv3.auto/R/blogger_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/blogger.readonly
 }
 }
-

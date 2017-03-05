@@ -24,4 +24,3 @@ Request for the PublishBatch method.
 \seealso{
 Other PublishBatchRequest functions: \code{\link{topics.publishBatch}}
 }
-

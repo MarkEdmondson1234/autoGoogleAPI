@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{users.insert}
 \alias{users.insert}
-\title{Creates a new EMM-managed user.The Users resource passed in the body of the request should include an accountIdentifier and an accountType.}
+\title{Creates a new EMM-managed user.The Users resource passed in the body of the request should include an accountIdentifier and an accountType.If a corresponding user already exists with the same account identifier, the user will be updated with the resource. In this case only the displayName field can be changed.}
 \usage{
 users.insert(User, enterpriseId)
 }
@@ -28,8 +28,5 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \href{https://developers.google.com/android/work/play/emm-api}{Google Documentation}
 
 Other User functions: \code{\link{User}},
-  \code{\link{collectionviewers.patch}},
-  \code{\link{collectionviewers.update}},
   \code{\link{users.patch}}, \code{\link{users.update}}
 }
-

@@ -29,4 +29,3 @@ This is a JSON template for a turn-based match creation request.
 \seealso{
 Other TurnBasedMatchCreateRequest functions: \code{\link{turnBasedMatches.create}}
 }
-

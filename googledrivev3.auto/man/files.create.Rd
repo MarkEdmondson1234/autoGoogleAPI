@@ -6,7 +6,7 @@
 \usage{
 files.create(File, ignoreDefaultVisibility = NULL,
   keepRevisionForever = NULL, ocrLanguage = NULL,
-  useContentAsIndexableText = NULL)
+  supportsTeamDrives = NULL, useContentAsIndexableText = NULL)
 }
 \arguments{
 \item{File}{The \link{File} object to pass to this method}
@@ -16,6 +16,8 @@ files.create(File, ignoreDefaultVisibility = NULL,
 \item{keepRevisionForever}{Whether to set the 'keepForever' field in the new head revision}
 
 \item{ocrLanguage}{A language hint for OCR processing during image import (ISO 639-1 code)}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{useContentAsIndexableText}{Whether to use the uploaded content as indexable text}
 }
@@ -48,4 +50,3 @@ Other File functions: \code{\link{File.appProperties}},
   \code{\link{File}}, \code{\link{files.copy}},
   \code{\link{files.update}}
 }
-

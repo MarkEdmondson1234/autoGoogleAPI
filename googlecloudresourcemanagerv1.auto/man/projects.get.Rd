@@ -2,7 +2,7 @@
 % Please edit documentation in R/cloudresourcemanager_functions.R
 \name{projects.get}
 \alias{projects.get}
-\title{Retrieves the Project identified by the specified `project_id` (for example, `my-project-123`). The caller must have read permissions for this Project.}
+\title{Retrieves the Project identified by the specified`project_id` (for example, `my-project-123`).The caller must have read permissions for this Project.}
 \usage{
 projects.get(projectId)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/resource-manager}{Google Documentation}
 }
-

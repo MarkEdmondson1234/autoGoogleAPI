@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ManagedZone functions: \code{\link{ManagedZone}}
 }
-

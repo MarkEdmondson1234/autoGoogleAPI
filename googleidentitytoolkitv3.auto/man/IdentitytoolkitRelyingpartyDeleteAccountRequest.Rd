@@ -28,4 +28,3 @@ Request to delete account.
 \seealso{
 Other IdentitytoolkitRelyingpartyDeleteAccountRequest functions: \code{\link{relyingparty.deleteAccount}}
 }
-

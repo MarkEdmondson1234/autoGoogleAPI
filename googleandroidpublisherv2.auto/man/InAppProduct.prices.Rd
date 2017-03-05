@@ -23,4 +23,3 @@ Other InAppProduct functions: \code{\link{InAppProduct.listings}},
   \code{\link{inappproducts.patch}},
   \code{\link{inappproducts.update}}
 }
-

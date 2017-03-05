@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{products.custombatch}
 \alias{products.custombatch}
-\title{Retrieves, inserts, and deletes multiple products in a single request.}
+\title{Retrieves, inserts, and deletes multiple products in a single request. This method can only be called for non-multi-client accounts.}
 \usage{
 products.custombatch(ProductsCustomBatchRequest, dryRun = NULL)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ProductsCustomBatchRequest functions: \code{\link{ProductsCustomBatchRequest}}
 }
-

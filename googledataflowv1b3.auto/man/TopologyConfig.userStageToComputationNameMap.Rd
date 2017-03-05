@@ -19,4 +19,3 @@ Maps user stage names to stable computation names.
 \seealso{
 Other TopologyConfig functions: \code{\link{TopologyConfig}}
 }
-

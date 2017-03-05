@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Revision functions: \code{\link{Revision.exportLinks}},
   \code{\link{Revision}}, \code{\link{revisions.update}}
 }
-

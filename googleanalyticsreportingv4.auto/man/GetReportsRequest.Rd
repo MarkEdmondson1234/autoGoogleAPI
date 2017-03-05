@@ -22,4 +22,3 @@ The batch request containing multiple report request.
 \seealso{
 Other GetReportsRequest functions: \code{\link{reports.batchGet}}
 }
-

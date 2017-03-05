@@ -40,4 +40,3 @@ JSON template for FieldSpec resource for Schemas in Directory API.
 \seealso{
 Other SchemaFieldSpec functions: \code{\link{SchemaFieldSpec.numericIndexingSpec}}
 }
-

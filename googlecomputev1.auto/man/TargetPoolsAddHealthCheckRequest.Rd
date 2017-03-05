@@ -7,7 +7,7 @@
 TargetPoolsAddHealthCheckRequest(healthChecks = NULL)
 }
 \arguments{
-\item{healthChecks}{A list of HttpHealthCheck resources to add to the target pool}
+\item{healthChecks}{The HttpHealthCheck to add to the target pool}
 }
 \value{
 TargetPoolsAddHealthCheckRequest object
@@ -22,4 +22,3 @@ No description
 \seealso{
 Other TargetPoolsAddHealthCheckRequest functions: \code{\link{targetPools.addHealthCheck}}
 }
-

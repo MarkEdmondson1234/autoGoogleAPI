@@ -19,4 +19,3 @@ No description
 \seealso{
 Other MobileDevice functions: \code{\link{MobileDevice}}
 }
-

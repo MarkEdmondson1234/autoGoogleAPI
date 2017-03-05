@@ -33,4 +33,3 @@ JSON template for Domain object in Directory API.
 \seealso{
 Other Domains functions: \code{\link{directory.domains.insert}}
 }
-

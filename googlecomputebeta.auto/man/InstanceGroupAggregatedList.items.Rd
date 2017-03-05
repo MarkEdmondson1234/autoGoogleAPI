@@ -19,4 +19,3 @@ A map of scoped instance group lists.
 \seealso{
 Other InstanceGroupAggregatedList functions: \code{\link{InstanceGroupAggregatedList}}
 }
-

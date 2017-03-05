@@ -48,4 +48,3 @@ This is a JSON template for a Player resource.
 \seealso{
 Other Player functions: \code{\link{Player.name}}
 }
-

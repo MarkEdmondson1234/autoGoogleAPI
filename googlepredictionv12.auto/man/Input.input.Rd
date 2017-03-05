@@ -23,4 +23,3 @@ No description
 Other Input functions: \code{\link{Input}},
   \code{\link{hostedmodels.predict}}
 }
-

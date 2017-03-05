@@ -19,4 +19,3 @@ No description
 \seealso{
 Other JobList functions: \code{\link{JobList}}
 }
-

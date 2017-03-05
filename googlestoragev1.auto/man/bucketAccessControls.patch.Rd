@@ -35,4 +35,3 @@ Other BucketAccessControl functions: \code{\link{BucketAccessControl.projectTeam
   \code{\link{bucketAccessControls.insert}},
   \code{\link{bucketAccessControls.update}}
 }
-

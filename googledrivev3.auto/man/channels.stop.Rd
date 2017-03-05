@@ -36,4 +36,3 @@ Other Channel functions: \code{\link{Channel.params}},
   \code{\link{Channel}}, \code{\link{changes.watch}},
   \code{\link{files.watch}}
 }
-

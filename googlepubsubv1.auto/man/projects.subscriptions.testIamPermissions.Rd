@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.testIamPermissions}
 \alias{projects.subscriptions.testIamPermissions}
-\title{Returns permissions that a caller has on the specified resource.}
+\title{Returns permissions that a caller has on the specified resource.If the resource does not exist, this will return an empty set ofpermissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-awareUIs and command-line tools, not for authorization checking. This operationmay 'fail open' without warning.}
 \usage{
 projects.subscriptions.testIamPermissions(TestIamPermissionsRequest, resource)
 }
@@ -29,6 +29,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \href{https://cloud.google.com/pubsub/docs}{Google Documentation}
 
 Other TestIamPermissionsRequest functions: \code{\link{TestIamPermissionsRequest}},
+  \code{\link{projects.snapshots.testIamPermissions}},
   \code{\link{projects.topics.testIamPermissions}}
 }
-

@@ -2,7 +2,7 @@
 #' Accesses the inventory of Ad Exchange seller users and generates reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:31:56
+#'  at 2017-03-05 19:22:01
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangesellerv20.auto/R/adexchangeseller_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Get information about the selected Ad Exchange account.
 #' 
@@ -44,7 +57,7 @@ accounts.get <- function(accountId) {
     url <- sprintf("https://www.googleapis.com/adexchangeseller/v2.0/accounts/%s", 
         accountId)
     # adexchangeseller.accounts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -79,8 +92,10 @@ accounts.list <- function(maxResults = NULL, pageToken = NULL) {
     
     url <- "https://www.googleapis.com/adexchangeseller/v2.0/accounts"
     # adexchangeseller.accounts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

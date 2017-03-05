@@ -45,4 +45,3 @@ Other Router functions: \code{\link{routers.insert}},
   \code{\link{routers.preview}},
   \code{\link{routers.update}}
 }
-

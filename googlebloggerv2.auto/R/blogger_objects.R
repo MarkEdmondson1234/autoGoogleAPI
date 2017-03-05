@@ -2,7 +2,7 @@
 #' API for access to the data within Blogger.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:57:53
+#'  at 2017-03-05 19:29:17
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlebloggerv2.auto/R/blogger_objects.R
 #' api_json: api_json
 #' 

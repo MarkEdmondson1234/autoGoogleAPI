@@ -7,7 +7,7 @@
 RenewalSettings(renewalType = NULL)
 }
 \arguments{
-\item{renewalType}{Subscription renewal type}
+\item{renewalType}{Renewal settings for the annual commitment plan}
 }
 \value{
 RenewalSettings object
@@ -22,4 +22,3 @@ JSON template for a subscription renewal settings.
 \seealso{
 Other RenewalSettings functions: \code{\link{subscriptions.changeRenewalSettings}}
 }
-

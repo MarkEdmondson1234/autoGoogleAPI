@@ -22,4 +22,3 @@ A service account that can be used to authenticate as the enterprise to API call
 \seealso{
 Other EnterpriseAccount functions: \code{\link{enterprises.setAccount}}
 }
-

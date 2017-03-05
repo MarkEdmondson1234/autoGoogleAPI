@@ -31,4 +31,3 @@ No description
 Other InstancesScopedList functions: \code{\link{InstancesScopedList.warning.data}},
   \code{\link{InstancesScopedList.warning}}
 }
-

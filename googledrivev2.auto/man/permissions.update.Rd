@@ -5,16 +5,18 @@
 \title{Updates a permission.}
 \usage{
 permissions.update(Permission, fileId, permissionId, removeExpiration = NULL,
-  transferOwnership = NULL)
+  supportsTeamDrives = NULL, transferOwnership = NULL)
 }
 \arguments{
 \item{Permission}{The \link{Permission} object to pass to this method}
 
-\item{fileId}{The ID for the file}
+\item{fileId}{The ID for the file or Team Drive}
 
 \item{permissionId}{The ID for the permission}
 
 \item{removeExpiration}{Whether to remove the expiration date}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{transferOwnership}{Whether changing a role to 'owner' downgrades the current owners to writers}
 }
@@ -35,8 +37,8 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/drive/}{Google Documentation}
 
-Other Permission functions: \code{\link{Permission}},
+Other Permission functions: \code{\link{Permission.teamDrivePermissionDetails}},
+  \code{\link{Permission}},
   \code{\link{permissions.insert}},
   \code{\link{permissions.patch}}
 }
-

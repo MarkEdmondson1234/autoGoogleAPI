@@ -2,7 +2,7 @@
 #' Views and manages your Google Analytics data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-04 00:00:27
+#'  at 2017-03-05 19:25:02
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleanalyticsv3.auto/R/analytics_functions.R
 #' api_json: api_json
 #' 
@@ -23,6 +23,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Returns Analytics data for a view (profile).
 #' 
@@ -61,10 +74,11 @@ data.ga.get <- function(ids, start.date, end.date, metrics, dimensions = NULL, f
     segment = NULL, sort = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v3/data/ga"
     # analytics.data.ga.get
-    f <- gar_api_generator(url, "GET", pars_args = list(dimensions = dimensions, 
-        `end-date` = end.date, filters = filters, ids = ids, `include-empty-rows` = include.empty.rows, 
-        `max-results` = max.results, metrics = metrics, output = output, samplingLevel = samplingLevel, 
-        segment = segment, sort = sort, `start-date` = start.date, `start-index` = start.index), 
+    pars = list(ids = ids, `start-date` = start.date, `end-date` = end.date, metrics = metrics, 
+        dimensions = dimensions, filters = filters, `include-empty-rows` = include.empty.rows, 
+        `max-results` = max.results, output = output, samplingLevel = samplingLevel, 
+        segment = segment, sort = sort, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -103,10 +117,11 @@ data.mcf.get <- function(ids, start.date, end.date, metrics, dimensions = NULL, 
     max.results = NULL, samplingLevel = NULL, sort = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v3/data/mcf"
     # analytics.data.mcf.get
-    f <- gar_api_generator(url, "GET", pars_args = list(dimensions = dimensions, 
-        `end-date` = end.date, filters = filters, ids = ids, `max-results` = max.results, 
-        metrics = metrics, samplingLevel = samplingLevel, sort = sort, `start-date` = start.date, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(ids = ids, `start-date` = start.date, `end-date` = end.date, metrics = metrics, 
+        dimensions = dimensions, filters = filters, `max-results` = max.results, 
+        samplingLevel = samplingLevel, sort = sort, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -140,9 +155,10 @@ data.realtime.get <- function(ids, metrics, dimensions = NULL, filters = NULL, m
     sort = NULL) {
     url <- "https://www.googleapis.com/analytics/v3/data/realtime"
     # analytics.data.realtime.get
-    f <- gar_api_generator(url, "GET", pars_args = list(dimensions = dimensions, 
-        filters = filters, ids = ids, `max-results` = max.results, metrics = metrics, 
-        sort = sort), data_parse_function = function(x) x)
+    pars = list(ids = ids, metrics = metrics, dimensions = dimensions, filters = filters, 
+        `max-results` = max.results, sort = sort)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -171,8 +187,9 @@ data.realtime.get <- function(ids, metrics, dimensions = NULL, filters = NULL, m
 management.accountSummaries.list <- function(max.results = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v3/management/accountSummaries"
     # analytics.management.accountSummaries.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -201,7 +218,7 @@ management.accountUserLinks.delete <- function(accountId, linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/entityUserLinks/%s", 
         accountId, linkId)
     # analytics.management.accountUserLinks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -231,7 +248,7 @@ management.accountUserLinks.insert <- function(EntityUserLink, accountId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/entityUserLinks", 
         accountId)
     # analytics.management.accountUserLinks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(EntityUserLink, "gar_EntityUserLink"))
     
     f(the_body = EntityUserLink)
@@ -264,8 +281,9 @@ management.accountUserLinks.list <- function(accountId, max.results = NULL, star
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/entityUserLinks", 
         accountId)
     # analytics.management.accountUserLinks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -296,7 +314,7 @@ management.accountUserLinks.update <- function(EntityUserLink, accountId, linkId
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/entityUserLinks/%s", 
         accountId, linkId)
     # analytics.management.accountUserLinks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(EntityUserLink, "gar_EntityUserLink"))
     
     f(the_body = EntityUserLink)
@@ -328,8 +346,9 @@ management.accountUserLinks.update <- function(EntityUserLink, accountId, linkId
 management.accounts.list <- function(max.results = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v3/management/accounts"
     # analytics.management.accounts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -363,8 +382,9 @@ management.customDataSources.list <- function(accountId, webPropertyId, max.resu
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDataSources", 
         accountId, webPropertyId)
     # analytics.management.customDataSources.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -393,9 +413,9 @@ management.customDataSources.list <- function(accountId, webPropertyId, max.resu
 #' @export
 management.customDimensions.get <- function(accountId, webPropertyId, customDimensionId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDimensions/%s", 
-        accountId, customDimensionId, webPropertyId)
+        accountId, webPropertyId, customDimensionId)
     # analytics.management.customDimensions.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -426,7 +446,7 @@ management.customDimensions.insert <- function(CustomDimension, accountId, webPr
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDimensions", 
         accountId, webPropertyId)
     # analytics.management.customDimensions.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(CustomDimension, "gar_CustomDimension"))
     
     f(the_body = CustomDimension)
@@ -461,8 +481,9 @@ management.customDimensions.list <- function(accountId, webPropertyId, max.resul
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDimensions", 
         accountId, webPropertyId)
     # analytics.management.customDimensions.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -494,9 +515,10 @@ management.customDimensions.list <- function(accountId, webPropertyId, max.resul
 management.customDimensions.patch <- function(CustomDimension, accountId, webPropertyId, 
     customDimensionId, ignoreCustomDataSourceLinks = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDimensions/%s", 
-        accountId, customDimensionId, webPropertyId)
+        accountId, webPropertyId, customDimensionId)
     # analytics.management.customDimensions.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks), 
+    pars = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(CustomDimension, "gar_CustomDimension"))
     
@@ -531,9 +553,10 @@ management.customDimensions.patch <- function(CustomDimension, accountId, webPro
 management.customDimensions.update <- function(CustomDimension, accountId, webPropertyId, 
     customDimensionId, ignoreCustomDataSourceLinks = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDimensions/%s", 
-        accountId, customDimensionId, webPropertyId)
+        accountId, webPropertyId, customDimensionId)
     # analytics.management.customDimensions.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks), 
+    pars = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(CustomDimension, "gar_CustomDimension"))
     
@@ -565,9 +588,9 @@ management.customDimensions.update <- function(CustomDimension, accountId, webPr
 #' @export
 management.customMetrics.get <- function(accountId, webPropertyId, customMetricId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customMetrics/%s", 
-        accountId, customMetricId, webPropertyId)
+        accountId, webPropertyId, customMetricId)
     # analytics.management.customMetrics.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -598,7 +621,7 @@ management.customMetrics.insert <- function(CustomMetric, accountId, webProperty
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customMetrics", 
         accountId, webPropertyId)
     # analytics.management.customMetrics.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(CustomMetric, "gar_CustomMetric"))
     
     f(the_body = CustomMetric)
@@ -633,8 +656,9 @@ management.customMetrics.list <- function(accountId, webPropertyId, max.results 
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customMetrics", 
         accountId, webPropertyId)
     # analytics.management.customMetrics.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -666,9 +690,10 @@ management.customMetrics.list <- function(accountId, webPropertyId, max.results 
 management.customMetrics.patch <- function(CustomMetric, accountId, webPropertyId, 
     customMetricId, ignoreCustomDataSourceLinks = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customMetrics/%s", 
-        accountId, customMetricId, webPropertyId)
+        accountId, webPropertyId, customMetricId)
     # analytics.management.customMetrics.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks), 
+    pars = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(CustomMetric, "gar_CustomMetric"))
     
@@ -703,9 +728,10 @@ management.customMetrics.patch <- function(CustomMetric, accountId, webPropertyI
 management.customMetrics.update <- function(CustomMetric, accountId, webPropertyId, 
     customMetricId, ignoreCustomDataSourceLinks = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customMetrics/%s", 
-        accountId, customMetricId, webPropertyId)
+        accountId, webPropertyId, customMetricId)
     # analytics.management.customMetrics.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks), 
+    pars = list(ignoreCustomDataSourceLinks = ignoreCustomDataSourceLinks)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(CustomMetric, "gar_CustomMetric"))
     
@@ -738,9 +764,9 @@ management.customMetrics.update <- function(CustomMetric, accountId, webProperty
 #' @export
 management.experiments.delete <- function(accountId, webPropertyId, profileId, experimentId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/experiments/%s", 
-        accountId, experimentId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, experimentId)
     # analytics.management.experiments.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -771,9 +797,9 @@ management.experiments.delete <- function(accountId, webPropertyId, profileId, e
 #' @export
 management.experiments.get <- function(accountId, webPropertyId, profileId, experimentId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/experiments/%s", 
-        accountId, experimentId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, experimentId)
     # analytics.management.experiments.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -804,9 +830,9 @@ management.experiments.get <- function(accountId, webPropertyId, profileId, expe
 #' @export
 management.experiments.insert <- function(Experiment, accountId, webPropertyId, profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/experiments", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.experiments.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Experiment, "gar_Experiment"))
     
     f(the_body = Experiment)
@@ -841,10 +867,11 @@ management.experiments.insert <- function(Experiment, accountId, webPropertyId, 
 management.experiments.list <- function(accountId, webPropertyId, profileId, max.results = NULL, 
     start.index = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/experiments", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.experiments.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -877,9 +904,9 @@ management.experiments.list <- function(accountId, webPropertyId, profileId, max
 management.experiments.patch <- function(Experiment, accountId, webPropertyId, profileId, 
     experimentId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/experiments/%s", 
-        accountId, experimentId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, experimentId)
     # analytics.management.experiments.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Experiment, "gar_Experiment"))
     
     f(the_body = Experiment)
@@ -914,9 +941,9 @@ management.experiments.patch <- function(Experiment, accountId, webPropertyId, p
 management.experiments.update <- function(Experiment, accountId, webPropertyId, profileId, 
     experimentId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/experiments/%s", 
-        accountId, experimentId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, experimentId)
     # analytics.management.experiments.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Experiment, "gar_Experiment"))
     
     f(the_body = Experiment)
@@ -947,7 +974,7 @@ management.filters.delete <- function(accountId, filterId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/filters/%s", 
         accountId, filterId)
     # analytics.management.filters.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -977,7 +1004,7 @@ management.filters.get <- function(accountId, filterId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/filters/%s", 
         accountId, filterId)
     # analytics.management.filters.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1007,7 +1034,7 @@ management.filters.insert <- function(Filter, accountId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/filters", 
         accountId)
     # analytics.management.filters.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Filter, "gar_Filter"))
     
     f(the_body = Filter)
@@ -1040,8 +1067,9 @@ management.filters.list <- function(accountId, max.results = NULL, start.index =
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/filters", 
         accountId)
     # analytics.management.filters.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1072,7 +1100,7 @@ management.filters.patch <- function(Filter, accountId, filterId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/filters/%s", 
         accountId, filterId)
     # analytics.management.filters.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Filter, "gar_Filter"))
     
     f(the_body = Filter)
@@ -1105,7 +1133,7 @@ management.filters.update <- function(Filter, accountId, filterId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/filters/%s", 
         accountId, filterId)
     # analytics.management.filters.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Filter, "gar_Filter"))
     
     f(the_body = Filter)
@@ -1137,9 +1165,9 @@ management.filters.update <- function(Filter, accountId, filterId) {
 #' @export
 management.goals.get <- function(accountId, webPropertyId, profileId, goalId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/goals/%s", 
-        accountId, goalId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, goalId)
     # analytics.management.goals.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1169,9 +1197,9 @@ management.goals.get <- function(accountId, webPropertyId, profileId, goalId) {
 #' @export
 management.goals.insert <- function(Goal, accountId, webPropertyId, profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/goals", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.goals.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Goal, "gar_Goal"))
     
     f(the_body = Goal)
@@ -1206,10 +1234,11 @@ management.goals.insert <- function(Goal, accountId, webPropertyId, profileId) {
 management.goals.list <- function(accountId, webPropertyId, profileId, max.results = NULL, 
     start.index = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/goals", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.goals.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1240,9 +1269,9 @@ management.goals.list <- function(accountId, webPropertyId, profileId, max.resul
 #' @export
 management.goals.patch <- function(Goal, accountId, webPropertyId, profileId, goalId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/goals/%s", 
-        accountId, goalId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, goalId)
     # analytics.management.goals.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Goal, "gar_Goal"))
     
     f(the_body = Goal)
@@ -1275,9 +1304,9 @@ management.goals.patch <- function(Goal, accountId, webPropertyId, profileId, go
 #' @export
 management.goals.update <- function(Goal, accountId, webPropertyId, profileId, goalId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/goals/%s", 
-        accountId, goalId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, goalId)
     # analytics.management.goals.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Goal, "gar_Goal"))
     
     f(the_body = Goal)
@@ -1309,9 +1338,9 @@ management.goals.update <- function(Goal, accountId, webPropertyId, profileId, g
 management.profileFilterLinks.delete <- function(accountId, webPropertyId, profileId, 
     linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/profileFilterLinks/%s", 
-        accountId, linkId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, linkId)
     # analytics.management.profileFilterLinks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1342,9 +1371,9 @@ management.profileFilterLinks.delete <- function(accountId, webPropertyId, profi
 management.profileFilterLinks.get <- function(accountId, webPropertyId, profileId, 
     linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/profileFilterLinks/%s", 
-        accountId, linkId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, linkId)
     # analytics.management.profileFilterLinks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1375,9 +1404,9 @@ management.profileFilterLinks.get <- function(accountId, webPropertyId, profileI
 management.profileFilterLinks.insert <- function(ProfileFilterLink, accountId, webPropertyId, 
     profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/profileFilterLinks", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profileFilterLinks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ProfileFilterLink, "gar_ProfileFilterLink"))
     
     f(the_body = ProfileFilterLink)
@@ -1411,10 +1440,11 @@ management.profileFilterLinks.insert <- function(ProfileFilterLink, accountId, w
 management.profileFilterLinks.list <- function(accountId, webPropertyId, profileId, 
     max.results = NULL, start.index = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/profileFilterLinks", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profileFilterLinks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1446,9 +1476,9 @@ management.profileFilterLinks.list <- function(accountId, webPropertyId, profile
 management.profileFilterLinks.patch <- function(ProfileFilterLink, accountId, webPropertyId, 
     profileId, linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/profileFilterLinks/%s", 
-        accountId, linkId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, linkId)
     # analytics.management.profileFilterLinks.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(ProfileFilterLink, "gar_ProfileFilterLink"))
     
     f(the_body = ProfileFilterLink)
@@ -1482,9 +1512,9 @@ management.profileFilterLinks.patch <- function(ProfileFilterLink, accountId, we
 management.profileFilterLinks.update <- function(ProfileFilterLink, accountId, webPropertyId, 
     profileId, linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/profileFilterLinks/%s", 
-        accountId, linkId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, linkId)
     # analytics.management.profileFilterLinks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(ProfileFilterLink, "gar_ProfileFilterLink"))
     
     f(the_body = ProfileFilterLink)
@@ -1516,9 +1546,9 @@ management.profileFilterLinks.update <- function(ProfileFilterLink, accountId, w
 management.profileUserLinks.delete <- function(accountId, webPropertyId, profileId, 
     linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/entityUserLinks/%s", 
-        accountId, linkId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, linkId)
     # analytics.management.profileUserLinks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1549,9 +1579,9 @@ management.profileUserLinks.delete <- function(accountId, webPropertyId, profile
 management.profileUserLinks.insert <- function(EntityUserLink, accountId, webPropertyId, 
     profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/entityUserLinks", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profileUserLinks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(EntityUserLink, "gar_EntityUserLink"))
     
     f(the_body = EntityUserLink)
@@ -1585,10 +1615,11 @@ management.profileUserLinks.insert <- function(EntityUserLink, accountId, webPro
 management.profileUserLinks.list <- function(accountId, webPropertyId, profileId, 
     max.results = NULL, start.index = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/entityUserLinks", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profileUserLinks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1620,9 +1651,9 @@ management.profileUserLinks.list <- function(accountId, webPropertyId, profileId
 management.profileUserLinks.update <- function(EntityUserLink, accountId, webPropertyId, 
     profileId, linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/entityUserLinks/%s", 
-        accountId, linkId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId, linkId)
     # analytics.management.profileUserLinks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(EntityUserLink, "gar_EntityUserLink"))
     
     f(the_body = EntityUserLink)
@@ -1652,9 +1683,9 @@ management.profileUserLinks.update <- function(EntityUserLink, accountId, webPro
 #' @export
 management.profiles.delete <- function(accountId, webPropertyId, profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profiles.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1683,9 +1714,9 @@ management.profiles.delete <- function(accountId, webPropertyId, profileId) {
 #' @export
 management.profiles.get <- function(accountId, webPropertyId, profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profiles.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1716,7 +1747,7 @@ management.profiles.insert <- function(Profile, accountId, webPropertyId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles", 
         accountId, webPropertyId)
     # analytics.management.profiles.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Profile, "gar_Profile"))
     
     f(the_body = Profile)
@@ -1752,8 +1783,9 @@ management.profiles.list <- function(accountId, webPropertyId, max.results = NUL
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles", 
         accountId, webPropertyId)
     # analytics.management.profiles.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1783,9 +1815,9 @@ management.profiles.list <- function(accountId, webPropertyId, max.results = NUL
 #' @export
 management.profiles.patch <- function(Profile, accountId, webPropertyId, profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profiles.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Profile, "gar_Profile"))
     
     f(the_body = Profile)
@@ -1817,16 +1849,16 @@ management.profiles.patch <- function(Profile, accountId, webPropertyId, profile
 #' @export
 management.profiles.update <- function(Profile, accountId, webPropertyId, profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.profiles.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Profile, "gar_Profile"))
     
     f(the_body = Profile)
     
 }
 
-#' Gets remarketing audiences to which the user has access.
+#' Gets a remarketing audience to which the user has access.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -1843,21 +1875,21 @@ management.profiles.update <- function(Profile, accountId, webPropertyId, profil
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
-#' @param accountId Account ID for the remarketing audience to retrieve
-#' @param webPropertyId Web property ID for the remarketing audience to retrieve
-#' @param remarketingAudienceId The ID to retrieve the Remarketing Audience for
+#' @param accountId The account ID of the remarketing audience to retrieve
+#' @param webPropertyId The web property ID of the remarketing audience to retrieve
+#' @param remarketingAudienceId The ID of the remarketing audience to retrieve
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 management.remarketingAudience.get <- function(accountId, webPropertyId, remarketingAudienceId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/remarketingAudiences/%s", 
-        accountId, remarketingAudienceId, webPropertyId)
+        accountId, webPropertyId, remarketingAudienceId)
     # analytics.management.remarketingAudience.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
 
-#' Creates a new remarketing audiences.
+#' Creates a new remarketing audience.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -1874,8 +1906,8 @@ management.remarketingAudience.get <- function(accountId, webPropertyId, remarke
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
 #' @param RemarketingAudience The \link{RemarketingAudience} object to pass to this method
-#' @param accountId Account ID to create the remarketing audience for
-#' @param webPropertyId Web property ID to create the remarketing audience for
+#' @param accountId The account ID for which to create the remarketing audience
+#' @param webPropertyId Web property ID for which to create the remarketing audience
 #' @importFrom googleAuthR gar_api_generator
 #' @family RemarketingAudience functions
 #' @export
@@ -1884,7 +1916,7 @@ management.remarketingAudience.insert <- function(RemarketingAudience, accountId
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/remarketingAudiences", 
         accountId, webPropertyId)
     # analytics.management.remarketingAudience.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(RemarketingAudience, "gar_RemarketingAudience"))
     
     f(the_body = RemarketingAudience)
@@ -1908,8 +1940,8 @@ management.remarketingAudience.insert <- function(RemarketingAudience, accountId
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
-#' @param accountId Account ID for the remarketing audience to retrieve
-#' @param webPropertyId Web property ID for the remarketing audience to retrieve
+#' @param accountId The account ID of the remarketing audiences to retrieve
+#' @param webPropertyId The web property ID of the remarketing audiences to retrieve
 #' @param max.results The maximum number of remarketing audiences to include in this response
 #' @param start.index An index of the first entity to retrieve
 #' @param type 
@@ -1920,13 +1952,14 @@ management.remarketingAudience.list <- function(accountId, webPropertyId, max.re
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/remarketingAudiences", 
         accountId, webPropertyId)
     # analytics.management.remarketingAudience.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index, type = type), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index, type = type)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
 
-#' Updates an existing remarketing audiences. This method supports patch semantics.
+#' Updates an existing remarketing audience. This method supports patch semantics.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -1943,25 +1976,25 @@ management.remarketingAudience.list <- function(accountId, webPropertyId, max.re
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
 #' @param RemarketingAudience The \link{RemarketingAudience} object to pass to this method
-#' @param accountId Account ID for the remarketing audience to update
-#' @param webPropertyId Web property ID for the remarketing audience to update
-#' @param remarketingAudienceId Remarketing audience ID of the remarketing audience to update
+#' @param accountId The account ID of the remarketing audience to update
+#' @param webPropertyId The web property ID of the remarketing audience to update
+#' @param remarketingAudienceId The ID of the remarketing audience to update
 #' @importFrom googleAuthR gar_api_generator
 #' @family RemarketingAudience functions
 #' @export
 management.remarketingAudience.patch <- function(RemarketingAudience, accountId, 
     webPropertyId, remarketingAudienceId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/remarketingAudiences/%s", 
-        accountId, remarketingAudienceId, webPropertyId)
+        accountId, webPropertyId, remarketingAudienceId)
     # analytics.management.remarketingAudience.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(RemarketingAudience, "gar_RemarketingAudience"))
     
     f(the_body = RemarketingAudience)
     
 }
 
-#' Updates an existing remarketing audiences.
+#' Updates an existing remarketing audience.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -1978,18 +2011,18 @@ management.remarketingAudience.patch <- function(RemarketingAudience, accountId,
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
 #' @param RemarketingAudience The \link{RemarketingAudience} object to pass to this method
-#' @param accountId Account ID for the remarketing audience to update
-#' @param webPropertyId Web property ID for the remarketing audience to update
-#' @param remarketingAudienceId Remarketing audience ID of the remarketing audience to update
+#' @param accountId The account ID of the remarketing audience to update
+#' @param webPropertyId The web property ID of the remarketing audience to update
+#' @param remarketingAudienceId The ID of the remarketing audience to update
 #' @importFrom googleAuthR gar_api_generator
 #' @family RemarketingAudience functions
 #' @export
 management.remarketingAudience.update <- function(RemarketingAudience, accountId, 
     webPropertyId, remarketingAudienceId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/remarketingAudiences/%s", 
-        accountId, remarketingAudienceId, webPropertyId)
+        accountId, webPropertyId, remarketingAudienceId)
     # analytics.management.remarketingAudience.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(RemarketingAudience, "gar_RemarketingAudience"))
     
     f(the_body = RemarketingAudience)
@@ -2021,8 +2054,9 @@ management.remarketingAudience.update <- function(RemarketingAudience, accountId
 management.segments.list <- function(max.results = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v3/management/segments"
     # analytics.management.segments.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2052,9 +2086,9 @@ management.segments.list <- function(max.results = NULL, start.index = NULL) {
 management.unsampledReports.delete <- function(accountId, webPropertyId, profileId, 
     unsampledReportId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/unsampledReports/%s", 
-        accountId, profileId, unsampledReportId, webPropertyId)
+        accountId, webPropertyId, profileId, unsampledReportId)
     # analytics.management.unsampledReports.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -2086,9 +2120,9 @@ management.unsampledReports.delete <- function(accountId, webPropertyId, profile
 management.unsampledReports.get <- function(accountId, webPropertyId, profileId, 
     unsampledReportId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/unsampledReports/%s", 
-        accountId, profileId, unsampledReportId, webPropertyId)
+        accountId, webPropertyId, profileId, unsampledReportId)
     # analytics.management.unsampledReports.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2120,9 +2154,9 @@ management.unsampledReports.get <- function(accountId, webPropertyId, profileId,
 management.unsampledReports.insert <- function(UnsampledReport, accountId, webPropertyId, 
     profileId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/unsampledReports", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.unsampledReports.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(UnsampledReport, "gar_UnsampledReport"))
     
     f(the_body = UnsampledReport)
@@ -2157,10 +2191,11 @@ management.unsampledReports.insert <- function(UnsampledReport, accountId, webPr
 management.unsampledReports.list <- function(accountId, webPropertyId, profileId, 
     max.results = NULL, start.index = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/profiles/%s/unsampledReports", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.unsampledReports.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2192,9 +2227,9 @@ management.unsampledReports.list <- function(accountId, webPropertyId, profileId
 management.uploads.deleteUploadData <- function(AnalyticsDataimportDeleteUploadDataRequest, 
     accountId, webPropertyId, customDataSourceId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDataSources/%s/deleteUploadData", 
-        accountId, customDataSourceId, webPropertyId)
+        accountId, webPropertyId, customDataSourceId)
     # analytics.management.uploads.deleteUploadData
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AnalyticsDataimportDeleteUploadDataRequest, "gar_AnalyticsDataimportDeleteUploadDataRequest"))
     
     f(the_body = AnalyticsDataimportDeleteUploadDataRequest)
@@ -2228,9 +2263,9 @@ management.uploads.deleteUploadData <- function(AnalyticsDataimportDeleteUploadD
 management.uploads.get <- function(accountId, webPropertyId, customDataSourceId, 
     uploadId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDataSources/%s/uploads/%s", 
-        accountId, customDataSourceId, uploadId, webPropertyId)
+        accountId, webPropertyId, customDataSourceId, uploadId)
     # analytics.management.uploads.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2263,10 +2298,11 @@ management.uploads.get <- function(accountId, webPropertyId, customDataSourceId,
 management.uploads.list <- function(accountId, webPropertyId, customDataSourceId, 
     max.results = NULL, start.index = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDataSources/%s/uploads", 
-        accountId, customDataSourceId, webPropertyId)
+        accountId, webPropertyId, customDataSourceId)
     # analytics.management.uploads.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2295,9 +2331,9 @@ management.uploads.list <- function(accountId, webPropertyId, customDataSourceId
 #' @export
 management.uploads.uploadData <- function(accountId, webPropertyId, customDataSourceId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/customDataSources/%s/uploads", 
-        accountId, customDataSourceId, webPropertyId)
+        accountId, webPropertyId, customDataSourceId)
     # analytics.management.uploads.uploadData
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -2325,9 +2361,9 @@ management.uploads.uploadData <- function(accountId, webPropertyId, customDataSo
 #' @export
 management.webPropertyAdWordsLinks.delete <- function(accountId, webPropertyId, webPropertyAdWordsLinkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityAdWordsLinks/%s", 
-        accountId, webPropertyAdWordsLinkId, webPropertyId)
+        accountId, webPropertyId, webPropertyAdWordsLinkId)
     # analytics.management.webPropertyAdWordsLinks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -2356,9 +2392,9 @@ management.webPropertyAdWordsLinks.delete <- function(accountId, webPropertyId, 
 #' @export
 management.webPropertyAdWordsLinks.get <- function(accountId, webPropertyId, webPropertyAdWordsLinkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityAdWordsLinks/%s", 
-        accountId, webPropertyAdWordsLinkId, webPropertyId)
+        accountId, webPropertyId, webPropertyAdWordsLinkId)
     # analytics.management.webPropertyAdWordsLinks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2390,7 +2426,7 @@ management.webPropertyAdWordsLinks.insert <- function(EntityAdWordsLink, account
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityAdWordsLinks", 
         accountId, webPropertyId)
     # analytics.management.webPropertyAdWordsLinks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(EntityAdWordsLink, "gar_EntityAdWordsLink"))
     
     f(the_body = EntityAdWordsLink)
@@ -2425,8 +2461,9 @@ management.webPropertyAdWordsLinks.list <- function(accountId, webPropertyId, ma
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityAdWordsLinks", 
         accountId, webPropertyId)
     # analytics.management.webPropertyAdWordsLinks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2457,9 +2494,9 @@ management.webPropertyAdWordsLinks.list <- function(accountId, webPropertyId, ma
 management.webPropertyAdWordsLinks.patch <- function(EntityAdWordsLink, accountId, 
     webPropertyId, webPropertyAdWordsLinkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityAdWordsLinks/%s", 
-        accountId, webPropertyAdWordsLinkId, webPropertyId)
+        accountId, webPropertyId, webPropertyAdWordsLinkId)
     # analytics.management.webPropertyAdWordsLinks.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(EntityAdWordsLink, "gar_EntityAdWordsLink"))
     
     f(the_body = EntityAdWordsLink)
@@ -2492,9 +2529,9 @@ management.webPropertyAdWordsLinks.patch <- function(EntityAdWordsLink, accountI
 management.webPropertyAdWordsLinks.update <- function(EntityAdWordsLink, accountId, 
     webPropertyId, webPropertyAdWordsLinkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityAdWordsLinks/%s", 
-        accountId, webPropertyAdWordsLinkId, webPropertyId)
+        accountId, webPropertyId, webPropertyAdWordsLinkId)
     # analytics.management.webPropertyAdWordsLinks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(EntityAdWordsLink, "gar_EntityAdWordsLink"))
     
     f(the_body = EntityAdWordsLink)
@@ -2526,7 +2563,7 @@ management.webproperties.get <- function(accountId, webPropertyId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s", 
         accountId, webPropertyId)
     # analytics.management.webproperties.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2556,7 +2593,7 @@ management.webproperties.insert <- function(Webproperty, accountId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties", 
         accountId)
     # analytics.management.webproperties.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Webproperty, "gar_Webproperty"))
     
     f(the_body = Webproperty)
@@ -2590,8 +2627,9 @@ management.webproperties.list <- function(accountId, max.results = NULL, start.i
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties", 
         accountId)
     # analytics.management.webproperties.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2622,7 +2660,7 @@ management.webproperties.patch <- function(Webproperty, accountId, webPropertyId
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s", 
         accountId, webPropertyId)
     # analytics.management.webproperties.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Webproperty, "gar_Webproperty"))
     
     f(the_body = Webproperty)
@@ -2655,7 +2693,7 @@ management.webproperties.update <- function(Webproperty, accountId, webPropertyI
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s", 
         accountId, webPropertyId)
     # analytics.management.webproperties.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Webproperty, "gar_Webproperty"))
     
     f(the_body = Webproperty)
@@ -2685,9 +2723,9 @@ management.webproperties.update <- function(Webproperty, accountId, webPropertyI
 #' @export
 management.webpropertyUserLinks.delete <- function(accountId, webPropertyId, linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityUserLinks/%s", 
-        accountId, linkId, webPropertyId)
+        accountId, webPropertyId, linkId)
     # analytics.management.webpropertyUserLinks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -2718,7 +2756,7 @@ management.webpropertyUserLinks.insert <- function(EntityUserLink, accountId, we
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityUserLinks", 
         accountId, webPropertyId)
     # analytics.management.webpropertyUserLinks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(EntityUserLink, "gar_EntityUserLink"))
     
     f(the_body = EntityUserLink)
@@ -2753,8 +2791,9 @@ management.webpropertyUserLinks.list <- function(accountId, webPropertyId, max.r
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityUserLinks", 
         accountId, webPropertyId)
     # analytics.management.webpropertyUserLinks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2785,9 +2824,9 @@ management.webpropertyUserLinks.list <- function(accountId, webPropertyId, max.r
 management.webpropertyUserLinks.update <- function(EntityUserLink, accountId, webPropertyId, 
     linkId) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/management/accounts/%s/webproperties/%s/entityUserLinks/%s", 
-        accountId, linkId, webPropertyId)
+        accountId, webPropertyId, linkId)
     # analytics.management.webpropertyUserLinks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(EntityUserLink, "gar_EntityUserLink"))
     
     f(the_body = EntityUserLink)
@@ -2819,7 +2858,7 @@ metadata.columns.list <- function(reportType) {
     url <- sprintf("https://www.googleapis.com/analytics/v3/metadata/%s/columns", 
         reportType)
     # analytics.metadata.columns.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2852,7 +2891,8 @@ provisioning.createAccountTicket <- function(AccountTicket) {
     
     url <- "https://www.googleapis.com/analytics/v3/provisioning/createAccountTicket"
     # analytics.provisioning.createAccountTicket
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(AccountTicket, "gar_AccountTicket"))
     

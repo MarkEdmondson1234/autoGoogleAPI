@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{productstatuses.list}
 \alias{productstatuses.list}
-\title{Lists the statuses of the products in your Merchant Center account.}
+\title{Lists the statuses of the products in your Merchant Center account. This method can only be called for non-multi-client accounts.}
 \usage{
 productstatuses.list(merchantId, includeInvalidInsertedItems = NULL,
   maxResults = NULL, pageToken = NULL)
@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

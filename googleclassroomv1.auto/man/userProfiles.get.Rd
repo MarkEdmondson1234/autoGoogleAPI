@@ -2,7 +2,7 @@
 % Please edit documentation in R/classroom_functions.R
 \name{userProfiles.get}
 \alias{userProfiles.get}
-\title{Returns a user profile. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access this user profile or if no profile exists with the requested ID or for access errors.}
+\title{Returns a user profile. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access this user profile, if no profile exists with the requested ID, or for access errors.}
 \usage{
 userProfiles.get(userId)
 }
@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/classroom/}{Google Documentation}
 }
-

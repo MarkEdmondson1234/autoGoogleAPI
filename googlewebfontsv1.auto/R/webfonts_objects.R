@@ -2,7 +2,7 @@
 #' Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (including available styles and a list of supported script subsets).
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:50:29
+#'  at 2017-03-05 20:22:03
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlewebfontsv1.auto/R/webfonts_objects.R
 #' api_json: api_json
 #' 

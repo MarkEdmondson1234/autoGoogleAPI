@@ -154,4 +154,3 @@ Other Activity functions: \code{\link{Activity.actor.clientSpecificActorInfo.you
   \code{\link{Activity.provider}},
   \code{\link{activities.insert}}
 }
-

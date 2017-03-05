@@ -4,31 +4,36 @@
 \alias{RunPipelineArgs}
 \title{RunPipelineArgs Object}
 \usage{
-RunPipelineArgs(RunPipelineArgs.inputs = NULL,
-  RunPipelineArgs.outputs = NULL, projectId = NULL, inputs = NULL,
-  outputs = NULL, serviceAccount = NULL, clientId = NULL,
-  resources = NULL, logging = NULL, keepVmAliveOnFailureDuration = NULL)
+RunPipelineArgs(RunPipelineArgs.labels = NULL,
+  RunPipelineArgs.outputs = NULL, RunPipelineArgs.inputs = NULL,
+  logging = NULL, labels = NULL, keepVmAliveOnFailureDuration = NULL,
+  resources = NULL, outputs = NULL, projectId = NULL, clientId = NULL,
+  serviceAccount = NULL, inputs = NULL)
 }
 \arguments{
-\item{RunPipelineArgs.inputs}{The \link{RunPipelineArgs.inputs} object or list of objects}
+\item{RunPipelineArgs.labels}{The \link{RunPipelineArgs.labels} object or list of objects}
 
 \item{RunPipelineArgs.outputs}{The \link{RunPipelineArgs.outputs} object or list of objects}
 
-\item{projectId}{Required}
-
-\item{inputs}{Pipeline input arguments; keys are defined in the pipeline documentation}
-
-\item{outputs}{Pipeline output arguments; keys are defined in the pipeline documentation}
-
-\item{serviceAccount}{The Google Cloud Service Account that will be used to access data and services}
-
-\item{clientId}{Client-specified pipeline operation identifier}
-
-\item{resources}{Specifies resource requirements/overrides for the pipeline run}
+\item{RunPipelineArgs.inputs}{The \link{RunPipelineArgs.inputs} object or list of objects}
 
 \item{logging}{Required}
 
-\item{keepVmAliveOnFailureDuration}{How long to keep the VM up after a failure (for example docker command failed, copying input or output files failed, etc)}
+\item{labels}{Labels to apply to this pipeline run}
+
+\item{keepVmAliveOnFailureDuration}{How long to keep the VM up after a failure (for example docker command}
+
+\item{resources}{Specifies resource requirements/overrides for the pipeline run}
+
+\item{outputs}{Pipeline output arguments; keys are defined in the pipeline}
+
+\item{projectId}{Required}
+
+\item{clientId}{This field is deprecated}
+
+\item{serviceAccount}{The Google Cloud Service Account that will be used to access data and}
+
+\item{inputs}{Pipeline input arguments; keys are defined in the pipeline documentation}
 }
 \value{
 RunPipelineArgs object
@@ -42,6 +47,6 @@ The pipeline run arguments.
 }
 \seealso{
 Other RunPipelineArgs functions: \code{\link{RunPipelineArgs.inputs}},
+  \code{\link{RunPipelineArgs.labels}},
   \code{\link{RunPipelineArgs.outputs}}
 }
-

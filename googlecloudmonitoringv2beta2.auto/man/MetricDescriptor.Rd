@@ -31,4 +31,3 @@ A metricDescriptor defines the name, label keys, and data type of a particular m
 \seealso{
 Other MetricDescriptor functions: \code{\link{metricDescriptors.create}}
 }
-

@@ -30,4 +30,3 @@ Other Channel functions: \code{\link{Channel.params}},
   \code{\link{Channel}},
   \code{\link{reports.activities.watch}}
 }
-

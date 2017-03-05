@@ -2,7 +2,7 @@
 #' Fetches reports for the administrators of Google Apps customers about the usage, collaboration, security, and risk for their users.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:32:46
+#'  at 2017-03-05 19:23:13
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadminreportsv1.auto/R/admin_objects.R
 #' api_json: api_json
 #' 
@@ -23,7 +23,7 @@
 #' @family Activities functions
 #' @export
 Activities <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "admin#reports#activities", 
+    structure(list(etag = etag, items = items, kind = `admin#reports#activities`, 
         nextPageToken = nextPageToken), class = "gar_Activities")
 }
 
@@ -54,7 +54,7 @@ Activity <- function(Activity.actor = NULL, Activity.events = NULL, Activity.eve
     structure(list(Activity.actor = Activity.actor, Activity.events = Activity.events, 
         Activity.events.parameters = Activity.events.parameters, Activity.id = Activity.id, 
         actor = actor, etag = etag, events = events, id = id, ipAddress = ipAddress, 
-        kind = "admin#reports#activity", ownerDomain = ownerDomain), class = "gar_Activity")
+        kind = `admin#reports#activity`, ownerDomain = ownerDomain), class = "gar_Activity")
 }
 
 #' Activity.actor Object
@@ -154,7 +154,7 @@ Channel <- function(Channel.params = NULL, address = NULL, expiration = NULL, id
     params = NULL, payload = NULL, resourceId = NULL, resourceUri = NULL, token = NULL, 
     type = NULL) {
     structure(list(Channel.params = Channel.params, address = address, expiration = expiration, 
-        id = id, kind = "api#channel", params = params, payload = payload, resourceId = resourceId, 
+        id = id, kind = `api#channel`, params = params, payload = payload, resourceId = resourceId, 
         resourceUri = resourceUri, token = token, type = type), class = "gar_Channel")
 }
 
@@ -191,7 +191,7 @@ Channel.params <- function() {
 UsageReport <- function(UsageReport.entity = NULL, UsageReport.parameters = NULL, 
     etag = NULL) {
     structure(list(UsageReport.entity = UsageReport.entity, UsageReport.parameters = UsageReport.parameters, 
-        etag = etag, kind = "admin#reports#usageReport"), class = "gar_UsageReport")
+        etag = etag, kind = `admin#reports#usageReport`), class = "gar_UsageReport")
 }
 
 #' UsageReport.entity Object
@@ -246,7 +246,7 @@ UsageReport.parameters <- function() {
 UsageReports <- function(UsageReports.warnings = NULL, UsageReports.warnings.data = NULL, 
     etag = NULL, nextPageToken = NULL, usageReports = NULL, warnings = NULL) {
     structure(list(UsageReports.warnings = UsageReports.warnings, UsageReports.warnings.data = UsageReports.warnings.data, 
-        etag = etag, kind = "admin#reports#usageReports", nextPageToken = nextPageToken, 
+        etag = etag, kind = `admin#reports#usageReports`, nextPageToken = nextPageToken, 
         usageReports = usageReports, warnings = warnings), class = "gar_UsageReports")
 }
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{variantsets.get}
 \alias{variantsets.get}
-\title{Gets a variant set by ID. For the definitions of variant sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
+\title{Gets a variant set by ID.For the definitions of variant sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
 \usage{
 variantsets.get(variantSetId)
 }
@@ -25,6 +25,5 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 }
-

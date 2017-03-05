@@ -22,4 +22,3 @@ Other RealtimeData functions: \code{\link{RealtimeData.profileInfo}},
   \code{\link{RealtimeData.totalsForAllResults}},
   \code{\link{RealtimeData}}
 }
-

@@ -4,15 +4,15 @@
 \alias{SearchReferenceSetsRequest}
 \title{SearchReferenceSetsRequest Object}
 \usage{
-SearchReferenceSetsRequest(md5checksums = NULL, accessions = NULL,
-  assemblyId = NULL, pageToken = NULL, pageSize = NULL)
+SearchReferenceSetsRequest(assemblyId = NULL, md5checksums = NULL,
+  accessions = NULL, pageToken = NULL, pageSize = NULL)
 }
 \arguments{
-\item{md5checksums}{If present, return reference sets for which the md5checksum matches exactly}
+\item{assemblyId}{If present, return reference sets for which a substring of their}
 
-\item{accessions}{If present, return reference sets for which a prefix of any of sourceAccessions match any of these strings}
+\item{md5checksums}{If present, return reference sets for which the}
 
-\item{assemblyId}{If present, return reference sets for which a substring of their `assemblyId` matches this string (case insensitive)}
+\item{accessions}{If present, return reference sets for which a prefix of any of}
 
 \item{pageToken}{The continuation token, which is used to page through large result sets}
 
@@ -31,4 +31,3 @@ No description
 \seealso{
 Other SearchReferenceSetsRequest functions: \code{\link{referencesets.search}}
 }
-

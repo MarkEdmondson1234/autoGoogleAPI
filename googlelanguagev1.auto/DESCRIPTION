@@ -1,0 +1,12 @@
+Package: googlelanguagev1.auto
+Title: Google Cloud Natural Language API
+Version: 0.0.0.9000
+Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
+                       role = c("aut", "cre")))
+Description: Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, and text annotations. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

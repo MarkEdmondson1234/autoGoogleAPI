@@ -25,4 +25,3 @@ Other Person functions: \code{\link{Person.ageRange}},
   \code{\link{Person.organizations}},
   \code{\link{Person.urls}}, \code{\link{Person}}
 }
-

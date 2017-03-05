@@ -7,9 +7,9 @@
 files.update(File, fileId, addParents = NULL, convert = NULL,
   modifiedDateBehavior = NULL, newRevision = NULL, ocr = NULL,
   ocrLanguage = NULL, pinned = NULL, removeParents = NULL,
-  setModifiedDate = NULL, timedTextLanguage = NULL,
-  timedTextTrackName = NULL, updateViewedDate = NULL,
-  useContentAsIndexableText = NULL)
+  setModifiedDate = NULL, supportsTeamDrives = NULL,
+  timedTextLanguage = NULL, timedTextTrackName = NULL,
+  updateViewedDate = NULL, useContentAsIndexableText = NULL)
 }
 \arguments{
 \item{File}{The \link{File} object to pass to this method}
@@ -33,6 +33,8 @@ files.update(File, fileId, addParents = NULL, convert = NULL,
 \item{removeParents}{Comma-separated list of parent IDs to remove}
 
 \item{setModifiedDate}{Whether to set the modified date with the supplied modified date}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{timedTextLanguage}{The language of the timed text}
 
@@ -63,7 +65,8 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/drive/}{Google Documentation}
 
-Other File functions: \code{\link{File.exportLinks}},
+Other File functions: \code{\link{File.capabilities}},
+  \code{\link{File.exportLinks}},
   \code{\link{File.imageMediaMetadata.location}},
   \code{\link{File.imageMediaMetadata}},
   \code{\link{File.indexableText}},
@@ -74,4 +77,3 @@ Other File functions: \code{\link{File.exportLinks}},
   \code{\link{File}}, \code{\link{files.copy}},
   \code{\link{files.insert}}, \code{\link{files.patch}}
 }
-

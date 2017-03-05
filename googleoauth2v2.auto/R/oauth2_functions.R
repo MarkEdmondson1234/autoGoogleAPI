@@ -2,7 +2,7 @@
 #' Obtains end-user authorization grants for use with other Google APIs.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:24:35
+#'  at 2017-03-05 20:03:28
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleoauth2v2.auto/R/oauth2_functions.R
 #' api_json: api_json
 #' 
@@ -21,6 +21,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' 
@@ -51,7 +64,8 @@ userinfo.get <- function() {
     
     url <- "https://www.googleapis.com/oauth2/v2/userinfo"
     # oauth2.userinfo.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

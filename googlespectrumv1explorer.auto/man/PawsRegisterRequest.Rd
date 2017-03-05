@@ -33,4 +33,3 @@ The registration request message contains the required registration parameters.
 \seealso{
 Other PawsRegisterRequest functions: \code{\link{paws.register}}
 }
-

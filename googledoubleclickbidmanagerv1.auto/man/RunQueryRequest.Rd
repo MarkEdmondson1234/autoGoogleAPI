@@ -29,4 +29,3 @@ Request to run a stored query to generate a report.
 \seealso{
 Other RunQueryRequest functions: \code{\link{queries.runquery}}
 }
-

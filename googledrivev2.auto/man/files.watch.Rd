@@ -5,7 +5,7 @@
 \title{Subscribe to changes on a file}
 \usage{
 files.watch(Channel, fileId, acknowledgeAbuse = NULL, projection = NULL,
-  revisionId = NULL, updateViewedDate = NULL)
+  revisionId = NULL, supportsTeamDrives = NULL, updateViewedDate = NULL)
 }
 \arguments{
 \item{Channel}{The \link{Channel} object to pass to this method}
@@ -17,6 +17,8 @@ files.watch(Channel, fileId, acknowledgeAbuse = NULL, projection = NULL,
 \item{projection}{This parameter is deprecated and has no function}
 
 \item{revisionId}{Specifies the Revision ID that should be downloaded}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{updateViewedDate}{Deprecated: Use files}
 }
@@ -46,4 +48,3 @@ Other Channel functions: \code{\link{Channel.params}},
   \code{\link{Channel}}, \code{\link{changes.watch}},
   \code{\link{channels.stop}}
 }
-

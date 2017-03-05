@@ -2,7 +2,7 @@
 #' Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (including available styles and a list of supported script subsets).
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:50:29
+#'  at 2017-03-05 20:22:03
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlewebfontsv1.auto/R/webfonts_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Retrieves the list of fonts currently served by the Google Fonts Developer API
@@ -46,7 +59,10 @@ list <- function(sort = NULL) {
     
     url <- "https://www.googleapis.com/webfonts/v1/webfonts"
     # webfonts.webfonts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(sort = sort), data_parse_function = function(x) x)
+    pars = list(sort = sort)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

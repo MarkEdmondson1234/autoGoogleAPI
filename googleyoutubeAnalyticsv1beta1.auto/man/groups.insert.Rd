@@ -32,4 +32,3 @@ Other Group functions: \code{\link{Group.contentDetails}},
   \code{\link{Group.snippet}}, \code{\link{Group}},
   \code{\link{groups.update}}
 }
-

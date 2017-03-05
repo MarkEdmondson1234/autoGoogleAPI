@@ -8,14 +8,15 @@
 Provisions and manages App Engine applications.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:15:57
+ at 2017-03-05 19:55:32
 filename: /Users/mark/dev/R/autoGoogleAPI/googleappenginev1beta4.auto/R/appengine_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/cloud-platform
+  \item https://www.googleapis.com/auth/appengine.admin
+\item https://www.googleapis.com/auth/cloud-platform
+\item https://www.googleapis.com/auth/cloud-platform.read-only
 }
 }
-

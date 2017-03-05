@@ -33,4 +33,3 @@ An Instance Template resource.
 \seealso{
 Other InstanceTemplate functions: \code{\link{instanceTemplates.insert}}
 }
-

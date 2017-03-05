@@ -4,47 +4,47 @@
 \alias{Breakpoint}
 \title{Breakpoint Object}
 \usage{
-Breakpoint(Breakpoint.labels = NULL, id = NULL, action = NULL,
-  location = NULL, condition = NULL, expressions = NULL,
-  logMessageFormat = NULL, logLevel = NULL, isFinalState = NULL,
-  createTime = NULL, finalTime = NULL, userEmail = NULL, status = NULL,
-  stackFrames = NULL, evaluatedExpressions = NULL, variableTable = NULL,
-  labels = NULL)
+Breakpoint(Breakpoint.labels = NULL, userEmail = NULL, action = NULL,
+  logLevel = NULL, id = NULL, location = NULL, finalTime = NULL,
+  variableTable = NULL, createTime = NULL, logMessageFormat = NULL,
+  labels = NULL, expressions = NULL, evaluatedExpressions = NULL,
+  isFinalState = NULL, stackFrames = NULL, condition = NULL,
+  status = NULL)
 }
 \arguments{
 \item{Breakpoint.labels}{The \link{Breakpoint.labels} object or list of objects}
 
-\item{id}{Breakpoint identifier, unique in the scope of the debuggee}
+\item{userEmail}{E-mail address of the user that created this breakpoint}
 
-\item{action}{Action that the agent should perform when the code at the breakpoint location is hit}
-
-\item{location}{Breakpoint source location}
-
-\item{condition}{Condition that triggers the breakpoint}
-
-\item{expressions}{List of read-only expressions to evaluate at the breakpoint location}
-
-\item{logMessageFormat}{Only relevant when action is `LOG`}
+\item{action}{Action that the agent should perform when the code at the}
 
 \item{logLevel}{Indicates the severity of the log}
 
-\item{isFinalState}{When true, indicates that this is a final result and the breakpoint state will not change from here on}
+\item{id}{Breakpoint identifier, unique in the scope of the debuggee}
+
+\item{location}{Breakpoint source location}
+
+\item{finalTime}{Time this breakpoint was finalized as seen by the server in seconds}
+
+\item{variableTable}{The `variable_table` exists to aid with computation, memory and network}
 
 \item{createTime}{Time this breakpoint was created by the server in seconds resolution}
 
-\item{finalTime}{Time this breakpoint was finalized as seen by the server in seconds resolution}
+\item{logMessageFormat}{Only relevant when action is `LOG`}
 
-\item{userEmail}{E-mail address of the user that created this breakpoint}
+\item{labels}{A set of custom breakpoint properties, populated by the agent, to be}
 
-\item{status}{Breakpoint status}
-
-\item{stackFrames}{The stack at breakpoint time}
+\item{expressions}{List of read-only expressions to evaluate at the breakpoint location}
 
 \item{evaluatedExpressions}{Values of evaluated expressions at breakpoint time}
 
-\item{variableTable}{The `variable_table` exists to aid with computation, memory and network traffic optimization}
+\item{isFinalState}{When true, indicates that this is a final result and the}
 
-\item{labels}{A set of custom breakpoint properties, populated by the agent, to be displayed to the user}
+\item{stackFrames}{The stack at breakpoint time}
+
+\item{condition}{Condition that triggers the breakpoint}
+
+\item{status}{Breakpoint status}
 }
 \value{
 Breakpoint object
@@ -59,4 +59,3 @@ Represents the breakpoint specification, status and results.
 \seealso{
 Other Breakpoint functions: \code{\link{Breakpoint.labels}}
 }
-

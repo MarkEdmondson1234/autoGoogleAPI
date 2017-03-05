@@ -30,4 +30,3 @@ Other Schema functions: \code{\link{directory.schemas.insert}},
   \code{\link{directory.schemas.patch}},
   \code{\link{directory.schemas.update}}
 }
-

@@ -31,4 +31,3 @@ No description
 Other VpnTunnelsScopedList functions: \code{\link{VpnTunnelsScopedList.warning.data}},
   \code{\link{VpnTunnelsScopedList.warning}}
 }
-

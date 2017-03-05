@@ -1,5 +1,5 @@
 # googleadmindatatransfer_v1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Admin Data Transfer API R library
 
 Transfers user data from one user to another.

@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Image functions: \code{\link{Image.labels}},
   \code{\link{Image.rawDisk}}, \code{\link{Image}}
 }
-

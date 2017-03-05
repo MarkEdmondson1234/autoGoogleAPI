@@ -2,7 +2,7 @@
 #' A data platform for customers to create, manage, share and query data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:57:35
+#'  at 2017-03-05 19:28:52
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlebigqueryv2.auto/R/bigquery_functions.R
 #' api_json: api_json
 #' 
@@ -24,6 +24,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying deleteContents. Immediately after deletion, you can create another dataset with the same name.
 #' 
@@ -49,9 +62,10 @@ NULL
 #' @export
 datasets.delete <- function(projectId, datasetId, deleteContents = NULL) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s", 
-        datasetId, projectId)
+        projectId, datasetId)
     # bigquery.datasets.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(deleteContents = deleteContents), 
+    pars = list(deleteContents = deleteContents)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -81,9 +95,9 @@ datasets.delete <- function(projectId, datasetId, deleteContents = NULL) {
 #' @export
 datasets.get <- function(projectId, datasetId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s", 
-        datasetId, projectId)
+        projectId, datasetId)
     # bigquery.datasets.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -114,7 +128,7 @@ datasets.insert <- function(Dataset, projectId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets", 
         projectId)
     # bigquery.datasets.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Dataset, "gar_Dataset"))
     
     f(the_body = Dataset)
@@ -151,8 +165,9 @@ datasets.list <- function(projectId, all = NULL, filter = NULL, maxResults = NUL
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets", 
         projectId)
     # bigquery.datasets.list
-    f <- gar_api_generator(url, "GET", pars_args = list(all = all, filter = filter, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(all = all, filter = filter, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -182,9 +197,9 @@ datasets.list <- function(projectId, all = NULL, filter = NULL, maxResults = NUL
 #' @export
 datasets.patch <- function(Dataset, projectId, datasetId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s", 
-        datasetId, projectId)
+        projectId, datasetId)
     # bigquery.datasets.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Dataset, "gar_Dataset"))
     
     f(the_body = Dataset)
@@ -216,9 +231,9 @@ datasets.patch <- function(Dataset, projectId, datasetId) {
 #' @export
 datasets.update <- function(Dataset, projectId, datasetId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s", 
-        datasetId, projectId)
+        projectId, datasetId)
     # bigquery.datasets.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Dataset, "gar_Dataset"))
     
     f(the_body = Dataset)
@@ -247,10 +262,10 @@ datasets.update <- function(Dataset, projectId, datasetId) {
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 jobs.cancel <- function(projectId, jobId) {
-    url <- sprintf("https://www.googleapis.com/bigquery/v2/project/%s/jobs/%s/cancel", 
-        jobId, projectId)
+    url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/jobs/%s/cancel", 
+        projectId, jobId)
     # bigquery.jobs.cancel
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -279,9 +294,9 @@ jobs.cancel <- function(projectId, jobId) {
 #' @export
 jobs.get <- function(projectId, jobId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/jobs/%s", 
-        jobId, projectId)
+        projectId, jobId)
     # bigquery.jobs.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -315,10 +330,12 @@ jobs.get <- function(projectId, jobId) {
 jobs.getQueryResults <- function(projectId, jobId, maxResults = NULL, pageToken = NULL, 
     startIndex = NULL, timeoutMs = NULL) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/queries/%s", 
-        jobId, projectId)
+        projectId, jobId)
     # bigquery.jobs.getQueryResults
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, startIndex = startIndex, timeoutMs = timeoutMs), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, startIndex = startIndex, 
+        timeoutMs = timeoutMs)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -351,7 +368,7 @@ jobs.getQueryResults <- function(projectId, jobId, maxResults = NULL, pageToken 
 jobs.insert <- function(Job, projectId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/jobs", projectId)
     # bigquery.jobs.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Job, "gar_Job"))
     
     f(the_body = Job)
@@ -388,8 +405,9 @@ jobs.list <- function(projectId, allUsers = NULL, maxResults = NULL, pageToken =
     projection = NULL, stateFilter = NULL) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/jobs", projectId)
     # bigquery.jobs.list
-    f <- gar_api_generator(url, "GET", pars_args = list(allUsers = allUsers, maxResults = maxResults, 
-        pageToken = pageToken, projection = projection, stateFilter = stateFilter), 
+    pars = list(allUsers = allUsers, maxResults = maxResults, pageToken = pageToken, 
+        projection = projection, stateFilter = stateFilter)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -422,7 +440,7 @@ jobs.query <- function(QueryRequest, projectId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/queries", 
         projectId)
     # bigquery.jobs.query
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(QueryRequest, "gar_QueryRequest"))
     
     f(the_body = QueryRequest)
@@ -454,8 +472,9 @@ jobs.query <- function(QueryRequest, projectId) {
 projects.list <- function(maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/bigquery/v2/projects"
     # bigquery.projects.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -488,9 +507,9 @@ projects.list <- function(maxResults = NULL, pageToken = NULL) {
 tabledata.insertAll <- function(TableDataInsertAllRequest, projectId, datasetId, 
     tableId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables/%s/insertAll", 
-        datasetId, projectId, tableId)
+        projectId, datasetId, tableId)
     # bigquery.tabledata.insertAll
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TableDataInsertAllRequest, "gar_TableDataInsertAllRequest"))
     
     f(the_body = TableDataInsertAllRequest)
@@ -526,10 +545,11 @@ tabledata.insertAll <- function(TableDataInsertAllRequest, projectId, datasetId,
 tabledata.list <- function(projectId, datasetId, tableId, maxResults = NULL, pageToken = NULL, 
     startIndex = NULL) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables/%s/data", 
-        datasetId, projectId, tableId)
+        projectId, datasetId, tableId)
     # bigquery.tabledata.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, startIndex = startIndex), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, startIndex = startIndex)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -558,9 +578,9 @@ tabledata.list <- function(projectId, datasetId, tableId, maxResults = NULL, pag
 #' @export
 tables.delete <- function(projectId, datasetId, tableId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables/%s", 
-        datasetId, projectId, tableId)
+        projectId, datasetId, tableId)
     # bigquery.tables.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -590,9 +610,9 @@ tables.delete <- function(projectId, datasetId, tableId) {
 #' @export
 tables.get <- function(projectId, datasetId, tableId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables/%s", 
-        datasetId, projectId, tableId)
+        projectId, datasetId, tableId)
     # bigquery.tables.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -622,9 +642,9 @@ tables.get <- function(projectId, datasetId, tableId) {
 #' @export
 tables.insert <- function(Table, projectId, datasetId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables", 
-        datasetId, projectId)
+        projectId, datasetId)
     # bigquery.tables.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Table, "gar_Table"))
     
     f(the_body = Table)
@@ -657,10 +677,11 @@ tables.insert <- function(Table, projectId, datasetId) {
 #' @export
 tables.list <- function(projectId, datasetId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables", 
-        datasetId, projectId)
+        projectId, datasetId)
     # bigquery.tables.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -691,9 +712,9 @@ tables.list <- function(projectId, datasetId, maxResults = NULL, pageToken = NUL
 #' @export
 tables.patch <- function(Table, projectId, datasetId, tableId) {
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables/%s", 
-        datasetId, projectId, tableId)
+        projectId, datasetId, tableId)
     # bigquery.tables.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Table, "gar_Table"))
     
     f(the_body = Table)
@@ -733,9 +754,10 @@ tables.update <- function(Table, projectId, datasetId, tableId) {
     
     
     url <- sprintf("https://www.googleapis.com/bigquery/v2/projects/%s/datasets/%s/tables/%s", 
-        datasetId, projectId, tableId)
+        projectId, datasetId, tableId)
     # bigquery.tables.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(Table, "gar_Table"))
     

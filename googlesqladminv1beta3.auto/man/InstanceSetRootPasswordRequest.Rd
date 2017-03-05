@@ -22,4 +22,3 @@ Database instance set root password request.
 \seealso{
 Other InstanceSetRootPasswordRequest functions: \code{\link{sql.instances.setRootPassword}}
 }
-

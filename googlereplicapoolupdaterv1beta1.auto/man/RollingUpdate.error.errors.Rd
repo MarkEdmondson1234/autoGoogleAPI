@@ -22,4 +22,3 @@ Other RollingUpdate functions: \code{\link{RollingUpdate.error}},
   \code{\link{RollingUpdate}},
   \code{\link{rollingUpdates.insert}}
 }
-

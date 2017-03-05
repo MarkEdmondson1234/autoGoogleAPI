@@ -19,4 +19,3 @@ The entity's properties.The map's keys are property names.A property name matchi
 \seealso{
 Other Entity functions: \code{\link{Entity}}
 }
-

@@ -21,4 +21,3 @@ Other About functions: \code{\link{About.exportFormats}},
   \code{\link{About.importFormats}},
   \code{\link{About.storageQuota}}, \code{\link{About}}
 }
-

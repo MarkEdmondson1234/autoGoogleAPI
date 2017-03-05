@@ -38,4 +38,3 @@ Database instance export context.
 Other ExportContext functions: \code{\link{ExportContext.csvExportOptions}},
   \code{\link{ExportContext.sqlExportOptions}}
 }
-

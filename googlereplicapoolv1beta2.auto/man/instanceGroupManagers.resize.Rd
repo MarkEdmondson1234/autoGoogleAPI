@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/compute/docs/instance-groups/manager/v1beta2}{Google Documentation}
 }
-

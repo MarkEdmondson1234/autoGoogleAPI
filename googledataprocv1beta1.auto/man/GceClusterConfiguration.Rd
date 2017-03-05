@@ -5,23 +5,28 @@
 \title{GceClusterConfiguration Object}
 \usage{
 GceClusterConfiguration(GceClusterConfiguration.metadata = NULL,
-  zoneUri = NULL, networkUri = NULL, subnetworkUri = NULL,
-  serviceAccountScopes = NULL, tags = NULL, metadata = NULL)
+  tags = NULL, serviceAccount = NULL, subnetworkUri = NULL,
+  networkUri = NULL, zoneUri = NULL, internalIpOnly = NULL,
+  metadata = NULL, serviceAccountScopes = NULL)
 }
 \arguments{
 \item{GceClusterConfiguration.metadata}{The \link{GceClusterConfiguration.metadata} object or list of objects}
 
-\item{zoneUri}{[Required] The zone where the Google Compute Engine cluster will be located}
+\item{tags}{The Google Compute Engine tags to add to all instances}
 
-\item{networkUri}{The Google Compute Engine network to be used for machine communications}
+\item{serviceAccount}{Optional The service account of the instances}
 
 \item{subnetworkUri}{The Google Compute Engine subnetwork to be used for machine communications}
 
-\item{serviceAccountScopes}{The URIs of service account scopes to be included in Google Compute Engine instances}
+\item{networkUri}{The Google Compute Engine network to be used for machine communications}
 
-\item{tags}{The Google Compute Engine tags to add to all instances}
+\item{zoneUri}{Required The zone where the Google Compute Engine cluster will be located}
+
+\item{internalIpOnly}{If true, all instances in the cluser will only have internal IP addresses}
 
 \item{metadata}{The Google Compute Engine metadata entries to add to all instances}
+
+\item{serviceAccountScopes}{The URIs of service account scopes to be included in Google Compute Engine instances}
 }
 \value{
 GceClusterConfiguration object
@@ -36,4 +41,3 @@ Common configuration settings for resources of Google Compute Engine cluster ins
 \seealso{
 Other GceClusterConfiguration functions: \code{\link{GceClusterConfiguration.metadata}}
 }
-

@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Comment functions: \code{\link{Comment.quotedFileContent}},
   \code{\link{Comment}}, \code{\link{comments.create}}
 }
-

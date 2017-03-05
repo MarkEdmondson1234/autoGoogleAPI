@@ -33,4 +33,3 @@ Other DatabaseInstance functions: \code{\link{DatabaseInstance.failoverReplica}}
   \code{\link{sql.instances.patch}},
   \code{\link{sql.instances.update}}
 }
-

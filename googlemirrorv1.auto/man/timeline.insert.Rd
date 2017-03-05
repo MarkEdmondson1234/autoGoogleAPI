@@ -31,4 +31,3 @@ Other TimelineItem functions: \code{\link{TimelineItem}},
   \code{\link{timeline.patch}},
   \code{\link{timeline.update}}
 }
-

@@ -22,4 +22,3 @@ No description
 \seealso{
 Other ResultsGetRequest functions: \code{\link{results.get}}
 }
-

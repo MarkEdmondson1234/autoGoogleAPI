@@ -2,7 +2,7 @@
 #' Lets Android application developers access their Google Play accounts.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:35:20
+#'  at 2017-03-05 19:26:39
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleandroidpublisherv11.auto/R/androidpublisher_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Checks the purchase and consumption status of an inapp item.
 #' 
@@ -44,7 +57,7 @@ inapppurchases.get <- function(packageName, productId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v1.1/applications/%s/inapp/%s/purchases/%s", 
         packageName, productId, token)
     # androidpublisher.inapppurchases.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -74,7 +87,7 @@ purchases.cancel <- function(packageName, subscriptionId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v1.1/applications/%s/subscriptions/%s/purchases/%s/cancel", 
         packageName, subscriptionId, token)
     # androidpublisher.purchases.cancel
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -111,7 +124,8 @@ purchases.get <- function(packageName, subscriptionId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v1.1/applications/%s/subscriptions/%s/purchases/%s", 
         packageName, subscriptionId, token)
     # androidpublisher.purchases.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

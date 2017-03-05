@@ -34,4 +34,3 @@ Other Usersettings functions: \code{\link{Usersettings.notesExport}},
   \code{\link{Usersettings}},
   \code{\link{myconfig.updateUserSettings}}
 }
-

@@ -4,33 +4,33 @@
 \alias{ReadGroup}
 \title{ReadGroup Object}
 \usage{
-ReadGroup(ReadGroup.info = NULL, id = NULL, datasetId = NULL,
-  name = NULL, description = NULL, sampleId = NULL, experiment = NULL,
-  predictedInsertSize = NULL, programs = NULL, referenceSetId = NULL,
-  info = NULL)
+ReadGroup(ReadGroup.info = NULL, sampleId = NULL, datasetId = NULL,
+  experiment = NULL, name = NULL, referenceSetId = NULL, info = NULL,
+  id = NULL, predictedInsertSize = NULL, programs = NULL,
+  description = NULL)
 }
 \arguments{
 \item{ReadGroup.info}{The \link{ReadGroup.info} object or list of objects}
 
-\item{id}{The server-generated read group ID, unique for all read groups}
+\item{sampleId}{A client-supplied sample identifier for the reads in this read group}
 
 \item{datasetId}{The dataset to which this read group belongs}
 
+\item{experiment}{The experiment used to generate this read group}
+
 \item{name}{The read group name}
 
-\item{description}{A free-form text description of this read group}
+\item{referenceSetId}{The reference set the reads in this read group are aligned to}
 
-\item{sampleId}{A client-supplied sample identifier for the reads in this read group}
+\item{info}{A map of additional read group information}
 
-\item{experiment}{The experiment used to generate this read group}
+\item{id}{The server-generated read group ID, unique for all read groups}
 
 \item{predictedInsertSize}{The predicted insert size of this read group}
 
 \item{programs}{The programs used to generate this read group}
 
-\item{referenceSetId}{The reference set the reads in this read group are aligned to}
-
-\item{info}{A map of additional read group information}
+\item{description}{A free-form text description of this read group}
 }
 \value{
 ReadGroup object
@@ -45,4 +45,3 @@ A read group is all the data that's processed the same way by the sequencer.
 \seealso{
 Other ReadGroup functions: \code{\link{ReadGroup.info}}
 }
-

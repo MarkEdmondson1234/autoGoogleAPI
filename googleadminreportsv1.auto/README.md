@@ -1,5 +1,5 @@
 # googleadminreports_v1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Admin Reports API R library
 
 Fetches reports for the administrators of Google Apps customers about the usage, collaboration, security, and risk for their users.

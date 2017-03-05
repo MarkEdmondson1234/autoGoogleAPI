@@ -26,4 +26,3 @@ Other GaData functions: \code{\link{GaData.dataTable.cols}},
   \code{\link{GaData.totalsForAllResults}},
   \code{\link{GaData}}
 }
-

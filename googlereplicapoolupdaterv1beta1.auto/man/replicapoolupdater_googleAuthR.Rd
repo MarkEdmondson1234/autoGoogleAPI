@@ -5,10 +5,10 @@
 \alias{replicapoolupdater_googleAuthR}
 \alias{replicapoolupdater_googleAuthR-package}
 \title{Google Compute Engine Instance Group Updater API
-Updates groups of Compute Engine instances.}
+[Deprecated. Please use compute.instanceGroupManagers.update method. replicapoolupdater API will be disabled after December 30th, 2016] Updates groups of Compute Engine instances.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:27:41
+ at 2017-03-05 20:09:30
 filename: /Users/mark/dev/R/autoGoogleAPI/googlereplicapoolupdaterv1beta1.auto/R/replicapoolupdater_functions.R
 api_json: api_json
 }
@@ -21,4 +21,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/replicapool.readonly
 }
 }
-

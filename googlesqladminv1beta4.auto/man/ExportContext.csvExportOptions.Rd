@@ -23,4 +23,3 @@ Options for exporting data as CSV.
 Other ExportContext functions: \code{\link{ExportContext.sqlExportOptions}},
   \code{\link{ExportContext}}
 }
-

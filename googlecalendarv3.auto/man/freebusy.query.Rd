@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other FreeBusyRequest functions: \code{\link{FreeBusyRequest}}
 }
-

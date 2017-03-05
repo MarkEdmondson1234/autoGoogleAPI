@@ -21,4 +21,3 @@ Other Task functions: \code{\link{Task}},
   \code{\link{insert}}, \code{\link{patch}},
   \code{\link{update}}
 }
-

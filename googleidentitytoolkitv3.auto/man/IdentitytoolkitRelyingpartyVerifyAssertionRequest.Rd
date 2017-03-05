@@ -44,4 +44,3 @@ Request to verify the IDP assertion.
 \seealso{
 Other IdentitytoolkitRelyingpartyVerifyAssertionRequest functions: \code{\link{relyingparty.verifyAssertion}}
 }
-

@@ -4,24 +4,26 @@
 \alias{BackendService}
 \title{BackendService Object}
 \usage{
-BackendService(affinityCookieTtlSec = NULL, backendSslPolicy = NULL,
-  backends = NULL, connectionDraining = NULL, creationTimestamp = NULL,
-  description = NULL, enableCDN = NULL, fingerprint = NULL,
-  healthChecks = NULL, iaap = NULL, id = NULL,
+BackendService(affinityCookieTtlSec = NULL, backends = NULL,
+  cdnPolicy = NULL, connectionDraining = NULL, creationTimestamp = NULL,
+  customRequestHeaders = NULL, description = NULL, enableCDN = NULL,
+  fingerprint = NULL, healthChecks = NULL, iap = NULL, id = NULL,
   loadBalancingScheme = NULL, name = NULL, port = NULL, portName = NULL,
-  protocol = NULL, region = NULL, selfLink = NULL,
-  sessionAffinity = NULL, timeoutSec = NULL)
+  protocol = NULL, region = NULL, securityPolicy = NULL,
+  selfLink = NULL, sessionAffinity = NULL, timeoutSec = NULL)
 }
 \arguments{
 \item{affinityCookieTtlSec}{Lifetime of cookies in seconds if session_affinity is GENERATED_COOKIE}
 
-\item{backendSslPolicy}{Backend SSL policies to enforce}
-
 \item{backends}{The list of backends that serve this BackendService}
+
+\item{cdnPolicy}{Cloud CDN configuration for this BackendService}
 
 \item{connectionDraining}{No description}
 
 \item{creationTimestamp}{[Output Only] Creation timestamp in RFC3339 text format}
+
+\item{customRequestHeaders}{Headers that the HTTP/S load balancer should add to proxied requests}
 
 \item{description}{An optional description of this resource}
 
@@ -31,7 +33,7 @@ BackendService(affinityCookieTtlSec = NULL, backendSslPolicy = NULL,
 
 \item{healthChecks}{The list of URLs to the HttpHealthCheck or HttpsHealthCheck resource for health checking this BackendService}
 
-\item{iaap}{No description}
+\item{iap}{No description}
 
 \item{id}{[Output Only] The unique identifier for the resource}
 
@@ -46,6 +48,8 @@ BackendService(affinityCookieTtlSec = NULL, backendSslPolicy = NULL,
 \item{protocol}{The protocol this BackendService uses to communicate with backends}
 
 \item{region}{[Output Only] URL of the region where the regional backend service resides}
+
+\item{securityPolicy}{[Output Only] The resource URL for the security policy associated with this backend service}
 
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 
@@ -71,4 +75,3 @@ Other BackendService functions: \code{\link{backendServices.insert}},
   \code{\link{regionBackendServices.patch}},
   \code{\link{regionBackendServices.update}}
 }
-

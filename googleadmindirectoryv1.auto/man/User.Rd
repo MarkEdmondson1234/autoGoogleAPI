@@ -71,4 +71,3 @@ Other User functions: \code{\link{User.customSchemas}},
   \code{\link{directory.users.patch}},
   \code{\link{directory.users.update}}
 }
-

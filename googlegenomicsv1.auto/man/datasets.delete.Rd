@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{datasets.delete}
 \alias{datasets.delete}
-\title{Deletes a dataset and all of its contents (all read group sets, reference sets, variant sets, call sets, annotation sets, etc.) This is reversible (up to one week after the deletion) via the datasets.undelete operation. For the definitions of datasets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
+\title{Deletes a dataset and all of its contents (all read group sets,reference sets, variant sets, call sets, annotation sets, etc.)This is reversible (up to one week after the deletion) viathedatasets.undeleteoperation.For the definitions of datasets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
 \usage{
 datasets.delete(datasetId)
 }
@@ -24,6 +24,5 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 }
-

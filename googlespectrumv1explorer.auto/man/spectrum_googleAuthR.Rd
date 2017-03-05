@@ -8,7 +8,7 @@
 API for spectrum-management functions.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:47:28
+ at 2017-03-05 20:15:32
 filename: /Users/mark/dev/R/autoGoogleAPI/googlespectrumv1explorer.auto/R/spectrum_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

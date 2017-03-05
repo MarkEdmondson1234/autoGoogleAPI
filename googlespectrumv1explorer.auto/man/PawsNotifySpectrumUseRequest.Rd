@@ -31,4 +31,3 @@ The spectrum-use notification message which must contain the geolocation of the 
 \seealso{
 Other PawsNotifySpectrumUseRequest functions: \code{\link{paws.notifySpectrumUse}}
 }
-

@@ -8,7 +8,7 @@
 Access Gmail mailboxes including sending user email.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-04 00:01:53
+ at 2017-03-05 19:54:07
 filename: /Users/mark/dev/R/autoGoogleAPI/googlegmailv1.auto/R/gmail_functions.R
 api_json: api_json
 }
@@ -19,6 +19,7 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/gmail.compose
 \item https://www.googleapis.com/auth/gmail.insert
 \item https://www.googleapis.com/auth/gmail.labels
+\item https://www.googleapis.com/auth/gmail.metadata
 \item https://www.googleapis.com/auth/gmail.modify
 \item https://www.googleapis.com/auth/gmail.readonly
 \item https://www.googleapis.com/auth/gmail.send
@@ -26,4 +27,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/gmail.settings.sharing
 }
 }
-

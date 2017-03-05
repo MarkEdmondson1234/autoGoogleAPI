@@ -85,4 +85,3 @@ Other Goal functions: \code{\link{Goal.eventDetails.eventConditions}},
   \code{\link{management.goals.patch}},
   \code{\link{management.goals.update}}
 }
-

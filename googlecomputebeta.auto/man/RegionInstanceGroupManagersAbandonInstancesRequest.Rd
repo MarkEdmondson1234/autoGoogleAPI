@@ -22,4 +22,3 @@ No description
 \seealso{
 Other RegionInstanceGroupManagersAbandonInstancesRequest functions: \code{\link{regionInstanceGroupManagers.abandonInstances}}
 }
-

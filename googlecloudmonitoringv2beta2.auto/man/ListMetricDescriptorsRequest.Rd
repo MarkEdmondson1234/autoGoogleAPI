@@ -19,4 +19,3 @@ The request of cloudmonitoring.metricDescriptors.list.
 \seealso{
 Other ListMetricDescriptorsRequest functions: \code{\link{metricDescriptors.list}}
 }
-

@@ -4,28 +4,31 @@
 \alias{MetricValue}
 \title{MetricValue Object}
 \usage{
-MetricValue(MetricValue.labels = NULL, stringValue = NULL,
-  doubleValue = NULL, boolValue = NULL, endTime = NULL, labels = NULL,
-  distributionValue = NULL, startTime = NULL, int64Value = NULL)
+MetricValue(MetricValue.labels = NULL, boolValue = NULL, endTime = NULL,
+  startTime = NULL, moneyValue = NULL, stringValue = NULL,
+  labels = NULL, doubleValue = NULL, int64Value = NULL,
+  distributionValue = NULL)
 }
 \arguments{
 \item{MetricValue.labels}{The \link{MetricValue.labels} object or list of objects}
-
-\item{stringValue}{A text string value}
-
-\item{doubleValue}{A double precision floating point value}
 
 \item{boolValue}{A boolean value}
 
 \item{endTime}{The end of the time period over which this metric value's measurement}
 
-\item{labels}{The labels describing the metric value}
-
-\item{distributionValue}{A distribution value}
-
 \item{startTime}{The start of the time period over which this metric value's measurement}
 
+\item{moneyValue}{A money value}
+
+\item{stringValue}{A text string value}
+
+\item{labels}{The labels describing the metric value}
+
+\item{doubleValue}{A double precision floating point value}
+
 \item{int64Value}{A signed 64-bit integer value}
+
+\item{distributionValue}{A distribution value}
 }
 \value{
 MetricValue object
@@ -40,4 +43,3 @@ Represents a single metric value.
 \seealso{
 Other MetricValue functions: \code{\link{MetricValue.labels}}
 }
-

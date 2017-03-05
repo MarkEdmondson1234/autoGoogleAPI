@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.topics.delete}
 \alias{projects.topics.delete}
-\title{Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the same name; this is an entirely new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but their `topic` field is set to `_deleted-topic_`.}
+\title{Deletes the topic with the given name. Returns `NOT_FOUND` if the topicdoes not exist. After a topic is deleted, a new topic may be created withthe same name; this is an entirely new topic with none of the oldconfiguration or subscriptions. Existing subscriptions to this topic arenot deleted, but their `topic` field is set to `_deleted-topic_`.}
 \usage{
 projects.topics.delete(topic)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/pubsub/docs}{Google Documentation}
 }
-

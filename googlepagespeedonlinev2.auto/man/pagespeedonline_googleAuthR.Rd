@@ -8,7 +8,7 @@
 Analyzes the performance of a web page and provides tailored suggestions to make that page faster.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:24:56
+ at 2017-03-05 20:04:02
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepagespeedonlinev2.auto/R/pagespeedonline_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

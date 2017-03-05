@@ -8,7 +8,7 @@
 Provides reliable, many-to-many, asynchronous messaging between applications.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:22:01
+ at 2017-03-05 20:07:23
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepubsubv1beta1a.auto/R/pubsub_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/pubsub
 }
 }
-

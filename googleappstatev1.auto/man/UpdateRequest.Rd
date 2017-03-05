@@ -22,4 +22,3 @@ This is a JSON template for a requests which update app state
 \seealso{
 Other UpdateRequest functions: \code{\link{states.update}}
 }
-

@@ -4,19 +4,29 @@
 \alias{Firewall}
 \title{Firewall Object}
 \usage{
-Firewall(Firewall.allowed = NULL, allowed = NULL,
-  creationTimestamp = NULL, description = NULL, id = NULL, name = NULL,
-  network = NULL, selfLink = NULL, sourceRanges = NULL,
-  sourceTags = NULL, targetTags = NULL)
+Firewall(Firewall.allowed = NULL, Firewall.denied = NULL, allowed = NULL,
+  creationTimestamp = NULL, denied = NULL, description = NULL,
+  destinationRanges = NULL, direction = NULL, id = NULL, name = NULL,
+  network = NULL, priority = NULL, selfLink = NULL, sourceRanges = NULL,
+  sourceServiceAccounts = NULL, sourceTags = NULL,
+  targetServiceAccounts = NULL, targetTags = NULL)
 }
 \arguments{
 \item{Firewall.allowed}{The \link{Firewall.allowed} object or list of objects}
+
+\item{Firewall.denied}{The \link{Firewall.denied} object or list of objects}
 
 \item{allowed}{The list of ALLOW rules specified by this firewall}
 
 \item{creationTimestamp}{[Output Only] Creation timestamp in RFC3339 text format}
 
+\item{denied}{The list of DENY rules specified by this firewall}
+
 \item{description}{An optional description of this resource}
+
+\item{destinationRanges}{If destination ranges are specified, the firewall will apply only to traffic that has destination IP address in these ranges}
+
+\item{direction}{Direction of traffic to which this firewall applies; default is INGRESS}
 
 \item{id}{[Output Only] The unique identifier for the resource}
 
@@ -24,11 +34,17 @@ Firewall(Firewall.allowed = NULL, allowed = NULL,
 
 \item{network}{URL of the network resource for this firewall rule}
 
+\item{priority}{Priority for this rule}
+
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 
 \item{sourceRanges}{If source ranges are specified, the firewall will apply only to traffic that has source IP address in these ranges}
 
+\item{sourceServiceAccounts}{If source service accounts are specified, the firewall will apply only to traffic originating from an instance with a service account in this list}
+
 \item{sourceTags}{If source tags are specified, the firewall will apply only to traffic with source IP that belongs to a tag listed in source tags}
+
+\item{targetServiceAccounts}{A list of service accounts indicating sets of instances located in the network that may make network connections as specified in allowed[]}
 
 \item{targetTags}{A list of instance tags indicating sets of instances located in the network that may make network connections as specified in allowed[]}
 }
@@ -44,8 +60,8 @@ Represents a Firewall resource.
 }
 \seealso{
 Other Firewall functions: \code{\link{Firewall.allowed}},
+  \code{\link{Firewall.denied}},
   \code{\link{firewalls.insert}},
   \code{\link{firewalls.patch}},
   \code{\link{firewalls.update}}
 }
-

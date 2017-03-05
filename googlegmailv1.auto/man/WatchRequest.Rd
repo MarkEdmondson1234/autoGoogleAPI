@@ -26,4 +26,3 @@ Set up or update a new push notification watch on this user's mailbox.
 \seealso{
 Other WatchRequest functions: \code{\link{users.watch}}
 }
-

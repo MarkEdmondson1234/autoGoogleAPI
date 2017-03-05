@@ -29,4 +29,3 @@ The content ranges to identify the selected text.
 \seealso{
 Other Volumeannotation functions: \code{\link{Volumeannotation}}
 }
-

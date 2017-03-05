@@ -19,4 +19,3 @@ Manifest of the files stored in Google Cloud Storage that are included as part o
 \seealso{
 Other Deployment functions: \code{\link{Deployment}}
 }
-

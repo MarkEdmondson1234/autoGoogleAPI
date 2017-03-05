@@ -2,7 +2,7 @@
 #' Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:30:38
+#'  at 2017-03-05 19:20:06
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangebuyerv13.auto/R/adexchangebuyer_objects.R
 #' api_json: api_json
 #' 
@@ -32,7 +32,7 @@ Account <- function(Account.bidderLocation = NULL, bidderLocation = NULL, cookie
     numberActiveCreatives = NULL) {
     structure(list(Account.bidderLocation = Account.bidderLocation, bidderLocation = bidderLocation, 
         cookieMatchingNid = cookieMatchingNid, cookieMatchingUrl = cookieMatchingUrl, 
-        id = id, kind = "adexchangebuyer#account", maximumActiveCreatives = maximumActiveCreatives, 
+        id = id, kind = `adexchangebuyer#account`, maximumActiveCreatives = maximumActiveCreatives, 
         maximumTotalQps = maximumTotalQps, numberActiveCreatives = numberActiveCreatives), 
         class = "gar_Account")
 }
@@ -66,7 +66,7 @@ Account.bidderLocation <- function() {
 #' @family AccountsList functions
 #' @export
 AccountsList <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#accountsList"), class = "gar_AccountsList")
+    structure(list(items = items, kind = `adexchangebuyer#accountsList`), class = "gar_AccountsList")
 }
 
 #' BillingInfo Object
@@ -85,7 +85,7 @@ AccountsList <- function(items = NULL) {
 #' @export
 BillingInfo <- function(accountId = NULL, accountName = NULL, billingId = NULL) {
     structure(list(accountId = accountId, accountName = accountName, billingId = billingId, 
-        kind = "adexchangebuyer#billingInfo"), class = "gar_BillingInfo")
+        kind = `adexchangebuyer#billingInfo`), class = "gar_BillingInfo")
 }
 
 #' BillingInfoList Object
@@ -101,7 +101,7 @@ BillingInfo <- function(accountId = NULL, accountName = NULL, billingId = NULL) 
 #' @family BillingInfoList functions
 #' @export
 BillingInfoList <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#billingInfoList"), class = "gar_BillingInfoList")
+    structure(list(items = items, kind = `adexchangebuyer#billingInfoList`), class = "gar_BillingInfoList")
 }
 
 #' Budget Object
@@ -123,7 +123,7 @@ BillingInfoList <- function(items = NULL) {
 Budget <- function(accountId = NULL, billingId = NULL, budgetAmount = NULL, currencyCode = NULL, 
     id = NULL) {
     structure(list(accountId = accountId, billingId = billingId, budgetAmount = budgetAmount, 
-        currencyCode = currencyCode, id = id, kind = "adexchangebuyer#budget"), class = "gar_Budget")
+        currencyCode = currencyCode, id = id, kind = `adexchangebuyer#budget`), class = "gar_Budget")
 }
 
 #' Creative Object
@@ -161,7 +161,7 @@ Budget <- function(accountId = NULL, billingId = NULL, budgetAmount = NULL, curr
 #' @param status Creative serving status
 #' @param vendorType All vendor types for the ads that may be shown from this snippet
 #' @param version The version for this creative
-#' @param videoURL The url to fetch a video ad
+#' @param videoURL The URL to fetch a video ad
 #' @param width Ad width
 #' 
 #' @return Creative object
@@ -185,7 +185,7 @@ Creative <- function(Creative.corrections = NULL, Creative.disapprovalReasons = 
         advertiserName = advertiserName, agencyId = agencyId, apiUploadTimestamp = apiUploadTimestamp, 
         attribute = attribute, buyerCreativeId = buyerCreativeId, clickThroughUrl = clickThroughUrl, 
         corrections = corrections, disapprovalReasons = disapprovalReasons, filteringReasons = filteringReasons, 
-        height = height, impressionTrackingUrl = impressionTrackingUrl, kind = "adexchangebuyer#creative", 
+        height = height, impressionTrackingUrl = impressionTrackingUrl, kind = `adexchangebuyer#creative`, 
         nativeAd = nativeAd, productCategories = productCategories, restrictedCategories = restrictedCategories, 
         sensitiveCategories = sensitiveCategories, status = status, vendorType = vendorType, 
         version = version, videoURL = videoURL, width = width), class = "gar_Creative")
@@ -364,7 +364,7 @@ Creative.nativeAd.logo <- function(height = NULL, url = NULL, width = NULL) {
 #' @family CreativesList functions
 #' @export
 CreativesList <- function(items = NULL, nextPageToken = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#creativesList", nextPageToken = nextPageToken), 
+    structure(list(items = items, kind = `adexchangebuyer#creativesList`, nextPageToken = nextPageToken), 
         class = "gar_CreativesList")
 }
 
@@ -399,7 +399,7 @@ DirectDeal <- function(accountId = NULL, advertiser = NULL, allowsAlcohol = NULL
     sellerNetwork = NULL, startTime = NULL) {
     structure(list(accountId = accountId, advertiser = advertiser, allowsAlcohol = allowsAlcohol, 
         buyerAccountId = buyerAccountId, currencyCode = currencyCode, dealTier = dealTier, 
-        endTime = endTime, fixedCpm = fixedCpm, id = id, kind = "adexchangebuyer#directDeal", 
+        endTime = endTime, fixedCpm = fixedCpm, id = id, kind = `adexchangebuyer#directDeal`, 
         name = name, privateExchangeMinCpm = privateExchangeMinCpm, publisherBlocksOverriden = publisherBlocksOverriden, 
         sellerNetwork = sellerNetwork, startTime = startTime), class = "gar_DirectDeal")
 }
@@ -417,7 +417,7 @@ DirectDeal <- function(accountId = NULL, advertiser = NULL, allowsAlcohol = NULL
 #' @family DirectDealsList functions
 #' @export
 DirectDealsList <- function(directDeals = NULL) {
-    structure(list(directDeals = directDeals, kind = "adexchangebuyer#directDealsList"), 
+    structure(list(directDeals = directDeals, kind = `adexchangebuyer#directDealsList`), 
         class = "gar_DirectDealsList")
 }
 
@@ -463,7 +463,7 @@ PerformanceReport <- function(bidRate = NULL, bidRequestRate = NULL, calloutStat
     structure(list(bidRate = bidRate, bidRequestRate = bidRequestRate, calloutStatusRate = calloutStatusRate, 
         cookieMatcherStatusRate = cookieMatcherStatusRate, creativeStatusRate = creativeStatusRate, 
         filteredBidRate = filteredBidRate, hostedMatchStatusRate = hostedMatchStatusRate, 
-        inventoryMatchRate = inventoryMatchRate, kind = "adexchangebuyer#performanceReport", 
+        inventoryMatchRate = inventoryMatchRate, kind = `adexchangebuyer#performanceReport`, 
         latency50thPercentile = latency50thPercentile, latency85thPercentile = latency85thPercentile, 
         latency95thPercentile = latency95thPercentile, noQuotaInRegion = noQuotaInRegion, 
         outOfQuota = outOfQuota, pixelMatchRequests = pixelMatchRequests, pixelMatchResponses = pixelMatchResponses, 
@@ -485,7 +485,7 @@ PerformanceReport <- function(bidRate = NULL, bidRequestRate = NULL, calloutStat
 #' @family PerformanceReportList functions
 #' @export
 PerformanceReportList <- function(performanceReport = NULL) {
-    structure(list(kind = "adexchangebuyer#performanceReportList", performanceReport = performanceReport), 
+    structure(list(kind = `adexchangebuyer#performanceReportList`, performanceReport = performanceReport), 
         class = "gar_PerformanceReportList")
 }
 
@@ -540,7 +540,7 @@ PretargetingConfig <- function(PretargetingConfig.dimensions = NULL, Pretargetin
         dimensions = dimensions, excludedContentLabels = excludedContentLabels, excludedGeoCriteriaIds = excludedGeoCriteriaIds, 
         excludedPlacements = excludedPlacements, excludedUserLists = excludedUserLists, 
         excludedVerticals = excludedVerticals, geoCriteriaIds = geoCriteriaIds, isActive = isActive, 
-        kind = "adexchangebuyer#pretargetingConfig", languages = languages, mobileCarriers = mobileCarriers, 
+        kind = `adexchangebuyer#pretargetingConfig`, languages = languages, mobileCarriers = mobileCarriers, 
         mobileDevices = mobileDevices, mobileOperatingSystemVersions = mobileOperatingSystemVersions, 
         placements = placements, platforms = platforms, supportedCreativeAttributes = supportedCreativeAttributes, 
         userLists = userLists, vendorTypes = vendorTypes, verticals = verticals), 
@@ -614,7 +614,7 @@ PretargetingConfigList <- function(items = NULL) {
     
     
     
-    structure(list(items = items, kind = "adexchangebuyer#pretargetingConfigList"), 
+    structure(list(items = items, kind = `adexchangebuyer#pretargetingConfigList`), 
         class = "gar_PretargetingConfigList")
 }
 

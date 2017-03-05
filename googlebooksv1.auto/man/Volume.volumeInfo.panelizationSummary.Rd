@@ -52,4 +52,3 @@ Other Volume functions: \code{\link{Volume.accessInfo.epub}},
   \code{\link{Volume.volumeInfo.industryIdentifiers}},
   \code{\link{Volume.volumeInfo}}, \code{\link{Volume}}
 }
-

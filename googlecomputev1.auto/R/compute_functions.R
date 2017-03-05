@@ -2,7 +2,7 @@
 #' Creates and runs virtual machines on Google Cloud Platform.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-04 00:01:09
+#'  at 2017-03-05 19:38:53
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecomputev1.auto/R/compute_functions.R
 #' api_json: api_json
 #' 
@@ -23,6 +23,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Retrieves an aggregated list of addresses.
 #' 
@@ -45,15 +58,18 @@ NULL
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-addresses.aggregatedList <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+addresses.aggregatedList <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/addresses", 
         project)
     # compute.addresses.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -82,9 +98,9 @@ addresses.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
 #' @export
 addresses.delete <- function(project, region, address) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/addresses/%s", 
-        address, project, region)
+        project, region, address)
     # compute.addresses.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -114,9 +130,9 @@ addresses.delete <- function(project, region, address) {
 #' @export
 addresses.get <- function(project, region, address) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/addresses/%s", 
-        address, project, region)
+        project, region, address)
     # compute.addresses.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -148,7 +164,7 @@ addresses.insert <- function(Address, project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/addresses", 
         project, region)
     # compute.addresses.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Address, "gar_Address"))
     
     f(the_body = Address)
@@ -177,15 +193,18 @@ addresses.insert <- function(Address, project, region) {
 #' @param region Name of the region for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-addresses.list <- function(project, region, filter = NULL, maxResults = NULL, pageToken = NULL) {
+addresses.list <- function(project, region, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/addresses", 
         project, region)
     # compute.addresses.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -211,16 +230,18 @@ addresses.list <- function(project, region, filter = NULL, maxResults = NULL, pa
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 autoscalers.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/autoscalers", 
         project)
     # compute.autoscalers.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -249,9 +270,9 @@ autoscalers.aggregatedList <- function(project, filter = NULL, maxResults = NULL
 #' @export
 autoscalers.delete <- function(project, zone, autoscaler) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/autoscalers/%s", 
-        autoscaler, project, zone)
+        project, zone, autoscaler)
     # compute.autoscalers.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -281,9 +302,9 @@ autoscalers.delete <- function(project, zone, autoscaler) {
 #' @export
 autoscalers.get <- function(project, zone, autoscaler) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/autoscalers/%s", 
-        autoscaler, project, zone)
+        project, zone, autoscaler)
     # compute.autoscalers.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -315,7 +336,7 @@ autoscalers.insert <- function(Autoscaler, project, zone) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/autoscalers", 
         project, zone)
     # compute.autoscalers.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Autoscaler, "gar_Autoscaler"))
     
     f(the_body = Autoscaler)
@@ -344,15 +365,18 @@ autoscalers.insert <- function(Autoscaler, project, zone) {
 #' @param zone Name of the zone for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-autoscalers.list <- function(project, zone, filter = NULL, maxResults = NULL, pageToken = NULL) {
+autoscalers.list <- function(project, zone, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/autoscalers", 
         project, zone)
     # compute.autoscalers.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -385,7 +409,8 @@ autoscalers.patch <- function(Autoscaler, project, zone, autoscaler) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/autoscalers", 
         project, zone)
     # compute.autoscalers.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(autoscaler = autoscaler), 
+    pars = list(autoscaler = autoscaler)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Autoscaler, "gar_Autoscaler"))
     
@@ -421,11 +446,49 @@ autoscalers.update <- function(Autoscaler, project, zone, autoscaler = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/autoscalers", 
         project, zone)
     # compute.autoscalers.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(autoscaler = autoscaler), 
+    pars = list(autoscaler = autoscaler)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Autoscaler, "gar_Autoscaler"))
     
     f(the_body = Autoscaler)
+    
+}
+
+#' Retrieves the list of all BackendService resources, regional and global, available to the specified project.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Name of the project scoping this request
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+backendServices.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
+    orderBy = NULL, pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/backendServices", 
+        project)
+    # compute.backendServices.aggregatedList
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
     
 }
 
@@ -452,9 +515,9 @@ autoscalers.update <- function(Autoscaler, project, zone, autoscaler = NULL) {
 #' @export
 backendServices.delete <- function(project, backendService) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/backendServices/%s", 
-        backendService, project)
+        project, backendService)
     # compute.backendServices.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -483,9 +546,9 @@ backendServices.delete <- function(project, backendService) {
 #' @export
 backendServices.get <- function(project, backendService) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/backendServices/%s", 
-        backendService, project)
+        project, backendService)
     # compute.backendServices.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -516,9 +579,9 @@ backendServices.get <- function(project, backendService) {
 #' @export
 backendServices.getHealth <- function(ResourceGroupReference, project, backendService) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/backendServices/%s/getHealth", 
-        backendService, project)
+        project, backendService)
     # compute.backendServices.getHealth
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ResourceGroupReference, "gar_ResourceGroupReference"))
     
     f(the_body = ResourceGroupReference)
@@ -551,7 +614,7 @@ backendServices.insert <- function(BackendService, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/backendServices", 
         project)
     # compute.backendServices.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(BackendService, "gar_BackendService"))
     
     f(the_body = BackendService)
@@ -579,20 +642,23 @@ backendServices.insert <- function(BackendService, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-backendServices.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+backendServices.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/backendServices", 
         project)
     # compute.backendServices.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
 
-#' Updates the entire content of the BackendService resource. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports patch semantics.
+#' Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports patch semantics.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -617,16 +683,16 @@ backendServices.list <- function(project, filter = NULL, maxResults = NULL, page
 #' @export
 backendServices.patch <- function(BackendService, project, backendService) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/backendServices/%s", 
-        backendService, project)
+        project, backendService)
     # compute.backendServices.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(BackendService, "gar_BackendService"))
     
     f(the_body = BackendService)
     
 }
 
-#' Updates the entire content of the BackendService resource. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.
+#' Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -651,9 +717,9 @@ backendServices.patch <- function(BackendService, project, backendService) {
 #' @export
 backendServices.update <- function(BackendService, project, backendService) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/backendServices/%s", 
-        backendService, project)
+        project, backendService)
     # compute.backendServices.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(BackendService, "gar_BackendService"))
     
     f(the_body = BackendService)
@@ -681,15 +747,18 @@ backendServices.update <- function(BackendService, project, backendService) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-diskTypes.aggregatedList <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+diskTypes.aggregatedList <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/diskTypes", 
         project)
     # compute.diskTypes.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -719,9 +788,9 @@ diskTypes.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
 #' @export
 diskTypes.get <- function(project, zone, diskType) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/diskTypes/%s", 
-        diskType, project, zone)
+        project, zone, diskType)
     # compute.diskTypes.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -748,15 +817,18 @@ diskTypes.get <- function(project, zone, diskType) {
 #' @param zone The name of the zone for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-diskTypes.list <- function(project, zone, filter = NULL, maxResults = NULL, pageToken = NULL) {
+diskTypes.list <- function(project, zone, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/diskTypes", 
         project, zone)
     # compute.diskTypes.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -782,15 +854,18 @@ diskTypes.list <- function(project, zone, filter = NULL, maxResults = NULL, page
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-disks.aggregatedList <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+disks.aggregatedList <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/disks", 
         project)
     # compute.disks.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -816,14 +891,17 @@ disks.aggregatedList <- function(project, filter = NULL, maxResults = NULL, page
 #' @param project Project ID for this request
 #' @param zone The name of the zone for this request
 #' @param disk Name of the persistent disk to snapshot
+#' @param guestFlush 
 #' @importFrom googleAuthR gar_api_generator
 #' @family Snapshot functions
 #' @export
-disks.createSnapshot <- function(Snapshot, project, zone, disk) {
+disks.createSnapshot <- function(Snapshot, project, zone, disk, guestFlush = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/disks/%s/createSnapshot", 
-        disk, project, zone)
+        project, zone, disk)
     # compute.disks.createSnapshot
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    pars = list(guestFlush = guestFlush)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Snapshot, "gar_Snapshot"))
     
     f(the_body = Snapshot)
@@ -854,9 +932,9 @@ disks.createSnapshot <- function(Snapshot, project, zone, disk) {
 #' @export
 disks.delete <- function(project, zone, disk) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/disks/%s", 
-        disk, project, zone)
+        project, zone, disk)
     # compute.disks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -886,9 +964,9 @@ disks.delete <- function(project, zone, disk) {
 #' @export
 disks.get <- function(project, zone, disk) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/disks/%s", 
-        disk, project, zone)
+        project, zone, disk)
     # compute.disks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -921,7 +999,8 @@ disks.insert <- function(Disk, project, zone, sourceImage = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/disks", 
         project, zone)
     # compute.disks.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(sourceImage = sourceImage), 
+    pars = list(sourceImage = sourceImage)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Disk, "gar_Disk"))
     
@@ -951,15 +1030,18 @@ disks.insert <- function(Disk, project, zone, sourceImage = NULL) {
 #' @param zone The name of the zone for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-disks.list <- function(project, zone, filter = NULL, maxResults = NULL, pageToken = NULL) {
+disks.list <- function(project, zone, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/disks", 
         project, zone)
     # compute.disks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -990,9 +1072,9 @@ disks.list <- function(project, zone, filter = NULL, maxResults = NULL, pageToke
 #' @export
 disks.resize <- function(DisksResizeRequest, project, zone, disk) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/disks/%s/resize", 
-        disk, project, zone)
+        project, zone, disk)
     # compute.disks.resize
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(DisksResizeRequest, "gar_DisksResizeRequest"))
     
     f(the_body = DisksResizeRequest)
@@ -1022,9 +1104,9 @@ disks.resize <- function(DisksResizeRequest, project, zone, disk) {
 #' @export
 firewalls.delete <- function(project, firewall) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/firewalls/%s", 
-        firewall, project)
+        project, firewall)
     # compute.firewalls.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1053,9 +1135,9 @@ firewalls.delete <- function(project, firewall) {
 #' @export
 firewalls.get <- function(project, firewall) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/firewalls/%s", 
-        firewall, project)
+        project, firewall)
     # compute.firewalls.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1086,7 +1168,7 @@ firewalls.insert <- function(Firewall, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/firewalls", 
         project)
     # compute.firewalls.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Firewall, "gar_Firewall"))
     
     f(the_body = Firewall)
@@ -1114,15 +1196,18 @@ firewalls.insert <- function(Firewall, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-firewalls.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+firewalls.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/firewalls", 
         project)
     # compute.firewalls.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1152,9 +1237,9 @@ firewalls.list <- function(project, filter = NULL, maxResults = NULL, pageToken 
 #' @export
 firewalls.patch <- function(Firewall, project, firewall) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/firewalls/%s", 
-        firewall, project)
+        project, firewall)
     # compute.firewalls.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Firewall, "gar_Firewall"))
     
     f(the_body = Firewall)
@@ -1186,9 +1271,9 @@ firewalls.patch <- function(Firewall, project, firewall) {
 #' @export
 firewalls.update <- function(Firewall, project, firewall) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/firewalls/%s", 
-        firewall, project)
+        project, firewall)
     # compute.firewalls.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Firewall, "gar_Firewall"))
     
     f(the_body = Firewall)
@@ -1216,16 +1301,18 @@ firewalls.update <- function(Firewall, project, firewall) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 forwardingRules.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/forwardingRules", 
         project)
     # compute.forwardingRules.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1254,9 +1341,9 @@ forwardingRules.aggregatedList <- function(project, filter = NULL, maxResults = 
 #' @export
 forwardingRules.delete <- function(project, region, forwardingRule) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/forwardingRules/%s", 
-        forwardingRule, project, region)
+        project, region, forwardingRule)
     # compute.forwardingRules.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1286,9 +1373,9 @@ forwardingRules.delete <- function(project, region, forwardingRule) {
 #' @export
 forwardingRules.get <- function(project, region, forwardingRule) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/forwardingRules/%s", 
-        forwardingRule, project, region)
+        project, region, forwardingRule)
     # compute.forwardingRules.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1320,7 +1407,7 @@ forwardingRules.insert <- function(ForwardingRule, project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/forwardingRules", 
         project, region)
     # compute.forwardingRules.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ForwardingRule, "gar_ForwardingRule"))
     
     f(the_body = ForwardingRule)
@@ -1349,16 +1436,18 @@ forwardingRules.insert <- function(ForwardingRule, project, region) {
 #' @param region Name of the region scoping this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 forwardingRules.list <- function(project, region, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/forwardingRules", 
         project, region)
     # compute.forwardingRules.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1389,9 +1478,9 @@ forwardingRules.list <- function(project, region, filter = NULL, maxResults = NU
 #' @export
 forwardingRules.setTarget <- function(TargetReference, project, region, forwardingRule) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/forwardingRules/%s/setTarget", 
-        forwardingRule, project, region)
+        project, region, forwardingRule)
     # compute.forwardingRules.setTarget
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetReference, "gar_TargetReference"))
     
     f(the_body = TargetReference)
@@ -1421,9 +1510,9 @@ forwardingRules.setTarget <- function(TargetReference, project, region, forwardi
 #' @export
 globalAddresses.delete <- function(project, address) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/addresses/%s", 
-        address, project)
+        project, address)
     # compute.globalAddresses.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1452,9 +1541,9 @@ globalAddresses.delete <- function(project, address) {
 #' @export
 globalAddresses.get <- function(project, address) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/addresses/%s", 
-        address, project)
+        project, address)
     # compute.globalAddresses.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1485,7 +1574,7 @@ globalAddresses.insert <- function(Address, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/addresses", 
         project)
     # compute.globalAddresses.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Address, "gar_Address"))
     
     f(the_body = Address)
@@ -1513,15 +1602,18 @@ globalAddresses.insert <- function(Address, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-globalAddresses.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+globalAddresses.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/addresses", 
         project)
     # compute.globalAddresses.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1549,9 +1641,9 @@ globalAddresses.list <- function(project, filter = NULL, maxResults = NULL, page
 #' @export
 globalForwardingRules.delete <- function(project, forwardingRule) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/forwardingRules/%s", 
-        forwardingRule, project)
+        project, forwardingRule)
     # compute.globalForwardingRules.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1580,9 +1672,9 @@ globalForwardingRules.delete <- function(project, forwardingRule) {
 #' @export
 globalForwardingRules.get <- function(project, forwardingRule) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/forwardingRules/%s", 
-        forwardingRule, project)
+        project, forwardingRule)
     # compute.globalForwardingRules.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1613,7 +1705,7 @@ globalForwardingRules.insert <- function(ForwardingRule, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/forwardingRules", 
         project)
     # compute.globalForwardingRules.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ForwardingRule, "gar_ForwardingRule"))
     
     f(the_body = ForwardingRule)
@@ -1641,16 +1733,18 @@ globalForwardingRules.insert <- function(ForwardingRule, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 globalForwardingRules.list <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/forwardingRules", 
         project)
     # compute.globalForwardingRules.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1680,9 +1774,9 @@ globalForwardingRules.list <- function(project, filter = NULL, maxResults = NULL
 #' @export
 globalForwardingRules.setTarget <- function(TargetReference, project, forwardingRule) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/forwardingRules/%s/setTarget", 
-        forwardingRule, project)
+        project, forwardingRule)
     # compute.globalForwardingRules.setTarget
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetReference, "gar_TargetReference"))
     
     f(the_body = TargetReference)
@@ -1710,16 +1804,18 @@ globalForwardingRules.setTarget <- function(TargetReference, project, forwarding
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 globalOperations.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/operations", 
         project)
     # compute.globalOperations.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1747,9 +1843,9 @@ globalOperations.aggregatedList <- function(project, filter = NULL, maxResults =
 #' @export
 globalOperations.delete <- function(project, operation) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/operations/%s", 
-        operation, project)
+        project, operation)
     # compute.globalOperations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1778,9 +1874,9 @@ globalOperations.delete <- function(project, operation) {
 #' @export
 globalOperations.get <- function(project, operation) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/operations/%s", 
-        operation, project)
+        project, operation)
     # compute.globalOperations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1806,16 +1902,218 @@ globalOperations.get <- function(project, operation) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-globalOperations.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+globalOperations.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/operations", 
         project)
     # compute.globalOperations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
+    
+}
+
+#' Deletes the specified HealthCheck resource.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param healthCheck Name of the HealthCheck resource to delete
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+healthChecks.delete <- function(project, healthCheck) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/healthChecks/%s", 
+        project, healthCheck)
+    # compute.healthChecks.delete
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Returns the specified HealthCheck resource. Get a list of available health checks by making a list() request.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param healthCheck Name of the HealthCheck resource to return
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+healthChecks.get <- function(project, healthCheck) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/healthChecks/%s", 
+        project, healthCheck)
+    # compute.healthChecks.get
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Creates a HealthCheck resource in the specified project using the data included in the request.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param HealthCheck The \link{HealthCheck} object to pass to this method
+#' @param project Project ID for this request
+#' @importFrom googleAuthR gar_api_generator
+#' @family HealthCheck functions
+#' @export
+healthChecks.insert <- function(HealthCheck, project) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/healthChecks", 
+        project)
+    # compute.healthChecks.insert
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(HealthCheck, "gar_HealthCheck"))
+    
+    f(the_body = HealthCheck)
+    
+}
+
+#' Retrieves the list of HealthCheck resources available to the specified project.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+healthChecks.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/healthChecks", 
+        project)
+    # compute.healthChecks.list
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Updates a HealthCheck resource in the specified project using the data included in the request. This method supports patch semantics.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param HealthCheck The \link{HealthCheck} object to pass to this method
+#' @param project Project ID for this request
+#' @param healthCheck Name of the HealthCheck resource to update
+#' @importFrom googleAuthR gar_api_generator
+#' @family HealthCheck functions
+#' @export
+healthChecks.patch <- function(HealthCheck, project, healthCheck) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/healthChecks/%s", 
+        project, healthCheck)
+    # compute.healthChecks.patch
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    stopifnot(inherits(HealthCheck, "gar_HealthCheck"))
+    
+    f(the_body = HealthCheck)
+    
+}
+
+#' Updates a HealthCheck resource in the specified project using the data included in the request.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param HealthCheck The \link{HealthCheck} object to pass to this method
+#' @param project Project ID for this request
+#' @param healthCheck Name of the HealthCheck resource to update
+#' @importFrom googleAuthR gar_api_generator
+#' @family HealthCheck functions
+#' @export
+healthChecks.update <- function(HealthCheck, project, healthCheck) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/healthChecks/%s", 
+        project, healthCheck)
+    # compute.healthChecks.update
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    stopifnot(inherits(HealthCheck, "gar_HealthCheck"))
+    
+    f(the_body = HealthCheck)
     
 }
 
@@ -1842,9 +2140,9 @@ globalOperations.list <- function(project, filter = NULL, maxResults = NULL, pag
 #' @export
 httpHealthChecks.delete <- function(project, httpHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpHealthChecks/%s", 
-        httpHealthCheck, project)
+        project, httpHealthCheck)
     # compute.httpHealthChecks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -1873,9 +2171,9 @@ httpHealthChecks.delete <- function(project, httpHealthCheck) {
 #' @export
 httpHealthChecks.get <- function(project, httpHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpHealthChecks/%s", 
-        httpHealthCheck, project)
+        project, httpHealthCheck)
     # compute.httpHealthChecks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -1906,7 +2204,7 @@ httpHealthChecks.insert <- function(HttpHealthCheck, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpHealthChecks", 
         project)
     # compute.httpHealthChecks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(HttpHealthCheck, "gar_HttpHealthCheck"))
     
     f(the_body = HttpHealthCheck)
@@ -1934,15 +2232,18 @@ httpHealthChecks.insert <- function(HttpHealthCheck, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-httpHealthChecks.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+httpHealthChecks.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpHealthChecks", 
         project)
     # compute.httpHealthChecks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1972,9 +2273,9 @@ httpHealthChecks.list <- function(project, filter = NULL, maxResults = NULL, pag
 #' @export
 httpHealthChecks.patch <- function(HttpHealthCheck, project, httpHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpHealthChecks/%s", 
-        httpHealthCheck, project)
+        project, httpHealthCheck)
     # compute.httpHealthChecks.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(HttpHealthCheck, "gar_HttpHealthCheck"))
     
     f(the_body = HttpHealthCheck)
@@ -2006,9 +2307,9 @@ httpHealthChecks.patch <- function(HttpHealthCheck, project, httpHealthCheck) {
 #' @export
 httpHealthChecks.update <- function(HttpHealthCheck, project, httpHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpHealthChecks/%s", 
-        httpHealthCheck, project)
+        project, httpHealthCheck)
     # compute.httpHealthChecks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(HttpHealthCheck, "gar_HttpHealthCheck"))
     
     f(the_body = HttpHealthCheck)
@@ -2038,9 +2339,9 @@ httpHealthChecks.update <- function(HttpHealthCheck, project, httpHealthCheck) {
 #' @export
 httpsHealthChecks.delete <- function(project, httpsHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpsHealthChecks/%s", 
-        httpsHealthCheck, project)
+        project, httpsHealthCheck)
     # compute.httpsHealthChecks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -2069,9 +2370,9 @@ httpsHealthChecks.delete <- function(project, httpsHealthCheck) {
 #' @export
 httpsHealthChecks.get <- function(project, httpsHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpsHealthChecks/%s", 
-        httpsHealthCheck, project)
+        project, httpsHealthCheck)
     # compute.httpsHealthChecks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2102,7 +2403,7 @@ httpsHealthChecks.insert <- function(HttpsHealthCheck, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpsHealthChecks", 
         project)
     # compute.httpsHealthChecks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(HttpsHealthCheck, "gar_HttpsHealthCheck"))
     
     f(the_body = HttpsHealthCheck)
@@ -2130,15 +2431,18 @@ httpsHealthChecks.insert <- function(HttpsHealthCheck, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-httpsHealthChecks.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+httpsHealthChecks.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpsHealthChecks", 
         project)
     # compute.httpsHealthChecks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2168,9 +2472,9 @@ httpsHealthChecks.list <- function(project, filter = NULL, maxResults = NULL, pa
 #' @export
 httpsHealthChecks.patch <- function(HttpsHealthCheck, project, httpsHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpsHealthChecks/%s", 
-        httpsHealthCheck, project)
+        project, httpsHealthCheck)
     # compute.httpsHealthChecks.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(HttpsHealthCheck, "gar_HttpsHealthCheck"))
     
     f(the_body = HttpsHealthCheck)
@@ -2202,9 +2506,9 @@ httpsHealthChecks.patch <- function(HttpsHealthCheck, project, httpsHealthCheck)
 #' @export
 httpsHealthChecks.update <- function(HttpsHealthCheck, project, httpsHealthCheck) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/httpsHealthChecks/%s", 
-        httpsHealthCheck, project)
+        project, httpsHealthCheck)
     # compute.httpsHealthChecks.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(HttpsHealthCheck, "gar_HttpsHealthCheck"))
     
     f(the_body = HttpsHealthCheck)
@@ -2234,9 +2538,9 @@ httpsHealthChecks.update <- function(HttpsHealthCheck, project, httpsHealthCheck
 #' @export
 images.delete <- function(project, image) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/images/%s", 
-        image, project)
+        project, image)
     # compute.images.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -2266,9 +2570,9 @@ images.delete <- function(project, image) {
 #' @export
 images.deprecate <- function(DeprecationStatus, project, image) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/images/%s/deprecate", 
-        image, project)
+        project, image)
     # compute.images.deprecate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(DeprecationStatus, "gar_DeprecationStatus"))
     
     f(the_body = DeprecationStatus)
@@ -2299,9 +2603,9 @@ images.deprecate <- function(DeprecationStatus, project, image) {
 #' @export
 images.get <- function(project, image) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/images/%s", 
-        image, project)
+        project, image)
     # compute.images.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2330,9 +2634,9 @@ images.get <- function(project, image) {
 #' @export
 images.getFromFamily <- function(project, family) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/images/family/%s", 
-        family, project)
+        project, family)
     # compute.images.getFromFamily
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2366,7 +2670,7 @@ images.insert <- function(Image, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/images", 
         project)
     # compute.images.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Image, "gar_Image"))
     
     f(the_body = Image)
@@ -2394,15 +2698,18 @@ images.insert <- function(Image, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-images.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+images.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/images", 
         project)
     # compute.images.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2434,9 +2741,9 @@ images.list <- function(project, filter = NULL, maxResults = NULL, pageToken = N
 instanceGroupManagers.abandonInstances <- function(InstanceGroupManagersAbandonInstancesRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s/abandonInstances", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.abandonInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersAbandonInstancesRequest, "gar_InstanceGroupManagersAbandonInstancesRequest"))
     
     f(the_body = InstanceGroupManagersAbandonInstancesRequest)
@@ -2464,16 +2771,18 @@ instanceGroupManagers.abandonInstances <- function(InstanceGroupManagersAbandonI
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 instanceGroupManagers.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/instanceGroupManagers", 
         project)
     # compute.instanceGroupManagers.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2502,9 +2811,9 @@ instanceGroupManagers.aggregatedList <- function(project, filter = NULL, maxResu
 #' @export
 instanceGroupManagers.delete <- function(project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -2536,9 +2845,9 @@ instanceGroupManagers.delete <- function(project, zone, instanceGroupManager) {
 instanceGroupManagers.deleteInstances <- function(InstanceGroupManagersDeleteInstancesRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s/deleteInstances", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.deleteInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersDeleteInstancesRequest, "gar_InstanceGroupManagersDeleteInstancesRequest"))
     
     f(the_body = InstanceGroupManagersDeleteInstancesRequest)
@@ -2570,9 +2879,9 @@ instanceGroupManagers.deleteInstances <- function(InstanceGroupManagersDeleteIns
 #' @export
 instanceGroupManagers.get <- function(project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2604,7 +2913,7 @@ instanceGroupManagers.insert <- function(InstanceGroupManager, project, zone) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers", 
         project, zone)
     # compute.instanceGroupManagers.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManager, "gar_InstanceGroupManager"))
     
     f(the_body = InstanceGroupManager)
@@ -2633,16 +2942,18 @@ instanceGroupManagers.insert <- function(InstanceGroupManager, project, zone) {
 #' @param zone The name of the zone where the managed instance group is located
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 instanceGroupManagers.list <- function(project, zone, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers", 
         project, zone)
     # compute.instanceGroupManagers.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2668,13 +2979,20 @@ instanceGroupManagers.list <- function(project, zone, filter = NULL, maxResults 
 #' @param project Project ID for this request
 #' @param zone The name of the zone where the managed instance group is located
 #' @param instanceGroupManager The name of the managed instance group
+#' @param filter 
+#' @param maxResults 
+#' @param order_by 
+#' @param pageToken 
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-instanceGroupManagers.listManagedInstances <- function(project, zone, instanceGroupManager) {
+instanceGroupManagers.listManagedInstances <- function(project, zone, instanceGroupManager, 
+    filter = NULL, maxResults = NULL, order_by = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s/listManagedInstances", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.listManagedInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, order_by = order_by, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2706,9 +3024,9 @@ instanceGroupManagers.listManagedInstances <- function(project, zone, instanceGr
 instanceGroupManagers.recreateInstances <- function(InstanceGroupManagersRecreateInstancesRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s/recreateInstances", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.recreateInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersRecreateInstancesRequest, "gar_InstanceGroupManagersRecreateInstancesRequest"))
     
     f(the_body = InstanceGroupManagersRecreateInstancesRequest)
@@ -2740,9 +3058,11 @@ instanceGroupManagers.recreateInstances <- function(InstanceGroupManagersRecreat
 #' @export
 instanceGroupManagers.resize <- function(project, zone, instanceGroupManager, size) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s/resize", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.resize
-    f <- gar_api_generator(url, "POST", pars_args = list(size = size), data_parse_function = function(x) x)
+    pars = list(size = size)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2774,9 +3094,9 @@ instanceGroupManagers.resize <- function(project, zone, instanceGroupManager, si
 instanceGroupManagers.setInstanceTemplate <- function(InstanceGroupManagersSetInstanceTemplateRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s/setInstanceTemplate", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.setInstanceTemplate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersSetInstanceTemplateRequest, "gar_InstanceGroupManagersSetInstanceTemplateRequest"))
     
     f(the_body = InstanceGroupManagersSetInstanceTemplateRequest)
@@ -2810,9 +3130,9 @@ instanceGroupManagers.setInstanceTemplate <- function(InstanceGroupManagersSetIn
 instanceGroupManagers.setTargetPools <- function(InstanceGroupManagersSetTargetPoolsRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroupManagers/%s/setTargetPools", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # compute.instanceGroupManagers.setTargetPools
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersSetTargetPoolsRequest, "gar_InstanceGroupManagersSetTargetPoolsRequest"))
     
     f(the_body = InstanceGroupManagersSetTargetPoolsRequest)
@@ -2846,9 +3166,9 @@ instanceGroupManagers.setTargetPools <- function(InstanceGroupManagersSetTargetP
 instanceGroups.addInstances <- function(InstanceGroupsAddInstancesRequest, project, 
     zone, instanceGroup) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups/%s/addInstances", 
-        instanceGroup, project, zone)
+        project, zone, instanceGroup)
     # compute.instanceGroups.addInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupsAddInstancesRequest, "gar_InstanceGroupsAddInstancesRequest"))
     
     f(the_body = InstanceGroupsAddInstancesRequest)
@@ -2876,16 +3196,18 @@ instanceGroups.addInstances <- function(InstanceGroupsAddInstancesRequest, proje
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 instanceGroups.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/instanceGroups", 
         project)
     # compute.instanceGroups.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -2914,9 +3236,9 @@ instanceGroups.aggregatedList <- function(project, filter = NULL, maxResults = N
 #' @export
 instanceGroups.delete <- function(project, zone, instanceGroup) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups/%s", 
-        instanceGroup, project, zone)
+        project, zone, instanceGroup)
     # compute.instanceGroups.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -2946,9 +3268,9 @@ instanceGroups.delete <- function(project, zone, instanceGroup) {
 #' @export
 instanceGroups.get <- function(project, zone, instanceGroup) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups/%s", 
-        instanceGroup, project, zone)
+        project, zone, instanceGroup)
     # compute.instanceGroups.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -2980,7 +3302,7 @@ instanceGroups.insert <- function(InstanceGroup, project, zone) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups", 
         project, zone)
     # compute.instanceGroups.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroup, "gar_InstanceGroup"))
     
     f(the_body = InstanceGroup)
@@ -3009,16 +3331,18 @@ instanceGroups.insert <- function(InstanceGroup, project, zone) {
 #' @param zone The name of the zone where the instance group is located
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 instanceGroups.list <- function(project, zone, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups", 
         project, zone)
     # compute.instanceGroups.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3047,17 +3371,19 @@ instanceGroups.list <- function(project, zone, filter = NULL, maxResults = NULL,
 #' @param instanceGroup The name of the instance group from which you want to generate a list of included instances
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @family InstanceGroupsListInstancesRequest functions
 #' @export
 instanceGroups.listInstances <- function(InstanceGroupsListInstancesRequest, project, 
-    zone, instanceGroup, filter = NULL, maxResults = NULL, pageToken = NULL) {
+    zone, instanceGroup, filter = NULL, maxResults = NULL, orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups/%s/listInstances", 
-        instanceGroup, project, zone)
+        project, zone, instanceGroup)
     # compute.instanceGroups.listInstances
-    f <- gar_api_generator(url, "POST", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupsListInstancesRequest, "gar_InstanceGroupsListInstancesRequest"))
     
     f(the_body = InstanceGroupsListInstancesRequest)
@@ -3091,9 +3417,9 @@ instanceGroups.listInstances <- function(InstanceGroupsListInstancesRequest, pro
 instanceGroups.removeInstances <- function(InstanceGroupsRemoveInstancesRequest, 
     project, zone, instanceGroup) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups/%s/removeInstances", 
-        instanceGroup, project, zone)
+        project, zone, instanceGroup)
     # compute.instanceGroups.removeInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupsRemoveInstancesRequest, "gar_InstanceGroupsRemoveInstancesRequest"))
     
     f(the_body = InstanceGroupsRemoveInstancesRequest)
@@ -3127,9 +3453,9 @@ instanceGroups.removeInstances <- function(InstanceGroupsRemoveInstancesRequest,
 instanceGroups.setNamedPorts <- function(InstanceGroupsSetNamedPortsRequest, project, 
     zone, instanceGroup) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instanceGroups/%s/setNamedPorts", 
-        instanceGroup, project, zone)
+        project, zone, instanceGroup)
     # compute.instanceGroups.setNamedPorts
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupsSetNamedPortsRequest, "gar_InstanceGroupsSetNamedPortsRequest"))
     
     f(the_body = InstanceGroupsSetNamedPortsRequest)
@@ -3159,9 +3485,9 @@ instanceGroups.setNamedPorts <- function(InstanceGroupsSetNamedPortsRequest, pro
 #' @export
 instanceTemplates.delete <- function(project, instanceTemplate) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/instanceTemplates/%s", 
-        instanceTemplate, project)
+        project, instanceTemplate)
     # compute.instanceTemplates.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -3190,9 +3516,9 @@ instanceTemplates.delete <- function(project, instanceTemplate) {
 #' @export
 instanceTemplates.get <- function(project, instanceTemplate) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/instanceTemplates/%s", 
-        instanceTemplate, project)
+        project, instanceTemplate)
     # compute.instanceTemplates.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -3223,7 +3549,7 @@ instanceTemplates.insert <- function(InstanceTemplate, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/instanceTemplates", 
         project)
     # compute.instanceTemplates.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceTemplate, "gar_InstanceTemplate"))
     
     f(the_body = InstanceTemplate)
@@ -3251,15 +3577,18 @@ instanceTemplates.insert <- function(InstanceTemplate, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-instanceTemplates.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+instanceTemplates.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/instanceTemplates", 
         project)
     # compute.instanceTemplates.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3291,9 +3620,10 @@ instanceTemplates.list <- function(project, filter = NULL, maxResults = NULL, pa
 #' @export
 instances.addAccessConfig <- function(AccessConfig, project, zone, instance, networkInterface) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/addAccessConfig", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.addAccessConfig
-    f <- gar_api_generator(url, "POST", pars_args = list(networkInterface = networkInterface), 
+    pars = list(networkInterface = networkInterface)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(AccessConfig, "gar_AccessConfig"))
     
@@ -3322,15 +3652,18 @@ instances.addAccessConfig <- function(AccessConfig, project, zone, instance, net
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-instances.aggregatedList <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+instances.aggregatedList <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/instances", 
         project)
     # compute.instances.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3361,9 +3694,9 @@ instances.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
 #' @export
 instances.attachDisk <- function(AttachedDisk, project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/attachDisk", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.attachDisk
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AttachedDisk, "gar_AttachedDisk"))
     
     f(the_body = AttachedDisk)
@@ -3394,9 +3727,9 @@ instances.attachDisk <- function(AttachedDisk, project, zone, instance) {
 #' @export
 instances.delete <- function(project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -3427,10 +3760,11 @@ instances.delete <- function(project, zone, instance) {
 #' @export
 instances.deleteAccessConfig <- function(project, zone, instance, accessConfig, networkInterface) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/deleteAccessConfig", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.deleteAccessConfig
-    f <- gar_api_generator(url, "POST", pars_args = list(accessConfig = accessConfig, 
-        networkInterface = networkInterface), data_parse_function = function(x) x)
+    pars = list(accessConfig = accessConfig, networkInterface = networkInterface)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3460,9 +3794,10 @@ instances.deleteAccessConfig <- function(project, zone, instance, accessConfig, 
 #' @export
 instances.detachDisk <- function(project, zone, instance, deviceName) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/detachDisk", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.detachDisk
-    f <- gar_api_generator(url, "POST", pars_args = list(deviceName = deviceName), 
+    pars = list(deviceName = deviceName)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -3493,9 +3828,9 @@ instances.detachDisk <- function(project, zone, instance, deviceName) {
 #' @export
 instances.get <- function(project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -3522,13 +3857,16 @@ instances.get <- function(project, zone, instance) {
 #' @param zone The name of the zone for this request
 #' @param instance Name of the instance scoping this request
 #' @param port Specifies which COM or serial port to retrieve data from
+#' @param start Returns output starting from a specific byte position
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-instances.getSerialPortOutput <- function(project, zone, instance, port = NULL) {
+instances.getSerialPortOutput <- function(project, zone, instance, port = NULL, start = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/serialPort", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.getSerialPortOutput
-    f <- gar_api_generator(url, "GET", pars_args = list(port = port), data_parse_function = function(x) x)
+    pars = list(port = port, start = start)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3560,7 +3898,7 @@ instances.insert <- function(Instance, project, zone) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances", 
         project, zone)
     # compute.instances.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Instance, "gar_Instance"))
     
     f(the_body = Instance)
@@ -3589,15 +3927,18 @@ instances.insert <- function(Instance, project, zone) {
 #' @param zone The name of the zone for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-instances.list <- function(project, zone, filter = NULL, maxResults = NULL, pageToken = NULL) {
+instances.list <- function(project, zone, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances", 
         project, zone)
     # compute.instances.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3626,9 +3967,9 @@ instances.list <- function(project, zone, filter = NULL, maxResults = NULL, page
 #' @export
 instances.reset <- function(project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/reset", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.reset
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -3659,10 +4000,11 @@ instances.reset <- function(project, zone, instance) {
 #' @export
 instances.setDiskAutoDelete <- function(project, zone, instance, autoDelete, deviceName) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/setDiskAutoDelete", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.setDiskAutoDelete
-    f <- gar_api_generator(url, "POST", pars_args = list(autoDelete = autoDelete, 
-        deviceName = deviceName), data_parse_function = function(x) x)
+    pars = list(autoDelete = autoDelete, deviceName = deviceName)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3694,9 +4036,9 @@ instances.setDiskAutoDelete <- function(project, zone, instance, autoDelete, dev
 instances.setMachineType <- function(InstancesSetMachineTypeRequest, project, zone, 
     instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/setMachineType", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.setMachineType
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstancesSetMachineTypeRequest, "gar_InstancesSetMachineTypeRequest"))
     
     f(the_body = InstancesSetMachineTypeRequest)
@@ -3729,9 +4071,9 @@ instances.setMachineType <- function(InstancesSetMachineTypeRequest, project, zo
 #' @export
 instances.setMetadata <- function(Metadata, project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/setMetadata", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.setMetadata
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Metadata, "gar_Metadata"))
     
     f(the_body = Metadata)
@@ -3764,12 +4106,48 @@ instances.setMetadata <- function(Metadata, project, zone, instance) {
 #' @export
 instances.setScheduling <- function(Scheduling, project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/setScheduling", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.setScheduling
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Scheduling, "gar_Scheduling"))
     
     f(the_body = Scheduling)
+    
+}
+
+#' Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param InstancesSetServiceAccountRequest The \link{InstancesSetServiceAccountRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param zone The name of the zone for this request
+#' @param instance Name of the instance resource to start
+#' @importFrom googleAuthR gar_api_generator
+#' @family InstancesSetServiceAccountRequest functions
+#' @export
+instances.setServiceAccount <- function(InstancesSetServiceAccountRequest, project, 
+    zone, instance) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/setServiceAccount", 
+        project, zone, instance)
+    # compute.instances.setServiceAccount
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(InstancesSetServiceAccountRequest, "gar_InstancesSetServiceAccountRequest"))
+    
+    f(the_body = InstancesSetServiceAccountRequest)
     
 }
 
@@ -3799,9 +4177,9 @@ instances.setScheduling <- function(Scheduling, project, zone, instance) {
 #' @export
 instances.setTags <- function(Tags, project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/setTags", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.setTags
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Tags, "gar_Tags"))
     
     f(the_body = Tags)
@@ -3832,9 +4210,9 @@ instances.setTags <- function(Tags, project, zone, instance) {
 #' @export
 instances.start <- function(project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/start", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.start
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -3866,9 +4244,9 @@ instances.start <- function(project, zone, instance) {
 instances.startWithEncryptionKey <- function(InstancesStartWithEncryptionKeyRequest, 
     project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/startWithEncryptionKey", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.startWithEncryptionKey
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstancesStartWithEncryptionKeyRequest, "gar_InstancesStartWithEncryptionKeyRequest"))
     
     f(the_body = InstancesStartWithEncryptionKeyRequest)
@@ -3899,9 +4277,9 @@ instances.startWithEncryptionKey <- function(InstancesStartWithEncryptionKeyRequ
 #' @export
 instances.stop <- function(project, zone, instance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/instances/%s/stop", 
-        instance, project, zone)
+        project, zone, instance)
     # compute.instances.stop
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -3930,9 +4308,9 @@ instances.stop <- function(project, zone, instance) {
 #' @export
 licenses.get <- function(project, license) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/licenses/%s", 
-        license, project)
+        project, license)
     # compute.licenses.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -3958,16 +4336,18 @@ licenses.get <- function(project, license) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 machineTypes.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/machineTypes", 
         project)
     # compute.machineTypes.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -3997,9 +4377,9 @@ machineTypes.aggregatedList <- function(project, filter = NULL, maxResults = NUL
 #' @export
 machineTypes.get <- function(project, zone, machineType) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/machineTypes/%s", 
-        machineType, project, zone)
+        project, zone, machineType)
     # compute.machineTypes.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4026,15 +4406,18 @@ machineTypes.get <- function(project, zone, machineType) {
 #' @param zone The name of the zone for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-machineTypes.list <- function(project, zone, filter = NULL, maxResults = NULL, pageToken = NULL) {
+machineTypes.list <- function(project, zone, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/machineTypes", 
         project, zone)
     # compute.machineTypes.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -4062,9 +4445,9 @@ machineTypes.list <- function(project, zone, filter = NULL, maxResults = NULL, p
 #' @export
 networks.delete <- function(project, network) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/networks/%s", 
-        network, project)
+        project, network)
     # compute.networks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -4093,9 +4476,9 @@ networks.delete <- function(project, network) {
 #' @export
 networks.get <- function(project, network) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/networks/%s", 
-        network, project)
+        project, network)
     # compute.networks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4126,7 +4509,7 @@ networks.insert <- function(Network, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/networks", 
         project)
     # compute.networks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Network, "gar_Network"))
     
     f(the_body = Network)
@@ -4154,15 +4537,48 @@ networks.insert <- function(Network, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-networks.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+networks.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/networks", 
         project)
     # compute.networks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Switches the network mode from auto subnet mode to custom subnet mode.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param network Name of the network to be updated
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+networks.switchToCustomMode <- function(project, network) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/networks/%s/switchToCustomMode", 
+        project, network)
+    # compute.networks.switchToCustomMode
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -4191,7 +4607,7 @@ networks.list <- function(project, filter = NULL, maxResults = NULL, pageToken =
 projects.get <- function(project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s", project)
     # compute.projects.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4222,7 +4638,7 @@ projects.moveDisk <- function(DiskMoveRequest, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/moveDisk", 
         project)
     # compute.projects.moveDisk
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(DiskMoveRequest, "gar_DiskMoveRequest"))
     
     f(the_body = DiskMoveRequest)
@@ -4255,7 +4671,7 @@ projects.moveInstance <- function(InstanceMoveRequest, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/moveInstance", 
         project)
     # compute.projects.moveInstance
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceMoveRequest, "gar_InstanceMoveRequest"))
     
     f(the_body = InstanceMoveRequest)
@@ -4288,7 +4704,7 @@ projects.setCommonInstanceMetadata <- function(Metadata, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/setCommonInstanceMetadata", 
         project)
     # compute.projects.setCommonInstanceMetadata
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Metadata, "gar_Metadata"))
     
     f(the_body = Metadata)
@@ -4324,10 +4740,1000 @@ projects.setUsageExportBucket <- function(UsageExportLocation, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/setUsageExportBucket", 
         project)
     # compute.projects.setUsageExportBucket
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(UsageExportLocation, "gar_UsageExportLocation"))
     
     f(the_body = UsageExportLocation)
+    
+}
+
+#' Deletes the specified autoscaler.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param autoscaler Name of the autoscaler to delete
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionAutoscalers.delete <- function(project, region, autoscaler) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/autoscalers/%s", 
+        project, region, autoscaler)
+    # compute.regionAutoscalers.delete
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Returns the specified autoscaler.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param autoscaler Name of the autoscaler to return
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionAutoscalers.get <- function(project, region, autoscaler) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/autoscalers/%s", 
+        project, region, autoscaler)
+    # compute.regionAutoscalers.get
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Creates an autoscaler in the specified project using the data included in the request.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param Autoscaler The \link{Autoscaler} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @importFrom googleAuthR gar_api_generator
+#' @family Autoscaler functions
+#' @export
+regionAutoscalers.insert <- function(Autoscaler, project, region) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/autoscalers", 
+        project, region)
+    # compute.regionAutoscalers.insert
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(Autoscaler, "gar_Autoscaler"))
+    
+    f(the_body = Autoscaler)
+    
+}
+
+#' Retrieves a list of autoscalers contained within the specified region.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionAutoscalers.list <- function(project, region, filter = NULL, maxResults = NULL, 
+    orderBy = NULL, pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/autoscalers", 
+        project, region)
+    # compute.regionAutoscalers.list
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Updates an autoscaler in the specified project using the data included in the request. This method supports patch semantics.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param Autoscaler The \link{Autoscaler} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param autoscaler Name of the autoscaler to update
+#' @importFrom googleAuthR gar_api_generator
+#' @family Autoscaler functions
+#' @export
+regionAutoscalers.patch <- function(Autoscaler, project, region, autoscaler) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/autoscalers", 
+        project, region)
+    # compute.regionAutoscalers.patch
+    pars = list(autoscaler = autoscaler)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    stopifnot(inherits(Autoscaler, "gar_Autoscaler"))
+    
+    f(the_body = Autoscaler)
+    
+}
+
+#' Updates an autoscaler in the specified project using the data included in the request.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param Autoscaler The \link{Autoscaler} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param autoscaler Name of the autoscaler to update
+#' @importFrom googleAuthR gar_api_generator
+#' @family Autoscaler functions
+#' @export
+regionAutoscalers.update <- function(Autoscaler, project, region, autoscaler = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/autoscalers", 
+        project, region)
+    # compute.regionAutoscalers.update
+    pars = list(autoscaler = autoscaler)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    stopifnot(inherits(Autoscaler, "gar_Autoscaler"))
+    
+    f(the_body = Autoscaler)
+    
+}
+
+#' Deletes the specified regional BackendService resource.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param backendService Name of the BackendService resource to delete
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionBackendServices.delete <- function(project, region, backendService) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/backendServices/%s", 
+        project, region, backendService)
+    # compute.regionBackendServices.delete
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Returns the specified regional BackendService resource.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param backendService Name of the BackendService resource to return
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionBackendServices.get <- function(project, region, backendService) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/backendServices/%s", 
+        project, region, backendService)
+    # compute.regionBackendServices.get
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Gets the most recent health check results for this regional BackendService.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param ResourceGroupReference The \link{ResourceGroupReference} object to pass to this method
+#' @param project 
+#' @param region Name of the region scoping this request
+#' @param backendService Name of the BackendService resource to which the queried instance belongs
+#' @importFrom googleAuthR gar_api_generator
+#' @family ResourceGroupReference functions
+#' @export
+regionBackendServices.getHealth <- function(ResourceGroupReference, project, region, 
+    backendService) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/backendServices/%s/getHealth", 
+        project, region, backendService)
+    # compute.regionBackendServices.getHealth
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(ResourceGroupReference, "gar_ResourceGroupReference"))
+    
+    f(the_body = ResourceGroupReference)
+    
+}
+
+#' Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a regional backend service. Read  Restrictions and Guidelines for more information.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param BackendService The \link{BackendService} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @importFrom googleAuthR gar_api_generator
+#' @family BackendService functions
+#' @export
+regionBackendServices.insert <- function(BackendService, project, region) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/backendServices", 
+        project, region)
+    # compute.regionBackendServices.insert
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(BackendService, "gar_BackendService"))
+    
+    f(the_body = BackendService)
+    
+}
+
+#' Retrieves the list of regional BackendService resources available to the specified project in the given region.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionBackendServices.list <- function(project, region, filter = NULL, maxResults = NULL, 
+    orderBy = NULL, pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/backendServices", 
+        project, region)
+    # compute.regionBackendServices.list
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports patch semantics.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param BackendService The \link{BackendService} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param backendService Name of the BackendService resource to update
+#' @importFrom googleAuthR gar_api_generator
+#' @family BackendService functions
+#' @export
+regionBackendServices.patch <- function(BackendService, project, region, backendService) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/backendServices/%s", 
+        project, region, backendService)
+    # compute.regionBackendServices.patch
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    stopifnot(inherits(BackendService, "gar_BackendService"))
+    
+    f(the_body = BackendService)
+    
+}
+
+#' Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param BackendService The \link{BackendService} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param backendService Name of the BackendService resource to update
+#' @importFrom googleAuthR gar_api_generator
+#' @family BackendService functions
+#' @export
+regionBackendServices.update <- function(BackendService, project, region, backendService) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/backendServices/%s", 
+        project, region, backendService)
+    # compute.regionBackendServices.update
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    stopifnot(inherits(BackendService, "gar_BackendService"))
+    
+    f(the_body = BackendService)
+    
+}
+
+#' Schedules a group action to remove the specified instances from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param RegionInstanceGroupManagersAbandonInstancesRequest The \link{RegionInstanceGroupManagersAbandonInstancesRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager Name of the managed instance group
+#' @importFrom googleAuthR gar_api_generator
+#' @family RegionInstanceGroupManagersAbandonInstancesRequest functions
+#' @export
+regionInstanceGroupManagers.abandonInstances <- function(RegionInstanceGroupManagersAbandonInstancesRequest, 
+    project, region, instanceGroupManager) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s/abandonInstances", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.abandonInstances
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(RegionInstanceGroupManagersAbandonInstancesRequest, "gar_RegionInstanceGroupManagersAbandonInstancesRequest"))
+    
+    f(the_body = RegionInstanceGroupManagersAbandonInstancesRequest)
+    
+}
+
+#' Deletes the specified managed instance group and all of the instances in that group.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager Name of the managed instance group to delete
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionInstanceGroupManagers.delete <- function(project, region, instanceGroupManager) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.delete
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Schedules a group action to delete the specified instances in the managed instance group. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param RegionInstanceGroupManagersDeleteInstancesRequest The \link{RegionInstanceGroupManagersDeleteInstancesRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager Name of the managed instance group
+#' @importFrom googleAuthR gar_api_generator
+#' @family RegionInstanceGroupManagersDeleteInstancesRequest functions
+#' @export
+regionInstanceGroupManagers.deleteInstances <- function(RegionInstanceGroupManagersDeleteInstancesRequest, 
+    project, region, instanceGroupManager) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s/deleteInstances", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.deleteInstances
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(RegionInstanceGroupManagersDeleteInstancesRequest, "gar_RegionInstanceGroupManagersDeleteInstancesRequest"))
+    
+    f(the_body = RegionInstanceGroupManagersDeleteInstancesRequest)
+    
+}
+
+#' Returns all of the details about the specified managed instance group.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager Name of the managed instance group to return
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionInstanceGroupManagers.get <- function(project, region, instanceGroupManager) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.get
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Creates a managed instance group using the information that you specify in the request. After the group is created, it schedules an action to create instances in the group using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param InstanceGroupManager The \link{InstanceGroupManager} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @importFrom googleAuthR gar_api_generator
+#' @family InstanceGroupManager functions
+#' @export
+regionInstanceGroupManagers.insert <- function(InstanceGroupManager, project, region) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers", 
+        project, region)
+    # compute.regionInstanceGroupManagers.insert
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(InstanceGroupManager, "gar_InstanceGroupManager"))
+    
+    f(the_body = InstanceGroupManager)
+    
+}
+
+#' Retrieves the list of managed instance groups that are contained within the specified region.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionInstanceGroupManagers.list <- function(project, region, filter = NULL, maxResults = NULL, 
+    orderBy = NULL, pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers", 
+        project, region)
+    # compute.regionInstanceGroupManagers.list
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager The name of the managed instance group
+#' @param filter 
+#' @param maxResults 
+#' @param order_by 
+#' @param pageToken 
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionInstanceGroupManagers.listManagedInstances <- function(project, region, instanceGroupManager, 
+    filter = NULL, maxResults = NULL, order_by = NULL, pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s/listManagedInstances", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.listManagedInstances
+    pars = list(filter = filter, maxResults = maxResults, order_by = order_by, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Schedules a group action to recreate the specified instances in the managed instance group. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the action is scheduled even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param RegionInstanceGroupManagersRecreateRequest The \link{RegionInstanceGroupManagersRecreateRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager Name of the managed instance group
+#' @importFrom googleAuthR gar_api_generator
+#' @family RegionInstanceGroupManagersRecreateRequest functions
+#' @export
+regionInstanceGroupManagers.recreateInstances <- function(RegionInstanceGroupManagersRecreateRequest, 
+    project, region, instanceGroupManager) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s/recreateInstances", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.recreateInstances
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(RegionInstanceGroupManagersRecreateRequest, "gar_RegionInstanceGroupManagersRecreateRequest"))
+    
+    f(the_body = RegionInstanceGroupManagersRecreateRequest)
+    
+}
+
+#' Changes the intended size for the managed instance group. If you increase the size, the group schedules actions to create new instances using the current instance template. If you decrease the size, the group schedules delete actions on one or more instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager Name of the managed instance group
+#' @param size Number of instances that should exist in this instance group manager
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionInstanceGroupManagers.resize <- function(project, region, instanceGroupManager, 
+    size) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s/resize", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.resize
+    pars = list(size = size)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Sets the instance template to use when creating new instances or recreating instances in this group. Existing instances are not affected.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param RegionInstanceGroupManagersSetTemplateRequest The \link{RegionInstanceGroupManagersSetTemplateRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager The name of the managed instance group
+#' @importFrom googleAuthR gar_api_generator
+#' @family RegionInstanceGroupManagersSetTemplateRequest functions
+#' @export
+regionInstanceGroupManagers.setInstanceTemplate <- function(RegionInstanceGroupManagersSetTemplateRequest, 
+    project, region, instanceGroupManager) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s/setInstanceTemplate", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.setInstanceTemplate
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(RegionInstanceGroupManagersSetTemplateRequest, "gar_RegionInstanceGroupManagersSetTemplateRequest"))
+    
+    f(the_body = RegionInstanceGroupManagersSetTemplateRequest)
+    
+}
+
+#' Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param RegionInstanceGroupManagersSetTargetPoolsRequest The \link{RegionInstanceGroupManagersSetTargetPoolsRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroupManager Name of the managed instance group
+#' @importFrom googleAuthR gar_api_generator
+#' @family RegionInstanceGroupManagersSetTargetPoolsRequest functions
+#' @export
+regionInstanceGroupManagers.setTargetPools <- function(RegionInstanceGroupManagersSetTargetPoolsRequest, 
+    project, region, instanceGroupManager) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroupManagers/%s/setTargetPools", 
+        project, region, instanceGroupManager)
+    # compute.regionInstanceGroupManagers.setTargetPools
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(RegionInstanceGroupManagersSetTargetPoolsRequest, "gar_RegionInstanceGroupManagersSetTargetPoolsRequest"))
+    
+    f(the_body = RegionInstanceGroupManagersSetTargetPoolsRequest)
+    
+}
+
+#' Returns the specified instance group resource.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroup Name of the instance group resource to return
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionInstanceGroups.get <- function(project, region, instanceGroup) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroups/%s", 
+        project, region, instanceGroup)
+    # compute.regionInstanceGroups.get
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Retrieves the list of instance group resources contained within the specified region.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+regionInstanceGroups.list <- function(project, region, filter = NULL, maxResults = NULL, 
+    orderBy = NULL, pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroups", 
+        project, region)
+    # compute.regionInstanceGroups.list
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the instances that are running.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param RegionInstanceGroupsListInstancesRequest The \link{RegionInstanceGroupsListInstancesRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroup Name of the regional instance group for which we want to list the instances
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @family RegionInstanceGroupsListInstancesRequest functions
+#' @export
+regionInstanceGroups.listInstances <- function(RegionInstanceGroupsListInstancesRequest, 
+    project, region, instanceGroup, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroups/%s/listInstances", 
+        project, region, instanceGroup)
+    # compute.regionInstanceGroups.listInstances
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    stopifnot(inherits(RegionInstanceGroupsListInstancesRequest, "gar_RegionInstanceGroupsListInstancesRequest"))
+    
+    f(the_body = RegionInstanceGroupsListInstancesRequest)
+    
+}
+
+#' Sets the named ports for the specified regional instance group.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param RegionInstanceGroupsSetNamedPortsRequest The \link{RegionInstanceGroupsSetNamedPortsRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param instanceGroup The name of the regional instance group where the named ports are updated
+#' @importFrom googleAuthR gar_api_generator
+#' @family RegionInstanceGroupsSetNamedPortsRequest functions
+#' @export
+regionInstanceGroups.setNamedPorts <- function(RegionInstanceGroupsSetNamedPortsRequest, 
+    project, region, instanceGroup) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/instanceGroups/%s/setNamedPorts", 
+        project, region, instanceGroup)
+    # compute.regionInstanceGroups.setNamedPorts
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(RegionInstanceGroupsSetNamedPortsRequest, "gar_RegionInstanceGroupsSetNamedPortsRequest"))
+    
+    f(the_body = RegionInstanceGroupsSetNamedPortsRequest)
     
 }
 
@@ -4355,9 +5761,9 @@ projects.setUsageExportBucket <- function(UsageExportLocation, project) {
 #' @export
 regionOperations.delete <- function(project, region, operation) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/operations/%s", 
-        operation, project, region)
+        project, region, operation)
     # compute.regionOperations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -4387,9 +5793,9 @@ regionOperations.delete <- function(project, region, operation) {
 #' @export
 regionOperations.get <- function(project, region, operation) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/operations/%s", 
-        operation, project, region)
+        project, region, operation)
     # compute.regionOperations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4416,16 +5822,18 @@ regionOperations.get <- function(project, region, operation) {
 #' @param region Name of the region for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 regionOperations.list <- function(project, region, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/operations", 
         project, region)
     # compute.regionOperations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -4456,7 +5864,7 @@ regions.get <- function(project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s", 
         project, region)
     # compute.regions.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4482,14 +5890,17 @@ regions.get <- function(project, region) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-regions.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+regions.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions", project)
     # compute.regions.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -4515,15 +5926,18 @@ regions.list <- function(project, filter = NULL, maxResults = NULL, pageToken = 
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-routers.aggregatedList <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+routers.aggregatedList <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/routers", 
         project)
     # compute.routers.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -4554,7 +5968,7 @@ routers.delete <- function(project, region, router) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers/%s", 
         project, region, router)
     # compute.routers.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -4586,7 +6000,7 @@ routers.get <- function(project, region, router) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers/%s", 
         project, region, router)
     # compute.routers.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4618,7 +6032,7 @@ routers.getRouterStatus <- function(project, region, router) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers/%s/getRouterStatus", 
         project, region, router)
     # compute.routers.getRouterStatus
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4650,7 +6064,7 @@ routers.insert <- function(Router, project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers", 
         project, region)
     # compute.routers.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Router, "gar_Router"))
     
     f(the_body = Router)
@@ -4679,20 +6093,23 @@ routers.insert <- function(Router, project, region) {
 #' @param region Name of the region for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-routers.list <- function(project, region, filter = NULL, maxResults = NULL, pageToken = NULL) {
+routers.list <- function(project, region, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers", 
         project, region)
     # compute.routers.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
 
-#' Updates the entire content of the Router resource. This method supports patch semantics.
+#' Updates the specified Router resource with the data included in the request. This method supports patch semantics.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -4720,7 +6137,7 @@ routers.patch <- function(Router, project, region, router) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers/%s", 
         project, region, router)
     # compute.routers.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Router, "gar_Router"))
     
     f(the_body = Router)
@@ -4756,14 +6173,14 @@ routers.preview <- function(Router, project, region, router) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers/%s/preview", 
         project, region, router)
     # compute.routers.preview
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Router, "gar_Router"))
     
     f(the_body = Router)
     
 }
 
-#' Updates the entire content of the Router resource.
+#' Updates the specified Router resource with the data included in the request.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -4791,7 +6208,7 @@ routers.update <- function(Router, project, region, router) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/routers/%s", 
         project, region, router)
     # compute.routers.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Router, "gar_Router"))
     
     f(the_body = Router)
@@ -4823,7 +6240,7 @@ routes.delete <- function(project, route) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/routes/%s", 
         project, route)
     # compute.routes.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -4854,7 +6271,7 @@ routes.get <- function(project, route) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/routes/%s", 
         project, route)
     # compute.routes.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -4885,7 +6302,7 @@ routes.insert <- function(Route, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/routes", 
         project)
     # compute.routes.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Route, "gar_Route"))
     
     f(the_body = Route)
@@ -4913,15 +6330,18 @@ routes.insert <- function(Route, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-routes.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+routes.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/routes", 
         project)
     # compute.routes.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -4951,7 +6371,7 @@ snapshots.delete <- function(project, snapshot) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/snapshots/%s", 
         project, snapshot)
     # compute.snapshots.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -4982,7 +6402,7 @@ snapshots.get <- function(project, snapshot) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/snapshots/%s", 
         project, snapshot)
     # compute.snapshots.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -5008,15 +6428,18 @@ snapshots.get <- function(project, snapshot) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-snapshots.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+snapshots.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/snapshots", 
         project)
     # compute.snapshots.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5046,7 +6469,7 @@ sslCertificates.delete <- function(project, sslCertificate) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/sslCertificates/%s", 
         project, sslCertificate)
     # compute.sslCertificates.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -5077,7 +6500,7 @@ sslCertificates.get <- function(project, sslCertificate) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/sslCertificates/%s", 
         project, sslCertificate)
     # compute.sslCertificates.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -5108,7 +6531,7 @@ sslCertificates.insert <- function(SslCertificate, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/sslCertificates", 
         project)
     # compute.sslCertificates.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(SslCertificate, "gar_SslCertificate"))
     
     f(the_body = SslCertificate)
@@ -5136,15 +6559,18 @@ sslCertificates.insert <- function(SslCertificate, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-sslCertificates.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+sslCertificates.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/sslCertificates", 
         project)
     # compute.sslCertificates.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5170,16 +6596,18 @@ sslCertificates.list <- function(project, filter = NULL, maxResults = NULL, page
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 subnetworks.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/subnetworks", 
         project)
     # compute.subnetworks.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5210,8 +6638,44 @@ subnetworks.delete <- function(project, region, subnetwork) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/subnetworks/%s", 
         project, region, subnetwork)
     # compute.subnetworks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
+    
+}
+
+#' Expands the IP CIDR range of the subnetwork to a specified value.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param SubnetworksExpandIpCidrRangeRequest The \link{SubnetworksExpandIpCidrRangeRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param region Name of the region scoping this request
+#' @param subnetwork Name of the Subnetwork resource to update
+#' @importFrom googleAuthR gar_api_generator
+#' @family SubnetworksExpandIpCidrRangeRequest functions
+#' @export
+subnetworks.expandIpCidrRange <- function(SubnetworksExpandIpCidrRangeRequest, project, 
+    region, subnetwork) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/subnetworks/%s/expandIpCidrRange", 
+        project, region, subnetwork)
+    # compute.subnetworks.expandIpCidrRange
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(SubnetworksExpandIpCidrRangeRequest, "gar_SubnetworksExpandIpCidrRangeRequest"))
+    
+    f(the_body = SubnetworksExpandIpCidrRangeRequest)
     
 }
 
@@ -5242,7 +6706,7 @@ subnetworks.get <- function(project, region, subnetwork) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/subnetworks/%s", 
         project, region, subnetwork)
     # compute.subnetworks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -5274,7 +6738,7 @@ subnetworks.insert <- function(Subnetwork, project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/subnetworks", 
         project, region)
     # compute.subnetworks.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Subnetwork, "gar_Subnetwork"))
     
     f(the_body = Subnetwork)
@@ -5303,15 +6767,18 @@ subnetworks.insert <- function(Subnetwork, project, region) {
 #' @param region Name of the region scoping this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-subnetworks.list <- function(project, region, filter = NULL, maxResults = NULL, pageToken = NULL) {
+subnetworks.list <- function(project, region, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/subnetworks", 
         project, region)
     # compute.subnetworks.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5341,7 +6808,7 @@ targetHttpProxies.delete <- function(project, targetHttpProxy) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpProxies/%s", 
         project, targetHttpProxy)
     # compute.targetHttpProxies.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -5372,7 +6839,7 @@ targetHttpProxies.get <- function(project, targetHttpProxy) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpProxies/%s", 
         project, targetHttpProxy)
     # compute.targetHttpProxies.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -5403,7 +6870,7 @@ targetHttpProxies.insert <- function(TargetHttpProxy, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpProxies", 
         project)
     # compute.targetHttpProxies.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetHttpProxy, "gar_TargetHttpProxy"))
     
     f(the_body = TargetHttpProxy)
@@ -5431,15 +6898,18 @@ targetHttpProxies.insert <- function(TargetHttpProxy, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-targetHttpProxies.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+targetHttpProxies.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpProxies", 
         project)
     # compute.targetHttpProxies.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5471,7 +6941,7 @@ targetHttpProxies.setUrlMap <- function(UrlMapReference, project, targetHttpProx
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/targetHttpProxies/%s/setUrlMap", 
         project, targetHttpProxy)
     # compute.targetHttpProxies.setUrlMap
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(UrlMapReference, "gar_UrlMapReference"))
     
     f(the_body = UrlMapReference)
@@ -5503,7 +6973,7 @@ targetHttpsProxies.delete <- function(project, targetHttpsProxy) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpsProxies/%s", 
         project, targetHttpsProxy)
     # compute.targetHttpsProxies.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -5534,7 +7004,7 @@ targetHttpsProxies.get <- function(project, targetHttpsProxy) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpsProxies/%s", 
         project, targetHttpsProxy)
     # compute.targetHttpsProxies.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -5565,7 +7035,7 @@ targetHttpsProxies.insert <- function(TargetHttpsProxy, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpsProxies", 
         project)
     # compute.targetHttpsProxies.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetHttpsProxy, "gar_TargetHttpsProxy"))
     
     f(the_body = TargetHttpsProxy)
@@ -5593,15 +7063,18 @@ targetHttpsProxies.insert <- function(TargetHttpsProxy, project) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-targetHttpsProxies.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+targetHttpsProxies.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetHttpsProxies", 
         project)
     # compute.targetHttpsProxies.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5634,7 +7107,7 @@ targetHttpsProxies.setSslCertificates <- function(TargetHttpsProxiesSetSslCertif
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/targetHttpsProxies/%s/setSslCertificates", 
         project, targetHttpsProxy)
     # compute.targetHttpsProxies.setSslCertificates
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetHttpsProxiesSetSslCertificatesRequest, "gar_TargetHttpsProxiesSetSslCertificatesRequest"))
     
     f(the_body = TargetHttpsProxiesSetSslCertificatesRequest)
@@ -5668,7 +7141,7 @@ targetHttpsProxies.setUrlMap <- function(UrlMapReference, project, targetHttpsPr
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/targetHttpsProxies/%s/setUrlMap", 
         project, targetHttpsProxy)
     # compute.targetHttpsProxies.setUrlMap
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(UrlMapReference, "gar_UrlMapReference"))
     
     f(the_body = UrlMapReference)
@@ -5696,16 +7169,18 @@ targetHttpsProxies.setUrlMap <- function(UrlMapReference, project, targetHttpsPr
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 targetInstances.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/targetInstances", 
         project)
     # compute.targetInstances.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5734,9 +7209,9 @@ targetInstances.aggregatedList <- function(project, filter = NULL, maxResults = 
 #' @export
 targetInstances.delete <- function(project, zone, targetInstance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/targetInstances/%s", 
-        project, targetInstance, zone)
+        project, zone, targetInstance)
     # compute.targetInstances.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -5766,9 +7241,9 @@ targetInstances.delete <- function(project, zone, targetInstance) {
 #' @export
 targetInstances.get <- function(project, zone, targetInstance) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/targetInstances/%s", 
-        project, targetInstance, zone)
+        project, zone, targetInstance)
     # compute.targetInstances.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -5800,7 +7275,7 @@ targetInstances.insert <- function(TargetInstance, project, zone) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/targetInstances", 
         project, zone)
     # compute.targetInstances.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetInstance, "gar_TargetInstance"))
     
     f(the_body = TargetInstance)
@@ -5829,16 +7304,18 @@ targetInstances.insert <- function(TargetInstance, project, zone) {
 #' @param zone Name of the zone scoping this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 targetInstances.list <- function(project, zone, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/targetInstances", 
         project, zone)
     # compute.targetInstances.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5872,7 +7349,7 @@ targetPools.addHealthCheck <- function(TargetPoolsAddHealthCheckRequest, project
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s/addHealthCheck", 
         project, region, targetPool)
     # compute.targetPools.addHealthCheck
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetPoolsAddHealthCheckRequest, "gar_TargetPoolsAddHealthCheckRequest"))
     
     f(the_body = TargetPoolsAddHealthCheckRequest)
@@ -5908,7 +7385,7 @@ targetPools.addInstance <- function(TargetPoolsAddInstanceRequest, project, regi
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s/addInstance", 
         project, region, targetPool)
     # compute.targetPools.addInstance
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetPoolsAddInstanceRequest, "gar_TargetPoolsAddInstanceRequest"))
     
     f(the_body = TargetPoolsAddInstanceRequest)
@@ -5936,16 +7413,18 @@ targetPools.addInstance <- function(TargetPoolsAddInstanceRequest, project, regi
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 targetPools.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/targetPools", 
         project)
     # compute.targetPools.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -5976,7 +7455,7 @@ targetPools.delete <- function(project, region, targetPool) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s", 
         project, region, targetPool)
     # compute.targetPools.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -6008,7 +7487,7 @@ targetPools.get <- function(project, region, targetPool) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s", 
         project, region, targetPool)
     # compute.targetPools.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -6042,7 +7521,7 @@ targetPools.getHealth <- function(InstanceReference, project, region, targetPool
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s/getHealth", 
         project, region, targetPool)
     # compute.targetPools.getHealth
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceReference, "gar_InstanceReference"))
     
     f(the_body = InstanceReference)
@@ -6076,7 +7555,7 @@ targetPools.insert <- function(TargetPool, project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools", 
         project, region)
     # compute.targetPools.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetPool, "gar_TargetPool"))
     
     f(the_body = TargetPool)
@@ -6105,15 +7584,18 @@ targetPools.insert <- function(TargetPool, project, region) {
 #' @param region Name of the region scoping this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-targetPools.list <- function(project, region, filter = NULL, maxResults = NULL, pageToken = NULL) {
+targetPools.list <- function(project, region, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools", 
         project, region)
     # compute.targetPools.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -6147,7 +7629,7 @@ targetPools.removeHealthCheck <- function(TargetPoolsRemoveHealthCheckRequest, p
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s/removeHealthCheck", 
         project, region, targetPool)
     # compute.targetPools.removeHealthCheck
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetPoolsRemoveHealthCheckRequest, "gar_TargetPoolsRemoveHealthCheckRequest"))
     
     f(the_body = TargetPoolsRemoveHealthCheckRequest)
@@ -6183,7 +7665,7 @@ targetPools.removeInstance <- function(TargetPoolsRemoveInstanceRequest, project
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s/removeInstance", 
         project, region, targetPool)
     # compute.targetPools.removeInstance
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetPoolsRemoveInstanceRequest, "gar_TargetPoolsRemoveInstanceRequest"))
     
     f(the_body = TargetPoolsRemoveInstanceRequest)
@@ -6219,11 +7701,248 @@ targetPools.setBackup <- function(TargetReference, project, region, targetPool, 
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetPools/%s/setBackup", 
         project, region, targetPool)
     # compute.targetPools.setBackup
-    f <- gar_api_generator(url, "POST", pars_args = list(failoverRatio = failoverRatio), 
+    pars = list(failoverRatio = failoverRatio)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(TargetReference, "gar_TargetReference"))
     
     f(the_body = TargetReference)
+    
+}
+
+#' Deletes the specified TargetSslProxy resource.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param targetSslProxy Name of the TargetSslProxy resource to delete
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+targetSslProxies.delete <- function(project, targetSslProxy) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetSslProxies/%s", 
+        project, targetSslProxy)
+    # compute.targetSslProxies.delete
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Returns the specified TargetSslProxy resource. Get a list of available target SSL proxies by making a list() request.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param targetSslProxy Name of the TargetSslProxy resource to return
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+targetSslProxies.get <- function(project, targetSslProxy) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetSslProxies/%s", 
+        project, targetSslProxy)
+    # compute.targetSslProxies.get
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Creates a TargetSslProxy resource in the specified project using the data included in the request.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param TargetSslProxy The \link{TargetSslProxy} object to pass to this method
+#' @param project Project ID for this request
+#' @importFrom googleAuthR gar_api_generator
+#' @family TargetSslProxy functions
+#' @export
+targetSslProxies.insert <- function(TargetSslProxy, project) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetSslProxies", 
+        project)
+    # compute.targetSslProxies.insert
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(TargetSslProxy, "gar_TargetSslProxy"))
+    
+    f(the_body = TargetSslProxy)
+    
+}
+
+#' Retrieves the list of TargetSslProxy resources available to the specified project.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' \item https://www.googleapis.com/auth/compute.readonly
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/compute.readonly)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param project Project ID for this request
+#' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
+#' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
+#' @param pageToken Specifies a page token to use
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+targetSslProxies.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetSslProxies", 
+        project)
+    # compute.targetSslProxies.list
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Changes the BackendService for TargetSslProxy.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param TargetSslProxiesSetBackendServiceRequest The \link{TargetSslProxiesSetBackendServiceRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param targetSslProxy Name of the TargetSslProxy resource whose BackendService resource is to be set
+#' @importFrom googleAuthR gar_api_generator
+#' @family TargetSslProxiesSetBackendServiceRequest functions
+#' @export
+targetSslProxies.setBackendService <- function(TargetSslProxiesSetBackendServiceRequest, 
+    project, targetSslProxy) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetSslProxies/%s/setBackendService", 
+        project, targetSslProxy)
+    # compute.targetSslProxies.setBackendService
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(TargetSslProxiesSetBackendServiceRequest, "gar_TargetSslProxiesSetBackendServiceRequest"))
+    
+    f(the_body = TargetSslProxiesSetBackendServiceRequest)
+    
+}
+
+#' Changes the ProxyHeaderType for TargetSslProxy.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param TargetSslProxiesSetProxyHeaderRequest The \link{TargetSslProxiesSetProxyHeaderRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param targetSslProxy Name of the TargetSslProxy resource whose ProxyHeader is to be set
+#' @importFrom googleAuthR gar_api_generator
+#' @family TargetSslProxiesSetProxyHeaderRequest functions
+#' @export
+targetSslProxies.setProxyHeader <- function(TargetSslProxiesSetProxyHeaderRequest, 
+    project, targetSslProxy) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetSslProxies/%s/setProxyHeader", 
+        project, targetSslProxy)
+    # compute.targetSslProxies.setProxyHeader
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(TargetSslProxiesSetProxyHeaderRequest, "gar_TargetSslProxiesSetProxyHeaderRequest"))
+    
+    f(the_body = TargetSslProxiesSetProxyHeaderRequest)
+    
+}
+
+#' Changes SslCertificates for TargetSslProxy.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/compute
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/compute)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param TargetSslProxiesSetSslCertificatesRequest The \link{TargetSslProxiesSetSslCertificatesRequest} object to pass to this method
+#' @param project Project ID for this request
+#' @param targetSslProxy Name of the TargetSslProxy resource whose SslCertificate resource is to be set
+#' @importFrom googleAuthR gar_api_generator
+#' @family TargetSslProxiesSetSslCertificatesRequest functions
+#' @export
+targetSslProxies.setSslCertificates <- function(TargetSslProxiesSetSslCertificatesRequest, 
+    project, targetSslProxy) {
+    url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/targetSslProxies/%s/setSslCertificates", 
+        project, targetSslProxy)
+    # compute.targetSslProxies.setSslCertificates
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    stopifnot(inherits(TargetSslProxiesSetSslCertificatesRequest, "gar_TargetSslProxiesSetSslCertificatesRequest"))
+    
+    f(the_body = TargetSslProxiesSetSslCertificatesRequest)
     
 }
 
@@ -6248,16 +7967,18 @@ targetPools.setBackup <- function(TargetReference, project, region, targetPool, 
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 targetVpnGateways.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/targetVpnGateways", 
         project)
     # compute.targetVpnGateways.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -6288,7 +8009,7 @@ targetVpnGateways.delete <- function(project, region, targetVpnGateway) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetVpnGateways/%s", 
         project, region, targetVpnGateway)
     # compute.targetVpnGateways.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -6320,7 +8041,7 @@ targetVpnGateways.get <- function(project, region, targetVpnGateway) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetVpnGateways/%s", 
         project, region, targetVpnGateway)
     # compute.targetVpnGateways.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -6352,7 +8073,7 @@ targetVpnGateways.insert <- function(TargetVpnGateway, project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetVpnGateways", 
         project, region)
     # compute.targetVpnGateways.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TargetVpnGateway, "gar_TargetVpnGateway"))
     
     f(the_body = TargetVpnGateway)
@@ -6381,16 +8102,18 @@ targetVpnGateways.insert <- function(TargetVpnGateway, project, region) {
 #' @param region Name of the region for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 targetVpnGateways.list <- function(project, region, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/targetVpnGateways", 
         project, region)
     # compute.targetVpnGateways.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -6420,7 +8143,7 @@ urlMaps.delete <- function(project, urlMap) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps/%s", 
         project, urlMap)
     # compute.urlMaps.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -6451,7 +8174,7 @@ urlMaps.get <- function(project, urlMap) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps/%s", 
         project, urlMap)
     # compute.urlMaps.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -6482,7 +8205,7 @@ urlMaps.insert <- function(UrlMap, project) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps", 
         project)
     # compute.urlMaps.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(UrlMap, "gar_UrlMap"))
     
     f(the_body = UrlMap)
@@ -6516,7 +8239,7 @@ urlMaps.invalidateCache <- function(CacheInvalidationRule, project, urlMap) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps/%s/invalidateCache", 
         project, urlMap)
     # compute.urlMaps.invalidateCache
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(CacheInvalidationRule, "gar_CacheInvalidationRule"))
     
     f(the_body = CacheInvalidationRule)
@@ -6544,20 +8267,23 @@ urlMaps.invalidateCache <- function(CacheInvalidationRule, project, urlMap) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-urlMaps.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+urlMaps.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps", 
         project)
     # compute.urlMaps.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
 
-#' Updates the entire content of the UrlMap resource. This method supports patch semantics.
+#' Updates the specified UrlMap resource with the data included in the request. This method supports patch semantics.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -6584,14 +8310,14 @@ urlMaps.patch <- function(UrlMap, project, urlMap) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps/%s", 
         project, urlMap)
     # compute.urlMaps.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(UrlMap, "gar_UrlMap"))
     
     f(the_body = UrlMap)
     
 }
 
-#' Updates the entire content of the UrlMap resource.
+#' Updates the specified UrlMap resource with the data included in the request.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -6618,7 +8344,7 @@ urlMaps.update <- function(UrlMap, project, urlMap) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps/%s", 
         project, urlMap)
     # compute.urlMaps.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(UrlMap, "gar_UrlMap"))
     
     f(the_body = UrlMap)
@@ -6652,7 +8378,7 @@ urlMaps.validate <- function(UrlMapsValidateRequest, project, urlMap) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/global/urlMaps/%s/validate", 
         project, urlMap)
     # compute.urlMaps.validate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(UrlMapsValidateRequest, "gar_UrlMapsValidateRequest"))
     
     f(the_body = UrlMapsValidateRequest)
@@ -6680,16 +8406,18 @@ urlMaps.validate <- function(UrlMapsValidateRequest, project, urlMap) {
 #' @param project Project ID for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 vpnTunnels.aggregatedList <- function(project, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/aggregated/vpnTunnels", 
         project)
     # compute.vpnTunnels.aggregatedList
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -6720,7 +8448,7 @@ vpnTunnels.delete <- function(project, region, vpnTunnel) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/vpnTunnels/%s", 
         project, region, vpnTunnel)
     # compute.vpnTunnels.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -6752,7 +8480,7 @@ vpnTunnels.get <- function(project, region, vpnTunnel) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/vpnTunnels/%s", 
         project, region, vpnTunnel)
     # compute.vpnTunnels.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -6784,7 +8512,7 @@ vpnTunnels.insert <- function(VpnTunnel, project, region) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/vpnTunnels", 
         project, region)
     # compute.vpnTunnels.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(VpnTunnel, "gar_VpnTunnel"))
     
     f(the_body = VpnTunnel)
@@ -6813,15 +8541,18 @@ vpnTunnels.insert <- function(VpnTunnel, project, region) {
 #' @param region Name of the region for this request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-vpnTunnels.list <- function(project, region, filter = NULL, maxResults = NULL, pageToken = NULL) {
+vpnTunnels.list <- function(project, region, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/vpnTunnels", 
         project, region)
     # compute.vpnTunnels.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -6850,9 +8581,9 @@ vpnTunnels.list <- function(project, region, filter = NULL, maxResults = NULL, p
 #' @export
 zoneOperations.delete <- function(project, zone, operation) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/operations/%s", 
-        operation, project, zone)
+        project, zone, operation)
     # compute.zoneOperations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -6882,9 +8613,9 @@ zoneOperations.delete <- function(project, zone, operation) {
 #' @export
 zoneOperations.get <- function(project, zone, operation) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/operations/%s", 
-        operation, project, zone)
+        project, zone, operation)
     # compute.zoneOperations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -6911,16 +8642,18 @@ zoneOperations.get <- function(project, zone, operation) {
 #' @param zone Name of the zone for request
 #' @param filter Sets a filter expression for filtering listed resources, in the form filter={expression}
 #' @param maxResults The maximum number of results per page that should be returned
+#' @param orderBy Sorts list results by a certain order
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 zoneOperations.list <- function(project, zone, filter = NULL, maxResults = NULL, 
-    pageToken = NULL) {
+    orderBy = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s/operations", 
         project, zone)
     # compute.zoneOperations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -6951,7 +8684,7 @@ zones.get <- function(project, zone) {
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones/%s", 
         project, zone)
     # compute.zones.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -6981,18 +8714,23 @@ zones.get <- function(project, zone) {
 
 #' @param maxResults The maximum number of results per page that should be returned
 
+#' @param orderBy Sorts list results by a certain order
+
 #' @param pageToken Specifies a page token to use
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 
 
-zones.list <- function(project, filter = NULL, maxResults = NULL, pageToken = NULL) {
+zones.list <- function(project, filter = NULL, maxResults = NULL, orderBy = NULL, 
+    pageToken = NULL) {
     
     
     url <- sprintf("https://www.googleapis.com/compute/v1/projects/%s/zones", project)
     # compute.zones.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

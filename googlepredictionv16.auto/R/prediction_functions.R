@@ -2,7 +2,7 @@
 #' Lets you access a cloud hosted machine learning service that makes it easy to build smart apps
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:26:45
+#'  at 2017-03-05 20:07:01
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlepredictionv16.auto/R/prediction_functions.R
 #' api_json: api_json
 #' 
@@ -22,6 +22,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Submit input and request an output against a hosted model.
 #' 
@@ -48,9 +61,9 @@ NULL
 #' @export
 hostedmodels.predict <- function(Input, project, hostedModelName) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/hostedmodels/%s/predict", 
-        hostedModelName, project)
+        project, hostedModelName)
     # prediction.hostedmodels.predict
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Input, "gar_Input"))
     
     f(the_body = Input)
@@ -80,9 +93,9 @@ hostedmodels.predict <- function(Input, project, hostedModelName) {
 #' @export
 trainedmodels.analyze <- function(project, id) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/trainedmodels/%s/analyze", 
-        id, project)
+        project, id)
     # prediction.trainedmodels.analyze
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -110,9 +123,9 @@ trainedmodels.analyze <- function(project, id) {
 #' @export
 trainedmodels.delete <- function(project, id) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/trainedmodels/%s", 
-        id, project)
+        project, id)
     # prediction.trainedmodels.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -140,9 +153,9 @@ trainedmodels.delete <- function(project, id) {
 #' @export
 trainedmodels.get <- function(project, id) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/trainedmodels/%s", 
-        id, project)
+        project, id)
     # prediction.trainedmodels.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -176,7 +189,7 @@ trainedmodels.insert <- function(Insert, project) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/trainedmodels", 
         project)
     # prediction.trainedmodels.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Insert, "gar_Insert"))
     
     f(the_body = Insert)
@@ -209,8 +222,9 @@ trainedmodels.list <- function(project, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/trainedmodels/list", 
         project)
     # prediction.trainedmodels.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -240,9 +254,9 @@ trainedmodels.list <- function(project, maxResults = NULL, pageToken = NULL) {
 #' @export
 trainedmodels.predict <- function(Input, project, id) {
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/trainedmodels/%s/predict", 
-        id, project)
+        project, id)
     # prediction.trainedmodels.predict
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Input, "gar_Input"))
     
     f(the_body = Input)
@@ -280,9 +294,10 @@ trainedmodels.update <- function(Update, project, id) {
     
     
     url <- sprintf("https://www.googleapis.com/prediction/v1.6/projects/%s/trainedmodels/%s", 
-        id, project)
+        project, id)
     # prediction.trainedmodels.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(Update, "gar_Update"))
     

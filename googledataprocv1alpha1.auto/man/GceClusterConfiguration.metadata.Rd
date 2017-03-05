@@ -19,4 +19,3 @@ The Google Compute Engine metadata entries to add to all instances.
 \seealso{
 Other GceClusterConfiguration functions: \code{\link{GceClusterConfiguration}}
 }
-

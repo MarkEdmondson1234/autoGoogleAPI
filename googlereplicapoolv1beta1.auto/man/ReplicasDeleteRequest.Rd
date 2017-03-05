@@ -22,4 +22,3 @@ No description
 \seealso{
 Other ReplicasDeleteRequest functions: \code{\link{replicas.delete}}
 }
-

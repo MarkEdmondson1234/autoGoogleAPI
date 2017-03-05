@@ -2,7 +2,7 @@
 #' [Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:27:25
+#'  at 2017-03-05 20:09:08
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlereplicapoolv1beta2.auto/R/replicapool_functions.R
 #' api_json: api_json
 #' 
@@ -21,6 +21,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Removes the specified instances from the managed instance group, and from any target pools of which they were members, without deleting the instances.
 #' 
@@ -49,9 +62,9 @@ NULL
 instanceGroupManagers.abandonInstances <- function(InstanceGroupManagersAbandonInstancesRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s/abandonInstances", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.abandonInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersAbandonInstancesRequest, "gar_InstanceGroupManagersAbandonInstancesRequest"))
     
     f(the_body = InstanceGroupManagersAbandonInstancesRequest)
@@ -82,9 +95,9 @@ instanceGroupManagers.abandonInstances <- function(InstanceGroupManagersAbandonI
 #' @export
 instanceGroupManagers.delete <- function(project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -116,9 +129,9 @@ instanceGroupManagers.delete <- function(project, zone, instanceGroupManager) {
 instanceGroupManagers.deleteInstances <- function(InstanceGroupManagersDeleteInstancesRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s/deleteInstances", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.deleteInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersDeleteInstancesRequest, "gar_InstanceGroupManagersDeleteInstancesRequest"))
     
     f(the_body = InstanceGroupManagersDeleteInstancesRequest)
@@ -151,9 +164,9 @@ instanceGroupManagers.deleteInstances <- function(InstanceGroupManagersDeleteIns
 #' @export
 instanceGroupManagers.get <- function(project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -186,7 +199,9 @@ instanceGroupManagers.insert <- function(InstanceGroupManager, project, zone, si
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers", 
         project, zone)
     # replicapool.instanceGroupManagers.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(size = size), data_parse_function = function(x) x)
+    pars = list(size = size)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManager, "gar_InstanceGroupManager"))
     
     f(the_body = InstanceGroupManager)
@@ -224,8 +239,9 @@ instanceGroupManagers.list <- function(project, zone, filter = NULL, maxResults 
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers", 
         project, zone)
     # replicapool.instanceGroupManagers.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -257,9 +273,9 @@ instanceGroupManagers.list <- function(project, zone, filter = NULL, maxResults 
 instanceGroupManagers.recreateInstances <- function(InstanceGroupManagersRecreateInstancesRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s/recreateInstances", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.recreateInstances
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersRecreateInstancesRequest, "gar_InstanceGroupManagersRecreateInstancesRequest"))
     
     f(the_body = InstanceGroupManagersRecreateInstancesRequest)
@@ -291,9 +307,11 @@ instanceGroupManagers.recreateInstances <- function(InstanceGroupManagersRecreat
 #' @export
 instanceGroupManagers.resize <- function(project, zone, instanceGroupManager, size) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s/resize", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.resize
-    f <- gar_api_generator(url, "POST", pars_args = list(size = size), data_parse_function = function(x) x)
+    pars = list(size = size)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -325,9 +343,9 @@ instanceGroupManagers.resize <- function(project, zone, instanceGroupManager, si
 instanceGroupManagers.setInstanceTemplate <- function(InstanceGroupManagersSetInstanceTemplateRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s/setInstanceTemplate", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.setInstanceTemplate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersSetInstanceTemplateRequest, "gar_InstanceGroupManagersSetInstanceTemplateRequest"))
     
     f(the_body = InstanceGroupManagersSetInstanceTemplateRequest)
@@ -361,9 +379,9 @@ instanceGroupManagers.setInstanceTemplate <- function(InstanceGroupManagersSetIn
 instanceGroupManagers.setTargetPools <- function(InstanceGroupManagersSetTargetPoolsRequest, 
     project, zone, instanceGroupManager) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/instanceGroupManagers/%s/setTargetPools", 
-        instanceGroupManager, project, zone)
+        project, zone, instanceGroupManager)
     # replicapool.instanceGroupManagers.setTargetPools
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceGroupManagersSetTargetPoolsRequest, "gar_InstanceGroupManagersSetTargetPoolsRequest"))
     
     f(the_body = InstanceGroupManagersSetTargetPoolsRequest)
@@ -394,9 +412,9 @@ instanceGroupManagers.setTargetPools <- function(InstanceGroupManagersSetTargetP
 #' @export
 zoneOperations.get <- function(project, zone, operation) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/operations/%s", 
-        operation, project, zone)
+        project, zone, operation)
     # replicapool.zoneOperations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -439,8 +457,10 @@ zoneOperations.list <- function(project, zone, filter = NULL, maxResults = NULL,
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta2/projects/%s/zones/%s/operations", 
         project, zone)
     # replicapool.zoneOperations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

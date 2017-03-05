@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Course functions: \code{\link{Course}},
   \code{\link{courses.create}}, \code{\link{courses.patch}}
 }
-

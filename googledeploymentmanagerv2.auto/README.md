@@ -1,5 +1,5 @@
 # googledeploymentmanagerv2.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Cloud Deployment Manager API R library
 
 Declares, configures, and deploys complex solutions on Google Cloud Platform.

@@ -2,7 +2,7 @@
 #' Manages product items, inventory, and Merchant Center accounts for Google Shopping.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:04:06
+#'  at 2017-03-05 19:40:20
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecontentv2sandbox.auto/R/content_objects.R
 #' api_json: api_json
 #' 
@@ -51,6 +51,7 @@ Errors <- function(code = NULL, errors = NULL, message = NULL) {
 #' No description
 #' 
 #' @param acknowledged Whether the order was acknowledged
+#' @param channelType The channel type of the order: 'purchaseOnGoogle' or 'googleExpress'
 #' @param customer The details of the customer who placed the order
 #' @param deliveryDetails The details for the delivery
 #' @param id The REST id of the order
@@ -73,17 +74,18 @@ Errors <- function(code = NULL, errors = NULL, message = NULL) {
 #' 
 #' @family Order functions
 #' @export
-Order <- function(acknowledged = NULL, customer = NULL, deliveryDetails = NULL, id = NULL, 
-    lineItems = NULL, merchantId = NULL, merchantOrderId = NULL, netAmount = NULL, 
+Order <- function(acknowledged = NULL, channelType = NULL, customer = NULL, deliveryDetails = NULL, 
+    id = NULL, lineItems = NULL, merchantId = NULL, merchantOrderId = NULL, netAmount = NULL, 
     paymentMethod = NULL, paymentStatus = NULL, placedDate = NULL, promotions = NULL, 
     refunds = NULL, shipments = NULL, shippingCost = NULL, shippingCostTax = NULL, 
     shippingOption = NULL, status = NULL) {
-    structure(list(acknowledged = acknowledged, customer = customer, deliveryDetails = deliveryDetails, 
-        id = id, kind = `content#order`, lineItems = lineItems, merchantId = merchantId, 
-        merchantOrderId = merchantOrderId, netAmount = netAmount, paymentMethod = paymentMethod, 
-        paymentStatus = paymentStatus, placedDate = placedDate, promotions = promotions, 
-        refunds = refunds, shipments = shipments, shippingCost = shippingCost, shippingCostTax = shippingCostTax, 
-        shippingOption = shippingOption, status = status), class = "gar_Order")
+    structure(list(acknowledged = acknowledged, channelType = channelType, customer = customer, 
+        deliveryDetails = deliveryDetails, id = id, kind = `content#order`, lineItems = lineItems, 
+        merchantId = merchantId, merchantOrderId = merchantOrderId, netAmount = netAmount, 
+        paymentMethod = paymentMethod, paymentStatus = paymentStatus, placedDate = placedDate, 
+        promotions = promotions, refunds = refunds, shipments = shipments, shippingCost = shippingCost, 
+        shippingCostTax = shippingCostTax, shippingOption = shippingOption, status = status), 
+        class = "gar_Order")
 }
 
 #' OrderAddress Object

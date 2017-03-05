@@ -8,7 +8,7 @@
 Groups Migration Api.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:15:13
+ at 2017-03-05 19:54:29
 filename: /Users/mark/dev/R/autoGoogleAPI/googlegroupsmigrationv1.auto/R/groupsmigration_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/apps.groups.migration
 }
 }
-

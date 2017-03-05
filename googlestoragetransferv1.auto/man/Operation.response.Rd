@@ -20,4 +20,3 @@ The normal response of the operation in case of success. If the original method 
 Other Operation functions: \code{\link{Operation.metadata}},
   \code{\link{Operation}}
 }
-

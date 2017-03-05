@@ -37,4 +37,3 @@ No description
 Other Result functions: \code{\link{Result.labels}},
   \code{\link{Result.pagemap}}, \code{\link{Result}}
 }
-

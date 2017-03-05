@@ -41,4 +41,3 @@ Other EntityUserLink functions: \code{\link{EntityUserLink.entity}},
   \code{\link{management.webpropertyUserLinks.insert}},
   \code{\link{management.webpropertyUserLinks.update}}
 }
-

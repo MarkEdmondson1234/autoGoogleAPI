@@ -8,8 +8,9 @@ GaData(GaData.columnHeaders = NULL, GaData.dataTable = NULL,
   GaData.dataTable.cols = NULL, GaData.dataTable.rows = NULL,
   GaData.dataTable.rows.c = NULL, GaData.profileInfo = NULL,
   GaData.query = NULL, GaData.totalsForAllResults = NULL,
-  columnHeaders = NULL, containsSampledData = NULL, dataTable = NULL,
-  id = NULL, itemsPerPage = NULL, nextLink = NULL, previousLink = NULL,
+  columnHeaders = NULL, containsSampledData = NULL,
+  dataLastRefreshed = NULL, dataTable = NULL, id = NULL,
+  itemsPerPage = NULL, nextLink = NULL, previousLink = NULL,
   profileInfo = NULL, query = NULL, rows = NULL, sampleSize = NULL,
   sampleSpace = NULL, selfLink = NULL, totalResults = NULL,
   totalsForAllResults = NULL)
@@ -34,6 +35,8 @@ GaData(GaData.columnHeaders = NULL, GaData.dataTable = NULL,
 \item{columnHeaders}{Column headers that list dimension names followed by the metric names}
 
 \item{containsSampledData}{Determines if Analytics data contains samples}
+
+\item{dataLastRefreshed}{The last refreshed time in seconds for Analytics data}
 
 \item{dataTable}{No description}
 
@@ -81,4 +84,3 @@ Other GaData functions: \code{\link{GaData.columnHeaders}},
   \code{\link{GaData.query}},
   \code{\link{GaData.totalsForAllResults}}
 }
-

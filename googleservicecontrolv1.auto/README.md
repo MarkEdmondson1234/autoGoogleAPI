@@ -20,7 +20,7 @@ Set the appropriate Google API scopes:
 ```r
 library(googleAuthR)
 library(googleservicecontrolv1.auto)
-options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/cloud-platform', 'https://www.googleapis.com/auth/servicecontrol'))
+options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/servicecontrol', 'https://www.googleapis.com/auth/cloud-platform'))
 
 gar_auth()
 ```

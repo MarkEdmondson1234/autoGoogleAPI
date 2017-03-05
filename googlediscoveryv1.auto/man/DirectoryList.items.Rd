@@ -23,4 +23,3 @@ No description
 Other DirectoryList functions: \code{\link{DirectoryList.items.icons}},
   \code{\link{DirectoryList}}
 }
-

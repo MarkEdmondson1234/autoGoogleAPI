@@ -36,4 +36,3 @@ Other Webproperty functions: \code{\link{Webproperty.childLink}},
   \code{\link{management.webproperties.insert}},
   \code{\link{management.webproperties.patch}}
 }
-

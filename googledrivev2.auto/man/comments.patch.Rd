@@ -34,4 +34,3 @@ Other Comment functions: \code{\link{Comment.context}},
   \code{\link{Comment}}, \code{\link{comments.insert}},
   \code{\link{comments.update}}
 }
-

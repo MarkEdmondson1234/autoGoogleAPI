@@ -1,5 +1,5 @@
 # googlecloudmonitoringv2beta2.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Cloud Monitoring API R library
 
 Accesses Google Cloud Monitoring data.

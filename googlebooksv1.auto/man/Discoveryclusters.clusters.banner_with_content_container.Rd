@@ -36,4 +36,3 @@ No description
 Other Discoveryclusters functions: \code{\link{Discoveryclusters.clusters}},
   \code{\link{Discoveryclusters}}
 }
-

@@ -8,7 +8,7 @@
 Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:30:38
+ at 2017-03-05 19:20:06
 filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangebuyerv13.auto/R/adexchangebuyer_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/adexchange.buyer
 }
 }
-

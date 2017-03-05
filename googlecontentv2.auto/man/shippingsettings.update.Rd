@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{shippingsettings.update}
 \alias{shippingsettings.update}
-\title{Updates the shipping settings of the account.}
+\title{Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.}
 \usage{
 shippingsettings.update(ShippingSettings, merchantId, accountId,
   dryRun = NULL)
@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other ShippingSettings functions: \code{\link{ShippingSettings}},
   \code{\link{shippingsettings.patch}}
 }
-

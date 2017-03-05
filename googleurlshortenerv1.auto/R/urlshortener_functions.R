@@ -2,7 +2,7 @@
 #' Lets you create, inspect, and manage goo.gl short URLs
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-04 00:03:02
+#'  at 2017-03-05 20:21:27
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleurlshortenerv1.auto/R/urlshortener_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Expands a short URL or gets creation time and analytics.
 #' 
@@ -42,8 +55,9 @@ NULL
 url.get <- function(shortUrl, projection = NULL) {
     url <- "https://www.googleapis.com/urlshortener/v1/url"
     # urlshortener.url.get
-    f <- gar_api_generator(url, "GET", pars_args = list(projection = projection, 
-        shortUrl = shortUrl), data_parse_function = function(x) x)
+    pars = list(shortUrl = shortUrl, projection = projection)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -71,7 +85,7 @@ url.get <- function(shortUrl, projection = NULL) {
 url.insert <- function(Url) {
     url <- "https://www.googleapis.com/urlshortener/v1/url"
     # urlshortener.url.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Url, "gar_Url"))
     
     f(the_body = Url)
@@ -107,8 +121,10 @@ url.list <- function(projection = NULL, start.token = NULL) {
     
     url <- "https://www.googleapis.com/urlshortener/v1/url/history"
     # urlshortener.url.list
-    f <- gar_api_generator(url, "GET", pars_args = list(projection = projection, 
-        `start-token` = start.token), data_parse_function = function(x) x)
+    pars = list(projection = projection, `start-token` = start.token)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

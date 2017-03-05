@@ -2,7 +2,7 @@
 % Please edit documentation in R/iam_functions.R
 \name{projects.serviceAccounts.setIamPolicy}
 \alias{projects.serviceAccounts.setIamPolicy}
-\title{Sets the IAM access control policy for the specified IAM resource.}
+\title{Sets the IAM access control policy for aServiceAccount.}
 \usage{
 projects.serviceAccounts.setIamPolicy(SetIamPolicyRequest, resource)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other SetIamPolicyRequest functions: \code{\link{SetIamPolicyRequest}}
 }
-

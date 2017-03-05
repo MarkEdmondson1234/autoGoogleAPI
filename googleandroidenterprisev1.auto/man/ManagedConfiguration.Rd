@@ -27,4 +27,3 @@ Other ManagedConfiguration functions: \code{\link{managedconfigurationsfordevice
   \code{\link{managedconfigurationsforuser.patch}},
   \code{\link{managedconfigurationsforuser.update}}
 }
-

@@ -32,4 +32,3 @@ No description
 Other Colors functions: \code{\link{Colors.calendar}},
   \code{\link{Colors.event}}
 }
-

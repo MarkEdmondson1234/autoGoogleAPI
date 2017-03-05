@@ -34,4 +34,3 @@ Defines an Identity and Access Management (IAM) policy. It is used to specify ac
 Other Policy functions: \code{\link{groups.setIamPolicy}},
   \code{\link{users.setIamPolicy}}
 }
-

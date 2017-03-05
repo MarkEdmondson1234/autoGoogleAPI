@@ -20,4 +20,3 @@ The codec to use to decode data read from the source.
 Other Source functions: \code{\link{Source.spec}},
   \code{\link{Source}}
 }
-

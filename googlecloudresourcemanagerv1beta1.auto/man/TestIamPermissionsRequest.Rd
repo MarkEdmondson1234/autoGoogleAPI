@@ -23,4 +23,3 @@ Request message for `TestIamPermissions` method.
 Other TestIamPermissionsRequest functions: \code{\link{organizations.testIamPermissions}},
   \code{\link{projects.testIamPermissions}}
 }
-

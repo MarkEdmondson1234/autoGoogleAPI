@@ -25,4 +25,3 @@ Other PretargetingConfig functions: \code{\link{PretargetingConfig.excludedPlace
   \code{\link{pretargetingConfig.patch}},
   \code{\link{pretargetingConfig.update}}
 }
-

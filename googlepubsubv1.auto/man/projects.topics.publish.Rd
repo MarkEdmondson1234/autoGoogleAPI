@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.topics.publish}
 \alias{projects.topics.publish}
-\title{Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does not exist. The message payload must not be empty; it must contain either a non-empty data field, or at least one attribute.}
+\title{Adds one or more messages to the topic. Returns `NOT_FOUND` if the topicdoes not exist. The message payload must not be empty; it must contain either a non-empty data field, or at least one attribute.}
 \usage{
 projects.topics.publish(PublishRequest, topic)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other PublishRequest functions: \code{\link{PublishRequest}}
 }
-

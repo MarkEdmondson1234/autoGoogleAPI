@@ -28,4 +28,3 @@ An invitation to join a course.
 \seealso{
 Other Invitation functions: \code{\link{invitations.create}}
 }
-

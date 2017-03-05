@@ -30,8 +30,5 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \href{https://developers.google.com/android/work/play/emm-api}{Google Documentation}
 
 Other User functions: \code{\link{User}},
-  \code{\link{collectionviewers.patch}},
-  \code{\link{collectionviewers.update}},
   \code{\link{users.insert}}, \code{\link{users.patch}}
 }
-

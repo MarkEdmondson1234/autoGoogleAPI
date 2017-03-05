@@ -22,4 +22,3 @@ No description
 \seealso{
 Other AccounttaxCustomBatchRequest functions: \code{\link{accounttax.custombatch}}
 }
-

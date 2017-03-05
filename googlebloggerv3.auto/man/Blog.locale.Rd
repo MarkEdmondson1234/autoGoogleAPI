@@ -27,4 +27,3 @@ The locale this Blog is set to.
 Other Blog functions: \code{\link{Blog.pages}},
   \code{\link{Blog.posts}}, \code{\link{Blog}}
 }
-

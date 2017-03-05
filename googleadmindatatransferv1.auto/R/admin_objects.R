@@ -2,7 +2,7 @@
 #' Transfers user data from one user to another.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:32:11
+#'  at 2017-03-05 19:22:22
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadmindatatransferv1.auto/R/admin_objects.R
 #' api_json: api_json
 #' 
@@ -24,7 +24,7 @@
 #' @family Application functions
 #' @export
 Application <- function(etag = NULL, id = NULL, name = NULL, transferParams = NULL) {
-    structure(list(etag = etag, id = id, kind = "admin#datatransfer#ApplicationResource", 
+    structure(list(etag = etag, id = id, kind = `admin#datatransfer#ApplicationResource`, 
         name = name, transferParams = transferParams), class = "gar_Application")
 }
 
@@ -80,7 +80,7 @@ ApplicationTransferParam <- function(key = NULL, value = NULL) {
 #' @family ApplicationsListResponse functions
 #' @export
 ApplicationsListResponse <- function(applications = NULL, etag = NULL, nextPageToken = NULL) {
-    structure(list(applications = applications, etag = etag, kind = "admin#datatransfer#applicationsList", 
+    structure(list(applications = applications, etag = etag, kind = `admin#datatransfer#applicationsList`, 
         nextPageToken = nextPageToken), class = "gar_ApplicationsListResponse")
 }
 
@@ -106,7 +106,7 @@ DataTransfer <- function(applicationDataTransfers = NULL, etag = NULL, id = NULL
     newOwnerUserId = NULL, oldOwnerUserId = NULL, overallTransferStatusCode = NULL, 
     requestTime = NULL) {
     structure(list(applicationDataTransfers = applicationDataTransfers, etag = etag, 
-        id = id, kind = "admin#datatransfer#DataTransfer", newOwnerUserId = newOwnerUserId, 
+        id = id, kind = `admin#datatransfer#DataTransfer`, newOwnerUserId = newOwnerUserId, 
         oldOwnerUserId = oldOwnerUserId, overallTransferStatusCode = overallTransferStatusCode, 
         requestTime = requestTime), class = "gar_DataTransfer")
 }
@@ -132,7 +132,7 @@ DataTransfersListResponse <- function(dataTransfers = NULL, etag = NULL, nextPag
     
     
     
-    structure(list(dataTransfers = dataTransfers, etag = etag, kind = "admin#datatransfer#dataTransfersList", 
+    structure(list(dataTransfers = dataTransfers, etag = etag, kind = `admin#datatransfer#dataTransfersList`, 
         nextPageToken = nextPageToken), class = "gar_DataTransfersListResponse")
 }
 

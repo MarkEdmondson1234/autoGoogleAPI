@@ -26,4 +26,3 @@ A Datastore data object.An entity is limited to 1 megabyte when stored. That _ro
 \seealso{
 Other Entity functions: \code{\link{Entity.properties}}
 }
-

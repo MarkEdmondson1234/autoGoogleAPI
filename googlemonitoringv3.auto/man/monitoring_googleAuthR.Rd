@@ -4,11 +4,11 @@
 \name{monitoring_googleAuthR}
 \alias{monitoring_googleAuthR}
 \alias{monitoring_googleAuthR-package}
-\title{Google Monitoring API
-Manages your Stackdriver monitoring data and configurations. Projects must be associated with a Stackdriver account, except for the following methods: [monitoredResourceDescriptors.list](v3/projects.monitoredResourceDescriptors/list), [monitoredResourceDescriptors.get](v3/projects.monitoredResourceDescriptors/get), [metricDescriptors.list](v3/projects.metricDescriptors/list), [metricDescriptors.get](v3/projects.metricDescriptors/get), and [timeSeries.list](v3/projects.timeSeries/list).}
+\title{Stackdriver Monitoring API
+Manages your Stackdriver Monitoring data and configurations. Most projects must be associated with a Stackdriver account, with a few exceptions as noted on the individual method pages.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:20:44
+ at 2017-03-05 20:02:52
 filename: /Users/mark/dev/R/autoGoogleAPI/googlemonitoringv3.auto/R/monitoring_functions.R
 api_json: api_json
 }
@@ -16,9 +16,8 @@ api_json: api_json
 Authentication scopes used are:
 \itemize{
   \item https://www.googleapis.com/auth/cloud-platform
-\item https://www.googleapis.com/auth/monitoring
 \item https://www.googleapis.com/auth/monitoring.read
+\item https://www.googleapis.com/auth/monitoring
 \item https://www.googleapis.com/auth/monitoring.write
 }
 }
-

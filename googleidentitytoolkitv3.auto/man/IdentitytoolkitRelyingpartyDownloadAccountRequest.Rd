@@ -6,7 +6,7 @@
 \usage{
 
   IdentitytoolkitRelyingpartyDownloadAccountRequest(delegatedProjectNumber = NULL,
-  maxResults = NULL, nextPageToken = NULL)
+  maxResults = NULL, nextPageToken = NULL, targetProjectId = NULL)
 }
 \arguments{
 \item{delegatedProjectNumber}{GCP project number of the requesting delegated app}
@@ -14,6 +14,8 @@
 \item{maxResults}{The max number of results to return in the response}
 
 \item{nextPageToken}{The token for the next page}
+
+\item{targetProjectId}{Specify which project (field value is actually project id) to operate}
 }
 \value{
 IdentitytoolkitRelyingpartyDownloadAccountRequest object
@@ -28,4 +30,3 @@ Request to download user account in batch.
 \seealso{
 Other IdentitytoolkitRelyingpartyDownloadAccountRequest functions: \code{\link{relyingparty.downloadAccount}}
 }
-

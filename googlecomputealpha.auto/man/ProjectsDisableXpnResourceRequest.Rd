@@ -22,4 +22,3 @@ No description
 \seealso{
 Other ProjectsDisableXpnResourceRequest functions: \code{\link{projects.disableXpnResource}}
 }
-

@@ -36,4 +36,3 @@ Represents a query.
 \seealso{
 Other Query functions: \code{\link{queries.createquery}}
 }
-

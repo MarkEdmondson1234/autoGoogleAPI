@@ -6,7 +6,7 @@
 \usage{
 Image(Image.rawDisk = NULL, archiveSizeBytes = NULL,
   creationTimestamp = NULL, deprecated = NULL, description = NULL,
-  diskSizeGb = NULL, family = NULL, id = NULL,
+  diskSizeGb = NULL, family = NULL, guestOsFeatures = NULL, id = NULL,
   imageEncryptionKey = NULL, licenses = NULL, name = NULL,
   rawDisk = NULL, selfLink = NULL, sourceDisk = NULL,
   sourceDiskEncryptionKey = NULL, sourceDiskId = NULL, sourceType = NULL,
@@ -27,6 +27,8 @@ Image(Image.rawDisk = NULL, archiveSizeBytes = NULL,
 
 \item{family}{The name of the image family to which this image belongs}
 
+\item{guestOsFeatures}{A list of features to enable on the guest OS}
+
 \item{id}{[Output Only] The unique identifier for the resource}
 
 \item{imageEncryptionKey}{Encrypts the image using a customer-supplied encryption key}
@@ -39,7 +41,7 @@ Image(Image.rawDisk = NULL, archiveSizeBytes = NULL,
 
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 
-\item{sourceDisk}{URL of the The source disk used to create this image}
+\item{sourceDisk}{URL of the source disk used to create this image}
 
 \item{sourceDiskEncryptionKey}{The customer-supplied encryption key of the source disk}
 
@@ -63,4 +65,3 @@ An Image resource.
 Other Image functions: \code{\link{Image.rawDisk}},
   \code{\link{images.insert}}
 }
-

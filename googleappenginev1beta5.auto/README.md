@@ -20,7 +20,7 @@ Set the appropriate Google API scopes:
 ```r
 library(googleAuthR)
 library(googleappenginev1beta5.auto)
-options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/cloud-platform'))
+options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/appengine.admin', 'https://www.googleapis.com/auth/cloud-platform', 'https://www.googleapis.com/auth/cloud-platform.read-only'))
 
 gar_auth()
 ```

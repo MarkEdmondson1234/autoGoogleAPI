@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{readgroupsets.patch}
 \alias{readgroupsets.patch}
-\title{Updates a read group set. For the definitions of read group sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics) This method supports patch semantics.}
+\title{Updates a read group set.For the definitions of read group sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)This method supports patch semantics.}
 \usage{
 readgroupsets.patch(ReadGroupSet, readGroupSetId, updateMask = NULL)
 }
@@ -28,9 +28,8 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other ReadGroupSet functions: \code{\link{ReadGroupSet.info}},
   \code{\link{ReadGroupSet}}
 }
-

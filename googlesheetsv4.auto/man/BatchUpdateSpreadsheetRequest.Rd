@@ -4,10 +4,18 @@
 \alias{BatchUpdateSpreadsheetRequest}
 \title{BatchUpdateSpreadsheetRequest Object}
 \usage{
-BatchUpdateSpreadsheetRequest(requests = NULL)
+BatchUpdateSpreadsheetRequest(requests = NULL,
+  includeSpreadsheetInResponse = NULL, responseRanges = NULL,
+  responseIncludeGridData = NULL)
 }
 \arguments{
 \item{requests}{A list of updates to apply to the spreadsheet}
+
+\item{includeSpreadsheetInResponse}{Determines if the update response should include the spreadsheet}
+
+\item{responseRanges}{Limits the ranges included in the response spreadsheet}
+
+\item{responseIncludeGridData}{True if grid data should be returned}
 }
 \value{
 BatchUpdateSpreadsheetRequest object
@@ -22,4 +30,3 @@ The request for updating any aspect of a spreadsheet.
 \seealso{
 Other BatchUpdateSpreadsheetRequest functions: \code{\link{spreadbatchUpdate}}
 }
-

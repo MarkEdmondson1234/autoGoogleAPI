@@ -4,12 +4,12 @@
 \alias{BatchCreateAnnotationsRequest}
 \title{BatchCreateAnnotationsRequest Object}
 \usage{
-BatchCreateAnnotationsRequest(annotations = NULL, requestId = NULL)
+BatchCreateAnnotationsRequest(requestId = NULL, annotations = NULL)
 }
 \arguments{
-\item{annotations}{The annotations to be created}
-
 \item{requestId}{A unique request ID which enables the server to detect duplicated requests}
+
+\item{annotations}{The annotations to be created}
 }
 \value{
 BatchCreateAnnotationsRequest object
@@ -24,4 +24,3 @@ No description
 \seealso{
 Other BatchCreateAnnotationsRequest functions: \code{\link{annotations.batchCreate}}
 }
-

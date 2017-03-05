@@ -5,10 +5,10 @@
 \alias{adexchangebuyer2_googleAuthR}
 \alias{adexchangebuyer2_googleAuthR-package}
 \title{Ad Exchange Buyer API II
-Accesses the latest features for managing Ad Exchange accounts and Real-Time Bidding configurations and auction metrics.}
+Accesses the latest features for managing Ad Exchange accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:31:13
+ at 2017-03-05 19:20:56
 filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangebuyer2v2beta1.auto/R/adexchangebuyer2_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/adexchange.buyer
 }
 }
-

@@ -38,13 +38,13 @@ JobConfigurationQuery(JobConfigurationQuery.tableDefinitions = NULL,
 
 \item{query}{[Required] BigQuery SQL query to execute}
 
-\item{queryParameters}{[Experimental] Query parameters for Standard SQL queries}
+\item{queryParameters}{Query parameters for standard SQL queries}
 
-\item{schemaUpdateOptions}{[Experimental] Allows the schema of the desitination table to be updated as a side effect of the query job}
+\item{schemaUpdateOptions}{[Experimental] Allows the schema of the destination table to be updated as a side effect of the query job}
 
 \item{tableDefinitions}{[Optional] If querying an external data source outside of BigQuery, describes the data format, location and other properties of the data source}
 
-\item{useLegacySql}{[Experimental] Specifies whether to use BigQuery's legacy SQL dialect for this query}
+\item{useLegacySql}{Specifies whether to use BigQuery's legacy SQL dialect for this query}
 
 \item{useQueryCache}{[Optional] Whether to look for the result in the query cache}
 
@@ -65,4 +65,3 @@ No description
 \seealso{
 Other JobConfigurationQuery functions: \code{\link{JobConfigurationQuery.tableDefinitions}}
 }
-

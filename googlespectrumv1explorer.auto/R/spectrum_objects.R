@@ -2,7 +2,7 @@
 #' API for spectrum-management functions.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:47:29
+#'  at 2017-03-05 20:15:32
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlespectrumv1explorer.auto/R/spectrum_objects.R
 #' api_json: api_json
 #' 

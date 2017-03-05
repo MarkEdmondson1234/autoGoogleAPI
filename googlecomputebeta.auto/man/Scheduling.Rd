@@ -27,4 +27,3 @@ Sets the scheduling options for an Instance.
 \seealso{
 Other Scheduling functions: \code{\link{instances.setScheduling}}
 }
-

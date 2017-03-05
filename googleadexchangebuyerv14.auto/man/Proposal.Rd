@@ -5,13 +5,13 @@
 \title{Proposal Object}
 \usage{
 Proposal(billedBuyer = NULL, buyer = NULL, buyerContacts = NULL,
-  buyerPrivateData = NULL, hasBuyerSignedOff = NULL,
-  hasSellerSignedOff = NULL, inventorySource = NULL,
-  isRenegotiating = NULL, isSetupComplete = NULL, labels = NULL,
-  lastUpdaterOrCommentorRole = NULL, name = NULL, negotiationId = NULL,
-  originatorRole = NULL, privateAuctionId = NULL, proposalId = NULL,
-  proposalState = NULL, revisionNumber = NULL, revisionTimeMs = NULL,
-  seller = NULL, sellerContacts = NULL)
+  buyerPrivateData = NULL, dbmAdvertiserIds = NULL,
+  hasBuyerSignedOff = NULL, hasSellerSignedOff = NULL,
+  inventorySource = NULL, isRenegotiating = NULL, isSetupComplete = NULL,
+  labels = NULL, lastUpdaterOrCommentorRole = NULL, name = NULL,
+  negotiationId = NULL, originatorRole = NULL, privateAuctionId = NULL,
+  proposalId = NULL, proposalState = NULL, revisionNumber = NULL,
+  revisionTimeMs = NULL, seller = NULL, sellerContacts = NULL)
 }
 \arguments{
 \item{billedBuyer}{Reference to the buyer that will get billed for this proposal}
@@ -21,6 +21,8 @@ Proposal(billedBuyer = NULL, buyer = NULL, buyerContacts = NULL,
 \item{buyerContacts}{Optional contact information of the buyer}
 
 \item{buyerPrivateData}{Private data for buyer}
+
+\item{dbmAdvertiserIds}{IDs of DBM advertisers permission to this proposal}
 
 \item{hasBuyerSignedOff}{When an proposal is in an accepted state, indicates whether the buyer has signed off}
 
@@ -70,4 +72,3 @@ Represents a proposal in the marketplace. A proposal is the unit of negotiation 
 Other Proposal functions: \code{\link{proposals.patch}},
   \code{\link{proposals.update}}
 }
-

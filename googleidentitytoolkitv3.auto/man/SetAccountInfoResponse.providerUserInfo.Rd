@@ -19,4 +19,3 @@ No description
 \seealso{
 Other SetAccountInfoResponse functions: \code{\link{SetAccountInfoResponse}}
 }
-

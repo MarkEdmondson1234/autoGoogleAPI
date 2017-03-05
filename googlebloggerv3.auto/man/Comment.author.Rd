@@ -34,4 +34,3 @@ Other Comment functions: \code{\link{Comment.author.image}},
   \code{\link{Comment.inReplyTo}},
   \code{\link{Comment.post}}, \code{\link{Comment}}
 }
-

@@ -69,4 +69,3 @@ Request to set the account information.
 \seealso{
 Other IdentitytoolkitRelyingpartySetAccountInfoRequest functions: \code{\link{relyingparty.setAccountInfo}}
 }
-

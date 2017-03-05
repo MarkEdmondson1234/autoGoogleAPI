@@ -2,7 +2,7 @@
 #' This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:30:17
+#'  at 2017-03-05 19:19:30
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleacceleratedmobilepageurlv1.auto/R/acceleratedmobilepageurl_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Returns AMP URL(s) and equivalent[AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).
@@ -47,7 +60,8 @@ ampUrls.batchGet <- function(BatchGetAmpUrlsRequest) {
     
     url <- "https://acceleratedmobilepageurl.googleapis.com/v1/ampUrls:batchGet"
     # acceleratedmobilepageurl.ampUrls.batchGet
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(BatchGetAmpUrlsRequest, "gar_BatchGetAmpUrlsRequest"))
     

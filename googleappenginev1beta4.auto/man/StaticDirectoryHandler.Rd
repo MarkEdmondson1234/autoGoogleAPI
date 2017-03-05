@@ -37,4 +37,3 @@ Files served directly to the user for a given URL, such as images, CSS styleshee
 \seealso{
 Other StaticDirectoryHandler functions: \code{\link{StaticDirectoryHandler.httpHeaders}}
 }
-

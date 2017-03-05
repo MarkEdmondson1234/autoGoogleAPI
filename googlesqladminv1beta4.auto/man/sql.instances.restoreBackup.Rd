@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other InstancesRestoreBackupRequest functions: \code{\link{InstancesRestoreBackupRequest}}
 }
-

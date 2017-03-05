@@ -12,7 +12,7 @@ InstancesSetLabelsRequest(InstancesSetLabelsRequest.labels = NULL,
 
 \item{labelFingerprint}{Fingerprint of the previous set of labels for this resource, used to prevent conflicts}
 
-\item{labels}{A list of labels to apply for this instance}
+\item{labels}{No description}
 }
 \value{
 InstancesSetLabelsRequest object
@@ -28,4 +28,3 @@ No description
 Other InstancesSetLabelsRequest functions: \code{\link{InstancesSetLabelsRequest.labels}},
   \code{\link{instances.setLabels}}
 }
-

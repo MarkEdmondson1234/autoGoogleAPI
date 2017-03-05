@@ -2,7 +2,7 @@
 #' Accesses the inventory of Ad Exchange seller users and generates reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:31:27
+#'  at 2017-03-05 19:21:18
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangesellerv1.auto/R/adexchangeseller_objects.R
 #' api_json: api_json
 #' 
@@ -24,7 +24,7 @@
 #' @family AdClient functions
 #' @export
 AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsReporting = NULL) {
-    structure(list(arcOptIn = arcOptIn, id = id, kind = "adexchangeseller#adClient", 
+    structure(list(arcOptIn = arcOptIn, id = id, kind = `adexchangeseller#adClient`, 
         productCode = productCode, supportsReporting = supportsReporting), class = "gar_AdClient")
 }
 
@@ -43,7 +43,7 @@ AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsRep
 #' @family AdClients functions
 #' @export
 AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#adClients", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#adClients`, 
         nextPageToken = nextPageToken), class = "gar_AdClients")
 }
 
@@ -63,7 +63,7 @@ AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family AdUnit functions
 #' @export
 AdUnit <- function(code = NULL, id = NULL, name = NULL, status = NULL) {
-    structure(list(code = code, id = id, kind = "adexchangeseller#adUnit", name = name, 
+    structure(list(code = code, id = id, kind = `adexchangeseller#adUnit`, name = name, 
         status = status), class = "gar_AdUnit")
 }
 
@@ -82,7 +82,7 @@ AdUnit <- function(code = NULL, id = NULL, name = NULL, status = NULL) {
 #' @family AdUnits functions
 #' @export
 AdUnits <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#adUnits", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#adUnits`, 
         nextPageToken = nextPageToken), class = "gar_AdUnits")
 }
 
@@ -105,7 +105,7 @@ AdUnits <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 CustomChannel <- function(CustomChannel.targetingInfo = NULL, code = NULL, id = NULL, 
     name = NULL, targetingInfo = NULL) {
     structure(list(CustomChannel.targetingInfo = CustomChannel.targetingInfo, code = code, 
-        id = id, kind = "adexchangeseller#customChannel", name = name, targetingInfo = targetingInfo), 
+        id = id, kind = `adexchangeseller#customChannel`, name = name, targetingInfo = targetingInfo), 
         class = "gar_CustomChannel")
 }
 
@@ -145,7 +145,7 @@ CustomChannel.targetingInfo <- function(adsAppearOn = NULL, description = NULL, 
 #' @family CustomChannels functions
 #' @export
 CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#customChannels", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#customChannels`, 
         nextPageToken = nextPageToken), class = "gar_CustomChannels")
 }
 
@@ -170,7 +170,7 @@ CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 Report <- function(Report.headers = NULL, averages = NULL, headers = NULL, rows = NULL, 
     totalMatchedRows = NULL, totals = NULL, warnings = NULL) {
     structure(list(Report.headers = Report.headers, averages = averages, headers = headers, 
-        kind = "adexchangeseller#report", rows = rows, totalMatchedRows = totalMatchedRows, 
+        kind = `adexchangeseller#report`, rows = rows, totalMatchedRows = totalMatchedRows, 
         totals = totals, warnings = warnings), class = "gar_Report")
 }
 
@@ -204,7 +204,7 @@ Report.headers <- function() {
 #' @family SavedReport functions
 #' @export
 SavedReport <- function(id = NULL, name = NULL) {
-    structure(list(id = id, kind = "adexchangeseller#savedReport", name = name), 
+    structure(list(id = id, kind = `adexchangeseller#savedReport`, name = name), 
         class = "gar_SavedReport")
 }
 
@@ -223,7 +223,7 @@ SavedReport <- function(id = NULL, name = NULL) {
 #' @family SavedReports functions
 #' @export
 SavedReports <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#savedReports", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#savedReports`, 
         nextPageToken = nextPageToken), class = "gar_SavedReports")
 }
 
@@ -241,7 +241,7 @@ SavedReports <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family UrlChannel functions
 #' @export
 UrlChannel <- function(id = NULL, urlPattern = NULL) {
-    structure(list(id = id, kind = "adexchangeseller#urlChannel", urlPattern = urlPattern), 
+    structure(list(id = id, kind = `adexchangeseller#urlChannel`, urlPattern = urlPattern), 
         class = "gar_UrlChannel")
 }
 
@@ -266,7 +266,7 @@ UrlChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
     
     
     
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#urlChannels", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#urlChannels`, 
         nextPageToken = nextPageToken), class = "gar_UrlChannels")
 }
 

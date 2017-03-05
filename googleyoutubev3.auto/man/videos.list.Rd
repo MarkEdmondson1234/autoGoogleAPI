@@ -5,8 +5,9 @@
 \title{Returns a list of videos that match the API request parameters.}
 \usage{
 videos.list(part, chart = NULL, hl = NULL, id = NULL, locale = NULL,
-  maxResults = NULL, myRating = NULL, onBehalfOfContentOwner = NULL,
-  pageToken = NULL, regionCode = NULL, videoCategoryId = NULL)
+  maxHeight = NULL, maxResults = NULL, maxWidth = NULL, myRating = NULL,
+  onBehalfOfContentOwner = NULL, pageToken = NULL, regionCode = NULL,
+  videoCategoryId = NULL)
 }
 \arguments{
 \item{part}{The part parameter specifies a comma-separated list of one or more video resource properties that the API response will include}
@@ -19,7 +20,11 @@ videos.list(part, chart = NULL, hl = NULL, id = NULL, locale = NULL,
 
 \item{locale}{DEPRECATED}
 
+\item{maxHeight}{The maxHeight parameter specifies a maximum height of the embedded player}
+
 \item{maxResults}{The maxResults parameter specifies the maximum number of items that should be returned in the result set}
+
+\item{maxWidth}{The maxWidth parameter specifies a maximum width of the embedded player}
 
 \item{myRating}{Set this parameter's value to like or dislike to instruct the API to only return videos liked or disliked by the authenticated user}
 
@@ -50,4 +55,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/youtube/v3}{Google Documentation}
 }
-

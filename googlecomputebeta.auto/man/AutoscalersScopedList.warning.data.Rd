@@ -20,4 +20,3 @@ No description
 Other AutoscalersScopedList functions: \code{\link{AutoscalersScopedList.warning}},
   \code{\link{AutoscalersScopedList}}
 }
-

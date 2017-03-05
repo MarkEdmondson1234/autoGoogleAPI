@@ -38,4 +38,3 @@ No description
 \seealso{
 Other SearchAnalyticsQueryRequest functions: \code{\link{searchanalytics.query}}
 }
-

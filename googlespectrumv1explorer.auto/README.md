@@ -1,5 +1,5 @@
 # googlespectrumv1explorer.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Spectrum Database API R library
 
 API for spectrum-management functions.

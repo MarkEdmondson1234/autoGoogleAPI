@@ -24,4 +24,3 @@ Options for importing data as CSV.
 \seealso{
 Other ImportContext functions: \code{\link{ImportContext}}
 }
-

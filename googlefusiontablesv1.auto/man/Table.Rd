@@ -41,4 +41,3 @@ Represents a table. Specifies the name, whether it is exportable, description, a
 Other Table functions: \code{\link{table.insert}},
   \code{\link{table.patch}}, \code{\link{table.update}}
 }
-

@@ -5,12 +5,13 @@
 \title{Instance Object}
 \usage{
 Instance(Instance.labels = NULL, canIpForward = NULL, cpuPlatform = NULL,
-  creationTimestamp = NULL, description = NULL, disks = NULL, id = NULL,
+  creationTimestamp = NULL, description = NULL, disks = NULL,
+  guestAccelerators = NULL, host = NULL, id = NULL,
   instanceEncryptionKey = NULL, labelFingerprint = NULL, labels = NULL,
-  machineType = NULL, metadata = NULL, name = NULL,
-  networkInterfaces = NULL, scheduling = NULL, selfLink = NULL,
-  serviceAccounts = NULL, status = NULL, statusMessage = NULL,
-  tags = NULL, zone = NULL)
+  machineType = NULL, metadata = NULL, minCpuPlatform = NULL,
+  name = NULL, networkInterfaces = NULL, scheduling = NULL,
+  selfLink = NULL, serviceAccounts = NULL, status = NULL,
+  statusMessage = NULL, tags = NULL, zone = NULL)
 }
 \arguments{
 \item{Instance.labels}{The \link{Instance.labels} object or list of objects}
@@ -25,6 +26,10 @@ Instance(Instance.labels = NULL, canIpForward = NULL, cpuPlatform = NULL,
 
 \item{disks}{Array of disks associated with this instance}
 
+\item{guestAccelerators}{No description}
+
+\item{host}{Full or partial URL of the host resource that the instance should be placed on, in the format: zones/zone/hosts/host}
+
 \item{id}{[Output Only] The unique identifier for the resource}
 
 \item{instanceEncryptionKey}{Encrypts or decrypts data for an instance with a customer-supplied encryption key}
@@ -36,6 +41,8 @@ Instance(Instance.labels = NULL, canIpForward = NULL, cpuPlatform = NULL,
 \item{machineType}{Full or partial URL of the machine type resource to use for this instance, in the format: zones/zone/machineTypes/machine-type}
 
 \item{metadata}{The metadata key/value pairs assigned to this instance}
+
+\item{minCpuPlatform}{Minimum cpu/platform to be used by this instance}
 
 \item{name}{The name of the resource, provided by the client when initially creating the resource}
 
@@ -69,4 +76,3 @@ An Instance resource.
 Other Instance functions: \code{\link{Instance.labels}},
   \code{\link{instances.insert}}
 }
-

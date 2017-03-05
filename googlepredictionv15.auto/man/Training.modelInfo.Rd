@@ -36,4 +36,3 @@ Other Training functions: \code{\link{Training.trainingInstances}},
   \code{\link{Training}},
   \code{\link{trainedmodels.insert}}
 }
-

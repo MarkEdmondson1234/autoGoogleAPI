@@ -5,8 +5,9 @@
 \title{InventorySetRequest Object}
 \usage{
 InventorySetRequest(availability = NULL, installment = NULL,
-  loyaltyPoints = NULL, price = NULL, quantity = NULL, salePrice = NULL,
-  salePriceEffectiveDate = NULL, sellOnGoogleQuantity = NULL)
+  loyaltyPoints = NULL, pickup = NULL, price = NULL, quantity = NULL,
+  salePrice = NULL, salePriceEffectiveDate = NULL,
+  sellOnGoogleQuantity = NULL)
 }
 \arguments{
 \item{availability}{The availability of the product}
@@ -14,6 +15,8 @@ InventorySetRequest(availability = NULL, installment = NULL,
 \item{installment}{Number and amount of installments to pay for an item}
 
 \item{loyaltyPoints}{Loyalty points that users receive after purchasing the item}
+
+\item{pickup}{Store pickup information}
 
 \item{price}{The price of the product}
 
@@ -38,4 +41,3 @@ No description
 \seealso{
 Other InventorySetRequest functions: \code{\link{inventory.set}}
 }
-

@@ -27,4 +27,3 @@ A caption resource represents a YouTube caption track. A caption track is associ
 Other Caption functions: \code{\link{captions.insert}},
   \code{\link{captions.update}}
 }
-

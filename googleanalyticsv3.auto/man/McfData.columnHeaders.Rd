@@ -22,4 +22,3 @@ Other McfData functions: \code{\link{McfData.profileInfo}},
   \code{\link{McfData.totalsForAllResults}},
   \code{\link{McfData}}
 }
-

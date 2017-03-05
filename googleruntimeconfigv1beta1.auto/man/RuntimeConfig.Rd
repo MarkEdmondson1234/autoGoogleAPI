@@ -4,12 +4,12 @@
 \alias{RuntimeConfig}
 \title{RuntimeConfig Object}
 \usage{
-RuntimeConfig(description = NULL, name = NULL)
+RuntimeConfig(name = NULL, description = NULL)
 }
 \arguments{
-\item{description}{An optional description of the RuntimeConfig object}
-
 \item{name}{The resource name of a runtime config}
+
+\item{description}{An optional description of the RuntimeConfig object}
 }
 \value{
 RuntimeConfig object
@@ -25,4 +25,3 @@ A RuntimeConfig resource is the primary resource in the Cloud RuntimeConfigservi
 Other RuntimeConfig functions: \code{\link{projects.configs.create}},
   \code{\link{projects.configs.update}}
 }
-

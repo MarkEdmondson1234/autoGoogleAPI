@@ -2,7 +2,7 @@
 % Please edit documentation in R/storage_functions.R
 \name{buckets.patch}
 \alias{buckets.patch}
-\title{Updates a bucket. This method supports patch semantics.}
+\title{Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. This method supports patch semantics.}
 \usage{
 buckets.patch(Bucket, bucket, ifMetagenerationMatch = NULL,
   ifMetagenerationNotMatch = NULL, predefinedAcl = NULL,
@@ -41,7 +41,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \href{https://developers.google.com/storage/docs/json_api/}{Google Documentation}
 
 Other Bucket functions: \code{\link{Bucket.cors}},
-  \code{\link{Bucket.encryption}},
   \code{\link{Bucket.lifecycle.rule.action}},
   \code{\link{Bucket.lifecycle.rule.condition}},
   \code{\link{Bucket.lifecycle.rule}},
@@ -52,4 +51,3 @@ Other Bucket functions: \code{\link{Bucket.cors}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.update}}
 }
-

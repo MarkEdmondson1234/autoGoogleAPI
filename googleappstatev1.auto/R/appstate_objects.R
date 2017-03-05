@@ -2,7 +2,7 @@
 #' The Google App State API.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:36:04
+#'  at 2017-03-05 19:28:32
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleappstatev1.auto/R/appstate_objects.R
 #' api_json: api_json
 #' 
@@ -23,7 +23,7 @@
 #' @family GetResponse functions
 #' @export
 GetResponse <- function(currentStateVersion = NULL, data = NULL, stateKey = NULL) {
-    structure(list(currentStateVersion = currentStateVersion, data = data, kind = "appstate#getResponse", 
+    structure(list(currentStateVersion = currentStateVersion, data = data, kind = `appstate#getResponse`, 
         stateKey = stateKey), class = "gar_GetResponse")
 }
 
@@ -41,7 +41,7 @@ GetResponse <- function(currentStateVersion = NULL, data = NULL, stateKey = NULL
 #' @family ListResponse functions
 #' @export
 ListResponse <- function(items = NULL, maximumKeyCount = NULL) {
-    structure(list(items = items, kind = "appstate#listResponse", maximumKeyCount = maximumKeyCount), 
+    structure(list(items = items, kind = `appstate#listResponse`, maximumKeyCount = maximumKeyCount), 
         class = "gar_ListResponse")
 }
 
@@ -58,7 +58,7 @@ ListResponse <- function(items = NULL, maximumKeyCount = NULL) {
 #' @family UpdateRequest functions
 #' @export
 UpdateRequest <- function(data = NULL) {
-    structure(list(data = data, kind = "appstate#updateRequest"), class = "gar_UpdateRequest")
+    structure(list(data = data, kind = `appstate#updateRequest`), class = "gar_UpdateRequest")
 }
 
 
@@ -81,7 +81,7 @@ WriteResult <- function(currentStateVersion = NULL, stateKey = NULL) {
     
     
     
-    structure(list(currentStateVersion = currentStateVersion, kind = "appstate#writeResult", 
+    structure(list(currentStateVersion = currentStateVersion, kind = `appstate#writeResult`, 
         stateKey = stateKey), class = "gar_WriteResult")
 }
 

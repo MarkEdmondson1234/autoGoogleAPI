@@ -2,7 +2,7 @@
 % Please edit documentation in R/clouddebugger_functions.R
 \name{controller.debuggees.register}
 \alias{controller.debuggees.register}
-\title{Registers the debuggee with the controller service. All agents attached to the same application should call this method with the same request content to get back the same stable `debuggee_id`. Agents should call this method again whenever `google.rpc.Code.NOT_FOUND` is returned from any controller method. This allows the controller service to disable the agent or recover from any data loss. If the debuggee is disabled by the server, the response will have `is_disabled` set to `true`.}
+\title{Registers the debuggee with the controller service.All agents attached to the same application should call this method withthe same request content to get back the same stable `debuggee_id`. Agentsshould call this method again whenever `google.rpc.Code.NOT_FOUND` isreturned from any controller method.This allows the controller service to disable the agent or recover from anydata loss. If the debuggee is disabled by the server, the response willhave `is_disabled` set to `true`.}
 \usage{
 controller.debuggees.register(RegisterDebuggeeRequest)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other RegisterDebuggeeRequest functions: \code{\link{RegisterDebuggeeRequest}}
 }
-

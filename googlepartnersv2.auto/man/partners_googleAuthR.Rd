@@ -8,7 +8,7 @@
 Lets advertisers search certified companies and create contact leads with them, and also audits the usage of clients.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:21:00
+ at 2017-03-05 19:57:25
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepartnersv2.auto/R/partners_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

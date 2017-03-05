@@ -4,9 +4,11 @@
 \alias{CacheInvalidationRule}
 \title{CacheInvalidationRule Object}
 \usage{
-CacheInvalidationRule(path = NULL)
+CacheInvalidationRule(host = NULL, path = NULL)
 }
 \arguments{
+\item{host}{If set, this invalidation rule will only apply to requests with a Host header matching host}
+
 \item{path}{No description}
 }
 \value{
@@ -22,4 +24,3 @@ No description
 \seealso{
 Other CacheInvalidationRule functions: \code{\link{urlMaps.invalidateCache}}
 }
-

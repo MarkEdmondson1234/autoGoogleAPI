@@ -21,4 +21,3 @@ Other Search functions: \code{\link{Search.searchInformation}},
   \code{\link{Search.spelling}}, \code{\link{Search.url}},
   \code{\link{Search}}
 }
-

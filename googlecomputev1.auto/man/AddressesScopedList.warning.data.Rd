@@ -20,4 +20,3 @@ No description
 Other AddressesScopedList functions: \code{\link{AddressesScopedList.warning}},
   \code{\link{AddressesScopedList}}
 }
-

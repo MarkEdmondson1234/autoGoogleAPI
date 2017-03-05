@@ -20,4 +20,3 @@ No description
 Other TargetPoolsScopedList functions: \code{\link{TargetPoolsScopedList.warning}},
   \code{\link{TargetPoolsScopedList}}
 }
-

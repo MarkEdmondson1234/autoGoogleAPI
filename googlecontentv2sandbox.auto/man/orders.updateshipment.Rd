@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.updateshipment}
 \alias{orders.updateshipment}
-\title{Updates a shipment's status, carrier, and/or tracking ID.}
+\title{Updates a shipment's status, carrier, and/or tracking ID. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.updateshipment(OrdersUpdateShipmentRequest, merchantId, orderId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersUpdateShipmentRequest functions: \code{\link{OrdersUpdateShipmentRequest}}
 }
-

@@ -19,4 +19,3 @@ The list of service end points on the resource.
 \seealso{
 Other ListResourceResponseItem functions: \code{\link{ListResourceResponseItem}}
 }
-

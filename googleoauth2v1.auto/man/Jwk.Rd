@@ -17,7 +17,7 @@ Jwk object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:24:29
+ at 2017-03-05 20:03:15
 filename: /Users/mark/dev/R/autoGoogleAPI/googleoauth2v1.auto/R/oauth2_objects.R
 api_json: api_json
 }
@@ -32,4 +32,3 @@ No description
 \seealso{
 Other Jwk functions: \code{\link{Jwk.keys}}
 }
-

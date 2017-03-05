@@ -22,4 +22,3 @@ Other ControllerConfig functions: \code{\link{ControllerConfig.disks}},
   \code{\link{ControllerConfig.gcsSources}},
   \code{\link{ControllerConfig}}
 }
-

@@ -19,4 +19,3 @@ Labels with user defined metadata.
 \seealso{
 Other ExtendedSourceContext functions: \code{\link{ExtendedSourceContext}}
 }
-

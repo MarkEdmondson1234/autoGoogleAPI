@@ -2,7 +2,7 @@
 #' The Management API for Google Play Game Services.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:14:20
+#'  at 2017-03-05 19:52:53
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesManagementv1management.auto/R/gamesManagement_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
 #' 
@@ -44,7 +57,7 @@ achievements.reset <- function(achievementId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/achievements/%s/reset", 
         achievementId)
     # gamesManagement.achievements.reset
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -71,7 +84,7 @@ achievements.reset <- function(achievementId) {
 achievements.resetAll <- function() {
     url <- "https://www.googleapis.com/games/v1management/achievements/reset"
     # gamesManagement.achievements.resetAll
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -98,7 +111,7 @@ achievements.resetAll <- function() {
 achievements.resetAllForAllPlayers <- function() {
     url <- "https://www.googleapis.com/games/v1management/achievements/resetAllForAllPlayers"
     # gamesManagement.achievements.resetAllForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -127,7 +140,7 @@ achievements.resetForAllPlayers <- function(achievementId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/achievements/%s/resetForAllPlayers", 
         achievementId)
     # gamesManagement.achievements.resetForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -156,7 +169,7 @@ achievements.resetForAllPlayers <- function(achievementId) {
 achievements.resetMultipleForAllPlayers <- function(AchievementResetMultipleForAllRequest) {
     url <- "https://www.googleapis.com/games/v1management/achievements/resetMultipleForAllPlayers"
     # gamesManagement.achievements.resetMultipleForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AchievementResetMultipleForAllRequest, "gar_AchievementResetMultipleForAllRequest"))
     
     f(the_body = AchievementResetMultipleForAllRequest)
@@ -189,8 +202,9 @@ applications.listHidden <- function(applicationId, maxResults = NULL, pageToken 
     url <- sprintf("https://www.googleapis.com/games/v1management/applications/%s/players/hidden", 
         applicationId)
     # gamesManagement.applications.listHidden
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -219,7 +233,7 @@ events.reset <- function(eventId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/events/%s/reset", 
         eventId)
     # gamesManagement.events.reset
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -246,7 +260,7 @@ events.reset <- function(eventId) {
 events.resetAll <- function() {
     url <- "https://www.googleapis.com/games/v1management/events/reset"
     # gamesManagement.events.resetAll
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -273,7 +287,7 @@ events.resetAll <- function() {
 events.resetAllForAllPlayers <- function() {
     url <- "https://www.googleapis.com/games/v1management/events/resetAllForAllPlayers"
     # gamesManagement.events.resetAllForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -302,7 +316,7 @@ events.resetForAllPlayers <- function(eventId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/events/%s/resetForAllPlayers", 
         eventId)
     # gamesManagement.events.resetForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -331,7 +345,7 @@ events.resetForAllPlayers <- function(eventId) {
 events.resetMultipleForAllPlayers <- function(EventsResetMultipleForAllRequest) {
     url <- "https://www.googleapis.com/games/v1management/events/resetMultipleForAllPlayers"
     # gamesManagement.events.resetMultipleForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(EventsResetMultipleForAllRequest, "gar_EventsResetMultipleForAllRequest"))
     
     f(the_body = EventsResetMultipleForAllRequest)
@@ -363,7 +377,7 @@ players.hide <- function(applicationId, playerId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/applications/%s/players/hidden/%s", 
         applicationId, playerId)
     # gamesManagement.players.hide
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -393,7 +407,7 @@ players.unhide <- function(applicationId, playerId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/applications/%s/players/hidden/%s", 
         applicationId, playerId)
     # gamesManagement.players.unhide
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -422,7 +436,7 @@ quests.reset <- function(questId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/quests/%s/reset", 
         questId)
     # gamesManagement.quests.reset
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -449,7 +463,7 @@ quests.reset <- function(questId) {
 quests.resetAll <- function() {
     url <- "https://www.googleapis.com/games/v1management/quests/reset"
     # gamesManagement.quests.resetAll
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -476,7 +490,7 @@ quests.resetAll <- function() {
 quests.resetAllForAllPlayers <- function() {
     url <- "https://www.googleapis.com/games/v1management/quests/resetAllForAllPlayers"
     # gamesManagement.quests.resetAllForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -505,7 +519,7 @@ quests.resetForAllPlayers <- function(questId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/quests/%s/resetForAllPlayers", 
         questId)
     # gamesManagement.quests.resetForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -534,7 +548,7 @@ quests.resetForAllPlayers <- function(questId) {
 quests.resetMultipleForAllPlayers <- function(QuestsResetMultipleForAllRequest) {
     url <- "https://www.googleapis.com/games/v1management/quests/resetMultipleForAllPlayers"
     # gamesManagement.quests.resetMultipleForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(QuestsResetMultipleForAllRequest, "gar_QuestsResetMultipleForAllRequest"))
     
     f(the_body = QuestsResetMultipleForAllRequest)
@@ -563,7 +577,7 @@ quests.resetMultipleForAllPlayers <- function(QuestsResetMultipleForAllRequest) 
 rooms.reset <- function() {
     url <- "https://www.googleapis.com/games/v1management/rooms/reset"
     # gamesManagement.rooms.reset
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -590,7 +604,7 @@ rooms.reset <- function() {
 rooms.resetForAllPlayers <- function() {
     url <- "https://www.googleapis.com/games/v1management/rooms/resetForAllPlayers"
     # gamesManagement.rooms.resetForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -619,7 +633,7 @@ scores.reset <- function(leaderboardId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/leaderboards/%s/scores/reset", 
         leaderboardId)
     # gamesManagement.scores.reset
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -646,7 +660,7 @@ scores.reset <- function(leaderboardId) {
 scores.resetAll <- function() {
     url <- "https://www.googleapis.com/games/v1management/scores/reset"
     # gamesManagement.scores.resetAll
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -673,7 +687,7 @@ scores.resetAll <- function() {
 scores.resetAllForAllPlayers <- function() {
     url <- "https://www.googleapis.com/games/v1management/scores/resetAllForAllPlayers"
     # gamesManagement.scores.resetAllForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -702,7 +716,7 @@ scores.resetForAllPlayers <- function(leaderboardId) {
     url <- sprintf("https://www.googleapis.com/games/v1management/leaderboards/%s/scores/resetForAllPlayers", 
         leaderboardId)
     # gamesManagement.scores.resetForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -731,7 +745,7 @@ scores.resetForAllPlayers <- function(leaderboardId) {
 scores.resetMultipleForAllPlayers <- function(ScoresResetMultipleForAllRequest) {
     url <- "https://www.googleapis.com/games/v1management/scores/resetMultipleForAllPlayers"
     # gamesManagement.scores.resetMultipleForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ScoresResetMultipleForAllRequest, "gar_ScoresResetMultipleForAllRequest"))
     
     f(the_body = ScoresResetMultipleForAllRequest)
@@ -760,7 +774,7 @@ scores.resetMultipleForAllPlayers <- function(ScoresResetMultipleForAllRequest) 
 turnBasedMatches.reset <- function() {
     url <- "https://www.googleapis.com/games/v1management/turnbasedmatches/reset"
     # gamesManagement.turnBasedMatches.reset
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -792,7 +806,8 @@ turnBasedMatches.resetForAllPlayers <- function() {
     
     url <- "https://www.googleapis.com/games/v1management/turnbasedmatches/resetForAllPlayers"
     # gamesManagement.turnBasedMatches.resetForAllPlayers
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     f()
     

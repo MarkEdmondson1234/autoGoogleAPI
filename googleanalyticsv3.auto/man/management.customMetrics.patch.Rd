@@ -39,4 +39,3 @@ Other CustomMetric functions: \code{\link{CustomMetric.parentLink}},
   \code{\link{management.customMetrics.insert}},
   \code{\link{management.customMetrics.update}}
 }
-

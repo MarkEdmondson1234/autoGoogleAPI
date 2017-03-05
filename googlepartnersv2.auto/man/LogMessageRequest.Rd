@@ -33,4 +33,3 @@ Request message for LogClientMessage.
 Other LogMessageRequest functions: \code{\link{LogMessageRequest.clientInfo}},
   \code{\link{clientMessages.log}}
 }
-

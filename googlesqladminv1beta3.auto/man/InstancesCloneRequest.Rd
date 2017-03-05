@@ -22,4 +22,3 @@ Database instance clone request.
 \seealso{
 Other InstancesCloneRequest functions: \code{\link{sql.instances.clone}}
 }
-

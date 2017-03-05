@@ -8,7 +8,7 @@
 Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, and text annotations.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:23:52
+ at 2017-03-05 20:00:25
 filename: /Users/mark/dev/R/autoGoogleAPI/googlelanguagev1beta1.auto/R/language_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

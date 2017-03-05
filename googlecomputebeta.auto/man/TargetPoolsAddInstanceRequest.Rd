@@ -22,4 +22,3 @@ No description
 \seealso{
 Other TargetPoolsAddInstanceRequest functions: \code{\link{targetPools.addInstance}}
 }
-

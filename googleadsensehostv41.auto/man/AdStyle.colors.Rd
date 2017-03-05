@@ -32,4 +32,3 @@ The colors included in the style. These are represented as six hexadecimal chara
 Other AdStyle functions: \code{\link{AdStyle.font}},
   \code{\link{AdStyle}}
 }
-

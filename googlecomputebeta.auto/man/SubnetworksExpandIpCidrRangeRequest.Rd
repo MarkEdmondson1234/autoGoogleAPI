@@ -22,4 +22,3 @@ No description
 \seealso{
 Other SubnetworksExpandIpCidrRangeRequest functions: \code{\link{subnetworks.expandIpCidrRange}}
 }
-

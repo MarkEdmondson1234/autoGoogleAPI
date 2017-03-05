@@ -21,4 +21,3 @@ Other GlobalSetLabelsRequest functions: \code{\link{GlobalSetLabelsRequest}},
   \code{\link{images.setLabels}},
   \code{\link{snapshots.setLabels}}
 }
-

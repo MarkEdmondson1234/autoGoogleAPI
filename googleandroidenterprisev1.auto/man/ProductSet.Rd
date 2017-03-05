@@ -4,10 +4,12 @@
 \alias{ProductSet}
 \title{ProductSet Object}
 \usage{
-ProductSet(productId = NULL)
+ProductSet(productId = NULL, productSetBehavior = NULL)
 }
 \arguments{
 \item{productId}{The list of product IDs making up the set of products}
+
+\item{productSetBehavior}{The interpretation of this product set}
 }
 \value{
 ProductSet object
@@ -22,4 +24,3 @@ A set of products.
 \seealso{
 Other ProductSet functions: \code{\link{users.setAvailableProductSet}}
 }
-

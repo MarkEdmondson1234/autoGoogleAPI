@@ -39,4 +39,3 @@ A subscription to events on a collection.
 Other Subscription functions: \code{\link{subscriptions.insert}},
   \code{\link{subscriptions.update}}
 }
-

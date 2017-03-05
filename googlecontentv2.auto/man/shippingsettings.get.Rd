@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{shippingsettings.get}
 \alias{shippingsettings.get}
-\title{Retrieves the shipping settings of the account.}
+\title{Retrieves the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.}
 \usage{
 shippingsettings.get(merchantId, accountId)
 }
@@ -27,4 +27,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

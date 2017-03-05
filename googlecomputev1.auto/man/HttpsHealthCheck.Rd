@@ -49,4 +49,3 @@ Other HttpsHealthCheck functions: \code{\link{httpsHealthChecks.insert}},
   \code{\link{httpsHealthChecks.patch}},
   \code{\link{httpsHealthChecks.update}}
 }
-

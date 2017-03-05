@@ -42,4 +42,3 @@ Other Group functions: \code{\link{directory.groups.insert}},
   \code{\link{directory.groups.patch}},
   \code{\link{directory.groups.update}}
 }
-

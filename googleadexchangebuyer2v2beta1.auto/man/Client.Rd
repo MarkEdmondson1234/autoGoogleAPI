@@ -4,26 +4,26 @@
 \alias{Client}
 \title{Client Object}
 \usage{
-Client(visibleToSeller = NULL, status = NULL, entityType = NULL,
-  role = NULL, clientName = NULL, clientAccountId = NULL,
-  entityId = NULL, entityName = NULL)
+Client(visibleToSeller = NULL, entityId = NULL, clientAccountId = NULL,
+  entityName = NULL, status = NULL, entityType = NULL,
+  clientName = NULL, role = NULL)
 }
 \arguments{
 \item{visibleToSeller}{Whether the client buyer will be visible to sellers}
+
+\item{entityId}{Numerical identifier of the client entity}
+
+\item{clientAccountId}{The globally-unique numerical ID of the client}
+
+\item{entityName}{The name of the entity}
 
 \item{status}{The status of the client buyer}
 
 \item{entityType}{The type of the client entity: `ADVERTISER`, `BRAND`, or `AGENCY`}
 
-\item{role}{The role which is assigned to the client buyer}
-
 \item{clientName}{Name used to represent this client to publishers}
 
-\item{clientAccountId}{The globally-unique numerical ID of the client}
-
-\item{entityId}{Numerical identifier of the client entity}
-
-\item{entityName}{The name of the entity}
+\item{role}{The role which is assigned to the client buyer}
 }
 \value{
 Client object
@@ -39,4 +39,3 @@ A client resource represents a client buyer&mdash;an agency,a brand, or an adver
 Other Client functions: \code{\link{accounts.clients.create}},
   \code{\link{accounts.clients.update}}
 }
-

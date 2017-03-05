@@ -20,4 +20,3 @@ No description
 Other InstanceGroupManagersScopedList functions: \code{\link{InstanceGroupManagersScopedList.warning}},
   \code{\link{InstanceGroupManagersScopedList}}
 }
-

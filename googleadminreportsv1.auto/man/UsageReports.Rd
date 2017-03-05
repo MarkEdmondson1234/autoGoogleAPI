@@ -35,4 +35,3 @@ JSON template for a collection of usage reports.
 Other UsageReports functions: \code{\link{UsageReports.warnings.data}},
   \code{\link{UsageReports.warnings}}
 }
-

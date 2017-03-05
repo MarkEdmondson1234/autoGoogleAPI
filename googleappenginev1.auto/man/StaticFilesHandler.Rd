@@ -39,4 +39,3 @@ Files served directly to the user for a given URL, such as images, CSS styleshee
 \seealso{
 Other StaticFilesHandler functions: \code{\link{StaticFilesHandler.httpHeaders}}
 }
-

@@ -20,4 +20,3 @@ No description
 Other MachineTypesScopedList functions: \code{\link{MachineTypesScopedList.warning}},
   \code{\link{MachineTypesScopedList}}
 }
-

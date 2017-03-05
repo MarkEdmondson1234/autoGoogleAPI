@@ -60,4 +60,3 @@ A persistent disk snapshot resource.
 Other Snapshot functions: \code{\link{Snapshot.labels}},
   \code{\link{disks.createSnapshot}}
 }
-

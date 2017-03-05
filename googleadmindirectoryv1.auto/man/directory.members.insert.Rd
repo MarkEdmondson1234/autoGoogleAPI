@@ -32,4 +32,3 @@ Other Member functions: \code{\link{Member}},
   \code{\link{directory.members.patch}},
   \code{\link{directory.members.update}}
 }
-

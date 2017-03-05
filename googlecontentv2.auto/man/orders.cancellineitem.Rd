@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.cancellineitem}
 \alias{orders.cancellineitem}
-\title{Cancels a line item.}
+\title{Cancels a line item. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.cancellineitem(OrdersCancelLineItemRequest, merchantId, orderId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersCancelLineItemRequest functions: \code{\link{OrdersCancelLineItemRequest}}
 }
-

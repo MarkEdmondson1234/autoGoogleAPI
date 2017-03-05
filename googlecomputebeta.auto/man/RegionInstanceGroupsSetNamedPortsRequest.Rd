@@ -25,4 +25,3 @@ No description
 \seealso{
 Other RegionInstanceGroupsSetNamedPortsRequest functions: \code{\link{regionInstanceGroups.setNamedPorts}}
 }
-

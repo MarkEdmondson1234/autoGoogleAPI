@@ -2,7 +2,7 @@
 #' Accesses the inventory of Ad Exchange seller users and generates reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:31:56
+#'  at 2017-03-05 19:22:01
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangesellerv20.auto/R/adexchangeseller_objects.R
 #' api_json: api_json
 #' 
@@ -22,7 +22,7 @@
 #' @family Account functions
 #' @export
 Account <- function(id = NULL, name = NULL) {
-    structure(list(id = id, kind = "adexchangeseller#account", name = name), class = "gar_Account")
+    structure(list(id = id, kind = `adexchangeseller#account`, name = name), class = "gar_Account")
 }
 
 #' Accounts Object
@@ -40,7 +40,7 @@ Account <- function(id = NULL, name = NULL) {
 #' @family Accounts functions
 #' @export
 Accounts <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#accounts", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#accounts`, 
         nextPageToken = nextPageToken), class = "gar_Accounts")
 }
 
@@ -60,7 +60,7 @@ Accounts <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family AdClient functions
 #' @export
 AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsReporting = NULL) {
-    structure(list(arcOptIn = arcOptIn, id = id, kind = "adexchangeseller#adClient", 
+    structure(list(arcOptIn = arcOptIn, id = id, kind = `adexchangeseller#adClient`, 
         productCode = productCode, supportsReporting = supportsReporting), class = "gar_AdClient")
 }
 
@@ -79,7 +79,7 @@ AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsRep
 #' @family AdClients functions
 #' @export
 AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#adClients", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#adClients`, 
         nextPageToken = nextPageToken), class = "gar_AdClients")
 }
 
@@ -99,7 +99,7 @@ AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family Alert functions
 #' @export
 Alert <- function(id = NULL, message = NULL, severity = NULL, type = NULL) {
-    structure(list(id = id, kind = "adexchangeseller#alert", message = message, severity = severity, 
+    structure(list(id = id, kind = `adexchangeseller#alert`, message = message, severity = severity, 
         type = type), class = "gar_Alert")
 }
 
@@ -116,7 +116,7 @@ Alert <- function(id = NULL, message = NULL, severity = NULL, type = NULL) {
 #' @family Alerts functions
 #' @export
 Alerts <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangeseller#alerts"), class = "gar_Alerts")
+    structure(list(items = items, kind = `adexchangeseller#alerts`), class = "gar_Alerts")
 }
 
 #' CustomChannel Object
@@ -138,7 +138,7 @@ Alerts <- function(items = NULL) {
 CustomChannel <- function(CustomChannel.targetingInfo = NULL, code = NULL, id = NULL, 
     name = NULL, targetingInfo = NULL) {
     structure(list(CustomChannel.targetingInfo = CustomChannel.targetingInfo, code = code, 
-        id = id, kind = "adexchangeseller#customChannel", name = name, targetingInfo = targetingInfo), 
+        id = id, kind = `adexchangeseller#customChannel`, name = name, targetingInfo = targetingInfo), 
         class = "gar_CustomChannel")
 }
 
@@ -178,7 +178,7 @@ CustomChannel.targetingInfo <- function(adsAppearOn = NULL, description = NULL, 
 #' @family CustomChannels functions
 #' @export
 CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#customChannels", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#customChannels`, 
         nextPageToken = nextPageToken), class = "gar_CustomChannels")
 }
 
@@ -195,7 +195,7 @@ CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family Metadata functions
 #' @export
 Metadata <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangeseller#metadata"), class = "gar_Metadata")
+    structure(list(items = items, kind = `adexchangeseller#metadata`), class = "gar_Metadata")
 }
 
 #' PreferredDeal Object
@@ -220,7 +220,7 @@ PreferredDeal <- function(advertiserName = NULL, buyerNetworkName = NULL, curren
     endTime = NULL, fixedCpm = NULL, id = NULL, startTime = NULL) {
     structure(list(advertiserName = advertiserName, buyerNetworkName = buyerNetworkName, 
         currencyCode = currencyCode, endTime = endTime, fixedCpm = fixedCpm, id = id, 
-        kind = "adexchangeseller#preferredDeal", startTime = startTime), class = "gar_PreferredDeal")
+        kind = `adexchangeseller#preferredDeal`, startTime = startTime), class = "gar_PreferredDeal")
 }
 
 #' PreferredDeals Object
@@ -236,7 +236,7 @@ PreferredDeal <- function(advertiserName = NULL, buyerNetworkName = NULL, curren
 #' @family PreferredDeals functions
 #' @export
 PreferredDeals <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangeseller#preferredDeals"), class = "gar_PreferredDeals")
+    structure(list(items = items, kind = `adexchangeseller#preferredDeals`), class = "gar_PreferredDeals")
 }
 
 #' Report Object
@@ -260,7 +260,7 @@ PreferredDeals <- function(items = NULL) {
 Report <- function(Report.headers = NULL, averages = NULL, headers = NULL, rows = NULL, 
     totalMatchedRows = NULL, totals = NULL, warnings = NULL) {
     structure(list(Report.headers = Report.headers, averages = averages, headers = headers, 
-        kind = "adexchangeseller#report", rows = rows, totalMatchedRows = totalMatchedRows, 
+        kind = `adexchangeseller#report`, rows = rows, totalMatchedRows = totalMatchedRows, 
         totals = totals, warnings = warnings), class = "gar_Report")
 }
 
@@ -300,7 +300,7 @@ Report.headers <- function() {
 ReportingMetadataEntry <- function(compatibleDimensions = NULL, compatibleMetrics = NULL, 
     id = NULL, requiredDimensions = NULL, requiredMetrics = NULL, supportedProducts = NULL) {
     structure(list(compatibleDimensions = compatibleDimensions, compatibleMetrics = compatibleMetrics, 
-        id = id, kind = "adexchangeseller#reportingMetadataEntry", requiredDimensions = requiredDimensions, 
+        id = id, kind = `adexchangeseller#reportingMetadataEntry`, requiredDimensions = requiredDimensions, 
         requiredMetrics = requiredMetrics, supportedProducts = supportedProducts), 
         class = "gar_ReportingMetadataEntry")
 }
@@ -319,7 +319,7 @@ ReportingMetadataEntry <- function(compatibleDimensions = NULL, compatibleMetric
 #' @family SavedReport functions
 #' @export
 SavedReport <- function(id = NULL, name = NULL) {
-    structure(list(id = id, kind = "adexchangeseller#savedReport", name = name), 
+    structure(list(id = id, kind = `adexchangeseller#savedReport`, name = name), 
         class = "gar_SavedReport")
 }
 
@@ -338,7 +338,7 @@ SavedReport <- function(id = NULL, name = NULL) {
 #' @family SavedReports functions
 #' @export
 SavedReports <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#savedReports", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#savedReports`, 
         nextPageToken = nextPageToken), class = "gar_SavedReports")
 }
 
@@ -356,7 +356,7 @@ SavedReports <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family UrlChannel functions
 #' @export
 UrlChannel <- function(id = NULL, urlPattern = NULL) {
-    structure(list(id = id, kind = "adexchangeseller#urlChannel", urlPattern = urlPattern), 
+    structure(list(id = id, kind = `adexchangeseller#urlChannel`, urlPattern = urlPattern), 
         class = "gar_UrlChannel")
 }
 
@@ -381,7 +381,7 @@ UrlChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
     
     
     
-    structure(list(etag = etag, items = items, kind = "adexchangeseller#urlChannels", 
+    structure(list(etag = etag, items = items, kind = `adexchangeseller#urlChannels`, 
         nextPageToken = nextPageToken), class = "gar_UrlChannels")
 }
 

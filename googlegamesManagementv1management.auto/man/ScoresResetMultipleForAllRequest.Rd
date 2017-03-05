@@ -22,4 +22,3 @@ This is a JSON template for multiple scores reset all request.
 \seealso{
 Other ScoresResetMultipleForAllRequest functions: \code{\link{scores.resetMultipleForAllPlayers}}
 }
-

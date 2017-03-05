@@ -26,4 +26,3 @@ No description
 \seealso{
 Other CommitRequest functions: \code{\link{datasets.commit}}
 }
-

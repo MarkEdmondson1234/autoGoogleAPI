@@ -11,7 +11,7 @@ SideInputInfo(SideInputInfo.kind = NULL, sources = NULL, tag = NULL)
 
 \item{sources}{The source(s) to read element(s) from to get the value of this side input}
 
-\item{tag}{The id of the tag the user code will access this side input by; this should correspond to the tag of some MultiOutputInfo}
+\item{tag}{The id of the tag the user code will access this side input by;}
 }
 \value{
 SideInputInfo object
@@ -26,4 +26,3 @@ Information about a side input of a DoFn or an input of a SeqDoFn.
 \seealso{
 Other SideInputInfo functions: \code{\link{SideInputInfo.kind}}
 }
-

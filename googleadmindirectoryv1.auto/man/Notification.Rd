@@ -37,4 +37,3 @@ Template for a notification resource.
 Other Notification functions: \code{\link{directory.notifications.patch}},
   \code{\link{directory.notifications.update}}
 }
-

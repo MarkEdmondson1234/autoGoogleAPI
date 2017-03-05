@@ -8,7 +8,7 @@
 Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:33:45
+ at 2017-03-05 19:24:20
 filename: /Users/mark/dev/R/autoGoogleAPI/googleadsensehostv41.auto/R/adsensehost_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/adsensehost
 }
 }
-

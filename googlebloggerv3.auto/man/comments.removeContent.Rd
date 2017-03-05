@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/blogger/docs/3.0/getting_started}{Google Documentation}
 }
-

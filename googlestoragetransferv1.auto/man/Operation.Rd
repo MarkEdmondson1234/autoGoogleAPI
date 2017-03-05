@@ -37,4 +37,3 @@ This resource represents a long-running operation that is the result of a networ
 Other Operation functions: \code{\link{Operation.metadata}},
   \code{\link{Operation.response}}
 }
-

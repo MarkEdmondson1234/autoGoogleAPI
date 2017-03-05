@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Task functions: \code{\link{Task}},
   \code{\link{tasks.patch}}, \code{\link{tasks.update}}
 }
-

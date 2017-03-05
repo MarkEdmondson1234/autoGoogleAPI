@@ -4,13 +4,15 @@
 \alias{courses.list}
 \title{Returns a list of courses that the requesting user is permitted to view, restricted to those that match the request. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the query argument is malformed. * `NOT_FOUND` if any users specified in the query arguments do not exist.}
 \usage{
-courses.list(studentId = NULL, teacherId = NULL, pageSize = NULL,
-  pageToken = NULL)
+courses.list(studentId = NULL, teacherId = NULL, courseStates = NULL,
+  pageSize = NULL, pageToken = NULL)
 }
 \arguments{
 \item{studentId}{Restricts returned courses to those having a student with the specified identifier}
 
 \item{teacherId}{Restricts returned courses to those having a teacher with the specified identifier}
+
+\item{courseStates}{Restricts returned courses to those in one of the specified states}
 
 \item{pageSize}{Maximum number of items to return}
 
@@ -33,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/classroom/}{Google Documentation}
 }
-

@@ -27,4 +27,3 @@ Traffic routing configuration for versions within a single module. Traffic split
 \seealso{
 Other TrafficSplit functions: \code{\link{TrafficSplit.allocations}}
 }
-

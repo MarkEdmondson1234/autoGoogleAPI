@@ -2,7 +2,7 @@
 #' Analyzes the performance of a web page and provides tailored suggestions to make that page faster.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:24:42
+#'  at 2017-03-05 20:03:42
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlepagespeedonlinev1.auto/R/pagespeedonline_objects.R
 #' api_json: api_json
 #' 

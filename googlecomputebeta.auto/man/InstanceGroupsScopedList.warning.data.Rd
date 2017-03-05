@@ -20,4 +20,3 @@ No description
 Other InstanceGroupsScopedList functions: \code{\link{InstanceGroupsScopedList.warning}},
   \code{\link{InstanceGroupsScopedList}}
 }
-

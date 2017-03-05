@@ -31,4 +31,3 @@ No description
 \seealso{
 Other OperationAggregatedList functions: \code{\link{OperationAggregatedList.items}}
 }
-

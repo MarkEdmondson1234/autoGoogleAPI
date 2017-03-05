@@ -78,4 +78,3 @@ Other Post functions: \code{\link{Post.author.image}},
   \code{\link{Post.replies}}, \code{\link{posts.insert}},
   \code{\link{posts.patch}}, \code{\link{posts.update}}
 }
-

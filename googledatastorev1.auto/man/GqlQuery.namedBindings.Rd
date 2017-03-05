@@ -19,4 +19,3 @@ For each non-reserved named binding site in the query string, there must bea nam
 \seealso{
 Other GqlQuery functions: \code{\link{GqlQuery}}
 }
-

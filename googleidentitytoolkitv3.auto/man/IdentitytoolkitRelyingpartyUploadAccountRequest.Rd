@@ -4,12 +4,14 @@
 \alias{IdentitytoolkitRelyingpartyUploadAccountRequest}
 \title{IdentitytoolkitRelyingpartyUploadAccountRequest Object}
 \usage{
-
-  IdentitytoolkitRelyingpartyUploadAccountRequest(delegatedProjectNumber = NULL,
-  hashAlgorithm = NULL, memoryCost = NULL, rounds = NULL,
-  saltSeparator = NULL, signerKey = NULL, users = NULL)
+IdentitytoolkitRelyingpartyUploadAccountRequest(allowOverwrite = NULL,
+  delegatedProjectNumber = NULL, hashAlgorithm = NULL, memoryCost = NULL,
+  rounds = NULL, saltSeparator = NULL, sanityCheck = NULL,
+  signerKey = NULL, targetProjectId = NULL, users = NULL)
 }
 \arguments{
+\item{allowOverwrite}{Whether allow overwrite existing account when user local_id exists}
+
 \item{delegatedProjectNumber}{GCP project number of the requesting delegated app}
 
 \item{hashAlgorithm}{The password hash algorithm}
@@ -20,7 +22,11 @@
 
 \item{saltSeparator}{The salt separator}
 
+\item{sanityCheck}{If true, backend will do sanity check(including duplicate email and federated id) when uploading account}
+
 \item{signerKey}{The key for to hash the password}
+
+\item{targetProjectId}{Specify which project (field value is actually project id) to operate}
 
 \item{users}{The account info to be stored}
 }
@@ -37,4 +43,3 @@ Request to upload user account in batch.
 \seealso{
 Other IdentitytoolkitRelyingpartyUploadAccountRequest functions: \code{\link{relyingparty.uploadAccount}}
 }
-

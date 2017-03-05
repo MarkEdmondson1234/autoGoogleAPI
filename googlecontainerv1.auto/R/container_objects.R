@@ -2,7 +2,7 @@
 #' Builds and manages clusters that run container-based applications, powered by open source Kubernetes technology.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:17:58
+#'  at 2017-03-05 19:57:03
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecontainerv1.auto/R/container_objects.R
 #' api_json: api_json
 #' 
@@ -44,6 +44,7 @@ ListClustersResponse <- function(clusters = NULL, missingZones = NULL) {
 #' @param subnetwork The name of the Google Compute Engine [subnetwork](/compute/docs/subnetworks) to which the cluster is connected
 #' @param nodePools The node pools associated with this cluster
 #' @param locations The list of Google Compute Engine [locations](/compute/docs/zones#available) in which the cluster's nodes should be located
+#' @param enableKubernetesAlpha Kubernetes alpha features are enabled on this cluster
 #' @param selfLink [Output only] Server-defined URL for the resource
 #' @param zone [Output only] The name of the Google Compute Engine [zone](/compute/docs/zones#available) in which the cluster resides
 #' @param endpoint [Output only] The IP address of this cluster's master endpoint
@@ -57,6 +58,7 @@ ListClustersResponse <- function(clusters = NULL, missingZones = NULL) {
 #' @param servicesIpv4Cidr [Output only] The IP address range of the Kubernetes services in this cluster, in [CIDR](http://en
 #' @param instanceGroupUrls [Output only] The resource URLs of [instance groups](/compute/docs/instance-groups/) associated with this cluster
 #' @param currentNodeCount [Output only] The number of nodes currently in the cluster
+#' @param expireTime [Output only] The time the cluster will be automatically deleted in [RFC3339](https://www
 #' 
 #' @return Cluster object
 #' 
@@ -65,20 +67,21 @@ ListClustersResponse <- function(clusters = NULL, missingZones = NULL) {
 Cluster <- function(name = NULL, description = NULL, initialNodeCount = NULL, nodeConfig = NULL, 
     masterAuth = NULL, loggingService = NULL, monitoringService = NULL, network = NULL, 
     clusterIpv4Cidr = NULL, addonsConfig = NULL, subnetwork = NULL, nodePools = NULL, 
-    locations = NULL, selfLink = NULL, zone = NULL, endpoint = NULL, initialClusterVersion = NULL, 
-    currentMasterVersion = NULL, currentNodeVersion = NULL, createTime = NULL, status = NULL, 
-    statusMessage = NULL, nodeIpv4CidrSize = NULL, servicesIpv4Cidr = NULL, instanceGroupUrls = NULL, 
-    currentNodeCount = NULL) {
+    locations = NULL, enableKubernetesAlpha = NULL, selfLink = NULL, zone = NULL, 
+    endpoint = NULL, initialClusterVersion = NULL, currentMasterVersion = NULL, currentNodeVersion = NULL, 
+    createTime = NULL, status = NULL, statusMessage = NULL, nodeIpv4CidrSize = NULL, 
+    servicesIpv4Cidr = NULL, instanceGroupUrls = NULL, currentNodeCount = NULL, expireTime = NULL) {
     structure(list(name = name, description = description, initialNodeCount = initialNodeCount, 
         nodeConfig = nodeConfig, masterAuth = masterAuth, loggingService = loggingService, 
         monitoringService = monitoringService, network = network, clusterIpv4Cidr = clusterIpv4Cidr, 
         addonsConfig = addonsConfig, subnetwork = subnetwork, nodePools = nodePools, 
-        locations = locations, selfLink = selfLink, zone = zone, endpoint = endpoint, 
-        initialClusterVersion = initialClusterVersion, currentMasterVersion = currentMasterVersion, 
-        currentNodeVersion = currentNodeVersion, createTime = createTime, status = status, 
-        statusMessage = statusMessage, nodeIpv4CidrSize = nodeIpv4CidrSize, servicesIpv4Cidr = servicesIpv4Cidr, 
-        instanceGroupUrls = instanceGroupUrls, currentNodeCount = currentNodeCount), 
-        class = "gar_Cluster")
+        locations = locations, enableKubernetesAlpha = enableKubernetesAlpha, selfLink = selfLink, 
+        zone = zone, endpoint = endpoint, initialClusterVersion = initialClusterVersion, 
+        currentMasterVersion = currentMasterVersion, currentNodeVersion = currentNodeVersion, 
+        createTime = createTime, status = status, statusMessage = statusMessage, 
+        nodeIpv4CidrSize = nodeIpv4CidrSize, servicesIpv4Cidr = servicesIpv4Cidr, 
+        instanceGroupUrls = instanceGroupUrls, currentNodeCount = currentNodeCount, 
+        expireTime = expireTime), class = "gar_Cluster")
 }
 
 #' NodeConfig Object
@@ -88,19 +91,29 @@ Cluster <- function(name = NULL, description = NULL, initialNodeCount = NULL, no
 #' Parameters that describe the nodes in a cluster.
 #' 
 #' @param NodeConfig.metadata The \link{NodeConfig.metadata} object or list of objects
+#' @param NodeConfig.labels The \link{NodeConfig.labels} object or list of objects
 #' @param machineType The name of a Google Compute Engine [machine type](/compute/docs/machine-types) (e
 #' @param diskSizeGb Size of the disk attached to each node, specified in GB
 #' @param oauthScopes The set of Google API scopes to be made available on all of the node VMs under the 'default' service account
+#' @param serviceAccount The Google Cloud Platform Service Account to be used by the node VMs
 #' @param metadata The metadata key/value pairs assigned to instances in the cluster
+#' @param imageType The image type to use for this node
+#' @param labels The map of Kubernetes labels (key/value pairs) to be applied to each node
+#' @param localSsdCount The number of local SSD disks to be attached to the node
+#' @param tags The list of instance tags applied to all nodes
+#' @param preemptible Whether the nodes are created as preemptible VM instances
 #' 
 #' @return NodeConfig object
 #' 
 #' @family NodeConfig functions
 #' @export
-NodeConfig <- function(NodeConfig.metadata = NULL, machineType = NULL, diskSizeGb = NULL, 
-    oauthScopes = NULL, metadata = NULL) {
-    structure(list(NodeConfig.metadata = NodeConfig.metadata, machineType = machineType, 
-        diskSizeGb = diskSizeGb, oauthScopes = oauthScopes, metadata = metadata), 
+NodeConfig <- function(NodeConfig.metadata = NULL, NodeConfig.labels = NULL, machineType = NULL, 
+    diskSizeGb = NULL, oauthScopes = NULL, serviceAccount = NULL, metadata = NULL, 
+    imageType = NULL, labels = NULL, localSsdCount = NULL, tags = NULL, preemptible = NULL) {
+    structure(list(NodeConfig.metadata = NodeConfig.metadata, NodeConfig.labels = NodeConfig.labels, 
+        machineType = machineType, diskSizeGb = diskSizeGb, oauthScopes = oauthScopes, 
+        serviceAccount = serviceAccount, metadata = metadata, imageType = imageType, 
+        labels = labels, localSsdCount = localSsdCount, tags = tags, preemptible = preemptible), 
         class = "gar_NodeConfig")
 }
 
@@ -117,6 +130,22 @@ NodeConfig <- function(NodeConfig.metadata = NULL, machineType = NULL, diskSizeG
 #' @family NodeConfig functions
 #' @export
 NodeConfig.metadata <- function() {
+    list()
+}
+
+#' NodeConfig.labels Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' The map of Kubernetes labels (key/value pairs) to be applied to each node. These will added in addition to any default label(s) that Kubernetes may apply to the node. In case of conflict in label keys, the applied set may differ depending on the Kubernetes version -- it's best to assume the behavior is undefined and conflicts should be avoided. For more information, including usage and the valid values, see: http://kubernetes.io/v1.1/docs/user-guide/labels.html
+#' 
+#' 
+#' 
+#' @return NodeConfig.labels object
+#' 
+#' @family NodeConfig functions
+#' @export
+NodeConfig.labels <- function() {
     list()
 }
 
@@ -201,21 +230,79 @@ HorizontalPodAutoscaling <- function(disabled = NULL) {
 #' @param name The name of the node pool
 #' @param config The node configuration of the pool
 #' @param initialNodeCount The initial node count for the pool
-#' @param selfLink Server-defined URL for the resource
-#' @param version The version of the Kubernetes of this node
+#' @param selfLink [Output only] Server-defined URL for the resource
+#' @param version [Output only] The version of the Kubernetes of this node
 #' @param instanceGroupUrls [Output only] The resource URLs of [instance groups](/compute/docs/instance-groups/) associated with this node pool
-#' @param status The status of the nodes in this pool instance
+#' @param status [Output only] The status of the nodes in this pool instance
 #' @param statusMessage [Output only] Additional information about the current status of this node pool instance, if available
+#' @param autoscaling Autoscaler configuration for this NodePool
+#' @param management NodeManagement configuration for this NodePool
 #' 
 #' @return NodePool object
 #' 
 #' @family NodePool functions
 #' @export
 NodePool <- function(name = NULL, config = NULL, initialNodeCount = NULL, selfLink = NULL, 
-    version = NULL, instanceGroupUrls = NULL, status = NULL, statusMessage = NULL) {
+    version = NULL, instanceGroupUrls = NULL, status = NULL, statusMessage = NULL, 
+    autoscaling = NULL, management = NULL) {
     structure(list(name = name, config = config, initialNodeCount = initialNodeCount, 
         selfLink = selfLink, version = version, instanceGroupUrls = instanceGroupUrls, 
-        status = status, statusMessage = statusMessage), class = "gar_NodePool")
+        status = status, statusMessage = statusMessage, autoscaling = autoscaling, 
+        management = management), class = "gar_NodePool")
+}
+
+#' NodePoolAutoscaling Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' NodePoolAutoscaling contains information required by cluster autoscaler to adjust the size of the node pool to the current cluster usage.
+#' 
+#' @param enabled Is autoscaling enabled for this node pool
+#' @param minNodeCount Minimum number of nodes in the NodePool
+#' @param maxNodeCount Maximum number of nodes in the NodePool
+#' 
+#' @return NodePoolAutoscaling object
+#' 
+#' @family NodePoolAutoscaling functions
+#' @export
+NodePoolAutoscaling <- function(enabled = NULL, minNodeCount = NULL, maxNodeCount = NULL) {
+    structure(list(enabled = enabled, minNodeCount = minNodeCount, maxNodeCount = maxNodeCount), 
+        class = "gar_NodePoolAutoscaling")
+}
+
+#' NodeManagement Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' NodeManagement defines the set of node management services turned on for the node pool.
+#' 
+#' @param autoUpgrade Whether the nodes will be automatically upgraded
+#' @param upgradeOptions Specifies the Auto Upgrade knobs for the node pool
+#' 
+#' @return NodeManagement object
+#' 
+#' @family NodeManagement functions
+#' @export
+NodeManagement <- function(autoUpgrade = NULL, upgradeOptions = NULL) {
+    structure(list(autoUpgrade = autoUpgrade, upgradeOptions = upgradeOptions), class = "gar_NodeManagement")
+}
+
+#' AutoUpgradeOptions Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' AutoUpgradeOptions defines the set of options for the user to control how the Auto Upgrades will proceed.
+#' 
+#' @param autoUpgradeStartTime [Output only] This field is set when upgrades are about to commence with the approximate start time for the upgrades, in [RFC3339](https://www
+#' @param description [Output only] This field is set when upgrades are about to commence with the description of the upgrade
+#' 
+#' @return AutoUpgradeOptions object
+#' 
+#' @family AutoUpgradeOptions functions
+#' @export
+AutoUpgradeOptions <- function(autoUpgradeStartTime = NULL, description = NULL) {
+    structure(list(autoUpgradeStartTime = autoUpgradeStartTime, description = description), 
+        class = "gar_AutoUpgradeOptions")
 }
 
 #' CreateClusterRequest Object
@@ -286,6 +373,9 @@ UpdateClusterRequest <- function(update = NULL) {
 #' @param desiredMonitoringService The monitoring service the cluster should use to write metrics
 #' @param desiredAddonsConfig Configurations for the various addons available to run in the cluster
 #' @param desiredNodePoolId The node pool to be upgraded
+#' @param desiredImageType The desired image type for the node pool
+#' @param desiredNodePoolAutoscaling Autoscaler configuration for the node pool specified in desired_node_pool_id
+#' @param desiredLocations The desired list of Google Compute Engine [locations](/compute/docs/zones#available) in which the cluster's nodes should be located
 #' @param desiredMasterVersion The Kubernetes version to change the master to
 #' 
 #' @return ClusterUpdate object
@@ -293,10 +383,13 @@ UpdateClusterRequest <- function(update = NULL) {
 #' @family ClusterUpdate functions
 #' @export
 ClusterUpdate <- function(desiredNodeVersion = NULL, desiredMonitoringService = NULL, 
-    desiredAddonsConfig = NULL, desiredNodePoolId = NULL, desiredMasterVersion = NULL) {
+    desiredAddonsConfig = NULL, desiredNodePoolId = NULL, desiredImageType = NULL, 
+    desiredNodePoolAutoscaling = NULL, desiredLocations = NULL, desiredMasterVersion = NULL) {
     structure(list(desiredNodeVersion = desiredNodeVersion, desiredMonitoringService = desiredMonitoringService, 
         desiredAddonsConfig = desiredAddonsConfig, desiredNodePoolId = desiredNodePoolId, 
-        desiredMasterVersion = desiredMasterVersion), class = "gar_ClusterUpdate")
+        desiredImageType = desiredImageType, desiredNodePoolAutoscaling = desiredNodePoolAutoscaling, 
+        desiredLocations = desiredLocations, desiredMasterVersion = desiredMasterVersion), 
+        class = "gar_ClusterUpdate")
 }
 
 #' ListOperationsResponse Object
@@ -316,6 +409,38 @@ ListOperationsResponse <- function(operations = NULL, missingZones = NULL) {
     structure(list(operations = operations, missingZones = missingZones), class = "gar_ListOperationsResponse")
 }
 
+#' CancelOperationRequest Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' CancelOperationRequest cancels a single operation.
+#' 
+#' 
+#' 
+#' @return CancelOperationRequest object
+#' 
+#' @family CancelOperationRequest functions
+#' @export
+CancelOperationRequest <- function() {
+    list()
+}
+
+#' Empty Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON representation for `Empty` is empty JSON object `{}`.
+#' 
+#' 
+#' 
+#' @return Empty object
+#' 
+#' @family Empty functions
+#' @export
+Empty <- function() {
+    list()
+}
+
 #' ServerConfig Object
 #' 
 #' @details 
@@ -324,17 +449,18 @@ ListOperationsResponse <- function(operations = NULL, missingZones = NULL) {
 #' 
 #' @param defaultClusterVersion Version of Kubernetes the service deploys by default
 #' @param validNodeVersions List of valid node upgrade target versions
-#' @param defaultImageFamily Default image family
-#' @param validImageFamilies List of valid image families
+#' @param defaultImageType Default image type
+#' @param validImageTypes List of valid image types
+#' @param validMasterVersions List of valid master versions
 #' 
 #' @return ServerConfig object
 #' 
 #' @family ServerConfig functions
 #' @export
 ServerConfig <- function(defaultClusterVersion = NULL, validNodeVersions = NULL, 
-    defaultImageFamily = NULL, validImageFamilies = NULL) {
+    defaultImageType = NULL, validImageTypes = NULL, validMasterVersions = NULL) {
     structure(list(defaultClusterVersion = defaultClusterVersion, validNodeVersions = validNodeVersions, 
-        defaultImageFamily = defaultImageFamily, validImageFamilies = validImageFamilies), 
+        defaultImageType = defaultImageType, validImageTypes = validImageTypes, validMasterVersions = validMasterVersions), 
         class = "gar_ServerConfig")
 }
 
@@ -354,7 +480,6 @@ ListNodePoolsResponse <- function(nodePools = NULL) {
     structure(list(nodePools = nodePools), class = "gar_ListNodePoolsResponse")
 }
 
-
 #' CreateNodePoolRequest Object
 #' 
 #' @details 
@@ -367,12 +492,45 @@ ListNodePoolsResponse <- function(nodePools = NULL) {
 #' 
 #' @family CreateNodePoolRequest functions
 #' @export
-
-
 CreateNodePoolRequest <- function(nodePool = NULL) {
-    
-    
-    
     structure(list(nodePool = nodePool), class = "gar_CreateNodePoolRequest")
+}
+
+#' RollbackNodePoolUpgradeRequest Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' RollbackNodePoolUpgradeRequest rollbacks the previously Aborted or Failed NodePool upgrade. This will be an no-op if the last upgrade successfully completed.
+#' 
+#' 
+#' 
+#' @return RollbackNodePoolUpgradeRequest object
+#' 
+#' @family RollbackNodePoolUpgradeRequest functions
+#' @export
+RollbackNodePoolUpgradeRequest <- function() {
+    list()
+}
+
+
+#' SetNodePoolManagementRequest Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' SetNodePoolManagementRequest sets the node management properties of a node pool.
+#' 
+#' @param management NodeManagement configuration for the node pool
+#' 
+#' @return SetNodePoolManagementRequest object
+#' 
+#' @family SetNodePoolManagementRequest functions
+#' @export
+
+
+SetNodePoolManagementRequest <- function(management = NULL) {
+    
+    
+    
+    structure(list(management = management), class = "gar_SetNodePoolManagementRequest")
 }
 

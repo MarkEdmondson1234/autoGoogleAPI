@@ -78,4 +78,3 @@ Other TimelineItem functions: \code{\link{timeline.insert}},
   \code{\link{timeline.patch}},
   \code{\link{timeline.update}}
 }
-

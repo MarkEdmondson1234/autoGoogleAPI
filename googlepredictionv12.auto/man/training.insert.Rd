@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Training functions: \code{\link{Training.modelInfo}},
   \code{\link{Training}}
 }
-

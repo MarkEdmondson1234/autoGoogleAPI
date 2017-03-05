@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.createtestorder}
 \alias{orders.createtestorder}
-\title{Sandbox only. Creates a test order.}
+\title{Sandbox only. Creates a test order. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.createtestorder(OrdersCreateTestOrderRequest, merchantId)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersCreateTestOrderRequest functions: \code{\link{OrdersCreateTestOrderRequest}}
 }
-

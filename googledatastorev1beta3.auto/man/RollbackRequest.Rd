@@ -22,4 +22,3 @@ The request for Datastore.Rollback.
 \seealso{
 Other RollbackRequest functions: \code{\link{projects.rollback}}
 }
-

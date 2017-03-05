@@ -34,4 +34,3 @@ Other Firewall functions: \code{\link{Firewall.allowed}},
   \code{\link{Firewall}}, \code{\link{firewalls.insert}},
   \code{\link{firewalls.update}}
 }
-

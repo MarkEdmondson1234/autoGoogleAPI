@@ -2,7 +2,7 @@
 % Please edit documentation in R/servicecontrol_functions.R
 \name{services.check}
 \alias{services.check}
-\title{Checks an operation with Google Service Control to decide whetherthe given operation should proceed. It should be called before theoperation is executed.This method requires the `servicemanagement.services.check` permissionon the specified service. For more information, see[Google Cloud IAM](https://cloud.google.com/iam).}
+\title{Checks an operation with Google Service Control to decide whetherthe given operation should proceed. It should be called before theoperation is executed.If feasible, the client should cache the check results and reuse them for60 seconds. In case of server errors, the client can rely on the cachedresults for longer time.NOTE: the `CheckRequest` has the size limit of 64KB.This method requires the `servicemanagement.services.check` permissionon the specified service. For more information, see[Google Cloud IAM](https://cloud.google.com/iam).}
 \usage{
 services.check(CheckRequest, serviceName)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other CheckRequest functions: \code{\link{CheckRequest}}
 }
-

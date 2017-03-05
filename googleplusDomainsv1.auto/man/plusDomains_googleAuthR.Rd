@@ -8,7 +8,7 @@
 Builds on top of the Google+ platform for Google Apps Domains.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:25:27
+ at 2017-03-05 20:05:10
 filename: /Users/mark/dev/R/autoGoogleAPI/googleplusDomainsv1.auto/R/plusDomains_functions.R
 api_json: api_json
 }
@@ -27,4 +27,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/userinfo.profile
 }
 }
-

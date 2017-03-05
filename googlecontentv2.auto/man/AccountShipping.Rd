@@ -32,4 +32,3 @@ The shipping settings of a merchant account.
 Other AccountShipping functions: \code{\link{accountshipping.patch}},
   \code{\link{accountshipping.update}}
 }
-

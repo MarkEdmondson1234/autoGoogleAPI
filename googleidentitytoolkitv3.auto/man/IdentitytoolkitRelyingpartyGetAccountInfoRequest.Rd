@@ -30,4 +30,3 @@ Request to get the account information.
 \seealso{
 Other IdentitytoolkitRelyingpartyGetAccountInfoRequest functions: \code{\link{relyingparty.getAccountInfo}}
 }
-

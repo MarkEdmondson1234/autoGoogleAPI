@@ -22,4 +22,3 @@ Request template for the delete upload data request.
 \seealso{
 Other AnalyticsDataimportDeleteUploadDataRequest functions: \code{\link{management.uploads.deleteUploadData}}
 }
-

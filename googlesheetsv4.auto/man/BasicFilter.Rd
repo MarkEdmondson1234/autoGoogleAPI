@@ -4,15 +4,15 @@
 \alias{BasicFilter}
 \title{BasicFilter Object}
 \usage{
-BasicFilter(BasicFilter.criteria = NULL, criteria = NULL, range = NULL,
+BasicFilter(BasicFilter.criteria = NULL, range = NULL, criteria = NULL,
   sortSpecs = NULL)
 }
 \arguments{
 \item{BasicFilter.criteria}{The \link{BasicFilter.criteria} object or list of objects}
 
-\item{criteria}{The criteria for showing/hiding values per column}
-
 \item{range}{The range the filter covers}
+
+\item{criteria}{The criteria for showing/hiding values per column}
 
 \item{sortSpecs}{The sort order per column}
 }
@@ -29,4 +29,3 @@ The default filter associated with a sheet.
 \seealso{
 Other BasicFilter functions: \code{\link{BasicFilter.criteria}}
 }
-

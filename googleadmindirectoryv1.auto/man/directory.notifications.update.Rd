@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Notification functions: \code{\link{Notification}},
   \code{\link{directory.notifications.patch}}
 }
-

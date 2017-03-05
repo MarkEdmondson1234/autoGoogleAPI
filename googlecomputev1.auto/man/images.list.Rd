@@ -4,7 +4,8 @@
 \alias{images.list}
 \title{Retrieves the list of private images available to the specified project. Private images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.}
 \usage{
-images.list(project, filter = NULL, maxResults = NULL, pageToken = NULL)
+images.list(project, filter = NULL, maxResults = NULL, orderBy = NULL,
+  pageToken = NULL)
 }
 \arguments{
 \item{project}{Project ID for this request}
@@ -12,6 +13,8 @@ images.list(project, filter = NULL, maxResults = NULL, pageToken = NULL)
 \item{filter}{Sets a filter expression for filtering listed resources, in the form filter={expression}}
 
 \item{maxResults}{The maximum number of results per page that should be returned}
+
+\item{orderBy}{Sorts list results by a certain order}
 
 \item{pageToken}{Specifies a page token to use}
 }
@@ -33,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
 }
-

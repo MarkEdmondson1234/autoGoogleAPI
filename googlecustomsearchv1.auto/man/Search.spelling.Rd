@@ -26,4 +26,3 @@ Other Search functions: \code{\link{Search.queries}},
   \code{\link{Search.searchInformation}},
   \code{\link{Search.url}}, \code{\link{Search}}
 }
-

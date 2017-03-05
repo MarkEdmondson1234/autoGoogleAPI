@@ -2,7 +2,7 @@
 #' Lets Android application developers access their Google Play accounts.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:35:20
+#'  at 2017-03-05 19:26:40
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleandroidpublisherv11.auto/R/androidpublisher_objects.R
 #' api_json: api_json
 #' 
@@ -26,7 +26,7 @@
 InappPurchase <- function(consumptionState = NULL, developerPayload = NULL, purchaseState = NULL, 
     purchaseTime = NULL) {
     structure(list(consumptionState = consumptionState, developerPayload = developerPayload, 
-        kind = "androidpublisher#inappPurchase", purchaseState = purchaseState, purchaseTime = purchaseTime), 
+        kind = `androidpublisher#inappPurchase`, purchaseState = purchaseState, purchaseTime = purchaseTime), 
         class = "gar_InappPurchase")
 }
 
@@ -53,7 +53,7 @@ SubscriptionPurchase <- function(autoRenewing = NULL, initiationTimestampMsec = 
     
     
     structure(list(autoRenewing = autoRenewing, initiationTimestampMsec = initiationTimestampMsec, 
-        kind = "androidpublisher#subscriptionPurchase", validUntilTimestampMsec = validUntilTimestampMsec), 
+        kind = `androidpublisher#subscriptionPurchase`, validUntilTimestampMsec = validUntilTimestampMsec), 
         class = "gar_SubscriptionPurchase")
 }
 

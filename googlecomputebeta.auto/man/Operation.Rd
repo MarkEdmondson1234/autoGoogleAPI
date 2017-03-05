@@ -25,7 +25,7 @@ Operation(Operation.error = NULL, Operation.error.errors = NULL,
 
 \item{clientOperationId}{[Output Only] Reserved for future use}
 
-\item{creationTimestamp}{[Output Only] Creation timestamp in RFC3339 text format}
+\item{creationTimestamp}{[Deprecated] This field is deprecated}
 
 \item{description}{[Output Only] A textual description of the operation, which is set when the operation is created}
 
@@ -83,4 +83,3 @@ Other Operation functions: \code{\link{Operation.error.errors}},
   \code{\link{Operation.warnings.data}},
   \code{\link{Operation.warnings}}
 }
-

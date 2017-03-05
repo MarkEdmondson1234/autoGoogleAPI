@@ -31,4 +31,3 @@ Other LeaderboardConfiguration functions: \code{\link{LeaderboardConfiguration}}
   \code{\link{leaderboardConfigurations.insert}},
   \code{\link{leaderboardConfigurations.patch}}
 }
-

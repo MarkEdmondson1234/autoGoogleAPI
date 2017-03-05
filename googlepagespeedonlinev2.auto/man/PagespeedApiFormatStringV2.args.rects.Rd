@@ -21,4 +21,3 @@ Other PagespeedApiFormatStringV2 functions: \code{\link{PagespeedApiFormatString
   \code{\link{PagespeedApiFormatStringV2.args}},
   \code{\link{PagespeedApiFormatStringV2}}
 }
-

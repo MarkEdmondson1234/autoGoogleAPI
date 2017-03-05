@@ -5,21 +5,18 @@
 \title{Cloud Storage JSON API Objects 
 Stores and retrieves potentially large, immutable data objects.}
 \usage{
-Bucket(Bucket.cors = NULL, Bucket.encryption = NULL,
-  Bucket.lifecycle = NULL, Bucket.lifecycle.rule = NULL,
-  Bucket.lifecycle.rule.action = NULL,
+Bucket(Bucket.cors = NULL, Bucket.lifecycle = NULL,
+  Bucket.lifecycle.rule = NULL, Bucket.lifecycle.rule.action = NULL,
   Bucket.lifecycle.rule.condition = NULL, Bucket.logging = NULL,
   Bucket.owner = NULL, Bucket.versioning = NULL, Bucket.website = NULL,
-  acl = NULL, cors = NULL, defaultObjectAcl = NULL, encryption = NULL,
-  etag = NULL, id = NULL, lifecycle = NULL, location = NULL,
-  logging = NULL, metageneration = NULL, name = NULL, owner = NULL,
+  acl = NULL, cors = NULL, defaultObjectAcl = NULL, etag = NULL,
+  id = NULL, lifecycle = NULL, location = NULL, logging = NULL,
+  metageneration = NULL, name = NULL, owner = NULL,
   projectNumber = NULL, selfLink = NULL, storageClass = NULL,
   timeCreated = NULL, updated = NULL, versioning = NULL, website = NULL)
 }
 \arguments{
 \item{Bucket.cors}{The \link{Bucket.cors} object or list of objects}
-
-\item{Bucket.encryption}{The \link{Bucket.encryption} object or list of objects}
 
 \item{Bucket.lifecycle}{The \link{Bucket.lifecycle} object or list of objects}
 
@@ -43,8 +40,6 @@ Bucket(Bucket.cors = NULL, Bucket.encryption = NULL,
 
 \item{defaultObjectAcl}{Default access controls to apply to new objects when no ACL is provided}
 
-\item{encryption}{Encryption configuration used by default for newly inserted objects, when no encryption config is specified}
-
 \item{etag}{HTTP 1}
 
 \item{id}{The ID of the bucket}
@@ -65,7 +60,7 @@ Bucket(Bucket.cors = NULL, Bucket.encryption = NULL,
 
 \item{selfLink}{The URI of this bucket}
 
-\item{storageClass}{The bucket's storage class}
+\item{storageClass}{The bucket's default storage class, used whenever no storageClass is specified for a newly-created object}
 
 \item{timeCreated}{The creation time of the bucket in RFC 3339 format}
 
@@ -80,7 +75,7 @@ Bucket object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-04 00:02:45
+ at 2017-03-05 20:17:01
 filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragev1.auto/R/storage_objects.R
 api_json: api_json
 }
@@ -94,7 +89,6 @@ A bucket.
 }
 \seealso{
 Other Bucket functions: \code{\link{Bucket.cors}},
-  \code{\link{Bucket.encryption}},
   \code{\link{Bucket.lifecycle.rule.action}},
   \code{\link{Bucket.lifecycle.rule.condition}},
   \code{\link{Bucket.lifecycle.rule}},
@@ -105,4 +99,3 @@ Other Bucket functions: \code{\link{Bucket.cors}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

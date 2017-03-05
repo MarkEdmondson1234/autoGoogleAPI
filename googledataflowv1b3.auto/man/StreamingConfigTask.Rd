@@ -27,4 +27,3 @@ A task that carries configuration information for streaming computations.
 \seealso{
 Other StreamingConfigTask functions: \code{\link{StreamingConfigTask.userStepToStateFamilyNameMap}}
 }
-

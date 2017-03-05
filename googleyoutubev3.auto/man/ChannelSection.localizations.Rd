@@ -21,4 +21,3 @@ Other ChannelSection functions: \code{\link{ChannelSection}},
   \code{\link{channelSections.insert}},
   \code{\link{channelSections.update}}
 }
-

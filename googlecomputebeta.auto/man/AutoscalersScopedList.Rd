@@ -31,4 +31,3 @@ No description
 Other AutoscalersScopedList functions: \code{\link{AutoscalersScopedList.warning.data}},
   \code{\link{AutoscalersScopedList.warning}}
 }
-

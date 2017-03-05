@@ -58,4 +58,3 @@ JSON template for an Analytics custom data source.
 Other CustomDataSource functions: \code{\link{CustomDataSource.childLink}},
   \code{\link{CustomDataSource.parentLink}}
 }
-

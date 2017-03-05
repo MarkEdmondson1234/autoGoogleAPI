@@ -2,7 +2,7 @@
 % Please edit documentation in R/compute_functions.R
 \name{urlMaps.update}
 \alias{urlMaps.update}
-\title{Updates the entire content of the UrlMap resource.}
+\title{Updates the specified UrlMap resource with the data included in the request.}
 \usage{
 urlMaps.update(UrlMap, project, urlMap)
 }
@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other UrlMap functions: \code{\link{UrlMap}},
   \code{\link{urlMaps.insert}}, \code{\link{urlMaps.patch}}
 }
-

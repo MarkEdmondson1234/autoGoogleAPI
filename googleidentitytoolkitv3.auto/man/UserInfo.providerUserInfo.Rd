@@ -19,4 +19,3 @@ No description
 \seealso{
 Other UserInfo functions: \code{\link{UserInfo}}
 }
-

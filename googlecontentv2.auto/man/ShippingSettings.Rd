@@ -28,4 +28,3 @@ The merchant account's shipping settings.
 Other ShippingSettings functions: \code{\link{shippingsettings.patch}},
   \code{\link{shippingsettings.update}}
 }
-

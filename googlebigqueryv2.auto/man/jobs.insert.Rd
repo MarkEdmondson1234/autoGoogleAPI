@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other Job functions: \code{\link{Job}}
 }
-

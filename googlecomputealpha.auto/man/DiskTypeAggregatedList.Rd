@@ -31,4 +31,3 @@ No description
 \seealso{
 Other DiskTypeAggregatedList functions: \code{\link{DiskTypeAggregatedList.items}}
 }
-

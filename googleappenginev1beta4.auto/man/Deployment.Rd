@@ -29,4 +29,3 @@ Code and application artifacts used to deploy a version to App Engine.
 \seealso{
 Other Deployment functions: \code{\link{Deployment.files}}
 }
-

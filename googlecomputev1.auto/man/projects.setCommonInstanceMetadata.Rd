@@ -32,4 +32,3 @@ Other Metadata functions: \code{\link{Metadata.items}},
   \code{\link{Metadata}},
   \code{\link{instances.setMetadata}}
 }
-

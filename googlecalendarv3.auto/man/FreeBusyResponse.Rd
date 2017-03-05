@@ -35,4 +35,3 @@ No description
 Other FreeBusyResponse functions: \code{\link{FreeBusyResponse.calendars}},
   \code{\link{FreeBusyResponse.groups}}
 }
-

@@ -25,4 +25,3 @@ Other Comment functions: \code{\link{Comment.author}},
   \code{\link{Comment.inReplyTo}},
   \code{\link{Comment.post}}, \code{\link{Comment}}
 }
-

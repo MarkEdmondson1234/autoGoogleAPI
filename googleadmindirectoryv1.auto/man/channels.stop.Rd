@@ -33,4 +33,3 @@ Other Channel functions: \code{\link{Channel.params}},
   \code{\link{Channel}},
   \code{\link{directory.users.watch}}
 }
-

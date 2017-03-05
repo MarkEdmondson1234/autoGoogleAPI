@@ -19,4 +19,3 @@ No description
 \seealso{
 Other App functions: \code{\link{App}}
 }
-

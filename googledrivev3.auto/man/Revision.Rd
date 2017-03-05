@@ -45,4 +45,3 @@ The metadata for a revision to a file.
 \seealso{
 Other Revision functions: \code{\link{revisions.update}}
 }
-

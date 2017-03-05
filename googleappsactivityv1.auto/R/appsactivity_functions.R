@@ -1,8 +1,8 @@
-#' Google Apps Activity API
+#' G Suite Activity API
 #' Provides a historical view of activity.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:35:50
+#'  at 2017-03-05 19:28:12
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleappsactivityv1.auto/R/appsactivity_functions.R
 #' api_json: api_json
 #' 
@@ -22,6 +22,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Returns a list of activities visible to the current logged in user. Visible activities are determined by the visiblity settings of the object that was acted on, e.g. Drive files a user can see. An activity is a record of past events. Multiple events may be merged if they are similar. A request is scoped to activities from a given Google service using the source parameter.
@@ -67,9 +80,12 @@ activities.list <- function(drive.ancestorId = NULL, drive.fileId = NULL, groupi
     
     url <- "https://www.googleapis.com/appsactivity/v1/activities"
     # appsactivity.activities.list
-    f <- gar_api_generator(url, "GET", pars_args = list(drive.ancestorId = drive.ancestorId, 
-        drive.fileId = drive.fileId, groupingStrategy = groupingStrategy, pageSize = pageSize, 
-        pageToken = pageToken, source = source, userId = userId), data_parse_function = function(x) x)
+    pars = list(drive.ancestorId = drive.ancestorId, drive.fileId = drive.fileId, 
+        groupingStrategy = groupingStrategy, pageSize = pageSize, pageToken = pageToken, 
+        source = source, userId = userId)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

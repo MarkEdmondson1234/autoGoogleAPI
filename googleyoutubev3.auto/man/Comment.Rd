@@ -27,4 +27,3 @@ A comment represents a single YouTube comment.
 Other Comment functions: \code{\link{comments.insert}},
   \code{\link{comments.update}}
 }
-

@@ -8,11 +8,11 @@ DeprecationStatus(deleted = NULL, deprecated = NULL, obsolete = NULL,
   replacement = NULL, state = NULL)
 }
 \arguments{
-\item{deleted}{An optional RFC3339 timestamp on or after which the deprecation state of this resource will be changed to DELETED}
+\item{deleted}{An optional RFC3339 timestamp on or after which the state of this resource is intended to change to DELETED}
 
-\item{deprecated}{An optional RFC3339 timestamp on or after which the deprecation state of this resource will be changed to DEPRECATED}
+\item{deprecated}{An optional RFC3339 timestamp on or after which the state of this resource is intended to change to DEPRECATED}
 
-\item{obsolete}{An optional RFC3339 timestamp on or after which the deprecation state of this resource will be changed to OBSOLETE}
+\item{obsolete}{An optional RFC3339 timestamp on or after which the state of this resource is intended to change to OBSOLETE}
 
 \item{replacement}{The URL of the suggested replacement for a deprecated resource}
 
@@ -31,4 +31,3 @@ Deprecation status for a public resource.
 \seealso{
 Other DeprecationStatus functions: \code{\link{images.deprecate}}
 }
-

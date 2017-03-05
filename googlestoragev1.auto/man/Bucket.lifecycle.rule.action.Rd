@@ -4,9 +4,11 @@
 \alias{Bucket.lifecycle.rule.action}
 \title{Bucket.lifecycle.rule.action Object}
 \usage{
-Bucket.lifecycle.rule.action(type = NULL)
+Bucket.lifecycle.rule.action(storageClass = NULL, type = NULL)
 }
 \arguments{
+\item{storageClass}{Target storage class}
+
 \item{type}{Type of the action}
 }
 \value{
@@ -21,7 +23,6 @@ The action to take.
 }
 \seealso{
 Other Bucket functions: \code{\link{Bucket.cors}},
-  \code{\link{Bucket.encryption}},
   \code{\link{Bucket.lifecycle.rule.condition}},
   \code{\link{Bucket.lifecycle.rule}},
   \code{\link{Bucket.lifecycle}},
@@ -31,4 +32,3 @@ Other Bucket functions: \code{\link{Bucket.cors}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

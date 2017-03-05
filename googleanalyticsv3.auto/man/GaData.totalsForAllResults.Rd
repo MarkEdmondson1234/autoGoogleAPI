@@ -25,4 +25,3 @@ Other GaData functions: \code{\link{GaData.columnHeaders}},
   \code{\link{GaData.profileInfo}},
   \code{\link{GaData.query}}, \code{\link{GaData}}
 }
-

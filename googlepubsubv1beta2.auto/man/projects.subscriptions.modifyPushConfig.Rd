@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.modifyPushConfig}
 \alias{projects.subscriptions.modifyPushConfig}
-\title{Modifies the `PushConfig` for a specified subscription. This may be used to change a push subscription to a pull one (signified by an empty `PushConfig`) or vice versa, or change the endpoint URL and other attributes of a push subscription. Messages will accumulate for delivery continuously through the call regardless of changes to the `PushConfig`.}
+\title{Modifies the `PushConfig` for a specified subscription.This may be used to change a push subscription to a pull one (signified byan empty `PushConfig`) or vice versa, or change the endpoint URL and otherattributes of a push subscription. Messages will accumulate for deliverycontinuously through the call regardless of changes to the `PushConfig`.}
 \usage{
 projects.subscriptions.modifyPushConfig(ModifyPushConfigRequest, subscription)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ModifyPushConfigRequest functions: \code{\link{ModifyPushConfigRequest}}
 }
-

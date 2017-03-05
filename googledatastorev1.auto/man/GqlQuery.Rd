@@ -31,4 +31,3 @@ A [GQL query](https://cloud.google.com/datastore/docs/apis/gql/gql_reference).
 \seealso{
 Other GqlQuery functions: \code{\link{GqlQuery.namedBindings}}
 }
-

@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Group functions: \code{\link{Group}},
   \code{\link{projects.groups.update}}
 }
-

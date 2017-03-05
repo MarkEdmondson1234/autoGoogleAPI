@@ -185,4 +185,3 @@ Product data.
 \seealso{
 Other Product functions: \code{\link{products.insert}}
 }
-

@@ -23,4 +23,3 @@ No description
 Other UrlMapReference functions: \code{\link{targetHttpProxies.setUrlMap}},
   \code{\link{targetHttpsProxies.setUrlMap}}
 }
-

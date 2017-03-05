@@ -31,4 +31,3 @@ JSON template for an Analytics account ticket. The account ticket consists of th
 \seealso{
 Other AccountTicket functions: \code{\link{provisioning.createAccountTicket}}
 }
-

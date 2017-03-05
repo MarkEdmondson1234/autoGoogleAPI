@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/cloud-dns}{Google Documentation}
 }
-

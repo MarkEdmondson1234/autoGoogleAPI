@@ -22,4 +22,3 @@ Other Role functions: \code{\link{Role}},
   \code{\link{directory.roles.patch}},
   \code{\link{directory.roles.update}}
 }
-

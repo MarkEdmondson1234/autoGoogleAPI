@@ -28,4 +28,3 @@ ACLs that are applicable to this TaskQueue object.
 Other TaskQueue functions: \code{\link{TaskQueue.stats}},
   \code{\link{TaskQueue}}
 }
-

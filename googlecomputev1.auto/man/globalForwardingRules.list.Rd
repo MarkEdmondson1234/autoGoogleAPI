@@ -5,7 +5,7 @@
 \title{Retrieves a list of ForwardingRule resources available to the specified project.}
 \usage{
 globalForwardingRules.list(project, filter = NULL, maxResults = NULL,
-  pageToken = NULL)
+  orderBy = NULL, pageToken = NULL)
 }
 \arguments{
 \item{project}{Project ID for this request}
@@ -13,6 +13,8 @@ globalForwardingRules.list(project, filter = NULL, maxResults = NULL,
 \item{filter}{Sets a filter expression for filtering listed resources, in the form filter={expression}}
 
 \item{maxResults}{The maximum number of results per page that should be returned}
+
+\item{orderBy}{Sorts list results by a certain order}
 
 \item{pageToken}{Specifies a page token to use}
 }
@@ -34,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
 }
-

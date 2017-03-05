@@ -30,4 +30,3 @@ Provenance of the source. Ways to find the original source, or verify thatsome s
 \seealso{
 Other SourceProvenance functions: \code{\link{SourceProvenance.fileHashes}}
 }
-

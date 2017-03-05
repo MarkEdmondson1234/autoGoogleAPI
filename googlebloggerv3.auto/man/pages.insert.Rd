@@ -34,4 +34,3 @@ Other Page functions: \code{\link{Page.author.image}},
   \code{\link{Page}}, \code{\link{pages.patch}},
   \code{\link{pages.update}}
 }
-

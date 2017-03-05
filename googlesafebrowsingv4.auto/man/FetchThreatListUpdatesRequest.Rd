@@ -24,4 +24,3 @@ Describes a Safe Browsing API update request. Clients can request updates for mu
 \seealso{
 Other FetchThreatListUpdatesRequest functions: \code{\link{threatListUpdates.fetch}}
 }
-

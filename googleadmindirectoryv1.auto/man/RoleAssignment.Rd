@@ -33,4 +33,3 @@ JSON template for roleAssignment resource in Directory API.
 \seealso{
 Other RoleAssignment functions: \code{\link{directory.roleAssignments.insert}}
 }
-

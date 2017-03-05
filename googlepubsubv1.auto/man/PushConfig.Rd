@@ -27,4 +27,3 @@ Configuration for a push delivery endpoint.
 \seealso{
 Other PushConfig functions: \code{\link{PushConfig.attributes}}
 }
-

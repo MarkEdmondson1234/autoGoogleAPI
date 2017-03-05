@@ -26,4 +26,3 @@ No description
 \seealso{
 Other OrdersCancelRequest functions: \code{\link{orders.cancel}}
 }
-

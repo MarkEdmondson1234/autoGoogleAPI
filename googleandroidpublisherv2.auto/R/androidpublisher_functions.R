@@ -2,7 +2,7 @@
 #' Lets Android application developers access their Google Play accounts.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:35:33
+#'  at 2017-03-05 19:27:00
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleandroidpublisherv2.auto/R/androidpublisher_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Commits/applies the changes made in this edit back to the app.
 #' 
@@ -41,9 +54,9 @@ NULL
 #' @export
 edits.commit <- function(packageName, editId) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/edits/%s:commit", 
-        editId, packageName)
+        packageName, editId)
     # androidpublisher.edits.commit
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -70,9 +83,9 @@ edits.commit <- function(packageName, editId) {
 #' @export
 edits.delete <- function(packageName, editId) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/edits/%s", 
-        editId, packageName)
+        packageName, editId)
     # androidpublisher.edits.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -99,9 +112,9 @@ edits.delete <- function(packageName, editId) {
 #' @export
 edits.get <- function(packageName, editId) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/edits/%s", 
-        editId, packageName)
+        packageName, editId)
     # androidpublisher.edits.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -131,7 +144,7 @@ edits.insert <- function(AppEdit, packageName) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/edits", 
         packageName)
     # androidpublisher.edits.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AppEdit, "gar_AppEdit"))
     
     f(the_body = AppEdit)
@@ -160,9 +173,9 @@ edits.insert <- function(AppEdit, packageName) {
 #' @export
 edits.validate <- function(packageName, editId) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/edits/%s:validate", 
-        editId, packageName)
+        packageName, editId)
     # androidpublisher.edits.validate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -195,8 +208,10 @@ entitlements.list <- function(packageName, maxResults = NULL, productId = NULL, 
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/entitlements", 
         packageName)
     # androidpublisher.entitlements.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        productId = productId, startIndex = startIndex, token = token), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, productId = productId, startIndex = startIndex, 
+        token = token)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -224,7 +239,7 @@ entitlements.list <- function(packageName, maxResults = NULL, productId = NULL, 
 inappproducts.batch <- function(InappproductsBatchRequest) {
     url <- "https://www.googleapis.com/androidpublisher/v2/applications/inappproducts/batch"
     # androidpublisher.inappproducts.batch
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InappproductsBatchRequest, "gar_InappproductsBatchRequest"))
     
     f(the_body = InappproductsBatchRequest)
@@ -255,7 +270,7 @@ inappproducts.delete <- function(packageName, sku) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/inappproducts/%s", 
         packageName, sku)
     # androidpublisher.inappproducts.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -284,7 +299,7 @@ inappproducts.get <- function(packageName, sku) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/inappproducts/%s", 
         packageName, sku)
     # androidpublisher.inappproducts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -315,7 +330,8 @@ inappproducts.insert <- function(InAppProduct, packageName, autoConvertMissingPr
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/inappproducts", 
         packageName)
     # androidpublisher.inappproducts.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(autoConvertMissingPrices = autoConvertMissingPrices), 
+    pars = list(autoConvertMissingPrices = autoConvertMissingPrices)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(InAppProduct, "gar_InAppProduct"))
     
@@ -350,8 +366,9 @@ inappproducts.list <- function(packageName, maxResults = NULL, startIndex = NULL
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/inappproducts", 
         packageName)
     # androidpublisher.inappproducts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        startIndex = startIndex, token = token), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, startIndex = startIndex, token = token)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -383,7 +400,8 @@ inappproducts.patch <- function(InAppProduct, packageName, sku, autoConvertMissi
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/inappproducts/%s", 
         packageName, sku)
     # androidpublisher.inappproducts.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(autoConvertMissingPrices = autoConvertMissingPrices), 
+    pars = list(autoConvertMissingPrices = autoConvertMissingPrices)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(InAppProduct, "gar_InAppProduct"))
     
@@ -418,7 +436,8 @@ inappproducts.update <- function(InAppProduct, packageName, sku, autoConvertMiss
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/inappproducts/%s", 
         packageName, sku)
     # androidpublisher.inappproducts.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(autoConvertMissingPrices = autoConvertMissingPrices), 
+    pars = list(autoConvertMissingPrices = autoConvertMissingPrices)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(InAppProduct, "gar_InAppProduct"))
     
@@ -451,7 +470,7 @@ purchases.products.get <- function(packageName, productId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/purchases/products/%s/tokens/%s", 
         packageName, productId, token)
     # androidpublisher.purchases.products.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -481,7 +500,7 @@ purchases.subscriptions.cancel <- function(packageName, subscriptionId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/purchases/subscriptions/%s/tokens/%s:cancel", 
         packageName, subscriptionId, token)
     # androidpublisher.purchases.subscriptions.cancel
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -514,7 +533,7 @@ purchases.subscriptions.defer <- function(SubscriptionPurchasesDeferRequest, pac
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/purchases/subscriptions/%s/tokens/%s:defer", 
         packageName, subscriptionId, token)
     # androidpublisher.purchases.subscriptions.defer
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(SubscriptionPurchasesDeferRequest, "gar_SubscriptionPurchasesDeferRequest"))
     
     f(the_body = SubscriptionPurchasesDeferRequest)
@@ -546,7 +565,7 @@ purchases.subscriptions.get <- function(packageName, subscriptionId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/purchases/subscriptions/%s/tokens/%s", 
         packageName, subscriptionId, token)
     # androidpublisher.purchases.subscriptions.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -576,7 +595,7 @@ purchases.subscriptions.refund <- function(packageName, subscriptionId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/purchases/subscriptions/%s/tokens/%s:refund", 
         packageName, subscriptionId, token)
     # androidpublisher.purchases.subscriptions.refund
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -606,7 +625,44 @@ purchases.subscriptions.revoke <- function(packageName, subscriptionId, token) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/purchases/subscriptions/%s/tokens/%s:revoke", 
         packageName, subscriptionId, token)
     # androidpublisher.purchases.subscriptions.revoke
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f()
+    
+}
+
+#' Lists the purchases that were cancelled, refunded or charged-back.
+#' 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
+#' 
+#' @seealso \href{https://developers.google.com/android-publisher}{Google Documentation}
+#' 
+#' @details 
+#' Authentication scopes used by this function are:
+#' \itemize{
+#'   \item https://www.googleapis.com/auth/androidpublisher
+#' }
+#' 
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/androidpublisher)}
+#' Then run \code{googleAuthR::gar_auth()} to authenticate.
+#' See \code{\link[googleAuthR]{gar_auth}} for details. 
+#' 
+#' @param packageName The package name of the application for which voided purchases need to be returned (for example, 'com
+#' @param endTime The time, in milliseconds since the Epoch, of the newest voided in-app product purchase that you want to see in the response
+#' @param maxResults 
+#' @param startIndex 
+#' @param startTime The time, in milliseconds since the Epoch, of the oldest voided in-app product purchase that you want to see in the response
+#' @param token 
+#' @importFrom googleAuthR gar_api_generator
+#' @export
+purchases.voidedpurchases.list <- function(packageName, endTime = NULL, maxResults = NULL, 
+    startIndex = NULL, startTime = NULL, token = NULL) {
+    url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/purchases/voidedpurchases", 
+        packageName)
+    # androidpublisher.purchases.voidedpurchases.list
+    pars = list(endTime = endTime, maxResults = maxResults, startIndex = startIndex, 
+        startTime = startTime, token = token)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -629,18 +685,21 @@ purchases.subscriptions.revoke <- function(packageName, subscriptionId, token) {
 #' 
 #' @param packageName Unique identifier for the Android app for which we want reviews; for example, 'com
 #' @param reviewId 
+#' @param translationLanguage 
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-reviews.get <- function(packageName, reviewId) {
+reviews.get <- function(packageName, reviewId, translationLanguage = NULL) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/reviews/%s", 
         packageName, reviewId)
     # androidpublisher.reviews.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    pars = list(translationLanguage = translationLanguage)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
 
-#' Returns a list of reviews.
+#' Returns a list of reviews. Only reviews from last week will be returned.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -660,14 +719,18 @@ reviews.get <- function(packageName, reviewId) {
 #' @param maxResults 
 #' @param startIndex 
 #' @param token 
+#' @param translationLanguage 
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-reviews.list <- function(packageName, maxResults = NULL, startIndex = NULL, token = NULL) {
+reviews.list <- function(packageName, maxResults = NULL, startIndex = NULL, token = NULL, 
+    translationLanguage = NULL) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/reviews", 
         packageName)
     # androidpublisher.reviews.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        startIndex = startIndex, token = token), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, startIndex = startIndex, token = token, 
+        translationLanguage = translationLanguage)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -704,7 +767,8 @@ reviews.reply <- function(ReviewsReplyRequest, packageName, reviewId) {
     url <- sprintf("https://www.googleapis.com/androidpublisher/v2/applications/%s/reviews/%s:reply", 
         packageName, reviewId)
     # androidpublisher.reviews.reply
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(ReviewsReplyRequest, "gar_ReviewsReplyRequest"))
     

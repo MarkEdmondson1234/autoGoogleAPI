@@ -31,4 +31,3 @@ No description
 \seealso{
 Other VpnTunnelAggregatedList functions: \code{\link{VpnTunnelAggregatedList.items}}
 }
-

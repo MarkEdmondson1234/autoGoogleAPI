@@ -2,7 +2,7 @@
 % Please edit documentation in R/speech_functions.R
 \name{syncrecognize}
 \alias{syncrecognize}
-\title{Perform synchronous speech-recognition: receive results after all audiohas been sent and processed.}
+\title{Performs synchronous speech recognition: receive results after all audiohas been sent and processed.}
 \usage{
 syncrecognize(SyncRecognizeRequest)
 }
@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other SyncRecognizeRequest functions: \code{\link{SyncRecognizeRequest}}
 }
-

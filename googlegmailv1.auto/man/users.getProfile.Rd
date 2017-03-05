@@ -17,15 +17,15 @@ Authentication scopes used by this function are:
 \itemize{
   \item https://mail.google.com/
 \item https://www.googleapis.com/auth/gmail.compose
+\item https://www.googleapis.com/auth/gmail.metadata
 \item https://www.googleapis.com/auth/gmail.modify
 \item https://www.googleapis.com/auth/gmail.readonly
 }
 
-Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.compose, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
+Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.compose, https://www.googleapis.com/auth/gmail.metadata, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
 Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
 \href{https://developers.google.com/gmail/api/}{Google Documentation}
 }
-

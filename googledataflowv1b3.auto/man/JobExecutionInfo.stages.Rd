@@ -19,4 +19,3 @@ A mapping from each stage to the information about that stage.
 \seealso{
 Other JobExecutionInfo functions: \code{\link{JobExecutionInfo}}
 }
-

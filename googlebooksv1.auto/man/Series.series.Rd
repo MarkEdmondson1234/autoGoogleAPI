@@ -19,4 +19,3 @@ No description
 \seealso{
 Other Series functions: \code{\link{Series}}
 }
-

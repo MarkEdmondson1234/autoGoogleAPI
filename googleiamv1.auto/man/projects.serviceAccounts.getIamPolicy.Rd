@@ -2,7 +2,7 @@
 % Please edit documentation in R/iam_functions.R
 \name{projects.serviceAccounts.getIamPolicy}
 \alias{projects.serviceAccounts.getIamPolicy}
-\title{Returns the IAM access control policy for specified IAM resource.}
+\title{Returns the IAM access control policy for aServiceAccount.}
 \usage{
 projects.serviceAccounts.getIamPolicy(resource)
 }
@@ -25,4 +25,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/iam/}{Google Documentation}
 }
-

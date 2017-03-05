@@ -22,4 +22,3 @@ Other Environment functions: \code{\link{Environment.sdkPipelineOptions}},
   \code{\link{Environment.version}},
   \code{\link{Environment}}
 }
-

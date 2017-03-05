@@ -33,4 +33,3 @@ Represents a StyleFunction within a StyleSetting
 Other StyleFunction functions: \code{\link{StyleFunction.gradient.colors}},
   \code{\link{StyleFunction.gradient}}
 }
-

@@ -22,4 +22,3 @@ Request message for `TestIamPermissions` method.
 \seealso{
 Other TestIamPermissionsRequest functions: \code{\link{datasets.testIamPermissions}}
 }
-

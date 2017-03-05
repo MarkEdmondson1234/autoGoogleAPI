@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other CommentReply functions: \code{\link{CommentReply}},
   \code{\link{replies.patch}}, \code{\link{replies.update}}
 }
-

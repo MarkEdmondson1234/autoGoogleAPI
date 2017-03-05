@@ -29,4 +29,3 @@ A comment thread represents information that applies to a top level comment and 
 Other CommentThread functions: \code{\link{commentThreads.insert}},
   \code{\link{commentThreads.update}}
 }
-

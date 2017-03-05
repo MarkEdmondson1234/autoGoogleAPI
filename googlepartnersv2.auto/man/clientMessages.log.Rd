@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other LogMessageRequest functions: \code{\link{LogMessageRequest.clientInfo}},
   \code{\link{LogMessageRequest}}
 }
-

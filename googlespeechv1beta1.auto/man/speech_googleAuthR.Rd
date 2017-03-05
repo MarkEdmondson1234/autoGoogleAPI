@@ -8,7 +8,7 @@
 Google Cloud Speech API.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:47:37
+ at 2017-03-05 20:15:48
 filename: /Users/mark/dev/R/autoGoogleAPI/googlespeechv1beta1.auto/R/speech_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

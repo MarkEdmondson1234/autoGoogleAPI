@@ -2,7 +2,7 @@
 #' View Google Search Console data for your verified sites.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:50:42
+#'  at 2017-03-05 20:22:23
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlewebmastersv3.auto/R/webmasters_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days.When date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned.
 #' 
@@ -46,7 +59,7 @@ searchanalytics.query <- function(SearchAnalyticsQueryRequest, siteUrl) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/searchAnalytics/query", 
         siteUrl)
     # webmasters.searchanalytics.query
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(SearchAnalyticsQueryRequest, "gar_SearchAnalyticsQueryRequest"))
     
     f(the_body = SearchAnalyticsQueryRequest)
@@ -75,9 +88,9 @@ searchanalytics.query <- function(SearchAnalyticsQueryRequest, siteUrl) {
 #' @export
 sitemaps.delete <- function(siteUrl, feedpath) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/sitemaps/%s", 
-        feedpath, siteUrl)
+        siteUrl, feedpath)
     # webmasters.sitemaps.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -105,9 +118,9 @@ sitemaps.delete <- function(siteUrl, feedpath) {
 #' @export
 sitemaps.get <- function(siteUrl, feedpath) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/sitemaps/%s", 
-        feedpath, siteUrl)
+        siteUrl, feedpath)
     # webmasters.sitemaps.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -137,7 +150,8 @@ sitemaps.list <- function(siteUrl, sitemapIndex = NULL) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/sitemaps", 
         siteUrl)
     # webmasters.sitemaps.list
-    f <- gar_api_generator(url, "GET", pars_args = list(sitemapIndex = sitemapIndex), 
+    pars = list(sitemapIndex = sitemapIndex)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -165,9 +179,9 @@ sitemaps.list <- function(siteUrl, sitemapIndex = NULL) {
 #' @export
 sitemaps.submit <- function(siteUrl, feedpath) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/sitemaps/%s", 
-        feedpath, siteUrl)
+        siteUrl, feedpath)
     # webmasters.sitemaps.submit
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     f()
     
 }
@@ -194,7 +208,7 @@ sitemaps.submit <- function(siteUrl, feedpath) {
 sites.add <- function(siteUrl) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s", siteUrl)
     # webmasters.sites.add
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     f()
     
 }
@@ -221,7 +235,7 @@ sites.add <- function(siteUrl) {
 sites.delete <- function(siteUrl) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s", siteUrl)
     # webmasters.sites.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -249,7 +263,7 @@ sites.delete <- function(siteUrl) {
 sites.get <- function(siteUrl) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s", siteUrl)
     # webmasters.sites.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -276,7 +290,7 @@ sites.get <- function(siteUrl) {
 sites.list <- function() {
     url <- "https://www.googleapis.com/webmasters/v3/sites"
     # webmasters.sites.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -309,8 +323,9 @@ urlcrawlerrorscounts.query <- function(siteUrl, category = NULL, latestCountsOnl
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/urlCrawlErrorsCounts/query", 
         siteUrl)
     # webmasters.urlcrawlerrorscounts.query
-    f <- gar_api_generator(url, "GET", pars_args = list(category = category, latestCountsOnly = latestCountsOnly, 
-        platform = platform), data_parse_function = function(x) x)
+    pars = list(category = category, latestCountsOnly = latestCountsOnly, platform = platform)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -342,7 +357,8 @@ urlcrawlerrorssamples.get <- function(siteUrl, url, category, platform) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/urlCrawlErrorsSamples/%s", 
         siteUrl, url)
     # webmasters.urlcrawlerrorssamples.get
-    f <- gar_api_generator(url, "GET", pars_args = list(category = category, platform = platform), 
+    pars = list(category = category, platform = platform)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -374,7 +390,8 @@ urlcrawlerrorssamples.list <- function(siteUrl, category, platform) {
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/urlCrawlErrorsSamples", 
         siteUrl)
     # webmasters.urlcrawlerrorssamples.list
-    f <- gar_api_generator(url, "GET", pars_args = list(category = category, platform = platform), 
+    pars = list(category = category, platform = platform)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -414,7 +431,9 @@ urlcrawlerrorssamples.markAsFixed <- function(siteUrl, url, category, platform) 
     url <- sprintf("https://www.googleapis.com/webmasters/v3/sites/%s/urlCrawlErrorsSamples/%s", 
         siteUrl, url)
     # webmasters.urlcrawlerrorssamples.markAsFixed
-    f <- gar_api_generator(url, "DELETE", pars_args = list(category = category, platform = platform), 
+    pars = list(category = category, platform = platform)
+    
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     f()

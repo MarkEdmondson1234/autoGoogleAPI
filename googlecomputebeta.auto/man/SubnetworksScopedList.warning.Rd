@@ -30,4 +30,3 @@ An informational warning that appears when the list of addresses is empty.
 Other SubnetworksScopedList functions: \code{\link{SubnetworksScopedList.warning.data}},
   \code{\link{SubnetworksScopedList}}
 }
-

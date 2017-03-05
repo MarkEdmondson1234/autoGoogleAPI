@@ -45,4 +45,3 @@ Other Activity functions: \code{\link{Activity.actor}},
   \code{\link{Activity.events.parameters}},
   \code{\link{Activity.events}}, \code{\link{Activity.id}}
 }
-

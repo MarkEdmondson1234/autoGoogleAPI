@@ -2,7 +2,7 @@
 % Please edit documentation in R/compute_functions.R
 \name{routers.patch}
 \alias{routers.patch}
-\title{Updates the entire content of the Router resource. This method supports patch semantics.}
+\title{Updates the specified Router resource with the data included in the request. This method supports patch semantics.}
 \usage{
 routers.patch(Router, project, region, router)
 }
@@ -37,4 +37,3 @@ Other Router functions: \code{\link{Router}},
   \code{\link{routers.preview}},
   \code{\link{routers.update}}
 }
-

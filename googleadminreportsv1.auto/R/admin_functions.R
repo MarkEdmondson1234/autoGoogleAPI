@@ -2,7 +2,7 @@
 #' Fetches reports for the administrators of Google Apps customers about the usage, collaboration, security, and risk for their users.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:32:46
+#'  at 2017-03-05 19:23:13
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadminreportsv1.auto/R/admin_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Retrieves a list of activities for a specific customer and application.
 #' 
@@ -52,11 +65,13 @@ reports.activities.list <- function(userKey, applicationName, actorIpAddress = N
     customerId = NULL, endTime = NULL, eventName = NULL, filters = NULL, maxResults = NULL, 
     pageToken = NULL, startTime = NULL) {
     url <- sprintf("https://www.googleapis.com/admin/reports/v1/activity/users/%s/applications/%s", 
-        applicationName, userKey)
+        userKey, applicationName)
     # reports.activities.list
-    f <- gar_api_generator(url, "GET", pars_args = list(actorIpAddress = actorIpAddress, 
-        customerId = customerId, endTime = endTime, eventName = eventName, filters = filters, 
-        maxResults = maxResults, pageToken = pageToken, startTime = startTime), data_parse_function = function(x) x)
+    pars = list(actorIpAddress = actorIpAddress, customerId = customerId, endTime = endTime, 
+        eventName = eventName, filters = filters, maxResults = maxResults, pageToken = pageToken, 
+        startTime = startTime)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -95,11 +110,13 @@ reports.activities.watch <- function(Channel, userKey, applicationName, actorIpA
     customerId = NULL, endTime = NULL, eventName = NULL, filters = NULL, maxResults = NULL, 
     pageToken = NULL, startTime = NULL) {
     url <- sprintf("https://www.googleapis.com/admin/reports/v1/activity/users/%s/applications/%s/watch", 
-        applicationName, userKey)
+        userKey, applicationName)
     # reports.activities.watch
-    f <- gar_api_generator(url, "POST", pars_args = list(actorIpAddress = actorIpAddress, 
-        customerId = customerId, endTime = endTime, eventName = eventName, filters = filters, 
-        maxResults = maxResults, pageToken = pageToken, startTime = startTime), data_parse_function = function(x) x)
+    pars = list(actorIpAddress = actorIpAddress, customerId = customerId, endTime = endTime, 
+        eventName = eventName, filters = filters, maxResults = maxResults, pageToken = pageToken, 
+        startTime = startTime)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
     f(the_body = Channel)
@@ -129,7 +146,7 @@ reports.activities.watch <- function(Channel, userKey, applicationName, actorIpA
 channels.stop <- function(Channel) {
     url <- "https://www.googleapis.com/admin/reports/v1//admin/reports_v1/channels/stop"
     # admin.channels.stop
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Channel, "gar_Channel"))
     
     f(the_body = Channel)
@@ -163,8 +180,9 @@ reports.customerUsageReports.get <- function(date, customerId = NULL, pageToken 
     url <- sprintf("https://www.googleapis.com/admin/reports/v1/usage/dates/%s", 
         date)
     # reports.customerUsageReports.get
-    f <- gar_api_generator(url, "GET", pars_args = list(customerId = customerId, 
-        pageToken = pageToken, parameters = parameters), data_parse_function = function(x) x)
+    pars = list(customerId = customerId, pageToken = pageToken, parameters = parameters)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -208,10 +226,12 @@ reports.userUsageReport.get <- function(userKey, date, customerId = NULL, filter
     
     
     url <- sprintf("https://www.googleapis.com/admin/reports/v1/usage/users/%s/dates/%s", 
-        date, userKey)
+        userKey, date)
     # reports.userUsageReport.get
-    f <- gar_api_generator(url, "GET", pars_args = list(customerId = customerId, 
-        filters = filters, maxResults = maxResults, pageToken = pageToken, parameters = parameters), 
+    pars = list(customerId = customerId, filters = filters, maxResults = maxResults, 
+        pageToken = pageToken, parameters = parameters)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     f()

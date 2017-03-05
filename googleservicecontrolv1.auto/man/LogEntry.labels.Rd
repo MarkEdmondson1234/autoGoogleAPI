@@ -21,4 +21,3 @@ Other LogEntry functions: \code{\link{LogEntry.protoPayload}},
   \code{\link{LogEntry.structPayload}},
   \code{\link{LogEntry}}
 }
-

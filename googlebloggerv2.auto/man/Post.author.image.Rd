@@ -24,4 +24,3 @@ Other Post functions: \code{\link{Post.author}},
   \code{\link{Post.blog}}, \code{\link{Post.replies}},
   \code{\link{Post}}
 }
-

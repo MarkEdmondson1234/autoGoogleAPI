@@ -22,4 +22,3 @@ No description
 \seealso{
 Other GroupsRemoveMemberRequest functions: \code{\link{groups.removeMember}}
 }
-

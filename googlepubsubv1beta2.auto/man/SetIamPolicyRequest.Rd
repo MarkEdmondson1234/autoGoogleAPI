@@ -15,7 +15,7 @@ SetIamPolicyRequest object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:22:32
+ at 2017-03-05 20:08:08
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepubsubv1beta2.auto/R/pubsub_objects.R
 api_json: api_json
 }
@@ -31,4 +31,3 @@ Request message for `SetIamPolicy` method.
 Other SetIamPolicyRequest functions: \code{\link{projects.subscriptions.setIamPolicy}},
   \code{\link{projects.topics.setIamPolicy}}
 }
-

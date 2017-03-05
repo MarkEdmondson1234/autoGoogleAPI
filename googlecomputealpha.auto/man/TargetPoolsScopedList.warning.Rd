@@ -30,4 +30,3 @@ Informational warning which replaces the list of addresses when the list is empt
 Other TargetPoolsScopedList functions: \code{\link{TargetPoolsScopedList.warning.data}},
   \code{\link{TargetPoolsScopedList}}
 }
-

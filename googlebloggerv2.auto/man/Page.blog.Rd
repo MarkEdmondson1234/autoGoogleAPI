@@ -23,4 +23,3 @@ Data about the blog containing this Page.
 Other Page functions: \code{\link{Page.author.image}},
   \code{\link{Page.author}}, \code{\link{Page}}
 }
-

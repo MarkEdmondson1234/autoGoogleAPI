@@ -28,4 +28,3 @@ Other About functions: \code{\link{About.additionalRoleInfo.roleSets}},
   \code{\link{About.quotaBytesByService}},
   \code{\link{About}}
 }
-

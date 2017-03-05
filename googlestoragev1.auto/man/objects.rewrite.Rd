@@ -5,13 +5,13 @@
 \title{Rewrites a source object to a destination object. Optionally overrides metadata.}
 \usage{
 objects.rewrite(Object, sourceBucket, sourceObject, destinationBucket,
-  destinationObject, destinationKmsKeyName = NULL,
-  destinationPredefinedAcl = NULL, ifGenerationMatch = NULL,
-  ifGenerationNotMatch = NULL, ifMetagenerationMatch = NULL,
-  ifMetagenerationNotMatch = NULL, ifSourceGenerationMatch = NULL,
-  ifSourceGenerationNotMatch = NULL, ifSourceMetagenerationMatch = NULL,
-  ifSourceMetagenerationNotMatch = NULL, maxBytesRewrittenPerCall = NULL,
-  projection = NULL, rewriteToken = NULL, sourceGeneration = NULL)
+  destinationObject, destinationPredefinedAcl = NULL,
+  ifGenerationMatch = NULL, ifGenerationNotMatch = NULL,
+  ifMetagenerationMatch = NULL, ifMetagenerationNotMatch = NULL,
+  ifSourceGenerationMatch = NULL, ifSourceGenerationNotMatch = NULL,
+  ifSourceMetagenerationMatch = NULL, ifSourceMetagenerationNotMatch = NULL,
+  maxBytesRewrittenPerCall = NULL, projection = NULL, rewriteToken = NULL,
+  sourceGeneration = NULL)
 }
 \arguments{
 \item{Object}{The \link{Object} object to pass to this method}
@@ -23,8 +23,6 @@ objects.rewrite(Object, sourceBucket, sourceObject, destinationBucket,
 \item{destinationBucket}{Name of the bucket in which to store the new object}
 
 \item{destinationObject}{Name of the new object}
-
-\item{destinationKmsKeyName}{Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object}
 
 \item{destinationPredefinedAcl}{Apply a predefined set of access controls to the destination object}
 
@@ -76,4 +74,3 @@ Other Object functions: \code{\link{Object.customerEncryption}},
   \code{\link{objects.copy}}, \code{\link{objects.insert}},
   \code{\link{objects.patch}}, \code{\link{objects.update}}
 }
-

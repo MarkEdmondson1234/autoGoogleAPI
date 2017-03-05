@@ -29,4 +29,3 @@ TimeseriesDescriptor identifies a single time series.
 \seealso{
 Other TimeseriesDescriptor functions: \code{\link{TimeseriesDescriptor.labels}}
 }
-

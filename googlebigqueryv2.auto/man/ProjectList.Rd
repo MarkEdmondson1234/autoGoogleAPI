@@ -31,4 +31,3 @@ No description
 \seealso{
 Other ProjectList functions: \code{\link{ProjectList.projects}}
 }
-

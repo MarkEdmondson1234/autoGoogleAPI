@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{subscriptions.pull}
 \alias{subscriptions.pull}
-\title{Pulls a single message from the server. If return_immediately is true, and no messages are available in the subscription, this method returns FAILED_PRECONDITION. The system is free to return an UNAVAILABLE error if no messages are available in a reasonable amount of time (to reduce system load).}
+\title{Pulls a single message from the server.If return_immediately is true, and no messages are available in thesubscription, this method returns FAILED_PRECONDITION. The system is freeto return an UNAVAILABLE error if no messages are available in areasonable amount of time (to reduce system load).}
 \usage{
 subscriptions.pull(PullRequest)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other PullRequest functions: \code{\link{PullRequest}}
 }
-

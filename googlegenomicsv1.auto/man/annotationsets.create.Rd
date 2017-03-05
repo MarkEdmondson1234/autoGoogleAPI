@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{annotationsets.create}
 \alias{annotationsets.create}
-\title{Creates a new annotation set. Caller must have WRITE permission for the associated dataset. The following fields are required: * datasetId * referenceSetId All other fields may be optionally specified, unless documented as being server-generated (for example, the `id` field).}
+\title{Creates a new annotation set. Caller must have WRITE permission for theassociated dataset.The following fields are required:  * datasetId  * referenceSetIdAll other fields may be optionally specified, unless documented as beingserver-generated (for example, the `id` field).}
 \usage{
 annotationsets.create(AnnotationSet)
 }
@@ -25,10 +25,9 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other AnnotationSet functions: \code{\link{AnnotationSet.info}},
   \code{\link{AnnotationSet}},
   \code{\link{annotationsets.update}}
 }
-

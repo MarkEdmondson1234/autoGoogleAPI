@@ -2,7 +2,7 @@
 #' Reports and modifies your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:11:32
+#'  at 2017-03-05 19:49:01
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googledoubleclicksearchv2.auto/R/doubleclicksearch_objects.R
 #' api_json: api_json
 #' 
@@ -46,7 +46,7 @@ Availability <- function(advertiserId = NULL, agencyId = NULL, availabilityTimes
 #' @param campaignId DS campaign ID
 #' @param channel Sales channel for the product
 #' @param clickId DS click ID for the conversion
-#' @param conversionId For offline conversions, this is an ID that advertisers are required to provide
+#' @param conversionId For offline conversions, advertisers provide this ID
 #' @param conversionModifiedTimestamp The time at which the conversion was last modified, in epoch millis UTC
 #' @param conversionTimestamp The time at which the conversion took place, in epoch millis UTC
 #' @param countMillis Available to advertisers only after contacting DoubleClick Search customer support

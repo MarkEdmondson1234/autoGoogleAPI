@@ -8,14 +8,14 @@
 Help the third party sites to implement federated login.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:23:36
+ at 2017-03-05 19:59:27
 filename: /Users/mark/dev/R/autoGoogleAPI/googleidentitytoolkitv3.auto/R/identitytoolkit_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item 
+  \item https://www.googleapis.com/auth/cloud-platform
+\item https://www.googleapis.com/auth/firebase
 }
 }
-

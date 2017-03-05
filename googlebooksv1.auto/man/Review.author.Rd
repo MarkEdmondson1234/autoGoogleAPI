@@ -23,4 +23,3 @@ Author of this review.
 Other Review functions: \code{\link{Review.source}},
   \code{\link{Review}}
 }
-

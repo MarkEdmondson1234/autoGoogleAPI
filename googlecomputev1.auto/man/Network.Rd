@@ -40,4 +40,3 @@ Represents a Network resource. Read Networks and Firewalls for more information.
 \seealso{
 Other Network functions: \code{\link{networks.insert}}
 }
-

@@ -21,4 +21,3 @@ Other Channel functions: \code{\link{Channel}},
   \code{\link{channels.stop}},
   \code{\link{objects.watchAll}}
 }
-

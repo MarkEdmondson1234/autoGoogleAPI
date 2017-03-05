@@ -20,4 +20,3 @@ Map of client info, such as URL, browser navigator, browser platform, etc.
 Other LogMessageRequest functions: \code{\link{LogMessageRequest}},
   \code{\link{clientMessages.log}}
 }
-

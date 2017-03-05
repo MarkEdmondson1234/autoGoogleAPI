@@ -26,4 +26,3 @@ The device validation request message.
 \seealso{
 Other PawsVerifyDeviceRequest functions: \code{\link{paws.verifyDevice}}
 }
-

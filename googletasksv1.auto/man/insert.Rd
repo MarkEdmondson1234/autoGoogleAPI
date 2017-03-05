@@ -35,4 +35,3 @@ Other Task functions: \code{\link{Task.links}},
   \code{\link{Task}}, \code{\link{patch}},
   \code{\link{update}}
 }
-

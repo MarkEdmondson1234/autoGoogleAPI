@@ -7,7 +7,7 @@
 AcknowledgeRequest(ackIds = NULL)
 }
 \arguments{
-\item{ackIds}{The acknowledgment ID for the messages being acknowledged that was returned by the Pub/Sub system in the `Pull` response}
+\item{ackIds}{The acknowledgment ID for the messages being acknowledged that was returned}
 }
 \value{
 AcknowledgeRequest object
@@ -22,4 +22,3 @@ Request for the Acknowledge method.
 \seealso{
 Other AcknowledgeRequest functions: \code{\link{projects.subscriptions.acknowledge}}
 }
-

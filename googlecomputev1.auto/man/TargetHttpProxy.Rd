@@ -33,4 +33,3 @@ A TargetHttpProxy resource. This resource defines an HTTP proxy.
 \seealso{
 Other TargetHttpProxy functions: \code{\link{targetHttpProxies.insert}}
 }
-

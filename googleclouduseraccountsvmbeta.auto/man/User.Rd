@@ -38,4 +38,3 @@ A User resource.
 \seealso{
 Other User functions: \code{\link{users.insert}}
 }
-

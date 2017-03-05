@@ -2,7 +2,7 @@
 #' Stores and retrieves potentially large, immutable data objects.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-04 00:02:45
+#'  at 2017-03-05 20:17:01
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragev1.auto/R/storage_objects.R
 #' api_json: api_json
 #' 
@@ -15,7 +15,6 @@
 #' A bucket.
 #' 
 #' @param Bucket.cors The \link{Bucket.cors} object or list of objects
-#' @param Bucket.encryption The \link{Bucket.encryption} object or list of objects
 #' @param Bucket.lifecycle The \link{Bucket.lifecycle} object or list of objects
 #' @param Bucket.lifecycle.rule The \link{Bucket.lifecycle.rule} object or list of objects
 #' @param Bucket.lifecycle.rule.action The \link{Bucket.lifecycle.rule.action} object or list of objects
@@ -27,7 +26,6 @@
 #' @param acl Access controls on the bucket
 #' @param cors The bucket's Cross-Origin Resource Sharing (CORS) configuration
 #' @param defaultObjectAcl Default access controls to apply to new objects when no ACL is provided
-#' @param encryption Encryption configuration used by default for newly inserted objects, when no encryption config is specified
 #' @param etag HTTP 1
 #' @param id The ID of the bucket
 #' @param lifecycle The bucket's lifecycle configuration
@@ -38,7 +36,7 @@
 #' @param owner The owner of the bucket
 #' @param projectNumber The project number of the project the bucket belongs to
 #' @param selfLink The URI of this bucket
-#' @param storageClass The bucket's storage class
+#' @param storageClass The bucket's default storage class, used whenever no storageClass is specified for a newly-created object
 #' @param timeCreated The creation time of the bucket in RFC 3339 format
 #' @param updated The modification time of the bucket in RFC 3339 format
 #' @param versioning The bucket's versioning configuration
@@ -48,23 +46,23 @@
 #' 
 #' @family Bucket functions
 #' @export
-Bucket <- function(Bucket.cors = NULL, Bucket.encryption = NULL, Bucket.lifecycle = NULL, 
-    Bucket.lifecycle.rule = NULL, Bucket.lifecycle.rule.action = NULL, Bucket.lifecycle.rule.condition = NULL, 
+Bucket <- function(Bucket.cors = NULL, Bucket.lifecycle = NULL, Bucket.lifecycle.rule = NULL, 
+    Bucket.lifecycle.rule.action = NULL, Bucket.lifecycle.rule.condition = NULL, 
     Bucket.logging = NULL, Bucket.owner = NULL, Bucket.versioning = NULL, Bucket.website = NULL, 
-    acl = NULL, cors = NULL, defaultObjectAcl = NULL, encryption = NULL, etag = NULL, 
-    id = NULL, lifecycle = NULL, location = NULL, logging = NULL, metageneration = NULL, 
-    name = NULL, owner = NULL, projectNumber = NULL, selfLink = NULL, storageClass = NULL, 
-    timeCreated = NULL, updated = NULL, versioning = NULL, website = NULL) {
-    structure(list(Bucket.cors = Bucket.cors, Bucket.encryption = Bucket.encryption, 
-        Bucket.lifecycle = Bucket.lifecycle, Bucket.lifecycle.rule = Bucket.lifecycle.rule, 
-        Bucket.lifecycle.rule.action = Bucket.lifecycle.rule.action, Bucket.lifecycle.rule.condition = Bucket.lifecycle.rule.condition, 
-        Bucket.logging = Bucket.logging, Bucket.owner = Bucket.owner, Bucket.versioning = Bucket.versioning, 
-        Bucket.website = Bucket.website, acl = acl, cors = cors, defaultObjectAcl = defaultObjectAcl, 
-        encryption = encryption, etag = etag, id = id, kind = `storage#bucket`, lifecycle = lifecycle, 
-        location = location, logging = logging, metageneration = metageneration, 
-        name = name, owner = owner, projectNumber = projectNumber, selfLink = selfLink, 
-        storageClass = storageClass, timeCreated = timeCreated, updated = updated, 
-        versioning = versioning, website = website), class = "gar_Bucket")
+    acl = NULL, cors = NULL, defaultObjectAcl = NULL, etag = NULL, id = NULL, lifecycle = NULL, 
+    location = NULL, logging = NULL, metageneration = NULL, name = NULL, owner = NULL, 
+    projectNumber = NULL, selfLink = NULL, storageClass = NULL, timeCreated = NULL, 
+    updated = NULL, versioning = NULL, website = NULL) {
+    structure(list(Bucket.cors = Bucket.cors, Bucket.lifecycle = Bucket.lifecycle, 
+        Bucket.lifecycle.rule = Bucket.lifecycle.rule, Bucket.lifecycle.rule.action = Bucket.lifecycle.rule.action, 
+        Bucket.lifecycle.rule.condition = Bucket.lifecycle.rule.condition, Bucket.logging = Bucket.logging, 
+        Bucket.owner = Bucket.owner, Bucket.versioning = Bucket.versioning, Bucket.website = Bucket.website, 
+        acl = acl, cors = cors, defaultObjectAcl = defaultObjectAcl, etag = etag, 
+        id = id, kind = `storage#bucket`, lifecycle = lifecycle, location = location, 
+        logging = logging, metageneration = metageneration, name = name, owner = owner, 
+        projectNumber = projectNumber, selfLink = selfLink, storageClass = storageClass, 
+        timeCreated = timeCreated, updated = updated, versioning = versioning, website = website), 
+        class = "gar_Bucket")
 }
 
 #' Bucket.cors Object
@@ -81,22 +79,6 @@ Bucket <- function(Bucket.cors = NULL, Bucket.encryption = NULL, Bucket.lifecycl
 #' @export
 Bucket.cors <- function() {
     list()
-}
-
-#' Bucket.encryption Object
-#' 
-#' @details 
-#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
-#' Encryption configuration used by default for newly inserted objects, when no encryption config is specified.
-#' 
-#' @param default_kms_key_name No description
-#' 
-#' @return Bucket.encryption object
-#' 
-#' @family Bucket functions
-#' @export
-Bucket.encryption <- function(default_kms_key_name = NULL) {
-    structure(list(default_kms_key_name = default_kms_key_name), class = "gar_Bucket.encryption")
 }
 
 #' Bucket.lifecycle Object
@@ -145,14 +127,15 @@ Bucket.lifecycle.rule <- function(Bucket.lifecycle.rule.action = NULL, Bucket.li
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
 #' The action to take.
 #' 
+#' @param storageClass Target storage class
 #' @param type Type of the action
 #' 
 #' @return Bucket.lifecycle.rule.action object
 #' 
 #' @family Bucket functions
 #' @export
-Bucket.lifecycle.rule.action <- function(type = NULL) {
-    structure(list(type = type), class = "gar_Bucket.lifecycle.rule.action")
+Bucket.lifecycle.rule.action <- function(storageClass = NULL, type = NULL) {
+    structure(list(storageClass = storageClass, type = type), class = "gar_Bucket.lifecycle.rule.action")
 }
 
 #' Bucket.lifecycle.rule.condition Object
@@ -164,6 +147,7 @@ Bucket.lifecycle.rule.action <- function(type = NULL) {
 #' @param age Age of an object (in days)
 #' @param createdBefore A date in RFC 3339 format with only the date part (for instance, '2013-01-15')
 #' @param isLive Relevant only for versioned objects
+#' @param matchesStorageClass Objects having any of the storage classes specified by this condition will be matched
 #' @param numNewerVersions Relevant only for versioned objects
 #' 
 #' @return Bucket.lifecycle.rule.condition object
@@ -171,9 +155,9 @@ Bucket.lifecycle.rule.action <- function(type = NULL) {
 #' @family Bucket functions
 #' @export
 Bucket.lifecycle.rule.condition <- function(age = NULL, createdBefore = NULL, isLive = NULL, 
-    numNewerVersions = NULL) {
-    structure(list(age = age, createdBefore = createdBefore, isLive = isLive, numNewerVersions = numNewerVersions), 
-        class = "gar_Bucket.lifecycle.rule.condition")
+    matchesStorageClass = NULL, numNewerVersions = NULL) {
+    structure(list(age = age, createdBefore = createdBefore, isLive = isLive, matchesStorageClass = matchesStorageClass, 
+        numNewerVersions = numNewerVersions), class = "gar_Bucket.lifecycle.rule.condition")
 }
 
 #' Bucket.logging Object
@@ -447,19 +431,19 @@ ComposeRequest.sourceObjects.objectPreconditions <- function(ifGenerationMatch =
 #' @param customerEncryption Metadata of customer-supplied encryption key, if the object is encrypted by such a key
 #' @param etag HTTP 1
 #' @param generation The content generation of this object
-#' @param id The ID of the object
-#' @param kmsKeyName Cloud KMS Key used to encrypt this object, if the object is encrypted by such a key
+#' @param id The ID of the object, including the bucket name, object name, and generation number
 #' @param md5Hash MD5 hash of the data; encoded using base64
 #' @param mediaLink Media download link
 #' @param metadata User-provided metadata, in key/value pairs
 #' @param metageneration The version of the metadata for this object at this generation
-#' @param name The name of this object
+#' @param name The name of the object
 #' @param owner The owner of the object
 #' @param selfLink The link to this object
 #' @param size Content-Length of the data in bytes
 #' @param storageClass Storage class of the object
 #' @param timeCreated The creation time of the object in RFC 3339 format
 #' @param timeDeleted The deletion time of the object in RFC 3339 format
+#' @param timeStorageClassUpdated The time at which the object's storage class was last changed
 #' @param updated The modification time of the object metadata in RFC 3339 format
 #' 
 #' @return Object object
@@ -469,20 +453,20 @@ ComposeRequest.sourceObjects.objectPreconditions <- function(ifGenerationMatch =
 Object <- function(Object.customerEncryption = NULL, Object.metadata = NULL, Object.owner = NULL, 
     acl = NULL, bucket = NULL, cacheControl = NULL, componentCount = NULL, contentDisposition = NULL, 
     contentEncoding = NULL, contentLanguage = NULL, contentType = NULL, crc32c = NULL, 
-    customerEncryption = NULL, etag = NULL, generation = NULL, id = NULL, kmsKeyName = NULL, 
-    md5Hash = NULL, mediaLink = NULL, metadata = NULL, metageneration = NULL, name = NULL, 
-    owner = NULL, selfLink = NULL, size = NULL, storageClass = NULL, timeCreated = NULL, 
-    timeDeleted = NULL, updated = NULL) {
+    customerEncryption = NULL, etag = NULL, generation = NULL, id = NULL, md5Hash = NULL, 
+    mediaLink = NULL, metadata = NULL, metageneration = NULL, name = NULL, owner = NULL, 
+    selfLink = NULL, size = NULL, storageClass = NULL, timeCreated = NULL, timeDeleted = NULL, 
+    timeStorageClassUpdated = NULL, updated = NULL) {
     structure(list(Object.customerEncryption = Object.customerEncryption, Object.metadata = Object.metadata, 
         Object.owner = Object.owner, acl = acl, bucket = bucket, cacheControl = cacheControl, 
         componentCount = componentCount, contentDisposition = contentDisposition, 
         contentEncoding = contentEncoding, contentLanguage = contentLanguage, contentType = contentType, 
         crc32c = crc32c, customerEncryption = customerEncryption, etag = etag, generation = generation, 
-        id = id, kind = `storage#object`, kmsKeyName = kmsKeyName, md5Hash = md5Hash, 
-        mediaLink = mediaLink, metadata = metadata, metageneration = metageneration, 
-        name = name, owner = owner, selfLink = selfLink, size = size, storageClass = storageClass, 
-        timeCreated = timeCreated, timeDeleted = timeDeleted, updated = updated), 
-        class = "gar_Object")
+        id = id, kind = `storage#object`, md5Hash = md5Hash, mediaLink = mediaLink, 
+        metadata = metadata, metageneration = metageneration, name = name, owner = owner, 
+        selfLink = selfLink, size = size, storageClass = storageClass, timeCreated = timeCreated, 
+        timeDeleted = timeDeleted, timeStorageClassUpdated = timeStorageClassUpdated, 
+        updated = updated), class = "gar_Object")
 }
 
 #' Object.customerEncryption Object
@@ -549,9 +533,9 @@ Object.owner <- function(entity = NULL, entityId = NULL) {
 #' @param entity The entity holding the permission, in one of the following forms: 
 #' @param entityId The ID for the entity, if any
 #' @param etag HTTP 1
-#' @param generation The content generation of the object
+#' @param generation The content generation of the object, if applied to an object
 #' @param id The ID of the access-control entry
-#' @param object The name of the object
+#' @param object The name of the object, if applied to an object
 #' @param projectTeam The project team associated with the entity, if any
 #' @param role The access permission for the entity
 #' @param selfLink The link to this access-control entry

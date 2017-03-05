@@ -22,4 +22,3 @@ This is a JSON template for multiple achievements reset all request.
 \seealso{
 Other AchievementResetMultipleForAllRequest functions: \code{\link{achievements.resetMultipleForAllPlayers}}
 }
-

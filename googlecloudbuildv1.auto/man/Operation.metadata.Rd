@@ -20,4 +20,3 @@ Service-specific metadata associated with the operation.  It typicallycontains p
 Other Operation functions: \code{\link{Operation.response}},
   \code{\link{Operation}}
 }
-

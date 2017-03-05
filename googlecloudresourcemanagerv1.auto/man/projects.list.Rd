@@ -2,12 +2,12 @@
 % Please edit documentation in R/cloudresourcemanager_functions.R
 \name{projects.list}
 \alias{projects.list}
-\title{Lists Projects that are visible to the user and satisfy the specified filter. This method returns Projects in an unspecified order. New Projects do not necessarily appear at the end of the list.}
+\title{Lists Projects that are visible to the user and satisfy thespecified filter. This method returns Projects in an unspecified order.New Projects do not necessarily appear at the end of the list.}
 \usage{
 projects.list(pageToken = NULL, pageSize = NULL, filter = NULL)
 }
 \arguments{
-\item{pageToken}{A pagination token returned from a previous call to ListProjects that indicates from where listing should continue}
+\item{pageToken}{A pagination token returned from a previous call to ListProjects}
 
 \item{pageSize}{The maximum number of Projects to return in the response}
 
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/resource-manager}{Google Documentation}
 }
-

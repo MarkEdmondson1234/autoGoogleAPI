@@ -27,4 +27,3 @@ Other RemarketingAudience functions: \code{\link{RemarketingAudience.stateBasedA
   \code{\link{management.remarketingAudience.patch}},
   \code{\link{management.remarketingAudience.update}}
 }
-

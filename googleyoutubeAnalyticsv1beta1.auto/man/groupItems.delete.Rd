@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{http://developers.google.com/youtube/analytics/}{Google Documentation}
 }
-

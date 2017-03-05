@@ -27,4 +27,3 @@ This user's locale
 Other User functions: \code{\link{User.blogs}},
   \code{\link{User}}
 }
-

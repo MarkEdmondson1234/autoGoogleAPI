@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other GroupItem functions: \code{\link{GroupItem.resource}},
   \code{\link{GroupItem}}
 }
-

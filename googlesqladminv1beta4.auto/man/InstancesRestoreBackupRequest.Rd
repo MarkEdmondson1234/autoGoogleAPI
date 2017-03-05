@@ -22,4 +22,3 @@ Database instance restore backup request.
 \seealso{
 Other InstancesRestoreBackupRequest functions: \code{\link{sql.instances.restoreBackup}}
 }
-

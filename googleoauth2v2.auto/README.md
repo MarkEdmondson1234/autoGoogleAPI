@@ -1,5 +1,5 @@
 # googleoauth2v2.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google OAuth2 API R library
 
 Obtains end-user authorization grants for use with other Google APIs.

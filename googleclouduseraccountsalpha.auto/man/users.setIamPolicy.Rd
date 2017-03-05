@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Policy functions: \code{\link{Policy}},
   \code{\link{groups.setIamPolicy}}
 }
-

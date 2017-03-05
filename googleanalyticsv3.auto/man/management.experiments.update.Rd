@@ -41,4 +41,3 @@ Other Experiment functions: \code{\link{Experiment.parentLink}},
   \code{\link{management.experiments.insert}},
   \code{\link{management.experiments.patch}}
 }
-

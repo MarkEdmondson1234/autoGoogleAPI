@@ -25,4 +25,3 @@ No description
 \seealso{
 Other RegionInstanceGroupManagersSetTargetPoolsRequest functions: \code{\link{regionInstanceGroupManagers.setTargetPools}}
 }
-

@@ -31,4 +31,3 @@ JSON template for Domain Alias object in Directory API.
 \seealso{
 Other DomainAlias functions: \code{\link{directory.domainAliases.insert}}
 }
-

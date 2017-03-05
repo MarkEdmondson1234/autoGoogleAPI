@@ -19,4 +19,3 @@ The request message for Operations.CancelOperation.
 \seealso{
 Other CancelOperationRequest functions: \code{\link{operations.cancel}}
 }
-

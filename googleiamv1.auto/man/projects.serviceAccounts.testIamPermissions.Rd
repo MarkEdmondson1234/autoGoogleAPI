@@ -2,7 +2,7 @@
 % Please edit documentation in R/iam_functions.R
 \name{projects.serviceAccounts.testIamPermissions}
 \alias{projects.serviceAccounts.testIamPermissions}
-\title{Tests the specified permissions against the IAM access control policy for the specified IAM resource.}
+\title{Tests the specified permissions against the IAM access control policyfor a ServiceAccount.}
 \usage{
 projects.serviceAccounts.testIamPermissions(TestIamPermissionsRequest, resource)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other TestIamPermissionsRequest functions: \code{\link{TestIamPermissionsRequest}}
 }
-

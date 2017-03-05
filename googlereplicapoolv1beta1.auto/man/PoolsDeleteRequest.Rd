@@ -22,4 +22,3 @@ No description
 \seealso{
 Other PoolsDeleteRequest functions: \code{\link{pools.delete}}
 }
-

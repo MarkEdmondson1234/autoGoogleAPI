@@ -29,4 +29,3 @@ This is a JSON template for the object representing a turn.
 \seealso{
 Other TurnBasedMatchTurn functions: \code{\link{turnBasedMatches.takeTurn}}
 }
-

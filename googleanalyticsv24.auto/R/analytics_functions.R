@@ -2,7 +2,7 @@
 #' Views and manages your Google Analytics data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:34:00
+#'  at 2017-03-05 19:24:42
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleanalyticsv24.auto/R/analytics_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Returns Analytics report data for a view (profile).
 #' 
@@ -53,10 +66,11 @@ data.get <- function(ids, start.date, end.date, metrics, dimensions = NULL, filt
     max.results = NULL, segment = NULL, sort = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v2.4/data"
     # analytics.data.get
-    f <- gar_api_generator(url, "GET", pars_args = list(dimensions = dimensions, 
-        `end-date` = end.date, filters = filters, ids = ids, `max-results` = max.results, 
-        metrics = metrics, segment = segment, sort = sort, `start-date` = start.date, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(ids = ids, `start-date` = start.date, `end-date` = end.date, metrics = metrics, 
+        dimensions = dimensions, filters = filters, `max-results` = max.results, 
+        segment = segment, sort = sort, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -85,8 +99,9 @@ data.get <- function(ids, start.date, end.date, metrics, dimensions = NULL, filt
 management.accounts.list <- function(max.results = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v2.4/management/accounts"
     # analytics.management.accounts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -118,10 +133,11 @@ management.accounts.list <- function(max.results = NULL, start.index = NULL) {
 management.goals.list <- function(accountId, webPropertyId, profileId, max.results = NULL, 
     start.index = NULL) {
     url <- sprintf("https://www.googleapis.com/analytics/v2.4/management/accounts/%s/webproperties/%s/profiles/%s/goals", 
-        accountId, profileId, webPropertyId)
+        accountId, webPropertyId, profileId)
     # analytics.management.goals.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -154,8 +170,9 @@ management.profiles.list <- function(accountId, webPropertyId, max.results = NUL
     url <- sprintf("https://www.googleapis.com/analytics/v2.4/management/accounts/%s/webproperties/%s/profiles", 
         accountId, webPropertyId)
     # analytics.management.profiles.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -184,8 +201,9 @@ management.profiles.list <- function(accountId, webPropertyId, max.results = NUL
 management.segments.list <- function(max.results = NULL, start.index = NULL) {
     url <- "https://www.googleapis.com/analytics/v2.4/management/segments"
     # analytics.management.segments.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -223,8 +241,10 @@ management.webproperties.list <- function(accountId, max.results = NULL, start.i
     url <- sprintf("https://www.googleapis.com/analytics/v2.4/management/accounts/%s/webproperties", 
         accountId)
     # analytics.management.webproperties.list
-    f <- gar_api_generator(url, "GET", pars_args = list(`max-results` = max.results, 
-        `start-index` = start.index), data_parse_function = function(x) x)
+    pars = list(`max-results` = max.results, `start-index` = start.index)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

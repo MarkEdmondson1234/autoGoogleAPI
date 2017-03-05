@@ -4,10 +4,13 @@
 \alias{sql.instances.list}
 \title{Lists instances under a given project in the alphabetical order of the instance name.}
 \usage{
-sql.instances.list(project, maxResults = NULL, pageToken = NULL)
+sql.instances.list(project, filter = NULL, maxResults = NULL,
+  pageToken = NULL)
 }
 \arguments{
 \item{project}{Project ID of the project for which to list Cloud SQL instances}
+
+\item{filter}{A filter expression for filtering listed instances}
 
 \item{maxResults}{The maximum number of results to return per response}
 
@@ -30,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/sql/docs/reference/latest}{Google Documentation}
 }
-

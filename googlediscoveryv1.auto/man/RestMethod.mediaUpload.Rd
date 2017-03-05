@@ -41,4 +41,3 @@ Other RestMethod functions: \code{\link{RestMethod.mediaUpload.protocols.resumab
   \code{\link{RestMethod.response}},
   \code{\link{RestMethod}}
 }
-

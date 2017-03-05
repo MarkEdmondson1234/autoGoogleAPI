@@ -10,9 +10,9 @@ SoftwareConfig(SoftwareConfig.properties = NULL, imageVersion = NULL,
 \arguments{
 \item{SoftwareConfig.properties}{The \link{SoftwareConfig.properties} object or list of objects}
 
-\item{imageVersion}{[Optional] The version of software inside the cluster}
+\item{imageVersion}{Optional The version of software inside the cluster}
 
-\item{properties}{[Optional] The properties to set on daemon config files}
+\item{properties}{Optional The properties to set on daemon config files}
 }
 \value{
 SoftwareConfig object
@@ -27,4 +27,3 @@ Specifies the selection and config of software inside the cluster.
 \seealso{
 Other SoftwareConfig functions: \code{\link{SoftwareConfig.properties}}
 }
-

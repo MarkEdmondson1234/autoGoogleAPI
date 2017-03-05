@@ -20,4 +20,3 @@ An OperationMetadata object. This will always be returned with the Operation.
 Other Operation functions: \code{\link{Operation.response}},
   \code{\link{Operation}}
 }
-

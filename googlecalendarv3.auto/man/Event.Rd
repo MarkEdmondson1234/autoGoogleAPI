@@ -135,4 +135,3 @@ Other Event functions: \code{\link{Event.creator}},
   \code{\link{events.insert}}, \code{\link{events.patch}},
   \code{\link{events.update}}
 }
-

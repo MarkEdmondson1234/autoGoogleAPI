@@ -31,4 +31,3 @@ Other CustomChannel functions: \code{\link{CustomChannel}},
   \code{\link{customchannels.patch}},
   \code{\link{customchannels.update}}
 }
-

@@ -36,4 +36,3 @@ The JSON template for a DataTransfer resource.
 \seealso{
 Other DataTransfer functions: \code{\link{datatransfer.transfers.insert}}
 }
-

@@ -27,4 +27,3 @@ Other Bucket functions: \code{\link{Bucket.lifecycle.rule.action}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

@@ -4,19 +4,19 @@
 \alias{PivotTable}
 \title{PivotTable Object}
 \usage{
-PivotTable(PivotTable.criteria = NULL, valueLayout = NULL, columns = NULL,
-  source = NULL, rows = NULL, values = NULL, criteria = NULL)
+PivotTable(PivotTable.criteria = NULL, rows = NULL, valueLayout = NULL,
+  source = NULL, columns = NULL, values = NULL, criteria = NULL)
 }
 \arguments{
 \item{PivotTable.criteria}{The \link{PivotTable.criteria} object or list of objects}
 
-\item{valueLayout}{Whether values should be listed horizontally (as columns)}
+\item{rows}{Each row grouping in the pivot table}
 
-\item{columns}{Each column grouping in the pivot table}
+\item{valueLayout}{Whether values should be listed horizontally (as columns)}
 
 \item{source}{The range the pivot table is reading data from}
 
-\item{rows}{Each row grouping in the pivot table}
+\item{columns}{Each column grouping in the pivot table}
 
 \item{values}{A list of values to include in the pivot table}
 
@@ -35,4 +35,3 @@ A pivot table.
 \seealso{
 Other PivotTable functions: \code{\link{PivotTable.criteria}}
 }
-

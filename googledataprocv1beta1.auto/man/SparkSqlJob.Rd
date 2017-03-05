@@ -6,8 +6,8 @@
 \usage{
 SparkSqlJob(SparkSqlJob.scriptVariables = NULL,
   SparkSqlJob.properties = NULL, queryFileUri = NULL, queryList = NULL,
-  scriptVariables = NULL, properties = NULL, jarFileUris = NULL,
-  loggingConfiguration = NULL)
+  scriptVariables = NULL, jarFileUris = NULL, loggingConfiguration = NULL,
+  properties = NULL)
 }
 \arguments{
 \item{SparkSqlJob.scriptVariables}{The \link{SparkSqlJob.scriptVariables} object or list of objects}
@@ -18,13 +18,13 @@ SparkSqlJob(SparkSqlJob.scriptVariables = NULL,
 
 \item{queryList}{A list of queries}
 
-\item{scriptVariables}{[Optional] Mapping of query variable names to values (equivalent to the Spark SQL command: SET `name='value';`)}
+\item{scriptVariables}{Optional Mapping of query variable names to values (equivalent to the Spark SQL command: SET name='value';)}
 
-\item{properties}{[Optional] A mapping of property names to values, used to configure Spark SQL's SparkConf}
+\item{jarFileUris}{Optional HCFS URIs of jar files to be added to the Spark CLASSPATH}
 
-\item{jarFileUris}{[Optional] HCFS URIs of jar files to be added to the Spark CLASSPATH}
+\item{loggingConfiguration}{Optional The runtime log configuration for job execution}
 
-\item{loggingConfiguration}{[Optional] The runtime log configuration for job execution}
+\item{properties}{Optional A mapping of property names to values, used to configure Spark SQL's SparkConf}
 }
 \value{
 SparkSqlJob object
@@ -40,4 +40,3 @@ A Cloud Dataproc job for running Spark SQL queries.
 Other SparkSqlJob functions: \code{\link{SparkSqlJob.properties}},
   \code{\link{SparkSqlJob.scriptVariables}}
 }
-

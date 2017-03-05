@@ -20,4 +20,3 @@ No description
 Other Promotion functions: \code{\link{Promotion.image}},
   \code{\link{Promotion}}
 }
-

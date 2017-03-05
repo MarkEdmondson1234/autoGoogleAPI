@@ -29,4 +29,3 @@ The region of the page that is captured by this image, with dimensions measured 
 \seealso{
 Other PagespeedApiImageV2 functions: \code{\link{PagespeedApiImageV2}}
 }
-

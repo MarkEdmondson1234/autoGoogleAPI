@@ -38,4 +38,3 @@ Other InAppProduct functions: \code{\link{InAppProduct.listings}},
   \code{\link{inappproducts.insert}},
   \code{\link{inappproducts.patch}}
 }
-

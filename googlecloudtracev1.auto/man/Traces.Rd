@@ -22,4 +22,3 @@ List of new or updated traces.
 \seealso{
 Other Traces functions: \code{\link{projects.patchTraces}}
 }
-

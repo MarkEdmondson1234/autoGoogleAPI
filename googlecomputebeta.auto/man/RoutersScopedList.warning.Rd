@@ -30,4 +30,3 @@ Informational warning which replaces the list of routers when the list is empty.
 Other RoutersScopedList functions: \code{\link{RoutersScopedList.warning.data}},
   \code{\link{RoutersScopedList}}
 }
-

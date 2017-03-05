@@ -32,4 +32,3 @@ No description
 Other Training functions: \code{\link{Training.modelInfo}},
   \code{\link{training.insert}}
 }
-

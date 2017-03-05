@@ -2,7 +2,7 @@
 #' Searches for books and manages your Google Books library.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:58:26
+#'  at 2017-03-05 19:30:05
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlebooksv1.auto/R/books_objects.R
 #' api_json: api_json
 #' 
@@ -1148,6 +1148,7 @@ Metadata.items <- function() {
 #' @param doc_type No description
 #' @param dont_show_notification No description
 #' @param iconUrl No description
+#' @param notificationGroup No description
 #' @param notification_type No description
 #' @param pcampaign_id No description
 #' @param reason No description
@@ -1160,12 +1161,13 @@ Metadata.items <- function() {
 #' @family Notification functions
 #' @export
 Notification <- function(body = NULL, crmExperimentIds = NULL, doc_id = NULL, doc_type = NULL, 
-    dont_show_notification = NULL, iconUrl = NULL, notification_type = NULL, pcampaign_id = NULL, 
-    reason = NULL, show_notification_settings_action = NULL, targetUrl = NULL, title = NULL) {
+    dont_show_notification = NULL, iconUrl = NULL, notificationGroup = NULL, notification_type = NULL, 
+    pcampaign_id = NULL, reason = NULL, show_notification_settings_action = NULL, 
+    targetUrl = NULL, title = NULL) {
     structure(list(body = body, crmExperimentIds = crmExperimentIds, doc_id = doc_id, 
         doc_type = doc_type, dont_show_notification = dont_show_notification, iconUrl = iconUrl, 
-        kind = `books#notification`, notification_type = notification_type, pcampaign_id = pcampaign_id, 
-        reason = reason, show_notification_settings_action = show_notification_settings_action, 
+        kind = `books#notification`, notificationGroup = notificationGroup, notification_type = notification_type, 
+        pcampaign_id = pcampaign_id, reason = reason, show_notification_settings_action = show_notification_settings_action, 
         targetUrl = targetUrl, title = title), class = "gar_Notification")
 }
 

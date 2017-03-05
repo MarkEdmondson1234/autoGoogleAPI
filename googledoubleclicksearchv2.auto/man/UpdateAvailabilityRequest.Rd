@@ -22,4 +22,3 @@ The request to update availability.
 \seealso{
 Other UpdateAvailabilityRequest functions: \code{\link{conversion.updateAvailability}}
 }
-

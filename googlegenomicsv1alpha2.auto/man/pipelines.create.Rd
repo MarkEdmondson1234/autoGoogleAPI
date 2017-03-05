@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{pipelines.create}
 \alias{pipelines.create}
-\title{Creates a pipeline that can be run later. Create takes a Pipeline that has all fields other than `pipelineId` populated, and then returns the same pipeline with `pipelineId` populated. This id can be used to run the pipeline. Caller must have WRITE permission to the project.}
+\title{Creates a pipeline that can be run later. Create takes a Pipeline thathas all fields other than `pipelineId` populated, and then returnsthe same pipeline with `pipelineId` populated. This id can be usedto run the pipeline.Caller must have WRITE permission to the project.}
 \usage{
 pipelines.create(Pipeline)
 }
@@ -25,8 +25,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other Pipeline functions: \code{\link{Pipeline}}
 }
-

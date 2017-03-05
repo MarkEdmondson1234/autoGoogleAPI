@@ -19,4 +19,3 @@ The entity's properties.
 \seealso{
 Other Entity functions: \code{\link{Entity}}
 }
-

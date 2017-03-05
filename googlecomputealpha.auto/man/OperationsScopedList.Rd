@@ -31,4 +31,3 @@ No description
 Other OperationsScopedList functions: \code{\link{OperationsScopedList.warning.data}},
   \code{\link{OperationsScopedList.warning}}
 }
-

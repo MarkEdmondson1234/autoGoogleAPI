@@ -2,7 +2,7 @@
 #' Lets you access a cloud hosted machine learning service that makes it easy to build smart apps
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:25:46
+#'  at 2017-03-05 20:05:37
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlepredictionv12.auto/R/prediction_objects.R
 #' api_json: api_json
 #' 

@@ -27,4 +27,3 @@ Traffic routing configuration for versions within a single service. Traffic spli
 \seealso{
 Other TrafficSplit functions: \code{\link{TrafficSplit.allocations}}
 }
-

@@ -22,4 +22,3 @@ No description
 \seealso{
 Other RegionInstanceGroupManagersSetAutoHealingRequest functions: \code{\link{regionInstanceGroupManagers.setAutoHealingPolicies}}
 }
-

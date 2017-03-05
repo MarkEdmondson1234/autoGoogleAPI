@@ -22,4 +22,3 @@ A topic resource.
 \seealso{
 Other Topic functions: \code{\link{projects.topics.create}}
 }
-

@@ -35,4 +35,3 @@ Other File functions: \code{\link{File.appProperties}},
   \code{\link{File}}, \code{\link{files.copy}},
   \code{\link{files.create}}, \code{\link{files.update}}
 }
-

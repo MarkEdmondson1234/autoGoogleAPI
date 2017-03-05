@@ -8,17 +8,16 @@
 Reads and writes Google Sheets.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-04 00:02:25
+ at 2017-03-05 20:13:27
 filename: /Users/mark/dev/R/autoGoogleAPI/googlesheetsv4.auto/R/sheets_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/drive.readonly
+  \item https://www.googleapis.com/auth/drive
+\item https://www.googleapis.com/auth/drive.readonly
 \item https://www.googleapis.com/auth/spreadsheets.readonly
-\item https://www.googleapis.com/auth/drive
 \item https://www.googleapis.com/auth/spreadsheets
 }
 }
-

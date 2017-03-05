@@ -2,7 +2,7 @@
 #' API for working with Fusion Tables data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:13:08
+#'  at 2017-03-05 19:51:13
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlefusiontablesv1.auto/R/fusiontables_objects.R
 #' api_json: api_json
 #' 

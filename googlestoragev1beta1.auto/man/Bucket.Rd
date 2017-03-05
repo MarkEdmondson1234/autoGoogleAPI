@@ -37,7 +37,7 @@ Bucket object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:48:25
+ at 2017-03-05 20:17:26
 filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragev1beta1.auto/R/storage_objects.R
 api_json: api_json
 }
@@ -55,4 +55,3 @@ Other Bucket functions: \code{\link{Bucket.owner}},
   \code{\link{buckets.insert}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

@@ -19,4 +19,3 @@ No description
 \seealso{
 Other Jwk functions: \code{\link{Jwk}}
 }
-

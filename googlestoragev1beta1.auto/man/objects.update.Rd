@@ -37,4 +37,3 @@ Other Object functions: \code{\link{Object.media}},
   \code{\link{Object.owner}}, \code{\link{Object}},
   \code{\link{objects.insert}}, \code{\link{objects.patch}}
 }
-

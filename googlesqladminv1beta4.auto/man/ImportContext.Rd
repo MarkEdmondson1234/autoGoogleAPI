@@ -31,4 +31,3 @@ Database instance import context.
 \seealso{
 Other ImportContext functions: \code{\link{ImportContext.csvImportOptions}}
 }
-

@@ -23,4 +23,3 @@ No description
 Other GroupItem functions: \code{\link{GroupItem}},
   \code{\link{groupItems.insert}}
 }
-

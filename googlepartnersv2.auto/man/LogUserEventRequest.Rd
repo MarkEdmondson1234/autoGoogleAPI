@@ -29,7 +29,7 @@ LogUserEventRequest object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:21:00
+ at 2017-03-05 19:57:25
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepartnersv2.auto/R/partners_objects.R
 api_json: api_json
 }
@@ -44,4 +44,3 @@ Request message for LogUserEvent.
 \seealso{
 Other LogUserEventRequest functions: \code{\link{userEvents.log}}
 }
-

@@ -37,4 +37,3 @@ No description
 \seealso{
 Other Job functions: \code{\link{jobs.insert}}
 }
-

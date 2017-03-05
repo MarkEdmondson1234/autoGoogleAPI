@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.list}
 \alias{orders.list}
-\title{Lists the orders in your Merchant Center account.}
+\title{Lists the orders in your Merchant Center account. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.list(merchantId, acknowledged = NULL, maxResults = NULL,
   orderBy = NULL, pageToken = NULL, placedDateEnd = NULL,
@@ -41,4 +41,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

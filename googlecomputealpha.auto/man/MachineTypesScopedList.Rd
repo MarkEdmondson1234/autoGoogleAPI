@@ -31,4 +31,3 @@ No description
 Other MachineTypesScopedList functions: \code{\link{MachineTypesScopedList.warning.data}},
   \code{\link{MachineTypesScopedList.warning}}
 }
-

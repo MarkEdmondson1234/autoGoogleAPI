@@ -19,4 +19,3 @@ Request passed to PauseTransferOperation.
 \seealso{
 Other PauseTransferOperationRequest functions: \code{\link{transferOperations.pause}}
 }
-

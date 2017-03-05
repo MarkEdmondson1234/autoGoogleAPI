@@ -4,11 +4,11 @@
 \name{appsactivity_googleAuthR}
 \alias{appsactivity_googleAuthR}
 \alias{appsactivity_googleAuthR-package}
-\title{Google Apps Activity API
+\title{G Suite Activity API
 Provides a historical view of activity.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:35:50
+ at 2017-03-05 19:28:12
 filename: /Users/mark/dev/R/autoGoogleAPI/googleappsactivityv1.auto/R/appsactivity_functions.R
 api_json: api_json
 }
@@ -22,4 +22,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/drive.readonly
 }
 }
-

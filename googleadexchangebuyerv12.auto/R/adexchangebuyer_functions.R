@@ -2,7 +2,7 @@
 #' Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:30:24
+#'  at 2017-03-05 19:19:45
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangebuyerv12.auto/R/adexchangebuyer_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Gets one account by ID.
 #' 
@@ -42,7 +55,7 @@ accounts.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.2/accounts/%s", 
         id)
     # adexchangebuyer.accounts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -68,7 +81,7 @@ accounts.get <- function(id) {
 accounts.list <- function() {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.2/accounts"
     # adexchangebuyer.accounts.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -98,7 +111,7 @@ accounts.patch <- function(Account, id) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.2/accounts/%s", 
         id)
     # adexchangebuyer.accounts.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Account, "gar_Account"))
     
     f(the_body = Account)
@@ -130,7 +143,7 @@ accounts.update <- function(Account, id) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.2/accounts/%s", 
         id)
     # adexchangebuyer.accounts.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Account, "gar_Account"))
     
     f(the_body = Account)
@@ -161,7 +174,7 @@ creatives.get <- function(accountId, buyerCreativeId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.2/creatives/%s/%s", 
         accountId, buyerCreativeId)
     # adexchangebuyer.creatives.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -189,7 +202,7 @@ creatives.get <- function(accountId, buyerCreativeId) {
 creatives.insert <- function(Creative) {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.2/creatives"
     # adexchangebuyer.creatives.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Creative, "gar_Creative"))
     
     f(the_body = Creative)
@@ -227,8 +240,10 @@ creatives.list <- function(maxResults = NULL, pageToken = NULL, statusFilter = N
     
     url <- "https://www.googleapis.com/adexchangebuyer/v1.2/creatives"
     # adexchangebuyer.creatives.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, statusFilter = statusFilter), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, statusFilter = statusFilter)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

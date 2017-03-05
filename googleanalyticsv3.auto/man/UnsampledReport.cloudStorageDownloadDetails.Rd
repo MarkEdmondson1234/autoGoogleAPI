@@ -27,4 +27,3 @@ Other UnsampledReport functions: \code{\link{UnsampledReport.driveDownloadDetail
   \code{\link{UnsampledReport}},
   \code{\link{management.unsampledReports.insert}}
 }
-

@@ -26,4 +26,3 @@ This is a JSON template for a turn-based match results object.
 \seealso{
 Other TurnBasedMatchResults functions: \code{\link{turnBasedMatches.finish}}
 }
-

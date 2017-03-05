@@ -29,4 +29,3 @@ No description
 \seealso{
 Other BooksCloudloadingResource functions: \code{\link{cloudloading.updateBook}}
 }
-

@@ -24,4 +24,3 @@ Other UnsampledReport functions: \code{\link{UnsampledReport.cloudStorageDownloa
   \code{\link{UnsampledReport}},
   \code{\link{management.unsampledReports.insert}}
 }
-

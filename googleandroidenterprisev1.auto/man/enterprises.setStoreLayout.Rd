@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{enterprises.setStoreLayout}
 \alias{enterprises.setStoreLayout}
-\title{Sets the store layout for the enterprise.}
+\title{Sets the store layout for the enterprise. By default, storeLayoutType is set to 'basic' and the basic store layout is enabled. The basic layout only contains apps approved by the admin, and that have been added to the available product set for a user (using the  setAvailableProductSet call). Apps on the page are sorted in order of their product ID value. If you create a custom store layout (by setting storeLayoutType = 'custom'), the basic store layout is disabled.}
 \usage{
 enterprises.setStoreLayout(StoreLayout, enterpriseId)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other StoreLayout functions: \code{\link{StoreLayout}}
 }
-

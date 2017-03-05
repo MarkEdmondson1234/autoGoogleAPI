@@ -28,4 +28,3 @@ The request of cloudmonitoring.timeseries.write
 Other WriteTimeseriesRequest functions: \code{\link{WriteTimeseriesRequest.commonLabels}},
   \code{\link{timeseries.write}}
 }
-

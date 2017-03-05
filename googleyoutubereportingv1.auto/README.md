@@ -20,7 +20,7 @@ Set the appropriate Google API scopes:
 ```r
 library(googleAuthR)
 library(googleyoutubereportingv1.auto)
-options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/yt-analytics-monetary.readonly', 'https://www.googleapis.com/auth/yt-analytics.readonly'))
+options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/yt-analytics-monetary.readonly'))
 
 gar_auth()
 ```

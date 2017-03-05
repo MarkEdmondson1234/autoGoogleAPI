@@ -35,4 +35,3 @@ Other Geolayerdata functions: \code{\link{Geolayerdata.geo.viewport.hi}},
   \code{\link{Geolayerdata.geo}},
   \code{\link{Geolayerdata}}
 }
-

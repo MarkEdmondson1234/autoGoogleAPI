@@ -4,9 +4,11 @@
 \alias{divisions.search}
 \title{Searches for political divisions by their natural name or OCD ID.}
 \usage{
-divisions.search(query = NULL)
+divisions.search(DivisionSearchRequest, query = NULL)
 }
 \arguments{
+\item{DivisionSearchRequest}{The \link{DivisionSearchRequest} object to pass to this method}
+
 \item{query}{The search query}
 }
 \description{
@@ -24,5 +26,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
 \href{https://developers.google.com/civic-information}{Google Documentation}
-}
 
+Other DivisionSearchRequest functions: \code{\link{DivisionSearchRequest}}
+}

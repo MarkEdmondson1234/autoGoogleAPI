@@ -20,4 +20,3 @@ If the script function returns successfully, this field will contain an `Executi
 Other Operation functions: \code{\link{Operation.metadata}},
   \code{\link{Operation}}
 }
-

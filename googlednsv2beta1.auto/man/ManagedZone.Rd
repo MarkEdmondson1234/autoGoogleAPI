@@ -40,4 +40,3 @@ Other ManagedZone functions: \code{\link{managedZones.create}},
   \code{\link{managedZones.patch}},
   \code{\link{managedZones.update}}
 }
-

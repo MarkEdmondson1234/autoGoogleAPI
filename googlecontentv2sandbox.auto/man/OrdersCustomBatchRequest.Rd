@@ -22,4 +22,3 @@ No description
 \seealso{
 Other OrdersCustomBatchRequest functions: \code{\link{orders.custombatch}}
 }
-

@@ -36,4 +36,3 @@ Other CalendarResource functions: \code{\link{directory.resources.calendars.inse
   \code{\link{directory.resources.calendars.patch}},
   \code{\link{directory.resources.calendars.update}}
 }
-

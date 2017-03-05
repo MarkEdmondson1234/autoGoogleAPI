@@ -29,4 +29,3 @@ Other GaData functions: \code{\link{GaData.columnHeaders}},
   \code{\link{GaData.totalsForAllResults}},
   \code{\link{GaData}}
 }
-

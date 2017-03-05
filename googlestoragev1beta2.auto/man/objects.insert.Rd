@@ -47,4 +47,3 @@ Other Object functions: \code{\link{Object.metadata}},
   \code{\link{objects.copy}}, \code{\link{objects.patch}},
   \code{\link{objects.update}}
 }
-

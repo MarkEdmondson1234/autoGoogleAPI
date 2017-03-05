@@ -26,7 +26,7 @@ Change object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:11:00
+ at 2017-03-05 19:48:17
 filename: /Users/mark/dev/R/autoGoogleAPI/googlednsv2beta1.auto/R/dns_objects.R
 api_json: api_json
 }
@@ -41,4 +41,3 @@ An atomic update to a collection of ResourceRecordSets.
 \seealso{
 Other Change functions: \code{\link{changes.create}}
 }
-

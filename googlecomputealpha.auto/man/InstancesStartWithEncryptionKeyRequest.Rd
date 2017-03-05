@@ -25,4 +25,3 @@ No description
 \seealso{
 Other InstancesStartWithEncryptionKeyRequest functions: \code{\link{instances.startWithEncryptionKey}}
 }
-

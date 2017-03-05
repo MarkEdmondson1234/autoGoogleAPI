@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.updatemerchantorderid}
 \alias{orders.updatemerchantorderid}
-\title{Updates the merchant order ID for a given order.}
+\title{Updates the merchant order ID for a given order. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.updatemerchantorderid(OrdersUpdateMerchantOrderIdRequest, merchantId,
   orderId)
@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersUpdateMerchantOrderIdRequest functions: \code{\link{OrdersUpdateMerchantOrderIdRequest}}
 }
-

@@ -20,4 +20,3 @@ No description
 Other UsageReport functions: \code{\link{UsageReport.entity}},
   \code{\link{UsageReport}}
 }
-

@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other InstancesFailoverRequest functions: \code{\link{InstancesFailoverRequest}}
 }
-

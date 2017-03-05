@@ -41,4 +41,3 @@ Request to verify the password.
 \seealso{
 Other IdentitytoolkitRelyingpartyVerifyPasswordRequest functions: \code{\link{relyingparty.verifyPassword}}
 }
-

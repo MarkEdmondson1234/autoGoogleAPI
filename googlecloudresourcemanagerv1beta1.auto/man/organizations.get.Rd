@@ -7,7 +7,7 @@
 organizations.get(name, organizationId = NULL)
 }
 \arguments{
-\item{name}{The resource name of the Organization to fetch}
+\item{name}{The resource name of the Organization to fetch, e}
 
 \item{organizationId}{The id of the Organization resource to fetch}
 }
@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/resource-manager}{Google Documentation}
 }
-

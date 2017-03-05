@@ -23,4 +23,3 @@ Request message for `SetIamPolicy` method.
 Other SetIamPolicyRequest functions: \code{\link{organizations.setIamPolicy}},
   \code{\link{projects.setIamPolicy}}
 }
-

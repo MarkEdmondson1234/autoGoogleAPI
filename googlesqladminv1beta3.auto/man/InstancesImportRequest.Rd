@@ -22,4 +22,3 @@ Database instance import request.
 \seealso{
 Other InstancesImportRequest functions: \code{\link{sql.instances.import}}
 }
-

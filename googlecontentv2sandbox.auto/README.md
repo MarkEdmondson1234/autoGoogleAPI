@@ -1,5 +1,5 @@
 # googlecontentv2sandbox.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Content API for Shopping R library
 
 Manages product items, inventory, and Merchant Center accounts for Google Shopping.

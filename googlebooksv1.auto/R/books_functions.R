@@ -2,7 +2,7 @@
 #' Searches for books and manages your Google Books library.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:58:25
+#'  at 2017-03-05 19:30:04
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlebooksv1.auto/R/books_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Retrieves metadata for a specific bookshelf for the specified user.
 #' 
@@ -42,9 +55,11 @@ NULL
 #' @export
 elves.get <- function(userId, shelf, source = NULL) {
     url <- sprintf("https://www.googleapis.com/books/v1/users/%s/bookshelves/%s", 
-        shelf, userId)
+        userId, shelf)
     # books.bookshelves.get
-    f <- gar_api_generator(url, "GET", pars_args = list(source = source), data_parse_function = function(x) x)
+    pars = list(source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -72,7 +87,9 @@ elves.get <- function(userId, shelf, source = NULL) {
 elves.list <- function(userId, source = NULL) {
     url <- sprintf("https://www.googleapis.com/books/v1/users/%s/bookshelves", userId)
     # books.bookshelves.list
-    f <- gar_api_generator(url, "GET", pars_args = list(source = source), data_parse_function = function(x) x)
+    pars = list(source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -103,8 +120,9 @@ cloudloading.addBook <- function(drive_document_id = NULL, mime_type = NULL, nam
     upload_client_token = NULL) {
     url <- "https://www.googleapis.com/books/v1/cloudloading/addBook"
     # books.cloudloading.addBook
-    f <- gar_api_generator(url, "POST", pars_args = list(drive_document_id = drive_document_id, 
-        mime_type = mime_type, name = name, upload_client_token = upload_client_token), 
+    pars = list(drive_document_id = drive_document_id, mime_type = mime_type, name = name, 
+        upload_client_token = upload_client_token)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -132,7 +150,9 @@ cloudloading.addBook <- function(drive_document_id = NULL, mime_type = NULL, nam
 cloudloading.deleteBook <- function(volumeId) {
     url <- "https://www.googleapis.com/books/v1/cloudloading/deleteBook"
     # books.cloudloading.deleteBook
-    f <- gar_api_generator(url, "POST", pars_args = list(volumeId = volumeId), data_parse_function = function(x) x)
+    pars = list(volumeId = volumeId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -160,7 +180,7 @@ cloudloading.deleteBook <- function(volumeId) {
 cloudloading.updateBook <- function(BooksCloudloadingResource) {
     url <- "https://www.googleapis.com/books/v1/cloudloading/updateBook"
     # books.cloudloading.updateBook
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(BooksCloudloadingResource, "gar_BooksCloudloadingResource"))
     
     f(the_body = BooksCloudloadingResource)
@@ -189,7 +209,9 @@ cloudloading.updateBook <- function(BooksCloudloadingResource) {
 dictionary.listOfflineMetadata <- function(cpksver) {
     url <- "https://www.googleapis.com/books/v1/dictionary/listOfflineMetadata"
     # books.dictionary.listOfflineMetadata
-    f <- gar_api_generator(url, "GET", pars_args = list(cpksver = cpksver), data_parse_function = function(x) x)
+    pars = list(cpksver = cpksver)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -218,10 +240,11 @@ dictionary.listOfflineMetadata <- function(cpksver) {
 #' @export
 layers.get <- function(volumeId, summaryId, contentVersion = NULL, source = NULL) {
     url <- sprintf("https://www.googleapis.com/books/v1/volumes/%s/layersummary/%s", 
-        summaryId, volumeId)
+        volumeId, summaryId)
     # books.layers.get
-    f <- gar_api_generator(url, "GET", pars_args = list(contentVersion = contentVersion, 
-        source = source), data_parse_function = function(x) x)
+    pars = list(contentVersion = contentVersion, source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -254,8 +277,10 @@ layers.list <- function(volumeId, contentVersion = NULL, maxResults = NULL, page
     url <- sprintf("https://www.googleapis.com/books/v1/volumes/%s/layersummary", 
         volumeId)
     # books.layers.list
-    f <- gar_api_generator(url, "GET", pars_args = list(contentVersion = contentVersion, 
-        maxResults = maxResults, pageToken = pageToken, source = source), data_parse_function = function(x) x)
+    pars = list(contentVersion = contentVersion, maxResults = maxResults, pageToken = pageToken, 
+        source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -281,7 +306,7 @@ layers.list <- function(volumeId, contentVersion = NULL, maxResults = NULL, page
 myconfig.getUserSettings <- function() {
     url <- "https://www.googleapis.com/books/v1/myconfig/getUserSettings"
     # books.myconfig.getUserSettings
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -311,8 +336,9 @@ myconfig.getUserSettings <- function() {
 myconfig.releaseDownloadAccess <- function(volumeIds, cpksver, locale = NULL, source = NULL) {
     url <- "https://www.googleapis.com/books/v1/myconfig/releaseDownloadAccess"
     # books.myconfig.releaseDownloadAccess
-    f <- gar_api_generator(url, "POST", pars_args = list(cpksver = cpksver, locale = locale, 
-        source = source, volumeIds = volumeIds), data_parse_function = function(x) x)
+    pars = list(volumeIds = volumeIds, cpksver = cpksver, locale = locale, source = source)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -345,8 +371,10 @@ myconfig.requestAccess <- function(source, volumeId, nonce, cpksver, licenseType
     locale = NULL) {
     url <- "https://www.googleapis.com/books/v1/myconfig/requestAccess"
     # books.myconfig.requestAccess
-    f <- gar_api_generator(url, "POST", pars_args = list(cpksver = cpksver, licenseTypes = licenseTypes, 
-        locale = locale, nonce = nonce, source = source, volumeId = volumeId), data_parse_function = function(x) x)
+    pars = list(source = source, volumeId = volumeId, nonce = nonce, cpksver = cpksver, 
+        licenseTypes = licenseTypes, locale = locale)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -381,9 +409,11 @@ myconfig.syncVolumeLicenses <- function(source, nonce, cpksver, features = NULL,
     includeNonComicsSeries = NULL, locale = NULL, showPreorders = NULL, volumeIds = NULL) {
     url <- "https://www.googleapis.com/books/v1/myconfig/syncVolumeLicenses"
     # books.myconfig.syncVolumeLicenses
-    f <- gar_api_generator(url, "POST", pars_args = list(cpksver = cpksver, features = features, 
-        includeNonComicsSeries = includeNonComicsSeries, locale = locale, nonce = nonce, 
-        showPreorders = showPreorders, source = source, volumeIds = volumeIds), data_parse_function = function(x) x)
+    pars = list(source = source, nonce = nonce, cpksver = cpksver, features = features, 
+        includeNonComicsSeries = includeNonComicsSeries, locale = locale, showPreorders = showPreorders, 
+        volumeIds = volumeIds)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -411,7 +441,7 @@ myconfig.syncVolumeLicenses <- function(source, nonce, cpksver, features = NULL,
 myconfig.updateUserSettings <- function(Usersettings) {
     url <- "https://www.googleapis.com/books/v1/myconfig/updateUserSettings"
     # books.myconfig.updateUserSettings
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Usersettings, "gar_Usersettings"))
     
     f(the_body = Usersettings)
@@ -442,7 +472,9 @@ mylibrary.annotations.delete <- function(annotationId, source = NULL) {
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/annotations/%s", 
         annotationId)
     # books.mylibrary.annotations.delete
-    f <- gar_api_generator(url, "DELETE", pars_args = list(source = source), data_parse_function = function(x) x)
+    pars = list(source = source)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -474,8 +506,10 @@ mylibrary.annotations.insert <- function(Annotation, country = NULL, showOnlySum
     source = NULL) {
     url <- "https://www.googleapis.com/books/v1/mylibrary/annotations"
     # books.mylibrary.annotations.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(country = country, showOnlySummaryInResponse = showOnlySummaryInResponse, 
-        source = source), data_parse_function = function(x) x)
+    pars = list(country = country, showOnlySummaryInResponse = showOnlySummaryInResponse, 
+        source = source)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Annotation, "gar_Annotation"))
     
     f(the_body = Annotation)
@@ -515,10 +549,11 @@ mylibrary.annotations.list <- function(contentVersion = NULL, layerId = NULL, la
     updatedMin = NULL, volumeId = NULL) {
     url <- "https://www.googleapis.com/books/v1/mylibrary/annotations"
     # books.mylibrary.annotations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(contentVersion = contentVersion, 
-        layerId = layerId, layerIds = layerIds, maxResults = maxResults, pageToken = pageToken, 
-        showDeleted = showDeleted, source = source, updatedMax = updatedMax, updatedMin = updatedMin, 
-        volumeId = volumeId), data_parse_function = function(x) x)
+    pars = list(contentVersion = contentVersion, layerId = layerId, layerIds = layerIds, 
+        maxResults = maxResults, pageToken = pageToken, showDeleted = showDeleted, 
+        source = source, updatedMax = updatedMax, updatedMin = updatedMin, volumeId = volumeId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -546,7 +581,8 @@ mylibrary.annotations.list <- function(contentVersion = NULL, layerId = NULL, la
 mylibrary.annotations.summary <- function(layerIds, volumeId) {
     url <- "https://www.googleapis.com/books/v1/mylibrary/annotations/summary"
     # books.mylibrary.annotations.summary
-    f <- gar_api_generator(url, "POST", pars_args = list(layerIds = layerIds, volumeId = volumeId), 
+    pars = list(layerIds = layerIds, volumeId = volumeId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -578,7 +614,9 @@ mylibrary.annotations.update <- function(Annotation, annotationId, source = NULL
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/annotations/%s", 
         annotationId)
     # books.mylibrary.annotations.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(source = source), data_parse_function = function(x) x)
+    pars = list(source = source)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Annotation, "gar_Annotation"))
     
     f(the_body = Annotation)
@@ -611,8 +649,9 @@ mylibrary.elves.addVolume <- function(shelf, volumeId, reason = NULL, source = N
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/bookshelves/%s/addVolume", 
         shelf)
     # books.mylibrary.bookshelves.addVolume
-    f <- gar_api_generator(url, "POST", pars_args = list(reason = reason, source = source, 
-        volumeId = volumeId), data_parse_function = function(x) x)
+    pars = list(volumeId = volumeId, reason = reason, source = source)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -641,7 +680,9 @@ mylibrary.elves.clearVolumes <- function(shelf, source = NULL) {
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/bookshelves/%s/clearVolumes", 
         shelf)
     # books.mylibrary.bookshelves.clearVolumes
-    f <- gar_api_generator(url, "POST", pars_args = list(source = source), data_parse_function = function(x) x)
+    pars = list(source = source)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -670,7 +711,9 @@ mylibrary.elves.get <- function(shelf, source = NULL) {
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/bookshelves/%s", 
         shelf)
     # books.mylibrary.bookshelves.get
-    f <- gar_api_generator(url, "GET", pars_args = list(source = source), data_parse_function = function(x) x)
+    pars = list(source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -697,7 +740,9 @@ mylibrary.elves.get <- function(shelf, source = NULL) {
 mylibrary.elves.list <- function(source = NULL) {
     url <- "https://www.googleapis.com/books/v1/mylibrary/bookshelves"
     # books.mylibrary.bookshelves.list
-    f <- gar_api_generator(url, "GET", pars_args = list(source = source), data_parse_function = function(x) x)
+    pars = list(source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -728,8 +773,9 @@ mylibrary.elves.moveVolume <- function(shelf, volumeId, volumePosition, source =
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/bookshelves/%s/moveVolume", 
         shelf)
     # books.mylibrary.bookshelves.moveVolume
-    f <- gar_api_generator(url, "POST", pars_args = list(source = source, volumeId = volumeId, 
-        volumePosition = volumePosition), data_parse_function = function(x) x)
+    pars = list(volumeId = volumeId, volumePosition = volumePosition, source = source)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -760,8 +806,9 @@ mylibrary.elves.removeVolume <- function(shelf, volumeId, reason = NULL, source 
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/bookshelves/%s/removeVolume", 
         shelf)
     # books.mylibrary.bookshelves.removeVolume
-    f <- gar_api_generator(url, "POST", pars_args = list(reason = reason, source = source, 
-        volumeId = volumeId), data_parse_function = function(x) x)
+    pars = list(volumeId = volumeId, reason = reason, source = source)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -791,8 +838,9 @@ mylibrary.readingpositions.get <- function(volumeId, contentVersion = NULL, sour
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/readingpositions/%s", 
         volumeId)
     # books.mylibrary.readingpositions.get
-    f <- gar_api_generator(url, "GET", pars_args = list(contentVersion = contentVersion, 
-        source = source), data_parse_function = function(x) x)
+    pars = list(contentVersion = contentVersion, source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -827,8 +875,9 @@ mylibrary.readingpositions.setPosition <- function(volumeId, timestamp, position
     url <- sprintf("https://www.googleapis.com/books/v1/mylibrary/readingpositions/%s/setPosition", 
         volumeId)
     # books.mylibrary.readingpositions.setPosition
-    f <- gar_api_generator(url, "POST", pars_args = list(action = action, contentVersion = contentVersion, 
-        deviceCookie = deviceCookie, position = position, source = source, timestamp = timestamp), 
+    pars = list(timestamp = timestamp, position = position, action = action, contentVersion = contentVersion, 
+        deviceCookie = deviceCookie, source = source)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -858,8 +907,9 @@ mylibrary.readingpositions.setPosition <- function(volumeId, timestamp, position
 notification.get <- function(notification_id, locale = NULL, source = NULL) {
     url <- "https://www.googleapis.com/books/v1/notification/get"
     # books.notification.get
-    f <- gar_api_generator(url, "GET", pars_args = list(locale = locale, notification_id = notification_id, 
-        source = source), data_parse_function = function(x) x)
+    pars = list(notification_id = notification_id, locale = locale, source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -886,7 +936,9 @@ notification.get <- function(notification_id, locale = NULL, source = NULL) {
 onboarding.listCategories <- function(locale = NULL) {
     url <- "https://www.googleapis.com/books/v1/onboarding/listCategories"
     # books.onboarding.listCategories
-    f <- gar_api_generator(url, "GET", pars_args = list(locale = locale), data_parse_function = function(x) x)
+    pars = list(locale = locale)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -918,9 +970,10 @@ onboarding.listCategoryVolumes <- function(categoryId = NULL, locale = NULL, max
     pageSize = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/books/v1/onboarding/listCategoryVolumes"
     # books.onboarding.listCategoryVolumes
-    f <- gar_api_generator(url, "GET", pars_args = list(categoryId = categoryId, 
-        locale = locale, maxAllowedMaturityRating = maxAllowedMaturityRating, pageSize = pageSize, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(categoryId = categoryId, locale = locale, maxAllowedMaturityRating = maxAllowedMaturityRating, 
+        pageSize = pageSize, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -950,8 +1003,10 @@ personalizedstream.get <- function(locale = NULL, maxAllowedMaturityRating = NUL
     source = NULL) {
     url <- "https://www.googleapis.com/books/v1/personalizedstream/get"
     # books.personalizedstream.get
-    f <- gar_api_generator(url, "GET", pars_args = list(locale = locale, maxAllowedMaturityRating = maxAllowedMaturityRating, 
-        source = source), data_parse_function = function(x) x)
+    pars = list(locale = locale, maxAllowedMaturityRating = maxAllowedMaturityRating, 
+        source = source)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -986,9 +1041,10 @@ promooffer.accept <- function(androidId = NULL, device = NULL, manufacturer = NU
     model = NULL, offerId = NULL, product = NULL, serial = NULL, volumeId = NULL) {
     url <- "https://www.googleapis.com/books/v1/promooffer/accept"
     # books.promooffer.accept
-    f <- gar_api_generator(url, "POST", pars_args = list(androidId = androidId, device = device, 
-        manufacturer = manufacturer, model = model, offerId = offerId, product = product, 
-        serial = serial, volumeId = volumeId), data_parse_function = function(x) x)
+    pars = list(androidId = androidId, device = device, manufacturer = manufacturer, 
+        model = model, offerId = offerId, product = product, serial = serial, volumeId = volumeId)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1022,9 +1078,10 @@ promooffer.dismiss <- function(androidId = NULL, device = NULL, manufacturer = N
     model = NULL, offerId = NULL, product = NULL, serial = NULL) {
     url <- "https://www.googleapis.com/books/v1/promooffer/dismiss"
     # books.promooffer.dismiss
-    f <- gar_api_generator(url, "POST", pars_args = list(androidId = androidId, device = device, 
-        manufacturer = manufacturer, model = model, offerId = offerId, product = product, 
-        serial = serial), data_parse_function = function(x) x)
+    pars = list(androidId = androidId, device = device, manufacturer = manufacturer, 
+        model = model, offerId = offerId, product = product, serial = serial)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1057,8 +1114,9 @@ promooffer.get <- function(androidId = NULL, device = NULL, manufacturer = NULL,
     model = NULL, product = NULL, serial = NULL) {
     url <- "https://www.googleapis.com/books/v1/promooffer/get"
     # books.promooffer.get
-    f <- gar_api_generator(url, "GET", pars_args = list(androidId = androidId, device = device, 
-        manufacturer = manufacturer, model = model, product = product, serial = serial), 
+    pars = list(androidId = androidId, device = device, manufacturer = manufacturer, 
+        model = model, product = product, serial = serial)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1086,7 +1144,9 @@ promooffer.get <- function(androidId = NULL, device = NULL, manufacturer = NULL,
 series.get <- function(series_id) {
     url <- "https://www.googleapis.com/books/v1/series/get"
     # books.series.get
-    f <- gar_api_generator(url, "GET", pars_args = list(series_id = series_id), data_parse_function = function(x) x)
+    pars = list(series_id = series_id)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1120,8 +1180,9 @@ volumes.get <- function(volumeId, country = NULL, includeNonComicsSeries = NULL,
     partner = NULL, projection = NULL, source = NULL, user_library_consistent_read = NULL) {
     url <- sprintf("https://www.googleapis.com/books/v1/volumes/%s", volumeId)
     # books.volumes.get
-    f <- gar_api_generator(url, "GET", pars_args = list(country = country, includeNonComicsSeries = includeNonComicsSeries, 
-        partner = partner, projection = projection, source = source, user_library_consistent_read = user_library_consistent_read), 
+    pars = list(country = country, includeNonComicsSeries = includeNonComicsSeries, 
+        partner = partner, projection = projection, source = source, user_library_consistent_read = user_library_consistent_read)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1154,6 +1215,8 @@ volumes.get <- function(volumeId, country = NULL, includeNonComicsSeries = NULL,
 
 #' @param libraryRestrict Restrict search to this user's library
 
+#' @param maxAllowedMaturityRating The maximum allowed maturity rating of returned recommendations
+
 #' @param maxResults Maximum number of results to return
 
 #' @param orderBy Sort search results
@@ -1174,16 +1237,20 @@ volumes.get <- function(volumeId, country = NULL, includeNonComicsSeries = NULL,
 
 
 volumes.list <- function(q, download = NULL, filter = NULL, langRestrict = NULL, 
-    libraryRestrict = NULL, maxResults = NULL, orderBy = NULL, partner = NULL, printType = NULL, 
-    projection = NULL, showPreorders = NULL, source = NULL, startIndex = NULL) {
+    libraryRestrict = NULL, maxAllowedMaturityRating = NULL, maxResults = NULL, orderBy = NULL, 
+    partner = NULL, printType = NULL, projection = NULL, showPreorders = NULL, source = NULL, 
+    startIndex = NULL) {
     
     
     url <- "https://www.googleapis.com/books/v1/volumes"
     # books.volumes.list
-    f <- gar_api_generator(url, "GET", pars_args = list(download = download, filter = filter, 
-        langRestrict = langRestrict, libraryRestrict = libraryRestrict, maxResults = maxResults, 
-        orderBy = orderBy, partner = partner, printType = printType, projection = projection, 
-        q = q, showPreorders = showPreorders, source = source, startIndex = startIndex), 
+    pars = list(q = q, download = download, filter = filter, langRestrict = langRestrict, 
+        libraryRestrict = libraryRestrict, maxAllowedMaturityRating = maxAllowedMaturityRating, 
+        maxResults = maxResults, orderBy = orderBy, partner = partner, printType = printType, 
+        projection = projection, showPreorders = showPreorders, source = source, 
+        startIndex = startIndex)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     f()

@@ -31,4 +31,3 @@ Other Column functions: \code{\link{Column.baseColumn}},
   \code{\link{Column}}, \code{\link{column.patch}},
   \code{\link{column.update}}
 }
-

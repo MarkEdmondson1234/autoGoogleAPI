@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.refund}
 \alias{orders.refund}
-\title{Refund a portion of the order, up to the full amount paid.}
+\title{Refund a portion of the order, up to the full amount paid. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.refund(OrdersRefundRequest, merchantId, orderId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersRefundRequest functions: \code{\link{OrdersRefundRequest}}
 }
-

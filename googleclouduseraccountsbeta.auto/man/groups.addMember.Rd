@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other GroupsAddMemberRequest functions: \code{\link{GroupsAddMemberRequest}}
 }
-

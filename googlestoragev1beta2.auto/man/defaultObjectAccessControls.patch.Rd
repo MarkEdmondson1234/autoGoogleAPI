@@ -36,4 +36,3 @@ Other ObjectAccessControl functions: \code{\link{ObjectAccessControl}},
   \code{\link{objectAccessControls.patch}},
   \code{\link{objectAccessControls.update}}
 }
-

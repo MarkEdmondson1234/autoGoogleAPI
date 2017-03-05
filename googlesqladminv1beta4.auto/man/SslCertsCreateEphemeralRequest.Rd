@@ -22,4 +22,3 @@ SslCerts create ephemeral certificate request.
 \seealso{
 Other SslCertsCreateEphemeralRequest functions: \code{\link{sql.sslCerts.createEphemeral}}
 }
-

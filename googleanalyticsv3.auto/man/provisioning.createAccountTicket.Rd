@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other AccountTicket functions: \code{\link{AccountTicket}}
 }
-

@@ -39,4 +39,3 @@ Other EntityAdWordsLink functions: \code{\link{EntityAdWordsLink.entity}},
   \code{\link{management.webPropertyAdWordsLinks.patch}},
   \code{\link{management.webPropertyAdWordsLinks.update}}
 }
-

@@ -34,4 +34,3 @@ Other Database functions: \code{\link{Database}},
   \code{\link{sql.databases.patch}},
   \code{\link{sql.databases.update}}
 }
-

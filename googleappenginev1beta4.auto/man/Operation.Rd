@@ -17,9 +17,9 @@ Operation(Operation.metadata = NULL, Operation.response = NULL,
 
 \item{metadata}{Service-specific metadata associated with the operation}
 
-\item{done}{If the value is `false`, it means the operation is still in progress}
+\item{done}{If the value is false, it means the operation is still in progress}
 
-\item{error}{The error result of the operation in case of failure}
+\item{error}{The error result of the operation in case of failure or cancellation}
 
 \item{response}{The normal response of the operation in case of success}
 }
@@ -37,4 +37,3 @@ This resource represents a long-running operation that is the result of a networ
 Other Operation functions: \code{\link{Operation.metadata}},
   \code{\link{Operation.response}}
 }
-

@@ -24,4 +24,3 @@ Indexing spec for a numeric field. By default, only exact match queries will be 
 \seealso{
 Other SchemaFieldSpec functions: \code{\link{SchemaFieldSpec}}
 }
-

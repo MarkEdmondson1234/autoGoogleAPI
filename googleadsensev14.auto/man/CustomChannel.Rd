@@ -31,4 +31,3 @@ No description
 \seealso{
 Other CustomChannel functions: \code{\link{CustomChannel.targetingInfo}}
 }
-

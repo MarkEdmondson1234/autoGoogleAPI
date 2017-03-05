@@ -2,7 +2,7 @@
 % Please edit documentation in R/compute_functions.R
 \name{backendServices.update}
 \alias{backendServices.update}
-\title{Updates the entire content of the BackendService resource. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.}
+\title{Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.}
 \usage{
 backendServices.update(BackendService, project, backendService)
 }
@@ -32,6 +32,8 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other BackendService functions: \code{\link{BackendService}},
   \code{\link{backendServices.insert}},
-  \code{\link{backendServices.patch}}
+  \code{\link{backendServices.patch}},
+  \code{\link{regionBackendServices.insert}},
+  \code{\link{regionBackendServices.patch}},
+  \code{\link{regionBackendServices.update}}
 }
-

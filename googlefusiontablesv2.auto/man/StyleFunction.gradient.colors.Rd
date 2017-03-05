@@ -20,4 +20,3 @@ No description
 Other StyleFunction functions: \code{\link{StyleFunction.gradient}},
   \code{\link{StyleFunction}}
 }
-

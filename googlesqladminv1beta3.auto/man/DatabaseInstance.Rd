@@ -4,14 +4,16 @@
 \alias{DatabaseInstance}
 \title{DatabaseInstance Object}
 \usage{
-DatabaseInstance(currentDiskSize = NULL, databaseVersion = NULL,
-  etag = NULL, instance = NULL, instanceType = NULL, ipAddresses = NULL,
-  ipv6Address = NULL, masterInstanceName = NULL, maxDiskSize = NULL,
-  project = NULL, region = NULL, replicaNames = NULL,
-  serverCaCert = NULL, serviceAccountEmailAddress = NULL, settings = NULL,
-  state = NULL)
+DatabaseInstance(connectionName = NULL, currentDiskSize = NULL,
+  databaseVersion = NULL, etag = NULL, instance = NULL,
+  instanceType = NULL, ipAddresses = NULL, ipv6Address = NULL,
+  masterInstanceName = NULL, maxDiskSize = NULL, project = NULL,
+  region = NULL, replicaNames = NULL, serverCaCert = NULL,
+  serviceAccountEmailAddress = NULL, settings = NULL, state = NULL)
 }
 \arguments{
+\item{connectionName}{Connection name of the Cloud SQL instance used in connection strings}
+
 \item{currentDiskSize}{The current disk usage of the instance in bytes}
 
 \item{databaseVersion}{The database engine type and version}
@@ -59,4 +61,3 @@ Other DatabaseInstance functions: \code{\link{sql.instances.insert}},
   \code{\link{sql.instances.patch}},
   \code{\link{sql.instances.update}}
 }
-

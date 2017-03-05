@@ -33,4 +33,3 @@ Other ReportRequest functions: \code{\link{ReportRequest.filters}},
   \code{\link{ReportRequest}},
   \code{\link{reports.request}}
 }
-

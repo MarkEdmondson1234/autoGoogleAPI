@@ -27,4 +27,3 @@ Other File functions: \code{\link{File.capabilities}},
   \code{\link{File}}, \code{\link{files.copy}},
   \code{\link{files.create}}, \code{\link{files.update}}
 }
-

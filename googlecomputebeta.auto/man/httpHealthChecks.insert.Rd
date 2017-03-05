@@ -32,4 +32,3 @@ Other HttpHealthCheck functions: \code{\link{HttpHealthCheck}},
   \code{\link{httpHealthChecks.patch}},
   \code{\link{httpHealthChecks.update}}
 }
-

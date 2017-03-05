@@ -2,7 +2,7 @@
 % Please edit documentation in R/monitoring_functions.R
 \name{projects.metricDescriptors.delete}
 \alias{projects.metricDescriptors.delete}
-\title{Deletes a metric descriptor. Only user-created [custom metrics](/monitoring/custom-metrics) can be deleted.}
+\title{Deletes a metric descriptor. Only user-created custom metrics can be deleted.}
 \usage{
 projects.metricDescriptors.delete(name)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/monitoring/api/}{Google Documentation}
 }
-

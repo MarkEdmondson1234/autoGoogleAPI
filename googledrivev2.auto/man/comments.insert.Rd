@@ -32,4 +32,3 @@ Other Comment functions: \code{\link{Comment.context}},
   \code{\link{Comment}}, \code{\link{comments.patch}},
   \code{\link{comments.update}}
 }
-

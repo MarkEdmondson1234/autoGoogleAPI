@@ -2,7 +2,7 @@
 #' Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:22:47
+#'  at 2017-03-05 19:58:28
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlesafebrowsingv4.auto/R/safebrowsing_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Finds the threat entries that match the Safe Browsing lists.
 #' 
@@ -42,7 +55,7 @@ NULL
 threatMatches.find <- function(FindThreatMatchesRequest) {
     url <- "https://safebrowsing.googleapis.com/v4/threatMatches:find"
     # safebrowsing.threatMatches.find
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(FindThreatMatchesRequest, "gar_FindThreatMatchesRequest"))
     
     f(the_body = FindThreatMatchesRequest)
@@ -72,7 +85,7 @@ threatMatches.find <- function(FindThreatMatchesRequest) {
 threatListUpdates.fetch <- function(FetchThreatListUpdatesRequest) {
     url <- "https://safebrowsing.googleapis.com/v4/threatListUpdates:fetch"
     # safebrowsing.threatListUpdates.fetch
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(FetchThreatListUpdatesRequest, "gar_FetchThreatListUpdatesRequest"))
     
     f(the_body = FetchThreatListUpdatesRequest)
@@ -102,7 +115,7 @@ threatListUpdates.fetch <- function(FetchThreatListUpdatesRequest) {
 fullHashes.find <- function(FindFullHashesRequest) {
     url <- "https://safebrowsing.googleapis.com/v4/fullHashes:find"
     # safebrowsing.fullHashes.find
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(FindFullHashesRequest, "gar_FindFullHashesRequest"))
     
     f(the_body = FindFullHashesRequest)
@@ -135,7 +148,8 @@ threatLists.list <- function() {
     
     url <- "https://safebrowsing.googleapis.com/v4/threatLists"
     # safebrowsing.threatLists.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

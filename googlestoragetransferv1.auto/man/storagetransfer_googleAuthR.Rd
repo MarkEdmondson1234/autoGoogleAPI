@@ -8,7 +8,7 @@
 Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:23:08
+ at 2017-03-05 19:58:43
 filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragetransferv1.auto/R/storagetransfer_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

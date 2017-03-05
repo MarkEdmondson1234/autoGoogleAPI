@@ -8,7 +8,7 @@
 Lets you search over a website or collection of websites}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:04:50
+ at 2017-03-05 19:41:21
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecustomsearchv1.auto/R/customsearch_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

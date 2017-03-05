@@ -8,7 +8,7 @@
 Manages your DoubleClick Campaign Manager ad campaigns and reports.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:09:48
+ at 2017-03-05 19:45:47
 filename: /Users/mark/dev/R/autoGoogleAPI/googledfareportingv26.auto/R/dfareporting_functions.R
 api_json: api_json
 }
@@ -20,4 +20,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/dfatrafficking
 }
 }
-

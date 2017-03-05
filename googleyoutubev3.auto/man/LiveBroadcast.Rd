@@ -36,4 +36,3 @@ A liveBroadcast resource represents an event that will be streamed, via live vid
 Other LiveBroadcast functions: \code{\link{liveBroadcasts.insert}},
   \code{\link{liveBroadcasts.update}}
 }
-

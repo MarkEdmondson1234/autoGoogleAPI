@@ -24,4 +24,3 @@ An object representation of the individual components of the player's name. For 
 \seealso{
 Other Player functions: \code{\link{Player}}
 }
-

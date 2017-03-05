@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other ResourceGroupReference functions: \code{\link{ResourceGroupReference}},
   \code{\link{regionBackendServices.getHealth}}
 }
-

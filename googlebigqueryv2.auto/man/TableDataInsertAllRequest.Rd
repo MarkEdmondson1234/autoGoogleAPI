@@ -33,4 +33,3 @@ No description
 Other TableDataInsertAllRequest functions: \code{\link{TableDataInsertAllRequest.rows}},
   \code{\link{tabledata.insertAll}}
 }
-

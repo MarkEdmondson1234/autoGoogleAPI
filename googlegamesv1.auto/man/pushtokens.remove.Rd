@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other PushTokenId functions: \code{\link{PushTokenId.ios}},
   \code{\link{PushTokenId}}
 }
-

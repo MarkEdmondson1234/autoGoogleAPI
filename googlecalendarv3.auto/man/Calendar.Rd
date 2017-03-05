@@ -34,4 +34,3 @@ No description
 Other Calendar functions: \code{\link{.insert}},
   \code{\link{.patch}}, \code{\link{.update}}
 }
-

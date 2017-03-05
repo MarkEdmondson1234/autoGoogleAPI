@@ -5,10 +5,10 @@
 \alias{kgsearch_googleAuthR}
 \alias{kgsearch_googleAuthR-package}
 \title{Knowledge Graph Search API
-Knowledge Graph Search API allows developers to search the Google Knowledge Graph for entities.}
+Searches the Google Knowledge Graph for entities.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:20:16
+ at 2017-03-05 19:59:51
 filename: /Users/mark/dev/R/autoGoogleAPI/googlekgsearchv1.auto/R/kgsearch_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

@@ -29,4 +29,3 @@ No description
 \seealso{
 Other UpdatePrivateAuctionProposalRequest functions: \code{\link{marketplaceprivateauction.updateproposal}}
 }
-

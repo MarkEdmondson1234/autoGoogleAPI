@@ -23,4 +23,3 @@ No description
 Other DatasetList functions: \code{\link{DatasetList.datasets.labels}},
   \code{\link{DatasetList}}
 }
-

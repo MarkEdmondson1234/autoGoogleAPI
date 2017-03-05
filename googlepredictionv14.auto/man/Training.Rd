@@ -55,4 +55,3 @@ Other Training functions: \code{\link{Training.dataAnalysis}},
   \code{\link{Training.modelInfo}},
   \code{\link{trainedmodels.insert}}
 }
-

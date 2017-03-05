@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other InstancesSetLabelsRequest functions: \code{\link{InstancesSetLabelsRequest.labels}},
   \code{\link{InstancesSetLabelsRequest}}
 }
-

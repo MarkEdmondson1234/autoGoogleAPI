@@ -8,7 +8,7 @@
 Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:48:07
+ at 2017-03-05 20:16:33
 filename: /Users/mark/dev/R/autoGoogleAPI/googlesqladminv1beta4.auto/R/sqladmin_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/sqlservice.admin
 }
 }
-

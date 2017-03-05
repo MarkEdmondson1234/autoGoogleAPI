@@ -4,21 +4,21 @@
 \alias{SearchAnnotationSetsRequest}
 \title{SearchAnnotationSetsRequest Object}
 \usage{
-SearchAnnotationSetsRequest(datasetIds = NULL, referenceSetId = NULL,
-  name = NULL, types = NULL, pageToken = NULL, pageSize = NULL)
+SearchAnnotationSetsRequest(pageToken = NULL, pageSize = NULL,
+  datasetIds = NULL, types = NULL, name = NULL, referenceSetId = NULL)
 }
 \arguments{
-\item{datasetIds}{Required}
-
-\item{referenceSetId}{If specified, only annotation sets associated with the given reference set are returned}
-
-\item{name}{Only return annotations sets for which a substring of the name matches this string (case insensitive)}
-
-\item{types}{If specified, only annotation sets that have any of these types are returned}
-
 \item{pageToken}{The continuation token, which is used to page through large result sets}
 
 \item{pageSize}{The maximum number of results to return in a single page}
+
+\item{datasetIds}{Required}
+
+\item{types}{If specified, only annotation sets that have any of these types are}
+
+\item{name}{Only return annotations sets for which a substring of the name matches this}
+
+\item{referenceSetId}{If specified, only annotation sets associated with the given reference set}
 }
 \value{
 SearchAnnotationSetsRequest object
@@ -33,4 +33,3 @@ No description
 \seealso{
 Other SearchAnnotationSetsRequest functions: \code{\link{annotationsets.search}}
 }
-

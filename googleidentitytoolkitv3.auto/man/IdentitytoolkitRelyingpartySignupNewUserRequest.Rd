@@ -5,23 +5,32 @@
 \title{IdentitytoolkitRelyingpartySignupNewUserRequest Object}
 \usage{
 IdentitytoolkitRelyingpartySignupNewUserRequest(captchaChallenge = NULL,
-  captchaResponse = NULL, displayName = NULL, email = NULL,
-  idToken = NULL, instanceId = NULL, password = NULL)
+  captchaResponse = NULL, disabled = NULL, displayName = NULL,
+  email = NULL, emailVerified = NULL, idToken = NULL, instanceId = NULL,
+  localId = NULL, password = NULL, photoUrl = NULL)
 }
 \arguments{
 \item{captchaChallenge}{The captcha challenge}
 
 \item{captchaResponse}{Response to the captcha}
 
+\item{disabled}{Whether to disable the user}
+
 \item{displayName}{The name of the user}
 
 \item{email}{The email of the user}
+
+\item{emailVerified}{Mark the email as verified or not}
 
 \item{idToken}{The GITKit token of the authenticated user}
 
 \item{instanceId}{Instance id token of the app}
 
+\item{localId}{Privileged caller can create user with specified user id}
+
 \item{password}{The new password of the user}
+
+\item{photoUrl}{The photo url of the user}
 }
 \value{
 IdentitytoolkitRelyingpartySignupNewUserRequest object
@@ -36,4 +45,3 @@ Request to signup new user, create anonymous user or anonymous user reauth.
 \seealso{
 Other IdentitytoolkitRelyingpartySignupNewUserRequest functions: \code{\link{relyingparty.signupNewUser}}
 }
-

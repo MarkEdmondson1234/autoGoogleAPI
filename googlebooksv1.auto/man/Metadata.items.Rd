@@ -19,4 +19,3 @@ No description
 \seealso{
 Other Metadata functions: \code{\link{Metadata}}
 }
-

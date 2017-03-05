@@ -1,8 +1,8 @@
 #' Google Dataflow API
-#' Develops and executes data processing patterns like ETL, batch computation, and continuous computation.
+#' Manages Google Cloud Dataflow projects on Google Cloud Platform.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:18:12
+#'  at 2017-03-05 19:41:42
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googledataflowv1b3.auto/R/dataflow_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Send a worker_message to the service.
@@ -51,7 +64,8 @@ projects.workerMessages <- function(SendWorkerMessagesRequest, projectId) {
     url <- sprintf("https://dataflow.googleapis.com/v1b3/projects/%s/WorkerMessages", 
         projectId)
     # dataflow.projects.workerMessages
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(SendWorkerMessagesRequest, "gar_SendWorkerMessagesRequest"))
     

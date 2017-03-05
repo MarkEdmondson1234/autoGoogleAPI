@@ -3,14 +3,10 @@ Title: Ad Exchange Buyer API II
 Version: 0.0.0.9000
 Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
                        role = c("aut", "cre")))
-Description: Accesses the latest features for managing Ad Exchange accounts
-    and Real-Time Bidding configurations and auction metrics. Auto-generated via
-    googleAuthR.
-Depends:
-    R (>= 3.3.0)
+Description: Accesses the latest features for managing Ad Exchange accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    googleAuthR (>= 0.3)
-RoxygenNote: 5.0.1
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

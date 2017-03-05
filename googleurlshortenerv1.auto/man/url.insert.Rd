@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other Url functions: \code{\link{Url}}
 }
-

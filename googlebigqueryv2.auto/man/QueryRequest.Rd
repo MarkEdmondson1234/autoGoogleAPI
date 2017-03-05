@@ -26,7 +26,7 @@ QueryRequest(defaultDataset = NULL, dryRun = NULL, maxResults = NULL,
 
 \item{timeoutMs}{[Optional] How long to wait for the query to complete, in milliseconds, before the request times out and returns}
 
-\item{useLegacySql}{[Experimental] Specifies whether to use BigQuery's legacy SQL dialect for this query}
+\item{useLegacySql}{Specifies whether to use BigQuery's legacy SQL dialect for this query}
 
 \item{useQueryCache}{[Optional] Whether to look for the result in the query cache}
 }
@@ -43,4 +43,3 @@ No description
 \seealso{
 Other QueryRequest functions: \code{\link{jobs.query}}
 }
-

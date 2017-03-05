@@ -20,7 +20,7 @@ Set the appropriate Google API scopes:
 ```r
 library(googleAuthR)
 library(googlesheetsv4.auto)
-options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/drive.readonly', 'https://www.googleapis.com/auth/spreadsheets.readonly', 'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/spreadsheets'))
+options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.readonly', 'https://www.googleapis.com/auth/spreadsheets.readonly', 'https://www.googleapis.com/auth/spreadsheets'))
 
 gar_auth()
 ```

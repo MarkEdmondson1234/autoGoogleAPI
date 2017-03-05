@@ -39,4 +39,3 @@ Other CustomDimension functions: \code{\link{CustomDimension.parentLink}},
   \code{\link{management.customDimensions.insert}},
   \code{\link{management.customDimensions.patch}}
 }
-

@@ -59,7 +59,7 @@ Creative(Creative.corrections = NULL, Creative.corrections.contexts = NULL,
 
 \item{apiUploadTimestamp}{The last upload timestamp of this creative if it was uploaded via API}
 
-\item{attribute}{All attributes for the ads that may be shown from this snippet}
+\item{attribute}{List of buyer selectable attributes for the ads that may be shown from this snippet}
 
 \item{buyerCreativeId}{A buyer-specific id identifying the creative in this ad}
 
@@ -79,7 +79,7 @@ Creative(Creative.corrections = NULL, Creative.corrections.contexts = NULL,
 
 \item{languages}{Detected languages for this creative}
 
-\item{nativeAd}{If nativeAd is set, HTMLSnippet and videoURL should not be set}
+\item{nativeAd}{If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should not be set}
 
 \item{openAuctionStatus}{Top-level open auction status}
 
@@ -91,11 +91,11 @@ Creative(Creative.corrections = NULL, Creative.corrections.contexts = NULL,
 
 \item{servingRestrictions}{The granular status of this ad in specific contexts}
 
-\item{vendorType}{All vendor types for the ads that may be shown from this snippet}
+\item{vendorType}{List of vendor types for the ads that may be shown from this snippet}
 
 \item{version}{The version for this creative}
 
-\item{videoURL}{The url to fetch a video ad}
+\item{videoURL}{The URL to fetch a video ad}
 
 \item{width}{Ad width}
 }
@@ -123,4 +123,3 @@ Other Creative functions: \code{\link{Creative.corrections.contexts}},
   \code{\link{Creative.servingRestrictions}},
   \code{\link{creatives.insert}}
 }
-

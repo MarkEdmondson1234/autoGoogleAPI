@@ -32,6 +32,7 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other GlobalSetLabelsRequest functions: \code{\link{GlobalSetLabelsRequest.labels}},
   \code{\link{GlobalSetLabelsRequest}},
+  \code{\link{globalAddresses.setLabels}},
+  \code{\link{globalForwardingRules.setLabels}},
   \code{\link{images.setLabels}}
 }
-

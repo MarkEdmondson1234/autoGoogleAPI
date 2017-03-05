@@ -2,13 +2,11 @@
 % Please edit documentation in R/speech_functions.R
 \name{operations.cancel}
 \alias{operations.cancel}
-\title{Starts asynchronous cancellation on a long-running operation.  The servermakes a best effort to cancel the operation, but success is notguaranteed.  If the server doesn't support this method, it returns`google.rpc.Code.UNIMPLEMENTED`.  Clients can useOperations.GetOperation orother methods to check whether the cancellation succeeded or whether theoperation completed despite cancellation.}
+\title{Starts asynchronous cancellation on a long-running operation.  The servermakes a best effort to cancel the operation, but success is notguaranteed.  If the server doesn't support this method, it returns`google.rpc.Code.UNIMPLEMENTED`.  Clients can useOperations.GetOperation orother methods to check whether the cancellation succeeded or whether theoperation completed despite cancellation. On successful cancellation,the operation is not deleted; instead, it becomes an operation withan Operation.error value with a google.rpc.Status.code of 1,corresponding to `Code.CANCELLED`.}
 \usage{
-operations.cancel(CancelOperationRequest, name)
+operations.cancel(name)
 }
 \arguments{
-\item{CancelOperationRequest}{The \link{CancelOperationRequest} object to pass to this method}
-
 \item{name}{The name of the operation resource to be cancelled}
 }
 \description{
@@ -26,7 +24,4 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
 \href{https://cloud.google.com/speech/}{Google Documentation}
-
-Other CancelOperationRequest functions: \code{\link{CancelOperationRequest}}
 }
-

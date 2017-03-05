@@ -38,4 +38,3 @@ A TargetInstance resource. This resource defines an endpoint instance that termi
 \seealso{
 Other TargetInstance functions: \code{\link{targetInstances.insert}}
 }
-

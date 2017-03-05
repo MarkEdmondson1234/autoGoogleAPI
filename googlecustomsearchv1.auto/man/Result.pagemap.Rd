@@ -20,4 +20,3 @@ No description
 Other Result functions: \code{\link{Result.image}},
   \code{\link{Result.labels}}, \code{\link{Result}}
 }
-

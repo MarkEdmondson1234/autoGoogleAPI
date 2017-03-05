@@ -8,15 +8,14 @@
 Examines the call stack and variables of a running application without stopping or slowing it down.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:17:00
+ at 2017-03-05 19:31:48
 filename: /Users/mark/dev/R/autoGoogleAPI/googleclouddebuggerv2.auto/R/clouddebugger_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/cloud-platform
-\item https://www.googleapis.com/auth/cloud_debugger
+  \item https://www.googleapis.com/auth/cloud_debugger
+\item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

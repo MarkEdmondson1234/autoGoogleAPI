@@ -19,4 +19,3 @@ The request of cloudmonitoring.timeseries.list
 \seealso{
 Other ListTimeseriesRequest functions: \code{\link{timeseries.list}}
 }
-

@@ -22,4 +22,3 @@ Other JsonSchema functions: \code{\link{JsonSchema.annotations}},
   \code{\link{JsonSchema.variant}},
   \code{\link{JsonSchema}}
 }
-

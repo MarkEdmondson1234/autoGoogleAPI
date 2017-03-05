@@ -5,9 +5,9 @@
 \title{AttachedDisk Object}
 \usage{
 AttachedDisk(autoDelete = NULL, boot = NULL, deviceName = NULL,
-  diskEncryptionKey = NULL, index = NULL, initializeParams = NULL,
-  interface = NULL, licenses = NULL, mode = NULL, source = NULL,
-  type = NULL)
+  diskEncryptionKey = NULL, diskSizeGb = NULL, index = NULL,
+  initializeParams = NULL, interface = NULL, licenses = NULL,
+  mode = NULL, source = NULL, type = NULL)
 }
 \arguments{
 \item{autoDelete}{Specifies whether the disk will be auto-deleted when the instance is deleted (but not when the disk is detached from the instance)}
@@ -17,6 +17,8 @@ AttachedDisk(autoDelete = NULL, boot = NULL, deviceName = NULL,
 \item{deviceName}{Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-* tree of a Linux operating system running within the instance}
 
 \item{diskEncryptionKey}{Encrypts or decrypts a disk using a customer-supplied encryption key}
+
+\item{diskSizeGb}{The size of the disk in base-2 GB}
 
 \item{index}{Assigns a zero-based index to this disk, where 0 is reserved for the boot disk}
 
@@ -45,4 +47,3 @@ An instance-attached disk resource.
 \seealso{
 Other AttachedDisk functions: \code{\link{instances.attachDisk}}
 }
-

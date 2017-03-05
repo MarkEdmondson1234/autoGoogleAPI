@@ -163,4 +163,3 @@ Other Creative functions: \code{\link{creatives.insert}},
   \code{\link{creatives.patch}},
   \code{\link{creatives.update}}
 }
-

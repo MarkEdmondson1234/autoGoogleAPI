@@ -31,4 +31,3 @@ Other CalendarListEntry functions: \code{\link{CalendarListEntry.notificationSet
   \code{\link{CalendarListEntry}}, \code{\link{ist.patch}},
   \code{\link{ist.update}}
 }
-

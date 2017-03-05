@@ -93,4 +93,3 @@ Other Experiment functions: \code{\link{Experiment.parentLink}},
   \code{\link{management.experiments.patch}},
   \code{\link{management.experiments.update}}
 }
-

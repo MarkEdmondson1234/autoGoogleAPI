@@ -24,4 +24,3 @@ Other ConversionList functions: \code{\link{conversion.insert}},
   \code{\link{conversion.patch}},
   \code{\link{conversion.update}}
 }
-

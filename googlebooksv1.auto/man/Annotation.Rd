@@ -57,7 +57,7 @@ Annotation object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 22:58:26
+ at 2017-03-05 19:30:05
 filename: /Users/mark/dev/R/autoGoogleAPI/googlebooksv1.auto/R/books_objects.R
 api_json: api_json
 }
@@ -76,4 +76,3 @@ Other Annotation functions: \code{\link{Annotation.clientVersionRanges}},
   \code{\link{mylibrary.annotations.insert}},
   \code{\link{mylibrary.annotations.update}}
 }
-

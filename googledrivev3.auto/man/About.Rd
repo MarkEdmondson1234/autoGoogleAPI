@@ -41,7 +41,7 @@ About object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:12:13
+ at 2017-03-05 19:49:53
 filename: /Users/mark/dev/R/autoGoogleAPI/googledrivev3.auto/R/drive_objects.R
 api_json: api_json
 }
@@ -59,4 +59,3 @@ Other About functions: \code{\link{About.exportFormats}},
   \code{\link{About.maxImportSizes}},
   \code{\link{About.storageQuota}}
 }
-

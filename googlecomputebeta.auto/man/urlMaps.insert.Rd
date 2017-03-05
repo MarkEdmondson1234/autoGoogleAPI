@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other UrlMap functions: \code{\link{UrlMap}},
   \code{\link{urlMaps.patch}}, \code{\link{urlMaps.update}}
 }
-

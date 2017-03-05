@@ -2,7 +2,7 @@
 #' Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:30:54
+#'  at 2017-03-05 19:20:29
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangebuyerv14.auto/R/adexchangebuyer_objects.R
 #' api_json: api_json
 #' 
@@ -32,7 +32,7 @@ Account <- function(Account.bidderLocation = NULL, bidderLocation = NULL, cookie
     numberActiveCreatives = NULL) {
     structure(list(Account.bidderLocation = Account.bidderLocation, bidderLocation = bidderLocation, 
         cookieMatchingNid = cookieMatchingNid, cookieMatchingUrl = cookieMatchingUrl, 
-        id = id, kind = "adexchangebuyer#account", maximumActiveCreatives = maximumActiveCreatives, 
+        id = id, kind = `adexchangebuyer#account`, maximumActiveCreatives = maximumActiveCreatives, 
         maximumTotalQps = maximumTotalQps, numberActiveCreatives = numberActiveCreatives), 
         class = "gar_Account")
 }
@@ -66,7 +66,7 @@ Account.bidderLocation <- function() {
 #' @family AccountsList functions
 #' @export
 AccountsList <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#accountsList"), class = "gar_AccountsList")
+    structure(list(items = items, kind = `adexchangebuyer#accountsList`), class = "gar_AccountsList")
 }
 
 #' AddOrderDealsRequest Object
@@ -154,7 +154,7 @@ AddOrderNotesResponse <- function(notes = NULL) {
 #' @export
 BillingInfo <- function(accountId = NULL, accountName = NULL, billingId = NULL) {
     structure(list(accountId = accountId, accountName = accountName, billingId = billingId, 
-        kind = "adexchangebuyer#billingInfo"), class = "gar_BillingInfo")
+        kind = `adexchangebuyer#billingInfo`), class = "gar_BillingInfo")
 }
 
 #' BillingInfoList Object
@@ -170,7 +170,7 @@ BillingInfo <- function(accountId = NULL, accountName = NULL, billingId = NULL) 
 #' @family BillingInfoList functions
 #' @export
 BillingInfoList <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#billingInfoList"), class = "gar_BillingInfoList")
+    structure(list(items = items, kind = `adexchangebuyer#billingInfoList`), class = "gar_BillingInfoList")
 }
 
 #' Budget Object
@@ -192,7 +192,7 @@ BillingInfoList <- function(items = NULL) {
 Budget <- function(accountId = NULL, billingId = NULL, budgetAmount = NULL, currencyCode = NULL, 
     id = NULL) {
     structure(list(accountId = accountId, billingId = billingId, budgetAmount = budgetAmount, 
-        currencyCode = currencyCode, id = id, kind = "adexchangebuyer#budget"), class = "gar_Budget")
+        currencyCode = currencyCode, id = id, kind = `adexchangebuyer#budget`), class = "gar_Budget")
 }
 
 #' Buyer Object
@@ -285,7 +285,7 @@ CreateOrdersResponse <- function(proposals = NULL) {
 #' @param advertiserName The name of the company being advertised in the creative
 #' @param agencyId The agency id for this creative
 #' @param apiUploadTimestamp The last upload timestamp of this creative if it was uploaded via API
-#' @param attribute All attributes for the ads that may be shown from this snippet
+#' @param attribute List of buyer selectable attributes for the ads that may be shown from this snippet
 #' @param buyerCreativeId A buyer-specific id identifying the creative in this ad
 #' @param clickThroughUrl The set of destination urls for the snippet
 #' @param corrections Shows any corrections that were applied to this creative
@@ -295,15 +295,15 @@ CreateOrdersResponse <- function(proposals = NULL) {
 #' @param height Ad height
 #' @param impressionTrackingUrl The set of urls to be called to record an impression
 #' @param languages Detected languages for this creative
-#' @param nativeAd If nativeAd is set, HTMLSnippet and videoURL should not be set
+#' @param nativeAd If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should not be set
 #' @param openAuctionStatus Top-level open auction status
 #' @param productCategories Detected product categories, if any
 #' @param restrictedCategories All restricted categories for the ads that may be shown from this snippet
 #' @param sensitiveCategories Detected sensitive categories, if any
 #' @param servingRestrictions The granular status of this ad in specific contexts
-#' @param vendorType All vendor types for the ads that may be shown from this snippet
+#' @param vendorType List of vendor types for the ads that may be shown from this snippet
 #' @param version The version for this creative
-#' @param videoURL The url to fetch a video ad
+#' @param videoURL The URL to fetch a video ad
 #' @param width Ad width
 #' 
 #' @return Creative object
@@ -333,7 +333,7 @@ Creative <- function(Creative.corrections = NULL, Creative.corrections.contexts 
         apiUploadTimestamp = apiUploadTimestamp, attribute = attribute, buyerCreativeId = buyerCreativeId, 
         clickThroughUrl = clickThroughUrl, corrections = corrections, dealsStatus = dealsStatus, 
         detectedDomains = detectedDomains, filteringReasons = filteringReasons, height = height, 
-        impressionTrackingUrl = impressionTrackingUrl, kind = "adexchangebuyer#creative", 
+        impressionTrackingUrl = impressionTrackingUrl, kind = `adexchangebuyer#creative`, 
         languages = languages, nativeAd = nativeAd, openAuctionStatus = openAuctionStatus, 
         productCategories = productCategories, restrictedCategories = restrictedCategories, 
         sensitiveCategories = sensitiveCategories, servingRestrictions = servingRestrictions, 
@@ -414,7 +414,7 @@ Creative.filteringReasons.reasons <- function() {
 #' 
 #' @details 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
-#' If nativeAd is set, HTMLSnippet and videoURL should not be set.
+#' If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should not be set. (The videoURL inside nativeAd can be set.)
 #' 
 #' @param Creative.nativeAd.appIcon The \link{Creative.nativeAd.appIcon} object or list of objects
 #' @param Creative.nativeAd.image The \link{Creative.nativeAd.image} object or list of objects
@@ -423,6 +423,7 @@ Creative.filteringReasons.reasons <- function() {
 #' @param appIcon The app icon, for app download ads
 #' @param body A long description of the ad
 #' @param callToAction A label for the button that the user is supposed to click
+#' @param clickLinkUrl The URL that the browser/SDK will load when the user clicks the ad
 #' @param clickTrackingUrl The URL to use for click tracking
 #' @param headline A short title for the ad
 #' @param image A large image
@@ -431,6 +432,7 @@ Creative.filteringReasons.reasons <- function() {
 #' @param price The price of the promoted app including the currency info
 #' @param starRating The app rating in the app store
 #' @param store The URL to the app store to purchase/download the promoted app
+#' @param videoURL The URL of the XML VAST for a native ad
 #' 
 #' @return Creative.nativeAd object
 #' 
@@ -438,13 +440,15 @@ Creative.filteringReasons.reasons <- function() {
 #' @export
 Creative.nativeAd <- function(Creative.nativeAd.appIcon = NULL, Creative.nativeAd.image = NULL, 
     Creative.nativeAd.logo = NULL, advertiser = NULL, appIcon = NULL, body = NULL, 
-    callToAction = NULL, clickTrackingUrl = NULL, headline = NULL, image = NULL, 
-    impressionTrackingUrl = NULL, logo = NULL, price = NULL, starRating = NULL, store = NULL) {
+    callToAction = NULL, clickLinkUrl = NULL, clickTrackingUrl = NULL, headline = NULL, 
+    image = NULL, impressionTrackingUrl = NULL, logo = NULL, price = NULL, starRating = NULL, 
+    store = NULL, videoURL = NULL) {
     structure(list(Creative.nativeAd.appIcon = Creative.nativeAd.appIcon, Creative.nativeAd.image = Creative.nativeAd.image, 
         Creative.nativeAd.logo = Creative.nativeAd.logo, advertiser = advertiser, 
-        appIcon = appIcon, body = body, callToAction = callToAction, clickTrackingUrl = clickTrackingUrl, 
-        headline = headline, image = image, impressionTrackingUrl = impressionTrackingUrl, 
-        logo = logo, price = price, starRating = starRating, store = store), class = "gar_Creative.nativeAd")
+        appIcon = appIcon, body = body, callToAction = callToAction, clickLinkUrl = clickLinkUrl, 
+        clickTrackingUrl = clickTrackingUrl, headline = headline, image = image, 
+        impressionTrackingUrl = impressionTrackingUrl, logo = logo, price = price, 
+        starRating = starRating, store = store, videoURL = videoURL), class = "gar_Creative.nativeAd")
 }
 
 #' Creative.nativeAd.appIcon Object
@@ -553,6 +557,40 @@ Creative.servingRestrictions.disapprovalReasons <- function() {
     list()
 }
 
+#' CreativeDealIds Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' The external deal ids associated with a creative.
+#' 
+#' @param CreativeDealIds.dealStatuses The \link{CreativeDealIds.dealStatuses} object or list of objects
+#' @param dealStatuses A list of external deal ids and ARC approval status
+#' 
+#' @return CreativeDealIds object
+#' 
+#' @family CreativeDealIds functions
+#' @export
+CreativeDealIds <- function(CreativeDealIds.dealStatuses = NULL, dealStatuses = NULL) {
+    structure(list(CreativeDealIds.dealStatuses = CreativeDealIds.dealStatuses, dealStatuses = dealStatuses, 
+        kind = `adexchangebuyer#creativeDealIds`), class = "gar_CreativeDealIds")
+}
+
+#' CreativeDealIds.dealStatuses Object
+#' 
+#' @details 
+#' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
+#' No description
+#' 
+#' 
+#' 
+#' @return CreativeDealIds.dealStatuses object
+#' 
+#' @family CreativeDealIds functions
+#' @export
+CreativeDealIds.dealStatuses <- function() {
+    list()
+}
+
 #' CreativesList Object
 #' 
 #' @details 
@@ -567,7 +605,7 @@ Creative.servingRestrictions.disapprovalReasons <- function() {
 #' @family CreativesList functions
 #' @export
 CreativesList <- function(items = NULL, nextPageToken = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#creativesList", nextPageToken = nextPageToken), 
+    structure(list(items = items, kind = `adexchangebuyer#creativesList`, nextPageToken = nextPageToken), 
         class = "gar_CreativesList")
 }
 
@@ -577,14 +615,16 @@ CreativesList <- function(items = NULL, nextPageToken = NULL) {
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
 #' No description
 #' 
+#' @param alcoholAdsAllowed True if alcohol ads are allowed for this deal (read-only)
 #' @param dealPauseStatus Tracks which parties (if any) have paused a deal
 #' 
 #' @return DealServingMetadata object
 #' 
 #' @family DealServingMetadata functions
 #' @export
-DealServingMetadata <- function(dealPauseStatus = NULL) {
-    structure(list(dealPauseStatus = dealPauseStatus), class = "gar_DealServingMetadata")
+DealServingMetadata <- function(alcoholAdsAllowed = NULL, dealPauseStatus = NULL) {
+    structure(list(alcoholAdsAllowed = alcoholAdsAllowed, dealPauseStatus = dealPauseStatus), 
+        class = "gar_DealServingMetadata")
 }
 
 #' DealServingMetadataDealPauseStatus Object
@@ -989,6 +1029,7 @@ GetPublisherProfilesByAccountIdResponse <- function(profiles = NULL) {
 #' @param flightEndTimeMs Proposed flight end time of the deal (ms since epoch) This will generally be stored in a granularity of a second
 #' @param flightStartTimeMs Proposed flight start time of the deal (ms since epoch) This will generally be stored in a granularity of a second
 #' @param inventoryDescription Description for the deal terms
+#' @param isRfpTemplate Indicates whether the current deal is a RFP template
 #' @param lastUpdateTimeMs The time (ms since epoch) when the deal was last updated
 #' @param name The name of the deal
 #' @param productId The product-id from which this deal was created
@@ -1008,20 +1049,20 @@ GetPublisherProfilesByAccountIdResponse <- function(profiles = NULL) {
 MarketplaceDeal <- function(buyerPrivateData = NULL, creationTimeMs = NULL, creativePreApprovalPolicy = NULL, 
     creativeSafeFrameCompatibility = NULL, dealId = NULL, dealServingMetadata = NULL, 
     deliveryControl = NULL, externalDealId = NULL, flightEndTimeMs = NULL, flightStartTimeMs = NULL, 
-    inventoryDescription = NULL, lastUpdateTimeMs = NULL, name = NULL, productId = NULL, 
-    productRevisionNumber = NULL, programmaticCreativeSource = NULL, proposalId = NULL, 
-    sellerContacts = NULL, sharedTargetings = NULL, syndicationProduct = NULL, terms = NULL, 
-    webPropertyCode = NULL) {
+    inventoryDescription = NULL, isRfpTemplate = NULL, lastUpdateTimeMs = NULL, name = NULL, 
+    productId = NULL, productRevisionNumber = NULL, programmaticCreativeSource = NULL, 
+    proposalId = NULL, sellerContacts = NULL, sharedTargetings = NULL, syndicationProduct = NULL, 
+    terms = NULL, webPropertyCode = NULL) {
     structure(list(buyerPrivateData = buyerPrivateData, creationTimeMs = creationTimeMs, 
         creativePreApprovalPolicy = creativePreApprovalPolicy, creativeSafeFrameCompatibility = creativeSafeFrameCompatibility, 
         dealId = dealId, dealServingMetadata = dealServingMetadata, deliveryControl = deliveryControl, 
         externalDealId = externalDealId, flightEndTimeMs = flightEndTimeMs, flightStartTimeMs = flightStartTimeMs, 
-        inventoryDescription = inventoryDescription, kind = "adexchangebuyer#marketplaceDeal", 
-        lastUpdateTimeMs = lastUpdateTimeMs, name = name, productId = productId, 
-        productRevisionNumber = productRevisionNumber, programmaticCreativeSource = programmaticCreativeSource, 
-        proposalId = proposalId, sellerContacts = sellerContacts, sharedTargetings = sharedTargetings, 
-        syndicationProduct = syndicationProduct, terms = terms, webPropertyCode = webPropertyCode), 
-        class = "gar_MarketplaceDeal")
+        inventoryDescription = inventoryDescription, isRfpTemplate = isRfpTemplate, 
+        kind = `adexchangebuyer#marketplaceDeal`, lastUpdateTimeMs = lastUpdateTimeMs, 
+        name = name, productId = productId, productRevisionNumber = productRevisionNumber, 
+        programmaticCreativeSource = programmaticCreativeSource, proposalId = proposalId, 
+        sellerContacts = sellerContacts, sharedTargetings = sharedTargetings, syndicationProduct = syndicationProduct, 
+        terms = terms, webPropertyCode = webPropertyCode), class = "gar_MarketplaceDeal")
 }
 
 #' MarketplaceDealParty Object
@@ -1082,7 +1123,7 @@ MarketplaceLabel <- function(accountId = NULL, createTimeMs = NULL, deprecatedMa
 #' @export
 MarketplaceNote <- function(creatorRole = NULL, dealId = NULL, note = NULL, noteId = NULL, 
     proposalId = NULL, proposalRevisionNumber = NULL, timestampMs = NULL) {
-    structure(list(creatorRole = creatorRole, dealId = dealId, kind = "adexchangebuyer#marketplaceNote", 
+    structure(list(creatorRole = creatorRole, dealId = dealId, kind = `adexchangebuyer#marketplaceNote`, 
         note = note, noteId = noteId, proposalId = proposalId, proposalRevisionNumber = proposalRevisionNumber, 
         timestampMs = timestampMs), class = "gar_MarketplaceNote")
 }
@@ -1129,7 +1170,7 @@ PerformanceReport <- function(bidRate = NULL, bidRequestRate = NULL, calloutStat
     structure(list(bidRate = bidRate, bidRequestRate = bidRequestRate, calloutStatusRate = calloutStatusRate, 
         cookieMatcherStatusRate = cookieMatcherStatusRate, creativeStatusRate = creativeStatusRate, 
         filteredBidRate = filteredBidRate, hostedMatchStatusRate = hostedMatchStatusRate, 
-        inventoryMatchRate = inventoryMatchRate, kind = "adexchangebuyer#performanceReport", 
+        inventoryMatchRate = inventoryMatchRate, kind = `adexchangebuyer#performanceReport`, 
         latency50thPercentile = latency50thPercentile, latency85thPercentile = latency85thPercentile, 
         latency95thPercentile = latency95thPercentile, noQuotaInRegion = noQuotaInRegion, 
         outOfQuota = outOfQuota, pixelMatchRequests = pixelMatchRequests, pixelMatchResponses = pixelMatchResponses, 
@@ -1151,7 +1192,7 @@ PerformanceReport <- function(bidRate = NULL, bidRequestRate = NULL, calloutStat
 #' @family PerformanceReportList functions
 #' @export
 PerformanceReportList <- function(performanceReport = NULL) {
-    structure(list(kind = "adexchangebuyer#performanceReportList", performanceReport = performanceReport), 
+    structure(list(kind = `adexchangebuyer#performanceReportList`, performanceReport = performanceReport), 
         class = "gar_PerformanceReportList")
 }
 
@@ -1178,12 +1219,14 @@ PerformanceReportList <- function(performanceReport = NULL) {
 #' @param geoCriteriaIds Requests containing any of these geo criteria ids will match
 #' @param isActive Whether this config is active
 #' @param languages Request containing any of these language codes will match
+#' @param minimumViewabilityDecile Requests where the predicted viewability is below the specified decile will not match
 #' @param mobileCarriers Requests containing any of these mobile carrier ids will match
 #' @param mobileDevices Requests containing any of these mobile device ids will match
 #' @param mobileOperatingSystemVersions Requests containing any of these mobile operating system version ids will match
 #' @param placements Requests containing any of these placements will match
 #' @param platforms Requests matching any of these platforms will match
 #' @param supportedCreativeAttributes Creative attributes should be declared here if all creatives corresponding to this pretargeting configuration have that creative attribute
+#' @param userIdentifierDataRequired Requests containing the specified type of user data will match
 #' @param userLists Requests containing any of these user list ids will match
 #' @param vendorTypes Requests that allow any of these vendor ids will match
 #' @param verticals Requests containing any of these vertical ids will match
@@ -1198,9 +1241,10 @@ PretargetingConfig <- function(PretargetingConfig.dimensions = NULL, Pretargetin
     billingId = NULL, configId = NULL, configName = NULL, creativeType = NULL, dimensions = NULL, 
     excludedContentLabels = NULL, excludedGeoCriteriaIds = NULL, excludedPlacements = NULL, 
     excludedUserLists = NULL, excludedVerticals = NULL, geoCriteriaIds = NULL, isActive = NULL, 
-    languages = NULL, mobileCarriers = NULL, mobileDevices = NULL, mobileOperatingSystemVersions = NULL, 
-    placements = NULL, platforms = NULL, supportedCreativeAttributes = NULL, userLists = NULL, 
-    vendorTypes = NULL, verticals = NULL, videoPlayerSizes = NULL) {
+    languages = NULL, minimumViewabilityDecile = NULL, mobileCarriers = NULL, mobileDevices = NULL, 
+    mobileOperatingSystemVersions = NULL, placements = NULL, platforms = NULL, supportedCreativeAttributes = NULL, 
+    userIdentifierDataRequired = NULL, userLists = NULL, vendorTypes = NULL, verticals = NULL, 
+    videoPlayerSizes = NULL) {
     structure(list(PretargetingConfig.dimensions = PretargetingConfig.dimensions, 
         PretargetingConfig.excludedPlacements = PretargetingConfig.excludedPlacements, 
         PretargetingConfig.placements = PretargetingConfig.placements, PretargetingConfig.videoPlayerSizes = PretargetingConfig.videoPlayerSizes, 
@@ -1208,11 +1252,12 @@ PretargetingConfig <- function(PretargetingConfig.dimensions = NULL, Pretargetin
         dimensions = dimensions, excludedContentLabels = excludedContentLabels, excludedGeoCriteriaIds = excludedGeoCriteriaIds, 
         excludedPlacements = excludedPlacements, excludedUserLists = excludedUserLists, 
         excludedVerticals = excludedVerticals, geoCriteriaIds = geoCriteriaIds, isActive = isActive, 
-        kind = "adexchangebuyer#pretargetingConfig", languages = languages, mobileCarriers = mobileCarriers, 
-        mobileDevices = mobileDevices, mobileOperatingSystemVersions = mobileOperatingSystemVersions, 
+        kind = `adexchangebuyer#pretargetingConfig`, languages = languages, minimumViewabilityDecile = minimumViewabilityDecile, 
+        mobileCarriers = mobileCarriers, mobileDevices = mobileDevices, mobileOperatingSystemVersions = mobileOperatingSystemVersions, 
         placements = placements, platforms = platforms, supportedCreativeAttributes = supportedCreativeAttributes, 
-        userLists = userLists, vendorTypes = vendorTypes, verticals = verticals, 
-        videoPlayerSizes = videoPlayerSizes), class = "gar_PretargetingConfig")
+        userIdentifierDataRequired = userIdentifierDataRequired, userLists = userLists, 
+        vendorTypes = vendorTypes, verticals = verticals, videoPlayerSizes = videoPlayerSizes), 
+        class = "gar_PretargetingConfig")
 }
 
 #' PretargetingConfig.dimensions Object
@@ -1292,7 +1337,7 @@ PretargetingConfig.videoPlayerSizes <- function() {
 #' @family PretargetingConfigList functions
 #' @export
 PretargetingConfigList <- function(items = NULL) {
-    structure(list(items = items, kind = "adexchangebuyer#pretargetingConfigList"), 
+    structure(list(items = items, kind = `adexchangebuyer#pretargetingConfigList`), 
         class = "gar_PretargetingConfigList")
 }
 
@@ -1369,6 +1414,7 @@ PrivateData <- function(referenceId = NULL, referencePayload = NULL) {
 #' @param labels Optional List of labels for the product (optional, buyer-readonly)
 #' @param lastUpdateTimeMs Time of last update in ms
 #' @param legacyOfferId Optional legacy offer id if this offer is a preferred deal offer
+#' @param marketplacePublisherProfileId Marketplace publisher profile Id
 #' @param name The name for this product as set by the seller
 #' @param privateAuctionId Optional private auction id if this offer is a private auction offer
 #' @param productId The unique id for the product (readonly)
@@ -1389,15 +1435,17 @@ PrivateData <- function(referenceId = NULL, referencePayload = NULL) {
 Product <- function(creationTimeMs = NULL, creatorContacts = NULL, deliveryControl = NULL, 
     flightEndTimeMs = NULL, flightStartTimeMs = NULL, hasCreatorSignedOff = NULL, 
     inventorySource = NULL, labels = NULL, lastUpdateTimeMs = NULL, legacyOfferId = NULL, 
-    name = NULL, privateAuctionId = NULL, productId = NULL, publisherProfileId = NULL, 
-    publisherProvidedForecast = NULL, revisionNumber = NULL, seller = NULL, sharedTargetings = NULL, 
-    state = NULL, syndicationProduct = NULL, terms = NULL, webPropertyCode = NULL) {
+    marketplacePublisherProfileId = NULL, name = NULL, privateAuctionId = NULL, productId = NULL, 
+    publisherProfileId = NULL, publisherProvidedForecast = NULL, revisionNumber = NULL, 
+    seller = NULL, sharedTargetings = NULL, state = NULL, syndicationProduct = NULL, 
+    terms = NULL, webPropertyCode = NULL) {
     structure(list(creationTimeMs = creationTimeMs, creatorContacts = creatorContacts, 
         deliveryControl = deliveryControl, flightEndTimeMs = flightEndTimeMs, flightStartTimeMs = flightStartTimeMs, 
         hasCreatorSignedOff = hasCreatorSignedOff, inventorySource = inventorySource, 
-        kind = "adexchangebuyer#product", labels = labels, lastUpdateTimeMs = lastUpdateTimeMs, 
-        legacyOfferId = legacyOfferId, name = name, privateAuctionId = privateAuctionId, 
-        productId = productId, publisherProfileId = publisherProfileId, publisherProvidedForecast = publisherProvidedForecast, 
+        kind = `adexchangebuyer#product`, labels = labels, lastUpdateTimeMs = lastUpdateTimeMs, 
+        legacyOfferId = legacyOfferId, marketplacePublisherProfileId = marketplacePublisherProfileId, 
+        name = name, privateAuctionId = privateAuctionId, productId = productId, 
+        publisherProfileId = publisherProfileId, publisherProvidedForecast = publisherProvidedForecast, 
         revisionNumber = revisionNumber, seller = seller, sharedTargetings = sharedTargetings, 
         state = state, syndicationProduct = syndicationProduct, terms = terms, webPropertyCode = webPropertyCode), 
         class = "gar_Product")
@@ -1413,6 +1461,7 @@ Product <- function(creationTimeMs = NULL, creatorContacts = NULL, deliveryContr
 #' @param buyer Reference to the buyer on the proposal
 #' @param buyerContacts Optional contact information of the buyer
 #' @param buyerPrivateData Private data for buyer
+#' @param dbmAdvertiserIds IDs of DBM advertisers permission to this proposal
 #' @param hasBuyerSignedOff When an proposal is in an accepted state, indicates whether the buyer has signed off
 #' @param hasSellerSignedOff When an proposal is in an accepted state, indicates whether the buyer has signed off Once both sides have signed off on a deal, the proposal can be finalized by the seller
 #' @param inventorySource What exchange will provide this inventory (readonly, except on create)
@@ -1436,16 +1485,16 @@ Product <- function(creationTimeMs = NULL, creatorContacts = NULL, deliveryContr
 #' @family Proposal functions
 #' @export
 Proposal <- function(billedBuyer = NULL, buyer = NULL, buyerContacts = NULL, buyerPrivateData = NULL, 
-    hasBuyerSignedOff = NULL, hasSellerSignedOff = NULL, inventorySource = NULL, 
-    isRenegotiating = NULL, isSetupComplete = NULL, labels = NULL, lastUpdaterOrCommentorRole = NULL, 
-    name = NULL, negotiationId = NULL, originatorRole = NULL, privateAuctionId = NULL, 
-    proposalId = NULL, proposalState = NULL, revisionNumber = NULL, revisionTimeMs = NULL, 
-    seller = NULL, sellerContacts = NULL) {
+    dbmAdvertiserIds = NULL, hasBuyerSignedOff = NULL, hasSellerSignedOff = NULL, 
+    inventorySource = NULL, isRenegotiating = NULL, isSetupComplete = NULL, labels = NULL, 
+    lastUpdaterOrCommentorRole = NULL, name = NULL, negotiationId = NULL, originatorRole = NULL, 
+    privateAuctionId = NULL, proposalId = NULL, proposalState = NULL, revisionNumber = NULL, 
+    revisionTimeMs = NULL, seller = NULL, sellerContacts = NULL) {
     structure(list(billedBuyer = billedBuyer, buyer = buyer, buyerContacts = buyerContacts, 
-        buyerPrivateData = buyerPrivateData, hasBuyerSignedOff = hasBuyerSignedOff, 
-        hasSellerSignedOff = hasSellerSignedOff, inventorySource = inventorySource, 
-        isRenegotiating = isRenegotiating, isSetupComplete = isSetupComplete, kind = "adexchangebuyer#proposal", 
-        labels = labels, lastUpdaterOrCommentorRole = lastUpdaterOrCommentorRole, 
+        buyerPrivateData = buyerPrivateData, dbmAdvertiserIds = dbmAdvertiserIds, 
+        hasBuyerSignedOff = hasBuyerSignedOff, hasSellerSignedOff = hasSellerSignedOff, 
+        inventorySource = inventorySource, isRenegotiating = isRenegotiating, isSetupComplete = isSetupComplete, 
+        kind = `adexchangebuyer#proposal`, labels = labels, lastUpdaterOrCommentorRole = lastUpdaterOrCommentorRole, 
         name = name, negotiationId = negotiationId, originatorRole = originatorRole, 
         privateAuctionId = privateAuctionId, proposalId = proposalId, proposalState = proposalState, 
         revisionNumber = revisionNumber, revisionTimeMs = revisionTimeMs, seller = seller, 
@@ -1493,7 +1542,7 @@ PublisherProfileApiProto <- function(accountId = NULL, audience = NULL, buyerPit
     seller = NULL, state = NULL, topHeadlines = NULL) {
     structure(list(accountId = accountId, audience = audience, buyerPitchStatement = buyerPitchStatement, 
         directContact = directContact, exchange = exchange, googlePlusLink = googlePlusLink, 
-        isParent = isParent, isPublished = isPublished, kind = "adexchangebuyer#publisherProfileApiProto", 
+        isParent = isParent, isPublished = isPublished, kind = `adexchangebuyer#publisherProfileApiProto`, 
         logoUrl = logoUrl, mediaKitLink = mediaKitLink, name = name, overview = overview, 
         profileId = profileId, programmaticContact = programmaticContact, publisherDomains = publisherDomains, 
         publisherProfileId = publisherProfileId, publisherProvidedForecast = publisherProvidedForecast, 

@@ -5,10 +5,10 @@
 \alias{genomics_googleAuthR}
 \alias{genomics_googleAuthR-package}
 \title{Genomics API
-Stores, processes, explores and shares genomic data.}
+Upload, process, query, and search Genomics data in the cloud.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:19:23
+ at 2017-03-05 19:53:15
 filename: /Users/mark/dev/R/autoGoogleAPI/googlegenomicsv1alpha2.auto/R/genomics_functions.R
 api_json: api_json
 }
@@ -16,8 +16,7 @@ api_json: api_json
 Authentication scopes used are:
 \itemize{
   \item https://www.googleapis.com/auth/cloud-platform
-\item https://www.googleapis.com/auth/compute
 \item https://www.googleapis.com/auth/genomics
+\item https://www.googleapis.com/auth/compute
 }
 }
-

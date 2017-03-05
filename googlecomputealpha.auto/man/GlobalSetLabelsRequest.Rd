@@ -26,7 +26,8 @@ No description
 }
 \seealso{
 Other GlobalSetLabelsRequest functions: \code{\link{GlobalSetLabelsRequest.labels}},
+  \code{\link{globalAddresses.setLabels}},
+  \code{\link{globalForwardingRules.setLabels}},
   \code{\link{images.setLabels}},
   \code{\link{snapshots.setLabels}}
 }
-

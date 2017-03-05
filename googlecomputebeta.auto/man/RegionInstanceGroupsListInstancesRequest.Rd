@@ -25,4 +25,3 @@ No description
 \seealso{
 Other RegionInstanceGroupsListInstancesRequest functions: \code{\link{regionInstanceGroups.listInstances}}
 }
-

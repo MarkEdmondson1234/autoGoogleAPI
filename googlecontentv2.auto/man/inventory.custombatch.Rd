@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{inventory.custombatch}
 \alias{inventory.custombatch}
-\title{Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products.}
+\title{Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products. This method can only be called for non-multi-client accounts.}
 \usage{
 inventory.custombatch(InventoryCustomBatchRequest, dryRun = NULL)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other InventoryCustomBatchRequest functions: \code{\link{InventoryCustomBatchRequest}}
 }
-

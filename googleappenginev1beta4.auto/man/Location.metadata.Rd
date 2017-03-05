@@ -20,4 +20,3 @@ Service-specific metadata. For example the available capacity at the given locat
 Other Location functions: \code{\link{Location.labels}},
   \code{\link{Location}}
 }
-

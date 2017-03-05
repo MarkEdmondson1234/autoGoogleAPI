@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accountshipping.list}
 \alias{accountshipping.list}
-\title{Lists the shipping settings of the sub-accounts in your Merchant Center account.}
+\title{Lists the shipping settings of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.}
 \usage{
 accountshipping.list(merchantId, maxResults = NULL, pageToken = NULL)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/shopping-content}{Google Documentation}
 }
-

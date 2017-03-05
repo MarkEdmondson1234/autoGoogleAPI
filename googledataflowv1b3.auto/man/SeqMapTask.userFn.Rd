@@ -19,4 +19,3 @@ The user function to invoke.
 \seealso{
 Other SeqMapTask functions: \code{\link{SeqMapTask}}
 }
-

@@ -4,39 +4,41 @@
 \alias{Environment}
 \title{Environment Object}
 \usage{
-Environment(Environment.userAgent = NULL, Environment.version = NULL,
-  Environment.sdkPipelineOptions = NULL,
-  Environment.internalExperiments = NULL, tempStoragePrefix = NULL,
-  clusterManagerApiService = NULL, experiments = NULL, workerPools = NULL,
-  userAgent = NULL, version = NULL, dataset = NULL,
-  sdkPipelineOptions = NULL, internalExperiments = NULL)
+Environment(Environment.internalExperiments = NULL,
+  Environment.version = NULL, Environment.sdkPipelineOptions = NULL,
+  Environment.userAgent = NULL, clusterManagerApiService = NULL,
+  tempStoragePrefix = NULL, workerPools = NULL, dataset = NULL,
+  experiments = NULL, internalExperiments = NULL, version = NULL,
+  serviceAccountEmail = NULL, sdkPipelineOptions = NULL, userAgent = NULL)
 }
 \arguments{
-\item{Environment.userAgent}{The \link{Environment.userAgent} object or list of objects}
+\item{Environment.internalExperiments}{The \link{Environment.internalExperiments} object or list of objects}
 
 \item{Environment.version}{The \link{Environment.version} object or list of objects}
 
 \item{Environment.sdkPipelineOptions}{The \link{Environment.sdkPipelineOptions} object or list of objects}
 
-\item{Environment.internalExperiments}{The \link{Environment.internalExperiments} object or list of objects}
-
-\item{tempStoragePrefix}{The prefix of the resources the system should use for temporary storage}
+\item{Environment.userAgent}{The \link{Environment.userAgent} object or list of objects}
 
 \item{clusterManagerApiService}{The type of cluster manager API to use}
 
+\item{tempStoragePrefix}{The prefix of the resources the system should use for temporary}
+
+\item{workerPools}{The worker pools}
+
+\item{dataset}{The dataset for the current project where various workflow}
+
 \item{experiments}{The list of experiments to enable}
 
-\item{workerPools}{Worker pools}
+\item{internalExperiments}{Experimental settings}
+
+\item{version}{A structure describing which components and their versions of the service}
+
+\item{serviceAccountEmail}{Identity to run virtual machines as}
+
+\item{sdkPipelineOptions}{The Cloud Dataflow SDK pipeline options specified by the user}
 
 \item{userAgent}{A description of the process that generated the request}
-
-\item{version}{A structure describing which components and their versions of the service are required in order to run the job}
-
-\item{dataset}{The dataset for the current project where various workflow related tables are stored}
-
-\item{sdkPipelineOptions}{The Dataflow SDK pipeline options specified by the user}
-
-\item{internalExperiments}{Experimental settings}
 }
 \value{
 Environment object
@@ -54,4 +56,3 @@ Other Environment functions: \code{\link{Environment.internalExperiments}},
   \code{\link{Environment.userAgent}},
   \code{\link{Environment.version}}
 }
-

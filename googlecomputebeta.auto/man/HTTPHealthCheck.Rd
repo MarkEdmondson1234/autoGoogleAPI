@@ -49,4 +49,3 @@ Other HttpHealthCheck functions: \code{\link{httpHealthChecks.insert}},
   \code{\link{httpHealthChecks.patch}},
   \code{\link{httpHealthChecks.update}}
 }
-

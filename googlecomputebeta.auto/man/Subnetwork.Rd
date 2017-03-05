@@ -6,7 +6,8 @@
 \usage{
 Subnetwork(creationTimestamp = NULL, description = NULL,
   gatewayAddress = NULL, id = NULL, ipCidrRange = NULL, name = NULL,
-  network = NULL, region = NULL, selfLink = NULL)
+  network = NULL, privateIpGoogleAccess = NULL, region = NULL,
+  selfLink = NULL)
 }
 \arguments{
 \item{creationTimestamp}{[Output Only] Creation timestamp in RFC3339 text format}
@@ -22,6 +23,8 @@ Subnetwork(creationTimestamp = NULL, description = NULL,
 \item{name}{The name of the resource, provided by the client when initially creating the resource}
 
 \item{network}{The URL of the network to which this subnetwork belongs, provided by the client when initially creating the subnetwork}
+
+\item{privateIpGoogleAccess}{Whether the VMs in this subnet can access Google services without assigned external IP addresses}
 
 \item{region}{URL of the region where the Subnetwork resides}
 
@@ -40,4 +43,3 @@ A Subnetwork resource.
 \seealso{
 Other Subnetwork functions: \code{\link{subnetworks.insert}}
 }
-

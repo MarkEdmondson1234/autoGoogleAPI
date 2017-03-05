@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{annotations.create}
 \alias{annotations.create}
-\title{Creates a new annotation. Caller must have WRITE permission for the associated annotation set. The following fields are required: * annotationSetId * referenceName or referenceId ### Transcripts For annotations of type TRANSCRIPT, the following fields of transcript must be provided: * exons.start * exons.end All other fields may be optionally specified, unless documented as being server-generated (for example, the `id` field). The annotated range must be no longer than 100Mbp (mega base pairs). See the Annotation resource for additional restrictions on each field.}
+\title{Creates a new annotation. Caller must have WRITE permissionfor the associated annotation set.The following fields are required:* annotationSetId* referenceName or  referenceId### TranscriptsFor annotations of type TRANSCRIPT, the following fields oftranscript must be provided:* exons.start* exons.endAll other fields may be optionally specified, unless documented as beingserver-generated (for example, the `id` field). The annotatedrange must be no longer than 100Mbp (mega base pairs). See theAnnotation resourcefor additional restrictions on each field.}
 \usage{
 annotations.create(Annotation)
 }
@@ -25,10 +25,9 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other Annotation functions: \code{\link{Annotation.info}},
   \code{\link{Annotation}},
   \code{\link{annotations.update}}
 }
-

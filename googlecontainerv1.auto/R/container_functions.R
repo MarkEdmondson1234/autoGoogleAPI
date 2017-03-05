@@ -2,7 +2,7 @@
 #' Builds and manages clusters that run container-based applications, powered by open source Kubernetes technology.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:17:58
+#'  at 2017-03-05 19:57:03
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecontainerv1.auto/R/container_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Returns configuration info about the Container Engine service.
@@ -49,7 +62,8 @@ projects.zones.getServerconfig <- function(projectId, zone) {
     url <- sprintf("https://container.googleapis.com/v1/projects/%s/zones/%s/serverconfig", 
         projectId, zone)
     # container.projects.zones.getServerconfig
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

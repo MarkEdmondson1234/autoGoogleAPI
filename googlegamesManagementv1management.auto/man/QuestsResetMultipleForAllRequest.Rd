@@ -22,4 +22,3 @@ This is a JSON template for multiple quests reset all request.
 \seealso{
 Other QuestsResetMultipleForAllRequest functions: \code{\link{quests.resetMultipleForAllPlayers}}
 }
-

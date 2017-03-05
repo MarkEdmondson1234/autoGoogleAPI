@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Subscription functions: \code{\link{Subscription}},
   \code{\link{subscriptions.insert}}
 }
-

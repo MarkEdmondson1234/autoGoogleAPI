@@ -4,28 +4,28 @@
 \alias{SearchVariantsRequest}
 \title{SearchVariantsRequest Object}
 \usage{
-SearchVariantsRequest(variantSetIds = NULL, variantName = NULL,
-  callSetIds = NULL, referenceName = NULL, start = NULL, end = NULL,
-  pageToken = NULL, pageSize = NULL, maxCalls = NULL)
+SearchVariantsRequest(referenceName = NULL, variantSetIds = NULL,
+  end = NULL, pageToken = NULL, maxCalls = NULL, pageSize = NULL,
+  callSetIds = NULL, variantName = NULL, start = NULL)
 }
 \arguments{
-\item{variantSetIds}{At most one variant set ID must be provided}
-
-\item{variantName}{Only return variants which have exactly this name}
-
-\item{callSetIds}{Only return variant calls which belong to call sets with these ids}
-
 \item{referenceName}{Required}
 
-\item{start}{The beginning of the window (0-based, inclusive) for which overlapping variants should be returned}
+\item{variantSetIds}{At most one variant set ID must be provided}
 
 \item{end}{The end of the window, 0-based exclusive}
 
 \item{pageToken}{The continuation token, which is used to page through large result sets}
 
+\item{maxCalls}{The maximum number of calls to return in a single page}
+
 \item{pageSize}{The maximum number of variants to return in a single page}
 
-\item{maxCalls}{The maximum number of calls to return in a single page}
+\item{callSetIds}{Only return variant calls which belong to call sets with these ids}
+
+\item{variantName}{Only return variants which have exactly this name}
+
+\item{start}{The beginning of the window (0-based, inclusive) for which}
 }
 \value{
 SearchVariantsRequest object
@@ -40,4 +40,3 @@ The variant search request.
 \seealso{
 Other SearchVariantsRequest functions: \code{\link{variants.search}}
 }
-

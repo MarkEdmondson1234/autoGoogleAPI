@@ -25,4 +25,3 @@ Child link for an account entry. Points to the list of web properties for this a
 Other Account functions: \code{\link{Account.permissions}},
   \code{\link{Account}}
 }
-

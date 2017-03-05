@@ -20,4 +20,3 @@ No description
 Other InstanceUpdate functions: \code{\link{InstanceUpdate.error}},
   \code{\link{InstanceUpdate}}
 }
-

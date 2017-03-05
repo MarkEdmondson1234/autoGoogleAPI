@@ -2,7 +2,7 @@
 #' Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 22:33:46
+#'  at 2017-03-05 19:24:20
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadsensehostv41.auto/R/adsensehost_objects.R
 #' api_json: api_json
 #' 
@@ -23,7 +23,7 @@
 #' @family Account functions
 #' @export
 Account <- function(id = NULL, name = NULL, status = NULL) {
-    structure(list(id = id, kind = "adsensehost#account", name = name, status = status), 
+    structure(list(id = id, kind = `adsensehost#account`, name = name, status = status), 
         class = "gar_Account")
 }
 
@@ -41,7 +41,7 @@ Account <- function(id = NULL, name = NULL, status = NULL) {
 #' @family Accounts functions
 #' @export
 Accounts <- function(etag = NULL, items = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsensehost#accounts"), class = "gar_Accounts")
+    structure(list(etag = etag, items = items, kind = `adsensehost#accounts`), class = "gar_Accounts")
 }
 
 #' AdClient Object
@@ -60,7 +60,7 @@ Accounts <- function(etag = NULL, items = NULL) {
 #' @family AdClient functions
 #' @export
 AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsReporting = NULL) {
-    structure(list(arcOptIn = arcOptIn, id = id, kind = "adsensehost#adClient", productCode = productCode, 
+    structure(list(arcOptIn = arcOptIn, id = id, kind = `adsensehost#adClient`, productCode = productCode, 
         supportsReporting = supportsReporting), class = "gar_AdClient")
 }
 
@@ -79,7 +79,7 @@ AdClient <- function(arcOptIn = NULL, id = NULL, productCode = NULL, supportsRep
 #' @family AdClients functions
 #' @export
 AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsensehost#adClients", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsensehost#adClients`, nextPageToken = nextPageToken), 
         class = "gar_AdClients")
 }
 
@@ -96,7 +96,7 @@ AdClients <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @family AdCode functions
 #' @export
 AdCode <- function(adCode = NULL) {
-    structure(list(adCode = adCode, kind = "adsensehost#adCode"), class = "gar_AdCode")
+    structure(list(adCode = adCode, kind = `adsensehost#adCode`), class = "gar_AdCode")
 }
 
 #' AdStyle Object
@@ -108,7 +108,7 @@ AdCode <- function(adCode = NULL) {
 #' @param AdStyle.colors The \link{AdStyle.colors} object or list of objects
 #' @param AdStyle.font The \link{AdStyle.font} object or list of objects
 #' @param colors The colors included in the style
-#' @param corners The style of the corners in the ad
+#' @param corners The style of the corners in the ad (deprecated: never populated, ignored)
 #' @param font The font which is included in the style
 #' 
 #' @return AdStyle object
@@ -118,7 +118,7 @@ AdCode <- function(adCode = NULL) {
 AdStyle <- function(AdStyle.colors = NULL, AdStyle.font = NULL, colors = NULL, corners = NULL, 
     font = NULL) {
     structure(list(AdStyle.colors = AdStyle.colors, AdStyle.font = AdStyle.font, 
-        colors = colors, corners = corners, font = font, kind = "adsensehost#adStyle"), 
+        colors = colors, corners = corners, font = font, kind = `adsensehost#adStyle`), 
         class = "gar_AdStyle")
 }
 
@@ -189,7 +189,7 @@ AdUnit <- function(AdUnit.contentAdsSettings = NULL, AdUnit.contentAdsSettings.b
     structure(list(AdUnit.contentAdsSettings = AdUnit.contentAdsSettings, AdUnit.contentAdsSettings.backupOption = AdUnit.contentAdsSettings.backupOption, 
         AdUnit.mobileContentAdsSettings = AdUnit.mobileContentAdsSettings, code = code, 
         contentAdsSettings = contentAdsSettings, customStyle = customStyle, id = id, 
-        kind = "adsensehost#adUnit", mobileContentAdsSettings = mobileContentAdsSettings, 
+        kind = `adsensehost#adUnit`, mobileContentAdsSettings = mobileContentAdsSettings, 
         name = name, status = status), class = "gar_AdUnit")
 }
 
@@ -268,7 +268,7 @@ AdUnit.mobileContentAdsSettings <- function(markupLanguage = NULL, scriptingLang
 #' @family AdUnits functions
 #' @export
 AdUnits <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsensehost#adUnits", nextPageToken = nextPageToken), 
+    structure(list(etag = etag, items = items, kind = `adsensehost#adUnits`, nextPageToken = nextPageToken), 
         class = "gar_AdUnits")
 }
 
@@ -293,7 +293,7 @@ AdUnits <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 #' @export
 AssociationSession <- function(accountId = NULL, id = NULL, productCodes = NULL, 
     redirectUrl = NULL, status = NULL, userLocale = NULL, websiteLocale = NULL, websiteUrl = NULL) {
-    structure(list(accountId = accountId, id = id, kind = "adsensehost#associationSession", 
+    structure(list(accountId = accountId, id = id, kind = `adsensehost#associationSession`, 
         productCodes = productCodes, redirectUrl = redirectUrl, status = status, 
         userLocale = userLocale, websiteLocale = websiteLocale, websiteUrl = websiteUrl), 
         class = "gar_AssociationSession")
@@ -314,7 +314,7 @@ AssociationSession <- function(accountId = NULL, id = NULL, productCodes = NULL,
 #' @family CustomChannel functions
 #' @export
 CustomChannel <- function(code = NULL, id = NULL, name = NULL) {
-    structure(list(code = code, id = id, kind = "adsensehost#customChannel", name = name), 
+    structure(list(code = code, id = id, kind = `adsensehost#customChannel`, name = name), 
         class = "gar_CustomChannel")
 }
 
@@ -333,7 +333,7 @@ CustomChannel <- function(code = NULL, id = NULL, name = NULL) {
 #' @family CustomChannels functions
 #' @export
 CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
-    structure(list(etag = etag, items = items, kind = "adsensehost#customChannels", 
+    structure(list(etag = etag, items = items, kind = `adsensehost#customChannels`, 
         nextPageToken = nextPageToken), class = "gar_CustomChannels")
 }
 
@@ -358,7 +358,7 @@ CustomChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
 Report <- function(Report.headers = NULL, averages = NULL, headers = NULL, rows = NULL, 
     totalMatchedRows = NULL, totals = NULL, warnings = NULL) {
     structure(list(Report.headers = Report.headers, averages = averages, headers = headers, 
-        kind = "adsensehost#report", rows = rows, totalMatchedRows = totalMatchedRows, 
+        kind = `adsensehost#report`, rows = rows, totalMatchedRows = totalMatchedRows, 
         totals = totals, warnings = warnings), class = "gar_Report")
 }
 
@@ -392,7 +392,7 @@ Report.headers <- function() {
 #' @family UrlChannel functions
 #' @export
 UrlChannel <- function(id = NULL, urlPattern = NULL) {
-    structure(list(id = id, kind = "adsensehost#urlChannel", urlPattern = urlPattern), 
+    structure(list(id = id, kind = `adsensehost#urlChannel`, urlPattern = urlPattern), 
         class = "gar_UrlChannel")
 }
 
@@ -417,7 +417,7 @@ UrlChannels <- function(etag = NULL, items = NULL, nextPageToken = NULL) {
     
     
     
-    structure(list(etag = etag, items = items, kind = "adsensehost#urlChannels", 
+    structure(list(etag = etag, items = items, kind = `adsensehost#urlChannels`, 
         nextPageToken = nextPageToken), class = "gar_UrlChannels")
 }
 

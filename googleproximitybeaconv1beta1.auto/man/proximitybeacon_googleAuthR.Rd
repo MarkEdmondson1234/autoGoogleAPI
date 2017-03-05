@@ -8,7 +8,7 @@
 Registers, manages, indexes, and searches beacons.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:21:46
+ at 2017-03-05 19:58:07
 filename: /Users/mark/dev/R/autoGoogleAPI/googleproximitybeaconv1beta1.auto/R/proximitybeacon_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/userlocation.beacon.registry
 }
 }
-

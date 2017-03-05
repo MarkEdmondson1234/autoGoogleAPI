@@ -30,4 +30,3 @@ Other Contact functions: \code{\link{Contact}},
   \code{\link{contacts.patch}},
   \code{\link{contacts.update}}
 }
-

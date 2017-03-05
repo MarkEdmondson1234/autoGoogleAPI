@@ -70,4 +70,3 @@ Other Comment functions: \code{\link{Comment.actor.clientSpecificActorInfo.youtu
   \code{\link{Comment.plusoners}},
   \code{\link{comments.insert}}
 }
-

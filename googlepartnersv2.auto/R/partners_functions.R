@@ -2,7 +2,7 @@
 #' Lets advertisers search certified companies and create contact leads with them, and also audits the usage of clients.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:21:00
+#'  at 2017-03-05 19:57:25
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlepartnersv2.auto/R/partners_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Logs a user event.
 #' 
@@ -42,7 +55,7 @@ NULL
 userEvents.log <- function(LogUserEventRequest) {
     url <- "https://partners.googleapis.com/v2/userEvents:log"
     # partners.userEvents.log
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(LogUserEventRequest, "gar_LogUserEventRequest"))
     
     f(the_body = LogUserEventRequest)
@@ -72,7 +85,7 @@ userEvents.log <- function(LogUserEventRequest) {
 clientMessages.log <- function(LogMessageRequest) {
     url <- "https://partners.googleapis.com/v2/clientMessages:log"
     # partners.clientMessages.log
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(LogMessageRequest, "gar_LogMessageRequest"))
     
     f(the_body = LogMessageRequest)
@@ -109,11 +122,12 @@ userStates.list <- function(requestMetadata.userOverrides.ipAddress = NULL, requ
     requestMetadata.trafficSource.trafficSourceId = NULL, requestMetadata.trafficSource.trafficSubId = NULL) {
     url <- "https://partners.googleapis.com/v2/userStates"
     # partners.userStates.list
-    f <- gar_api_generator(url, "GET", pars_args = list(requestMetadata.userOverrides.ipAddress = requestMetadata.userOverrides.ipAddress, 
+    pars = list(requestMetadata.userOverrides.ipAddress = requestMetadata.userOverrides.ipAddress, 
         requestMetadata.userOverrides.userId = requestMetadata.userOverrides.userId, 
         requestMetadata.locale = requestMetadata.locale, requestMetadata.partnersSessionId = requestMetadata.partnersSessionId, 
         requestMetadata.experimentIds = requestMetadata.experimentIds, requestMetadata.trafficSource.trafficSourceId = requestMetadata.trafficSource.trafficSourceId, 
-        requestMetadata.trafficSource.trafficSubId = requestMetadata.trafficSource.trafficSubId), 
+        requestMetadata.trafficSource.trafficSubId = requestMetadata.trafficSource.trafficSubId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -156,12 +170,13 @@ companies.get <- function(companyId, requestMetadata.userOverrides.ipAddress = N
     currencyCode = NULL, address = NULL) {
     url <- sprintf("https://partners.googleapis.com/v2/companies/%s", companyId)
     # partners.companies.get
-    f <- gar_api_generator(url, "GET", pars_args = list(requestMetadata.userOverrides.ipAddress = requestMetadata.userOverrides.ipAddress, 
+    pars = list(requestMetadata.userOverrides.ipAddress = requestMetadata.userOverrides.ipAddress, 
         requestMetadata.userOverrides.userId = requestMetadata.userOverrides.userId, 
         requestMetadata.locale = requestMetadata.locale, requestMetadata.partnersSessionId = requestMetadata.partnersSessionId, 
         requestMetadata.experimentIds = requestMetadata.experimentIds, requestMetadata.trafficSource.trafficSourceId = requestMetadata.trafficSource.trafficSourceId, 
         requestMetadata.trafficSource.trafficSubId = requestMetadata.trafficSource.trafficSubId, 
-        view = view, orderBy = orderBy, currencyCode = currencyCode, address = address), 
+        view = view, orderBy = orderBy, currencyCode = currencyCode, address = address)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -247,7 +262,7 @@ companies.list <- function(requestMetadata.userOverrides.ipAddress = NULL, reque
     
     url <- "https://partners.googleapis.com/v2/companies"
     # partners.companies.list
-    f <- gar_api_generator(url, "GET", pars_args = list(requestMetadata.userOverrides.ipAddress = requestMetadata.userOverrides.ipAddress, 
+    pars = list(requestMetadata.userOverrides.ipAddress = requestMetadata.userOverrides.ipAddress, 
         requestMetadata.userOverrides.userId = requestMetadata.userOverrides.userId, 
         requestMetadata.locale = requestMetadata.locale, requestMetadata.partnersSessionId = requestMetadata.partnersSessionId, 
         requestMetadata.experimentIds = requestMetadata.experimentIds, requestMetadata.trafficSource.trafficSourceId = requestMetadata.trafficSource.trafficSourceId, 
@@ -257,7 +272,9 @@ companies.list <- function(requestMetadata.userOverrides.ipAddress = NULL, reque
         minMonthlyBudget.nanos = minMonthlyBudget.nanos, maxMonthlyBudget.currencyCode = maxMonthlyBudget.currencyCode, 
         maxMonthlyBudget.units = maxMonthlyBudget.units, maxMonthlyBudget.nanos = maxMonthlyBudget.nanos, 
         industries = industries, services = services, languageCodes = languageCodes, 
-        address = address, orderBy = orderBy, gpsMotivations = gpsMotivations, websiteUrl = websiteUrl), 
+        address = address, orderBy = orderBy, gpsMotivations = gpsMotivations, websiteUrl = websiteUrl)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     f()

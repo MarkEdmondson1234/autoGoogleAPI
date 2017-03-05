@@ -45,4 +45,3 @@ No description
 Other Review functions: \code{\link{Review.author}},
   \code{\link{Review.source}}
 }
-

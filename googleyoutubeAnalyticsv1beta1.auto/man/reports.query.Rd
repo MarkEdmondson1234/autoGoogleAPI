@@ -5,7 +5,8 @@
 \title{Retrieve your YouTube Analytics reports.}
 \usage{
 reports.query(ids, start.date, end.date, metrics, currency = NULL,
-  dimensions = NULL, filters = NULL, max.results = NULL, sort = NULL,
+  dimensions = NULL, filters = NULL,
+  include.historical.channel.data = NULL, max.results = NULL, sort = NULL,
   start.index = NULL)
 }
 \arguments{
@@ -22,6 +23,8 @@ reports.query(ids, start.date, end.date, metrics, currency = NULL,
 \item{dimensions}{A comma-separated list of YouTube Analytics dimensions, such as views or ageGroup,gender}
 
 \item{filters}{A list of filters that should be applied when retrieving YouTube Analytics data}
+
+\item{include.historical.channel.data}{If set to true historical data (i}
 
 \item{max.results}{The maximum number of rows to include in the response}
 
@@ -48,4 +51,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{http://developers.google.com/youtube/analytics/}{Google Documentation}
 }
-

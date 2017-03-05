@@ -29,4 +29,3 @@ No description
 \seealso{
 Other RunQueryRequest functions: \code{\link{datasets.runQuery}}
 }
-

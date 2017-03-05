@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other TableDataInsertAllRequest functions: \code{\link{TableDataInsertAllRequest.rows}},
   \code{\link{TableDataInsertAllRequest}}
 }
-

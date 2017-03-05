@@ -76,4 +76,3 @@ The apps resource provides a list of the apps that a user has installed, with in
 \seealso{
 Other App functions: \code{\link{App.icons}}
 }
-

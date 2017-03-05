@@ -8,7 +8,7 @@
 Obtains end-user authorization grants for use with other Google APIs.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:24:35
+ at 2017-03-05 20:03:28
 filename: /Users/mark/dev/R/autoGoogleAPI/googleoauth2v2.auto/R/oauth2_functions.R
 api_json: api_json
 }
@@ -21,4 +21,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/userinfo.profile
 }
 }
-

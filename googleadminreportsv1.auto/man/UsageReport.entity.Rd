@@ -20,4 +20,3 @@ Information about the type of the item.
 Other UsageReport functions: \code{\link{UsageReport.parameters}},
   \code{\link{UsageReport}}
 }
-

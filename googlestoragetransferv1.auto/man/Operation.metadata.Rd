@@ -20,4 +20,3 @@ Represents the transfer operation object.
 Other Operation functions: \code{\link{Operation.response}},
   \code{\link{Operation}}
 }
-

@@ -43,4 +43,3 @@ Other Activity functions: \code{\link{Activity.actor.clientSpecificActorInfo.you
   \code{\link{Activity.object}},
   \code{\link{Activity.provider}}, \code{\link{Activity}}
 }
-

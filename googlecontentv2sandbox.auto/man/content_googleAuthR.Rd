@@ -8,7 +8,7 @@
 Manages product items, inventory, and Merchant Center accounts for Google Shopping.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:04:05
+ at 2017-03-05 19:40:20
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecontentv2sandbox.auto/R/content_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/content
 }
 }
-

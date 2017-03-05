@@ -4,10 +4,12 @@
 \alias{ReportRequest}
 \title{ReportRequest Object}
 \usage{
-ReportRequest(operations = NULL)
+ReportRequest(operations = NULL, serviceConfigId = NULL)
 }
 \arguments{
 \item{operations}{Operations to be reported}
+
+\item{serviceConfigId}{Specifies which version of service config should be used to process the}
 }
 \value{
 ReportRequest object
@@ -22,4 +24,3 @@ Request message for the Report method.
 \seealso{
 Other ReportRequest functions: \code{\link{services.report}}
 }
-

@@ -19,4 +19,3 @@ Request message for `GetIamPolicy` method.
 \seealso{
 Other GetIamPolicyRequest functions: \code{\link{datasets.getIamPolicy}}
 }
-

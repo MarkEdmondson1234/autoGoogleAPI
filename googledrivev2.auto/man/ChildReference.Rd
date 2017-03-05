@@ -26,4 +26,3 @@ A reference to a folder's child.
 \seealso{
 Other ChildReference functions: \code{\link{children.insert}}
 }
-

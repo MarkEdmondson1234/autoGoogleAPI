@@ -65,4 +65,3 @@ Other McfData functions: \code{\link{McfData.columnHeaders}},
   \code{\link{McfData.query}},
   \code{\link{McfData.totalsForAllResults}}
 }
-

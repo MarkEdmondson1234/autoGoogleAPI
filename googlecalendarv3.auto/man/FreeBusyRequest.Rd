@@ -33,4 +33,3 @@ No description
 \seealso{
 Other FreeBusyRequest functions: \code{\link{freebusy.query}}
 }
-

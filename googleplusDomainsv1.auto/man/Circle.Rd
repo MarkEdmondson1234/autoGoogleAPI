@@ -37,4 +37,3 @@ Other Circle functions: \code{\link{Circle.people}},
   \code{\link{circles.insert}},
   \code{\link{circles.patch}}, \code{\link{circles.update}}
 }
-

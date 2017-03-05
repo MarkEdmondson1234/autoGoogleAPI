@@ -2,7 +2,7 @@
 % Please edit documentation in R/cloudresourcemanager_functions.R
 \name{projects.delete}
 \alias{projects.delete}
-\title{Marks the Project identified by the specified `project_id` (for example, `my-project-123`) for deletion. This method will only affect the Project if the following criteria are met: + The Project does not have a billing account associated with it. + The Project has a lifecycle state of ACTIVE. This method changes the Project's lifecycle state from ACTIVE to DELETE_REQUESTED. The deletion starts at an unspecified time, at which point the project is no longer accessible. Until the deletion completes, you can check the lifecycle state checked by retrieving the Project with GetProject, and the Project remains visible to ListProjects. However, you cannot update the project. After the deletion completes, the Project is not retrievable by the GetProject and ListProjects methods. The caller must have modify permissions for this Project.}
+\title{Marks the Project identified by the specified`project_id` (for example, `my-project-123`) for deletion.This method will only affect the Project if the following criteria are met:+ The Project does not have a billing account associated with it.+ The Project has a lifecycle state ofACTIVE.This method changes the Project's lifecycle state fromACTIVEto DELETE_REQUESTED.The deletion starts at an unspecified time, at which point the project isno longer accessible.Until the deletion completes, you can check the lifecycle statechecked by retrieving the Project with GetProject,and the Project remains visible to ListProjects.However, you cannot update the project.After the deletion completes, the Project is not retrievable bythe  GetProject andListProjects methods.The caller must have modify permissions for this Project.}
 \usage{
 projects.delete(projectId)
 }
@@ -25,4 +25,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/resource-manager}{Google Documentation}
 }
-

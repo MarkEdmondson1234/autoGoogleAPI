@@ -45,4 +45,3 @@ An instance-attached disk resource.
 \seealso{
 Other AttachedDisk functions: \code{\link{instances.attachDisk}}
 }
-

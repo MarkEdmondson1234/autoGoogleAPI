@@ -20,4 +20,3 @@ No description
 Other Insert functions: \code{\link{Insert}},
   \code{\link{trainedmodels.insert}}
 }
-

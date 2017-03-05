@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{users.setAvailableProductSet}
 \alias{users.setAvailableProductSet}
-\title{Modifies the set of products a user is entitled to access.}
+\title{Modifies the set of products that a user is entitled to access (referred to as whitelisted products). Only products that are approved or products that were previously approved (products with revoked approval) can be whitelisted.}
 \usage{
 users.setAvailableProductSet(ProductSet, enterpriseId, userId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ProductSet functions: \code{\link{ProductSet}}
 }
-

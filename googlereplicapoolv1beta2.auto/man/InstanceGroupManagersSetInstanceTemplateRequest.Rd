@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstanceGroupManagersSetInstanceTemplateRequest functions: \code{\link{instanceGroupManagers.setInstanceTemplate}}
 }
-

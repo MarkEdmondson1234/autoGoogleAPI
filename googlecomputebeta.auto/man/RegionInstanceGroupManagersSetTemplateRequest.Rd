@@ -22,4 +22,3 @@ No description
 \seealso{
 Other RegionInstanceGroupManagersSetTemplateRequest functions: \code{\link{regionInstanceGroupManagers.setInstanceTemplate}}
 }
-

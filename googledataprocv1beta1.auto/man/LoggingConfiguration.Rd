@@ -25,4 +25,3 @@ The runtime logging configuration of the job.
 \seealso{
 Other LoggingConfiguration functions: \code{\link{LoggingConfiguration.driverLogLevels}}
 }
-

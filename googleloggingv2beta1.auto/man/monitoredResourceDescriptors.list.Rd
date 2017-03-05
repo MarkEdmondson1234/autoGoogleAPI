@@ -2,7 +2,7 @@
 % Please edit documentation in R/logging_functions.R
 \name{monitoredResourceDescriptors.list}
 \alias{monitoredResourceDescriptors.list}
-\title{Lists monitored resource descriptors that are used by Cloud Logging.}
+\title{Lists the descriptors for monitored resource types used by Stackdriver Logging.}
 \usage{
 monitoredResourceDescriptors.list(pageSize = NULL, pageToken = NULL)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/logging/docs/}{Google Documentation}
 }
-

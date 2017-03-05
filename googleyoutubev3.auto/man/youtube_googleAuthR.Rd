@@ -8,7 +8,7 @@
 Supports core YouTube features, such as uploading videos, creating and managing playlists, searching for content, and much more.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:50:56
+ at 2017-03-05 20:22:46
 filename: /Users/mark/dev/R/autoGoogleAPI/googleyoutubev3.auto/R/youtube_functions.R
 api_json: api_json
 }
@@ -23,4 +23,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/youtubepartner-channel-audit
 }
 }
-

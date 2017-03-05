@@ -31,4 +31,3 @@ Other Template functions: \code{\link{Template}},
   \code{\link{template.patch}},
   \code{\link{template.update}}
 }
-

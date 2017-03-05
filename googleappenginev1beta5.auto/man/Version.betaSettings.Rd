@@ -20,4 +20,3 @@ Metadata settings that are supplied to this version to enable beta runtime featu
 Other Version functions: \code{\link{Version.envVariables}},
   \code{\link{Version}}
 }
-

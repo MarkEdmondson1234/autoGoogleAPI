@@ -34,4 +34,3 @@ Other GlobalSetLabelsRequest functions: \code{\link{GlobalSetLabelsRequest.label
   \code{\link{GlobalSetLabelsRequest}},
   \code{\link{snapshots.setLabels}}
 }
-

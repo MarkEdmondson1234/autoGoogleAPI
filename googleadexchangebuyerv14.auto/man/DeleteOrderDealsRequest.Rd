@@ -27,4 +27,3 @@ No description
 \seealso{
 Other DeleteOrderDealsRequest functions: \code{\link{marketplacedeals.delete}}
 }
-

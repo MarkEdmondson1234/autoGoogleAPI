@@ -13,10 +13,11 @@ PretargetingConfig(PretargetingConfig.dimensions = NULL,
   excludedGeoCriteriaIds = NULL, excludedPlacements = NULL,
   excludedUserLists = NULL, excludedVerticals = NULL,
   geoCriteriaIds = NULL, isActive = NULL, languages = NULL,
-  mobileCarriers = NULL, mobileDevices = NULL,
-  mobileOperatingSystemVersions = NULL, placements = NULL,
-  platforms = NULL, supportedCreativeAttributes = NULL, userLists = NULL,
-  vendorTypes = NULL, verticals = NULL, videoPlayerSizes = NULL)
+  minimumViewabilityDecile = NULL, mobileCarriers = NULL,
+  mobileDevices = NULL, mobileOperatingSystemVersions = NULL,
+  placements = NULL, platforms = NULL, supportedCreativeAttributes = NULL,
+  userIdentifierDataRequired = NULL, userLists = NULL, vendorTypes = NULL,
+  verticals = NULL, videoPlayerSizes = NULL)
 }
 \arguments{
 \item{PretargetingConfig.dimensions}{The \link{PretargetingConfig.dimensions} object or list of objects}
@@ -53,6 +54,8 @@ PretargetingConfig(PretargetingConfig.dimensions = NULL,
 
 \item{languages}{Request containing any of these language codes will match}
 
+\item{minimumViewabilityDecile}{Requests where the predicted viewability is below the specified decile will not match}
+
 \item{mobileCarriers}{Requests containing any of these mobile carrier ids will match}
 
 \item{mobileDevices}{Requests containing any of these mobile device ids will match}
@@ -64,6 +67,8 @@ PretargetingConfig(PretargetingConfig.dimensions = NULL,
 \item{platforms}{Requests matching any of these platforms will match}
 
 \item{supportedCreativeAttributes}{Creative attributes should be declared here if all creatives corresponding to this pretargeting configuration have that creative attribute}
+
+\item{userIdentifierDataRequired}{Requests containing the specified type of user data will match}
 
 \item{userLists}{Requests containing any of these user list ids will match}
 
@@ -92,4 +97,3 @@ Other PretargetingConfig functions: \code{\link{PretargetingConfig.dimensions}},
   \code{\link{pretargetingConfig.patch}},
   \code{\link{pretargetingConfig.update}}
 }
-

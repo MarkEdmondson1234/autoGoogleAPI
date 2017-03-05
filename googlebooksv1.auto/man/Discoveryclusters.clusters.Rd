@@ -24,4 +24,3 @@ No description
 Other Discoveryclusters functions: \code{\link{Discoveryclusters.clusters.banner_with_content_container}},
   \code{\link{Discoveryclusters}}
 }
-

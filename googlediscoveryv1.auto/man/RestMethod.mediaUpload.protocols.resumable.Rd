@@ -30,4 +30,3 @@ Other RestMethod functions: \code{\link{RestMethod.mediaUpload.protocols.simple}
   \code{\link{RestMethod.response}},
   \code{\link{RestMethod}}
 }
-

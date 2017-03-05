@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{enterprises.setAccount}
 \alias{enterprises.setAccount}
-\title{Set the account that will be used to authenticate to the API as the enterprise.}
+\title{Sets the account that will be used to authenticate to the API as the enterprise.}
 \usage{
 enterprises.setAccount(EnterpriseAccount, enterpriseId)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other EnterpriseAccount functions: \code{\link{EnterpriseAccount}}
 }
-

@@ -31,4 +31,3 @@ No description
 \seealso{
 Other OrdersUpdateShipmentRequest functions: \code{\link{orders.updateshipment}}
 }
-

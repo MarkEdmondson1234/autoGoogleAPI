@@ -25,4 +25,3 @@ Links to 16x16 and 32x32 icons representing the API.
 Other DirectoryList functions: \code{\link{DirectoryList.items}},
   \code{\link{DirectoryList}}
 }
-

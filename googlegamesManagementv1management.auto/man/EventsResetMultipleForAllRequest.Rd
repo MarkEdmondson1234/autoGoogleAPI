@@ -22,4 +22,3 @@ This is a JSON template for multiple events reset all request.
 \seealso{
 Other EventsResetMultipleForAllRequest functions: \code{\link{events.resetMultipleForAllPlayers}}
 }
-

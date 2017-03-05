@@ -2,7 +2,7 @@
 #' Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:47:51
+#'  at 2017-03-05 20:16:09
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlesqladminv1beta3.auto/R/sqladmin_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Retrieves information about a specified backup run for a Cloud SQL instance.
 #' 
@@ -45,9 +58,11 @@ NULL
 #' @export
 sql.backupRuns.get <- function(project, instance, backupConfiguration, dueTime) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/backupRuns/%s", 
-        backupConfiguration, instance, project)
+        project, instance, backupConfiguration)
     # sql.backupRuns.get
-    f <- gar_api_generator(url, "GET", pars_args = list(dueTime = dueTime), data_parse_function = function(x) x)
+    pars = list(dueTime = dueTime)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -79,10 +94,12 @@ sql.backupRuns.get <- function(project, instance, backupConfiguration, dueTime) 
 sql.backupRuns.list <- function(project, instance, backupConfiguration, maxResults = NULL, 
     pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/backupRuns", 
-        instance, project)
+        project, instance)
     # sql.backupRuns.list
-    f <- gar_api_generator(url, "GET", pars_args = list(backupConfiguration = backupConfiguration, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(backupConfiguration = backupConfiguration, maxResults = maxResults, 
+        pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -109,7 +126,7 @@ sql.backupRuns.list <- function(project, instance, backupConfiguration, maxResul
 sql.flags.list <- function() {
     url <- "https://www.googleapis.com/sql/v1beta3/flags"
     # sql.flags.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -140,7 +157,7 @@ sql.instances.clone <- function(InstancesCloneRequest, project) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/clone", 
         project)
     # sql.instances.clone
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstancesCloneRequest, "gar_InstancesCloneRequest"))
     
     f(the_body = InstancesCloneRequest)
@@ -170,9 +187,9 @@ sql.instances.clone <- function(InstancesCloneRequest, project) {
 #' @export
 sql.instances.delete <- function(project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s", 
-        instance, project)
+        project, instance)
     # sql.instances.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -201,9 +218,9 @@ sql.instances.delete <- function(project, instance) {
 #' @export
 sql.instances.export <- function(InstancesExportRequest, project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/export", 
-        instance, project)
+        project, instance)
     # sql.instances.export
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstancesExportRequest, "gar_InstancesExportRequest"))
     
     f(the_body = InstancesExportRequest)
@@ -233,9 +250,9 @@ sql.instances.export <- function(InstancesExportRequest, project, instance) {
 #' @export
 sql.instances.get <- function(project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s", 
-        instance, project)
+        project, instance)
     # sql.instances.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -264,9 +281,9 @@ sql.instances.get <- function(project, instance) {
 #' @export
 sql.instances.import <- function(InstancesImportRequest, project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/import", 
-        instance, project)
+        project, instance)
     # sql.instances.import
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstancesImportRequest, "gar_InstancesImportRequest"))
     
     f(the_body = InstancesImportRequest)
@@ -299,7 +316,7 @@ sql.instances.insert <- function(DatabaseInstance, project) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances", 
         project)
     # sql.instances.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(DatabaseInstance, "gar_DatabaseInstance"))
     
     f(the_body = DatabaseInstance)
@@ -332,8 +349,9 @@ sql.instances.list <- function(project, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances", 
         project)
     # sql.instances.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -363,9 +381,9 @@ sql.instances.list <- function(project, maxResults = NULL, pageToken = NULL) {
 #' @export
 sql.instances.patch <- function(DatabaseInstance, project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s", 
-        instance, project)
+        project, instance)
     # sql.instances.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(DatabaseInstance, "gar_DatabaseInstance"))
     
     f(the_body = DatabaseInstance)
@@ -395,9 +413,9 @@ sql.instances.patch <- function(DatabaseInstance, project, instance) {
 #' @export
 sql.instances.promoteReplica <- function(project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/promoteReplica", 
-        instance, project)
+        project, instance)
     # sql.instances.promoteReplica
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -425,9 +443,9 @@ sql.instances.promoteReplica <- function(project, instance) {
 #' @export
 sql.instances.resetSslConfig <- function(project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/resetSslConfig", 
-        instance, project)
+        project, instance)
     # sql.instances.resetSslConfig
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -455,9 +473,9 @@ sql.instances.resetSslConfig <- function(project, instance) {
 #' @export
 sql.instances.restart <- function(project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/restart", 
-        instance, project)
+        project, instance)
     # sql.instances.restart
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -487,10 +505,11 @@ sql.instances.restart <- function(project, instance) {
 #' @export
 sql.instances.restoreBackup <- function(project, instance, backupConfiguration, dueTime) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/restoreBackup", 
-        instance, project)
+        project, instance)
     # sql.instances.restoreBackup
-    f <- gar_api_generator(url, "POST", pars_args = list(backupConfiguration = backupConfiguration, 
-        dueTime = dueTime), data_parse_function = function(x) x)
+    pars = list(backupConfiguration = backupConfiguration, dueTime = dueTime)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -521,9 +540,9 @@ sql.instances.restoreBackup <- function(project, instance, backupConfiguration, 
 sql.instances.setRootPassword <- function(InstanceSetRootPasswordRequest, project, 
     instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/setRootPassword", 
-        instance, project)
+        project, instance)
     # sql.instances.setRootPassword
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(InstanceSetRootPasswordRequest, "gar_InstanceSetRootPasswordRequest"))
     
     f(the_body = InstanceSetRootPasswordRequest)
@@ -555,9 +574,9 @@ sql.instances.setRootPassword <- function(InstanceSetRootPasswordRequest, projec
 #' @export
 sql.instances.update <- function(DatabaseInstance, project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s", 
-        instance, project)
+        project, instance)
     # sql.instances.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(DatabaseInstance, "gar_DatabaseInstance"))
     
     f(the_body = DatabaseInstance)
@@ -588,9 +607,9 @@ sql.instances.update <- function(DatabaseInstance, project, instance) {
 #' @export
 sql.operations.get <- function(project, instance, operation) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/operations/%s", 
-        instance, operation, project)
+        project, instance, operation)
     # sql.operations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -620,10 +639,11 @@ sql.operations.get <- function(project, instance, operation) {
 #' @export
 sql.operations.list <- function(project, instance, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/operations", 
-        instance, project)
+        project, instance)
     # sql.operations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -652,9 +672,9 @@ sql.operations.list <- function(project, instance, maxResults = NULL, pageToken 
 #' @export
 sql.sslCerts.delete <- function(project, instance, sha1Fingerprint) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/sslCerts/%s", 
-        instance, project, sha1Fingerprint)
+        project, instance, sha1Fingerprint)
     # sql.sslCerts.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -683,9 +703,9 @@ sql.sslCerts.delete <- function(project, instance, sha1Fingerprint) {
 #' @export
 sql.sslCerts.get <- function(project, instance, sha1Fingerprint) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/sslCerts/%s", 
-        instance, project, sha1Fingerprint)
+        project, instance, sha1Fingerprint)
     # sql.sslCerts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -715,9 +735,9 @@ sql.sslCerts.get <- function(project, instance, sha1Fingerprint) {
 #' @export
 sql.sslCerts.insert <- function(SslCertsInsertRequest, project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/sslCerts", 
-        instance, project)
+        project, instance)
     # sql.sslCerts.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(SslCertsInsertRequest, "gar_SslCertsInsertRequest"))
     
     f(the_body = SslCertsInsertRequest)
@@ -747,9 +767,9 @@ sql.sslCerts.insert <- function(SslCertsInsertRequest, project, instance) {
 #' @export
 sql.sslCerts.list <- function(project, instance) {
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/instances/%s/sslCerts", 
-        instance, project)
+        project, instance)
     # sql.sslCerts.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -782,7 +802,8 @@ sql.tiers.list <- function(project) {
     
     url <- sprintf("https://www.googleapis.com/sql/v1beta3/projects/%s/tiers", project)
     # sql.tiers.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

@@ -36,4 +36,3 @@ Other Creative functions: \code{\link{Creative.corrections.contexts}},
   \code{\link{Creative.servingRestrictions}},
   \code{\link{Creative}}, \code{\link{creatives.insert}}
 }
-

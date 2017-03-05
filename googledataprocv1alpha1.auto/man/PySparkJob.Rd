@@ -4,29 +4,29 @@
 \alias{PySparkJob}
 \title{PySparkJob Object}
 \usage{
-PySparkJob(PySparkJob.properties = NULL, mainPythonFileUri = NULL,
-  args = NULL, pythonFileUris = NULL, jarFileUris = NULL,
-  fileUris = NULL, archiveUris = NULL, properties = NULL,
-  loggingConfiguration = NULL)
+PySparkJob(PySparkJob.properties = NULL, jarFileUris = NULL,
+  loggingConfiguration = NULL, properties = NULL, args = NULL,
+  fileUris = NULL, pythonFileUris = NULL, mainPythonFileUri = NULL,
+  archiveUris = NULL)
 }
 \arguments{
 \item{PySparkJob.properties}{The \link{PySparkJob.properties} object or list of objects}
 
-\item{mainPythonFileUri}{[Required] The Hadoop Compatible Filesystem (HCFS) URI of the main Python file to use as the driver}
+\item{jarFileUris}{Optional HCFS URIs of jar files to add to the CLASSPATHs of the Python driver and tasks}
 
-\item{args}{[Optional] The arguments to pass to the driver}
+\item{loggingConfiguration}{Optional The runtime log configuration for job execution}
 
-\item{pythonFileUris}{[Optional] HCFS file URIs of Python files to pass to the PySpark framework}
+\item{properties}{Optional A mapping of property names to values, used to configure PySpark}
 
-\item{jarFileUris}{[Optional] HCFS URIs of jar files to add to the CLASSPATHs of the Python driver and tasks}
+\item{args}{Optional The arguments to pass to the driver}
 
-\item{fileUris}{[Optional] HCFS URIs of files to be copied to the working directory of Python drivers and distributed tasks}
+\item{fileUris}{Optional HCFS URIs of files to be copied to the working directory of Python drivers and distributed tasks}
 
-\item{archiveUris}{[Optional] HCFS URIs of archives to be extracted in the working directory of}
+\item{pythonFileUris}{Optional HCFS file URIs of Python files to pass to the PySpark framework}
 
-\item{properties}{[Optional] A mapping of property names to values, used to configure PySpark}
+\item{mainPythonFileUri}{Required The Hadoop Compatible Filesystem (HCFS) URI of the main Python file to use as the driver}
 
-\item{loggingConfiguration}{[Optional] The runtime log configuration for job execution}
+\item{archiveUris}{Optional HCFS URIs of archives to be extracted in the working directory of}
 }
 \value{
 PySparkJob object
@@ -41,4 +41,3 @@ A Cloud Dataproc job for running PySpark applications on YARN.
 \seealso{
 Other PySparkJob functions: \code{\link{PySparkJob.properties}}
 }
-

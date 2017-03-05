@@ -8,7 +8,7 @@
 Interacts with Glass users via the timeline.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:24:13
+ at 2017-03-05 20:02:07
 filename: /Users/mark/dev/R/autoGoogleAPI/googlemirrorv1.auto/R/mirror_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/glass.timeline
 }
 }
-

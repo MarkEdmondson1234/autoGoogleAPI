@@ -10,7 +10,7 @@ SearchReadGroupSetsRequest(datasetIds = NULL, name = NULL,
 \arguments{
 \item{datasetIds}{Restricts this query to read group sets within the given datasets}
 
-\item{name}{Only return read group sets for which a substring of the name matches this string}
+\item{name}{Only return read group sets for which a substring of the name matches this}
 
 \item{pageToken}{The continuation token, which is used to page through large result sets}
 
@@ -29,4 +29,3 @@ The read group set search request.
 \seealso{
 Other SearchReadGroupSetsRequest functions: \code{\link{readgroupsets.search}}
 }
-

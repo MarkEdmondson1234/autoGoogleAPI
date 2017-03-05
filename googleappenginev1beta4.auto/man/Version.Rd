@@ -59,7 +59,7 @@ Version(Version.betaSettings = NULL, Version.envVariables = NULL,
 
 \item{libraries}{Configuration for third-party Python runtime libraries required by the application}
 
-\item{apiConfig}{Serving configuration for [Google Cloud Endpoints](https://cloud}
+\item{apiConfig}{Serving configuration for Google Cloud Endpoints (https://cloud}
 
 \item{envVariables}{Environment variables made available to the application}
 
@@ -85,4 +85,3 @@ A Version resource is a specific set of source code and configuration files that
 Other Version functions: \code{\link{Version.betaSettings}},
   \code{\link{Version.envVariables}}
 }
-

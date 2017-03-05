@@ -2,7 +2,7 @@
 #' API for access to the data within Blogger.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:58:08
+#'  at 2017-03-05 19:29:39
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlebloggerv3.auto/R/blogger_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Gets one blog and user info pair by blogId and userId.
 #' 
@@ -43,10 +56,12 @@ NULL
 #' @importFrom googleAuthR gar_api_generator
 #' @export
 blogUserInfos.get <- function(userId, blogId, maxPosts = NULL) {
-    url <- sprintf("https://www.googleapis.com/blogger/v3/users/%s/blogs/%s", blogId, 
-        userId)
+    url <- sprintf("https://www.googleapis.com/blogger/v3/users/%s/blogs/%s", userId, 
+        blogId)
     # blogger.blogUserInfos.get
-    f <- gar_api_generator(url, "GET", pars_args = list(maxPosts = maxPosts), data_parse_function = function(x) x)
+    pars = list(maxPosts = maxPosts)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -76,7 +91,8 @@ blogUserInfos.get <- function(userId, blogId, maxPosts = NULL) {
 blogs.get <- function(blogId, maxPosts = NULL, view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s", blogId)
     # blogger.blogs.get
-    f <- gar_api_generator(url, "GET", pars_args = list(maxPosts = maxPosts, view = view), 
+    pars = list(maxPosts = maxPosts, view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -106,7 +122,8 @@ blogs.get <- function(blogId, maxPosts = NULL, view = NULL) {
 blogs.getByUrl <- function(url, view = NULL) {
     url <- "https://www.googleapis.com/blogger/v3/blogs/byurl"
     # blogger.blogs.getByUrl
-    f <- gar_api_generator(url, "GET", pars_args = list(url = url, view = view), 
+    pars = list(url = url, view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -140,8 +157,9 @@ blogs.listByUser <- function(userId, fetchUserInfo = NULL, role = NULL, status =
     view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/users/%s/blogs", userId)
     # blogger.blogs.listByUser
-    f <- gar_api_generator(url, "GET", pars_args = list(fetchUserInfo = fetchUserInfo, 
-        role = role, status = status, view = view), data_parse_function = function(x) x)
+    pars = list(fetchUserInfo = fetchUserInfo, role = role, status = status, view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -169,9 +187,9 @@ blogs.listByUser <- function(userId, fetchUserInfo = NULL, role = NULL, status =
 #' @export
 comments.approve <- function(blogId, postId, commentId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/comments/%s/approve", 
-        blogId, commentId, postId)
+        blogId, postId, commentId)
     # blogger.comments.approve
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -199,9 +217,9 @@ comments.approve <- function(blogId, postId, commentId) {
 #' @export
 comments.delete <- function(blogId, postId, commentId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/comments/%s", 
-        blogId, commentId, postId)
+        blogId, postId, commentId)
     # blogger.comments.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -231,9 +249,11 @@ comments.delete <- function(blogId, postId, commentId) {
 #' @export
 comments.get <- function(blogId, postId, commentId, view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/comments/%s", 
-        blogId, commentId, postId)
+        blogId, postId, commentId)
     # blogger.comments.get
-    f <- gar_api_generator(url, "GET", pars_args = list(view = view), data_parse_function = function(x) x)
+    pars = list(view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -271,9 +291,10 @@ comments.list <- function(blogId, postId, endDate = NULL, fetchBodies = NULL, ma
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/comments", 
         blogId, postId)
     # blogger.comments.list
-    f <- gar_api_generator(url, "GET", pars_args = list(endDate = endDate, fetchBodies = fetchBodies, 
-        maxResults = maxResults, pageToken = pageToken, startDate = startDate, status = status, 
-        view = view), data_parse_function = function(x) x)
+    pars = list(endDate = endDate, fetchBodies = fetchBodies, maxResults = maxResults, 
+        pageToken = pageToken, startDate = startDate, status = status, view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -308,8 +329,9 @@ comments.listByBlog <- function(blogId, endDate = NULL, fetchBodies = NULL, maxR
     pageToken = NULL, startDate = NULL, status = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/comments", blogId)
     # blogger.comments.listByBlog
-    f <- gar_api_generator(url, "GET", pars_args = list(endDate = endDate, fetchBodies = fetchBodies, 
-        maxResults = maxResults, pageToken = pageToken, startDate = startDate, status = status), 
+    pars = list(endDate = endDate, fetchBodies = fetchBodies, maxResults = maxResults, 
+        pageToken = pageToken, startDate = startDate, status = status)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -338,9 +360,9 @@ comments.listByBlog <- function(blogId, endDate = NULL, fetchBodies = NULL, maxR
 #' @export
 comments.markAsSpam <- function(blogId, postId, commentId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/comments/%s/spam", 
-        blogId, commentId, postId)
+        blogId, postId, commentId)
     # blogger.comments.markAsSpam
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -368,9 +390,9 @@ comments.markAsSpam <- function(blogId, postId, commentId) {
 #' @export
 comments.removeContent <- function(blogId, postId, commentId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/comments/%s/removecontent", 
-        blogId, commentId, postId)
+        blogId, postId, commentId)
     # blogger.comments.removeContent
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -398,7 +420,9 @@ comments.removeContent <- function(blogId, postId, commentId) {
 pageViews.get <- function(blogId, range = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pageviews", blogId)
     # blogger.pageViews.get
-    f <- gar_api_generator(url, "GET", pars_args = list(range = range), data_parse_function = function(x) x)
+    pars = list(range = range)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -427,7 +451,7 @@ pages.delete <- function(blogId, pageId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages/%s", blogId, 
         pageId)
     # blogger.pages.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -458,7 +482,9 @@ pages.get <- function(blogId, pageId, view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages/%s", blogId, 
         pageId)
     # blogger.pages.get
-    f <- gar_api_generator(url, "GET", pars_args = list(view = view), data_parse_function = function(x) x)
+    pars = list(view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -488,7 +514,9 @@ pages.get <- function(blogId, pageId, view = NULL) {
 pages.insert <- function(Page, blogId, isDraft = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages", blogId)
     # blogger.pages.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(isDraft = isDraft), data_parse_function = function(x) x)
+    pars = list(isDraft = isDraft)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Page, "gar_Page"))
     
     f(the_body = Page)
@@ -524,8 +552,9 @@ pages.list <- function(blogId, fetchBodies = NULL, maxResults = NULL, pageToken 
     status = NULL, view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages", blogId)
     # blogger.pages.list
-    f <- gar_api_generator(url, "GET", pars_args = list(fetchBodies = fetchBodies, 
-        maxResults = maxResults, pageToken = pageToken, status = status, view = view), 
+    pars = list(fetchBodies = fetchBodies, maxResults = maxResults, pageToken = pageToken, 
+        status = status, view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -559,7 +588,8 @@ pages.patch <- function(Page, blogId, pageId, publish = NULL, revert = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages/%s", blogId, 
         pageId)
     # blogger.pages.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(publish = publish, revert = revert), 
+    pars = list(publish = publish, revert = revert)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Page, "gar_Page"))
     
@@ -591,7 +621,7 @@ pages.publish <- function(blogId, pageId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages/%s/publish", 
         blogId, pageId)
     # blogger.pages.publish
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -620,7 +650,7 @@ pages.revert <- function(blogId, pageId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages/%s/revert", 
         blogId, pageId)
     # blogger.pages.revert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -653,7 +683,8 @@ pages.update <- function(Page, blogId, pageId, publish = NULL, revert = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/pages/%s", blogId, 
         pageId)
     # blogger.pages.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(publish = publish, revert = revert), 
+    pars = list(publish = publish, revert = revert)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Page, "gar_Page"))
     
@@ -686,9 +717,10 @@ pages.update <- function(Page, blogId, pageId, publish = NULL, revert = NULL) {
 #' @export
 postUserInfos.get <- function(userId, blogId, postId, maxComments = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/users/%s/blogs/%s/posts/%s", 
-        blogId, postId, userId)
+        userId, blogId, postId)
     # blogger.postUserInfos.get
-    f <- gar_api_generator(url, "GET", pars_args = list(maxComments = maxComments), 
+    pars = list(maxComments = maxComments)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -728,11 +760,13 @@ postUserInfos.list <- function(userId, blogId, endDate = NULL, fetchBodies = NUL
     labels = NULL, maxResults = NULL, orderBy = NULL, pageToken = NULL, startDate = NULL, 
     status = NULL, view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/users/%s/blogs/%s/posts", 
-        blogId, userId)
+        userId, blogId)
     # blogger.postUserInfos.list
-    f <- gar_api_generator(url, "GET", pars_args = list(endDate = endDate, fetchBodies = fetchBodies, 
-        labels = labels, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken, 
-        startDate = startDate, status = status, view = view), data_parse_function = function(x) x)
+    pars = list(endDate = endDate, fetchBodies = fetchBodies, labels = labels, maxResults = maxResults, 
+        orderBy = orderBy, pageToken = pageToken, startDate = startDate, status = status, 
+        view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -761,7 +795,7 @@ posts.delete <- function(blogId, postId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s", blogId, 
         postId)
     # blogger.posts.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -796,8 +830,10 @@ posts.get <- function(blogId, postId, fetchBody = NULL, fetchImages = NULL, maxC
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s", blogId, 
         postId)
     # blogger.posts.get
-    f <- gar_api_generator(url, "GET", pars_args = list(fetchBody = fetchBody, fetchImages = fetchImages, 
-        maxComments = maxComments, view = view), data_parse_function = function(x) x)
+    pars = list(fetchBody = fetchBody, fetchImages = fetchImages, maxComments = maxComments, 
+        view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -829,8 +865,9 @@ posts.getByPath <- function(blogId, path, maxComments = NULL, view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/bypath", 
         blogId)
     # blogger.posts.getByPath
-    f <- gar_api_generator(url, "GET", pars_args = list(maxComments = maxComments, 
-        path = path, view = view), data_parse_function = function(x) x)
+    pars = list(path = path, maxComments = maxComments, view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -862,8 +899,9 @@ posts.getByPath <- function(blogId, path, maxComments = NULL, view = NULL) {
 posts.insert <- function(Post, blogId, fetchBody = NULL, fetchImages = NULL, isDraft = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts", blogId)
     # blogger.posts.insert
-    f <- gar_api_generator(url, "POST", pars_args = list(fetchBody = fetchBody, fetchImages = fetchImages, 
-        isDraft = isDraft), data_parse_function = function(x) x)
+    pars = list(fetchBody = fetchBody, fetchImages = fetchImages, isDraft = isDraft)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Post, "gar_Post"))
     
     f(the_body = Post)
@@ -905,9 +943,10 @@ posts.list <- function(blogId, endDate = NULL, fetchBodies = NULL, fetchImages =
     status = NULL, view = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts", blogId)
     # blogger.posts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(endDate = endDate, fetchBodies = fetchBodies, 
-        fetchImages = fetchImages, labels = labels, maxResults = maxResults, orderBy = orderBy, 
-        pageToken = pageToken, startDate = startDate, status = status, view = view), 
+    pars = list(endDate = endDate, fetchBodies = fetchBodies, fetchImages = fetchImages, 
+        labels = labels, maxResults = maxResults, orderBy = orderBy, pageToken = pageToken, 
+        startDate = startDate, status = status, view = view)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -945,9 +984,10 @@ posts.patch <- function(Post, blogId, postId, fetchBody = NULL, fetchImages = NU
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s", blogId, 
         postId)
     # blogger.posts.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(fetchBody = fetchBody, 
-        fetchImages = fetchImages, maxComments = maxComments, publish = publish, 
-        revert = revert), data_parse_function = function(x) x)
+    pars = list(fetchBody = fetchBody, fetchImages = fetchImages, maxComments = maxComments, 
+        publish = publish, revert = revert)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Post, "gar_Post"))
     
     f(the_body = Post)
@@ -979,7 +1019,8 @@ posts.publish <- function(blogId, postId, publishDate = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/publish", 
         blogId, postId)
     # blogger.posts.publish
-    f <- gar_api_generator(url, "POST", pars_args = list(publishDate = publishDate), 
+    pars = list(publishDate = publishDate)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -1009,7 +1050,7 @@ posts.revert <- function(blogId, postId) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s/revert", 
         blogId, postId)
     # blogger.posts.revert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -1041,8 +1082,9 @@ posts.search <- function(blogId, q, fetchBodies = NULL, orderBy = NULL) {
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/search", 
         blogId)
     # blogger.posts.search
-    f <- gar_api_generator(url, "GET", pars_args = list(fetchBodies = fetchBodies, 
-        orderBy = orderBy, q = q), data_parse_function = function(x) x)
+    pars = list(q = q, fetchBodies = fetchBodies, orderBy = orderBy)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -1079,8 +1121,10 @@ posts.update <- function(Post, blogId, postId, fetchBody = NULL, fetchImages = N
     url <- sprintf("https://www.googleapis.com/blogger/v3/blogs/%s/posts/%s", blogId, 
         postId)
     # blogger.posts.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(fetchBody = fetchBody, fetchImages = fetchImages, 
-        maxComments = maxComments, publish = publish, revert = revert), data_parse_function = function(x) x)
+    pars = list(fetchBody = fetchBody, fetchImages = fetchImages, maxComments = maxComments, 
+        publish = publish, revert = revert)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(Post, "gar_Post"))
     
     f(the_body = Post)
@@ -1115,7 +1159,8 @@ users.get <- function(userId) {
     
     url <- sprintf("https://www.googleapis.com/blogger/v3/users/%s", userId)
     # blogger.users.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

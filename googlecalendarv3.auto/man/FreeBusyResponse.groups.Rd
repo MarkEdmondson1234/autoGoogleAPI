@@ -20,4 +20,3 @@ Expansion of groups.
 Other FreeBusyResponse functions: \code{\link{FreeBusyResponse.calendars}},
   \code{\link{FreeBusyResponse}}
 }
-

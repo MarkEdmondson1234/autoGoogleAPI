@@ -30,4 +30,3 @@ Request to verify a custom token
 \seealso{
 Other IdentitytoolkitRelyingpartyVerifyCustomTokenRequest functions: \code{\link{relyingparty.verifyCustomToken}}
 }
-

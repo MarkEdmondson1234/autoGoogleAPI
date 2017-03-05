@@ -50,4 +50,3 @@ Other Object functions: \code{\link{Object.metadata}},
   \code{\link{objects.copy}}, \code{\link{objects.insert}},
   \code{\link{objects.patch}}
 }
-

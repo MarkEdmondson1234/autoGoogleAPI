@@ -20,7 +20,7 @@ Set the appropriate Google API scopes:
 ```r
 library(googleAuthR)
 library(googlescriptv1.auto)
-options(googleAuthR.scopes.selected = c('https://mail.google.com/', 'https://www.google.com/calendar/feeds', 'https://www.google.com/m8/feeds', 'https://www.googleapis.com/auth/admin.directory.group', 'https://www.googleapis.com/auth/admin.directory.user', 'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/forms', 'https://www.googleapis.com/auth/forms.currentonly', 'https://www.googleapis.com/auth/groups', 'https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/userinfo.email'))
+options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/admin.directory.user', 'https://www.googleapis.com/auth/admin.directory.group', 'https://www.googleapis.com/auth/spreadsheets', 'https://mail.google.com/', 'https://www.googleapis.com/auth/forms', 'https://www.google.com/m8/feeds', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.google.com/calendar/feeds', 'https://www.googleapis.com/auth/groups', 'https://www.googleapis.com/auth/forms.currentonly', 'https://www.googleapis.com/auth/drive'))
 
 gar_auth()
 ```

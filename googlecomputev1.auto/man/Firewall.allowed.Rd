@@ -22,4 +22,3 @@ Other Firewall functions: \code{\link{Firewall}},
   \code{\link{firewalls.patch}},
   \code{\link{firewalls.update}}
 }
-

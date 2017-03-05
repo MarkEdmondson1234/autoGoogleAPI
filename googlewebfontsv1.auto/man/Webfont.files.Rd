@@ -19,4 +19,3 @@ The font files (with all supported scripts) for each one of the available varian
 \seealso{
 Other Webfont functions: \code{\link{Webfont}}
 }
-

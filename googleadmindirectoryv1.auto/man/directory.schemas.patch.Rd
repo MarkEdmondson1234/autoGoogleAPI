@@ -33,4 +33,3 @@ Other Schema functions: \code{\link{Schema}},
   \code{\link{directory.schemas.insert}},
   \code{\link{directory.schemas.update}}
 }
-

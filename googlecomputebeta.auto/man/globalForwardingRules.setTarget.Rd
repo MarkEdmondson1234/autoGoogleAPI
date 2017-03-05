@@ -34,4 +34,3 @@ Other TargetReference functions: \code{\link{TargetReference}},
   \code{\link{forwardingRules.setTarget}},
   \code{\link{targetPools.setBackup}}
 }
-

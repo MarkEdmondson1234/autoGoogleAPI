@@ -5,16 +5,19 @@
 \title{MobileDevice Object}
 \usage{
 MobileDevice(MobileDevice.applications = NULL, adbStatus = NULL,
-  applications = NULL, basebandVersion = NULL, buildNumber = NULL,
-  defaultLanguage = NULL, developerOptionsStatus = NULL,
-  deviceCompromisedStatus = NULL, deviceId = NULL, email = NULL,
-  etag = NULL, firstSync = NULL, hardwareId = NULL, imei = NULL,
-  kernelVersion = NULL, lastSync = NULL,
-  managedAccountIsOnOwnerProfile = NULL, meid = NULL, model = NULL,
-  name = NULL, networkOperator = NULL, os = NULL,
-  otherAccountsInfo = NULL, resourceId = NULL, serialNumber = NULL,
-  status = NULL, supportsWorkProfile = NULL, type = NULL,
-  unknownSourcesStatus = NULL, userAgent = NULL, wifiMacAddress = NULL)
+  applications = NULL, basebandVersion = NULL, bootloaderVersion = NULL,
+  brand = NULL, buildNumber = NULL, defaultLanguage = NULL,
+  developerOptionsStatus = NULL, deviceCompromisedStatus = NULL,
+  deviceId = NULL, devicePasswordStatus = NULL, email = NULL,
+  encryptionStatus = NULL, etag = NULL, firstSync = NULL,
+  hardware = NULL, hardwareId = NULL, imei = NULL, kernelVersion = NULL,
+  lastSync = NULL, managedAccountIsOnOwnerProfile = NULL,
+  manufacturer = NULL, meid = NULL, model = NULL, name = NULL,
+  networkOperator = NULL, os = NULL, otherAccountsInfo = NULL,
+  privilege = NULL, releaseVersion = NULL, resourceId = NULL,
+  securityPatchLevel = NULL, serialNumber = NULL, status = NULL,
+  supportsWorkProfile = NULL, type = NULL, unknownSourcesStatus = NULL,
+  userAgent = NULL, wifiMacAddress = NULL)
 }
 \arguments{
 \item{MobileDevice.applications}{The \link{MobileDevice.applications} object or list of objects}
@@ -24,6 +27,10 @@ MobileDevice(MobileDevice.applications = NULL, adbStatus = NULL,
 \item{applications}{List of applications installed on Mobile Device}
 
 \item{basebandVersion}{Mobile Device Baseband version (Read-only)}
+
+\item{bootloaderVersion}{Mobile Device Bootloader version (Read-only)}
+
+\item{brand}{Mobile Device Brand (Read-only)}
 
 \item{buildNumber}{Mobile Device Build number (Read-only)}
 
@@ -35,11 +42,17 @@ MobileDevice(MobileDevice.applications = NULL, adbStatus = NULL,
 
 \item{deviceId}{Mobile Device serial number (Read-only)}
 
+\item{devicePasswordStatus}{DevicePasswordStatus (Read-only)}
+
 \item{email}{List of owner user's email addresses (Read-only)}
+
+\item{encryptionStatus}{Mobile Device Encryption Status (Read-only)}
 
 \item{etag}{ETag of the resource}
 
 \item{firstSync}{Date and time the device was first synchronized with the policy settings in the Google Apps administrator control panel (Read-only)}
+
+\item{hardware}{Mobile Device Hardware (Read-only)}
 
 \item{hardwareId}{Mobile Device Hardware Id (Read-only)}
 
@@ -50,6 +63,8 @@ MobileDevice(MobileDevice.applications = NULL, adbStatus = NULL,
 \item{lastSync}{Date and time the device was last synchronized with the policy settings in the Google Apps administrator control panel (Read-only)}
 
 \item{managedAccountIsOnOwnerProfile}{Boolean indicating if this account is on owner/primary profile or not (Read-only)}
+
+\item{manufacturer}{Mobile Device manufacturer (Read-only)}
 
 \item{meid}{Mobile Device MEID number (Read-only)}
 
@@ -63,7 +78,13 @@ MobileDevice(MobileDevice.applications = NULL, adbStatus = NULL,
 
 \item{otherAccountsInfo}{List of accounts added on device (Read-only)}
 
+\item{privilege}{DMAgentPermission (Read-only)}
+
+\item{releaseVersion}{Mobile Device release version version (Read-only)}
+
 \item{resourceId}{Unique identifier of Mobile Device (Read-only)}
+
+\item{securityPatchLevel}{Mobile Device Security patch level (Read-only)}
 
 \item{serialNumber}{Mobile Device SSN or Serial Number (Read-only)}
 
@@ -92,4 +113,3 @@ JSON template for Mobile Device resource in Directory API.
 \seealso{
 Other MobileDevice functions: \code{\link{MobileDevice.applications}}
 }
-

@@ -45,4 +45,3 @@ Other Channel functions: \code{\link{Channel.params}},
   \code{\link{channels.stop}}, \code{\link{events.watch}},
   \code{\link{settings.watch}}
 }
-

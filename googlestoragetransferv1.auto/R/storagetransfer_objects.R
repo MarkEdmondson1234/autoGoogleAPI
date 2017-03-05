@@ -2,7 +2,7 @@
 #' Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:23:08
+#'  at 2017-03-05 19:58:43
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragetransferv1.auto/R/storagetransfer_objects.R
 #' api_json: api_json
 #' 

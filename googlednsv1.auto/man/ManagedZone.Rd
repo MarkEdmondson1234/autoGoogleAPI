@@ -35,4 +35,3 @@ A zone is a subtree of the DNS namespace under one administrative responsibility
 \seealso{
 Other ManagedZone functions: \code{\link{managedZones.create}}
 }
-

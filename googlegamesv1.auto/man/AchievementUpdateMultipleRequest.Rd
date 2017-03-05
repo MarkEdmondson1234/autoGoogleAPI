@@ -22,4 +22,3 @@ This is a JSON template for a list of achievement update requests.
 \seealso{
 Other AchievementUpdateMultipleRequest functions: \code{\link{achievements.updateMultiple}}
 }
-

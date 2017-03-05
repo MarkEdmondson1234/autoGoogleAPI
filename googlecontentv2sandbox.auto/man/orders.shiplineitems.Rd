@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.shiplineitems}
 \alias{orders.shiplineitems}
-\title{Marks line item(s) as shipped.}
+\title{Marks line item(s) as shipped. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.shiplineitems(OrdersShipLineItemsRequest, merchantId, orderId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersShipLineItemsRequest functions: \code{\link{OrdersShipLineItemsRequest}}
 }
-

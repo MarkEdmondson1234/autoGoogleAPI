@@ -2,7 +2,7 @@
 #' Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:30:38
+#'  at 2017-03-05 19:20:06
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadexchangebuyerv13.auto/R/adexchangebuyer_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Gets one account by ID.
 #' 
@@ -42,7 +55,7 @@ accounts.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/accounts/%s", 
         id)
     # adexchangebuyer.accounts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -68,7 +81,7 @@ accounts.get <- function(id) {
 accounts.list <- function() {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.3/accounts"
     # adexchangebuyer.accounts.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -98,7 +111,7 @@ accounts.patch <- function(Account, id) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/accounts/%s", 
         id)
     # adexchangebuyer.accounts.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Account, "gar_Account"))
     
     f(the_body = Account)
@@ -130,7 +143,7 @@ accounts.update <- function(Account, id) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/accounts/%s", 
         id)
     # adexchangebuyer.accounts.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Account, "gar_Account"))
     
     f(the_body = Account)
@@ -160,7 +173,7 @@ billingInfo.get <- function(accountId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/%s", 
         accountId)
     # adexchangebuyer.billingInfo.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -186,7 +199,7 @@ billingInfo.get <- function(accountId) {
 billingInfo.list <- function() {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo"
     # adexchangebuyer.billingInfo.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -215,7 +228,7 @@ budget.get <- function(accountId, billingId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/%s/%s", 
         accountId, billingId)
     # adexchangebuyer.budget.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -246,7 +259,7 @@ budget.patch <- function(Budget, accountId, billingId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/%s/%s", 
         accountId, billingId)
     # adexchangebuyer.budget.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Budget, "gar_Budget"))
     
     f(the_body = Budget)
@@ -279,7 +292,7 @@ budget.update <- function(Budget, accountId, billingId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/%s/%s", 
         accountId, billingId)
     # adexchangebuyer.budget.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Budget, "gar_Budget"))
     
     f(the_body = Budget)
@@ -310,7 +323,7 @@ creatives.get <- function(accountId, buyerCreativeId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/creatives/%s/%s", 
         accountId, buyerCreativeId)
     # adexchangebuyer.creatives.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -338,7 +351,7 @@ creatives.get <- function(accountId, buyerCreativeId) {
 creatives.insert <- function(Creative) {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.3/creatives"
     # adexchangebuyer.creatives.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Creative, "gar_Creative"))
     
     f(the_body = Creative)
@@ -372,8 +385,9 @@ creatives.list <- function(accountId = NULL, buyerCreativeId = NULL, maxResults 
     pageToken = NULL, statusFilter = NULL) {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.3/creatives"
     # adexchangebuyer.creatives.list
-    f <- gar_api_generator(url, "GET", pars_args = list(accountId = accountId, buyerCreativeId = buyerCreativeId, 
-        maxResults = maxResults, pageToken = pageToken, statusFilter = statusFilter), 
+    pars = list(accountId = accountId, buyerCreativeId = buyerCreativeId, maxResults = maxResults, 
+        pageToken = pageToken, statusFilter = statusFilter)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -402,7 +416,7 @@ directDeals.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/directdeals/%s", 
         id)
     # adexchangebuyer.directDeals.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -428,7 +442,7 @@ directDeals.get <- function(id) {
 directDeals.list <- function() {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.3/directdeals"
     # adexchangebuyer.directDeals.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -460,8 +474,9 @@ performanceReport.list <- function(accountId, endDateTime, startDateTime, maxRes
     pageToken = NULL) {
     url <- "https://www.googleapis.com/adexchangebuyer/v1.3/performancereport"
     # adexchangebuyer.performanceReport.list
-    f <- gar_api_generator(url, "GET", pars_args = list(accountId = accountId, endDateTime = endDateTime, 
-        maxResults = maxResults, pageToken = pageToken, startDateTime = startDateTime), 
+    pars = list(accountId = accountId, endDateTime = endDateTime, startDateTime = startDateTime, 
+        maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -491,7 +506,7 @@ pretargetingConfig.delete <- function(accountId, configId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/%s/%s", 
         accountId, configId)
     # adexchangebuyer.pretargetingConfig.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -520,7 +535,7 @@ pretargetingConfig.get <- function(accountId, configId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/%s/%s", 
         accountId, configId)
     # adexchangebuyer.pretargetingConfig.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -550,7 +565,7 @@ pretargetingConfig.insert <- function(PretargetingConfig, accountId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/%s", 
         accountId)
     # adexchangebuyer.pretargetingConfig.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PretargetingConfig, "gar_PretargetingConfig"))
     
     f(the_body = PretargetingConfig)
@@ -580,7 +595,7 @@ pretargetingConfig.list <- function(accountId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/%s", 
         accountId)
     # adexchangebuyer.pretargetingConfig.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -611,7 +626,7 @@ pretargetingConfig.patch <- function(PretargetingConfig, accountId, configId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/%s/%s", 
         accountId, configId)
     # adexchangebuyer.pretargetingConfig.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(PretargetingConfig, "gar_PretargetingConfig"))
     
     f(the_body = PretargetingConfig)
@@ -650,7 +665,8 @@ pretargetingConfig.update <- function(PretargetingConfig, accountId, configId) {
     url <- sprintf("https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/%s/%s", 
         accountId, configId)
     # adexchangebuyer.pretargetingConfig.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(PretargetingConfig, "gar_PretargetingConfig"))
     

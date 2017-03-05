@@ -37,4 +37,3 @@ Other Profile functions: \code{\link{Profile.childLink}},
   \code{\link{management.profiles.insert}},
   \code{\link{management.profiles.update}}
 }
-

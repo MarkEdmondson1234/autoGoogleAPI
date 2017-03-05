@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other TestIamPermissionsRequest functions: \code{\link{TestIamPermissionsRequest}},
   \code{\link{organizations.testIamPermissions}}
 }
-

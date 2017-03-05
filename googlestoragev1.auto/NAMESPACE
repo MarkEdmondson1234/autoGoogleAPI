@@ -2,7 +2,6 @@
 
 export(Bucket)
 export(Bucket.cors)
-export(Bucket.encryption)
 export(Bucket.lifecycle)
 export(Bucket.lifecycle.rule)
 export(Bucket.lifecycle.rule.action)

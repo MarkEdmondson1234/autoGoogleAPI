@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accounts.update}
 \alias{accounts.update}
-\title{Updates a Merchant Center account.}
+\title{Updates a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.}
 \usage{
 accounts.update(Account, merchantId, accountId, dryRun = NULL)
 }
@@ -35,4 +35,3 @@ Other Account functions: \code{\link{Account}},
   \code{\link{accounts.insert}},
   \code{\link{accounts.patch}}
 }
-

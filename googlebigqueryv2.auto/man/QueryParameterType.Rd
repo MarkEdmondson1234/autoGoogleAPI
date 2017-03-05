@@ -29,4 +29,3 @@ No description
 \seealso{
 Other QueryParameterType functions: \code{\link{QueryParameterType.structTypes}}
 }
-

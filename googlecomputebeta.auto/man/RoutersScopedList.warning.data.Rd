@@ -20,4 +20,3 @@ No description
 Other RoutersScopedList functions: \code{\link{RoutersScopedList.warning}},
   \code{\link{RoutersScopedList}}
 }
-

@@ -19,4 +19,3 @@ A map of scoped router lists.
 \seealso{
 Other RouterAggregatedList functions: \code{\link{RouterAggregatedList}}
 }
-

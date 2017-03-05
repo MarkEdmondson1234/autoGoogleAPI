@@ -2,14 +2,15 @@
 #' Help the third party sites to implement federated login.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:23:36
+#'  at 2017-03-05 19:59:27
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleidentitytoolkitv3.auto/R/identitytoolkit_functions.R
 #' api_json: api_json
 #' 
 #' @details 
 #' Authentication scopes used are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/firebase
 #' }
 #' 
 #' @docType package 
@@ -18,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Creates the URI used by the IdP to authenticate the user.
 #' 
@@ -28,10 +42,10 @@ NULL
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -42,7 +56,7 @@ NULL
 relyingparty.createAuthUri <- function(IdentitytoolkitRelyingpartyCreateAuthUriRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuthUri"
     # identitytoolkit.relyingparty.createAuthUri
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyCreateAuthUriRequest, "gar_IdentitytoolkitRelyingpartyCreateAuthUriRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyCreateAuthUriRequest)
@@ -58,10 +72,10 @@ relyingparty.createAuthUri <- function(IdentitytoolkitRelyingpartyCreateAuthUriR
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -72,7 +86,7 @@ relyingparty.createAuthUri <- function(IdentitytoolkitRelyingpartyCreateAuthUriR
 relyingparty.deleteAccount <- function(IdentitytoolkitRelyingpartyDeleteAccountRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/deleteAccount"
     # identitytoolkit.relyingparty.deleteAccount
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyDeleteAccountRequest, "gar_IdentitytoolkitRelyingpartyDeleteAccountRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyDeleteAccountRequest)
@@ -88,10 +102,11 @@ relyingparty.deleteAccount <- function(IdentitytoolkitRelyingpartyDeleteAccountR
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/firebase
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/firebase)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -102,7 +117,7 @@ relyingparty.deleteAccount <- function(IdentitytoolkitRelyingpartyDeleteAccountR
 relyingparty.downloadAccount <- function(IdentitytoolkitRelyingpartyDownloadAccountRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/downloadAccount"
     # identitytoolkit.relyingparty.downloadAccount
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyDownloadAccountRequest, "gar_IdentitytoolkitRelyingpartyDownloadAccountRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyDownloadAccountRequest)
@@ -118,10 +133,10 @@ relyingparty.downloadAccount <- function(IdentitytoolkitRelyingpartyDownloadAcco
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -132,7 +147,7 @@ relyingparty.downloadAccount <- function(IdentitytoolkitRelyingpartyDownloadAcco
 relyingparty.getAccountInfo <- function(IdentitytoolkitRelyingpartyGetAccountInfoRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo"
     # identitytoolkit.relyingparty.getAccountInfo
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyGetAccountInfoRequest, "gar_IdentitytoolkitRelyingpartyGetAccountInfoRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyGetAccountInfoRequest)
@@ -148,10 +163,10 @@ relyingparty.getAccountInfo <- function(IdentitytoolkitRelyingpartyGetAccountInf
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -162,7 +177,7 @@ relyingparty.getAccountInfo <- function(IdentitytoolkitRelyingpartyGetAccountInf
 relyingparty.getOobConfirmationCode <- function(Relyingparty) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode"
     # identitytoolkit.relyingparty.getOobConfirmationCode
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Relyingparty, "gar_Relyingparty"))
     
     f(the_body = Relyingparty)
@@ -178,10 +193,10 @@ relyingparty.getOobConfirmationCode <- function(Relyingparty) {
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -192,8 +207,9 @@ relyingparty.getOobConfirmationCode <- function(Relyingparty) {
 relyingparty.getProjectConfig <- function(delegatedProjectNumber = NULL, projectNumber = NULL) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig"
     # identitytoolkit.relyingparty.getProjectConfig
-    f <- gar_api_generator(url, "GET", pars_args = list(delegatedProjectNumber = delegatedProjectNumber, 
-        projectNumber = projectNumber), data_parse_function = function(x) x)
+    pars = list(delegatedProjectNumber = delegatedProjectNumber, projectNumber = projectNumber)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -207,10 +223,10 @@ relyingparty.getProjectConfig <- function(delegatedProjectNumber = NULL, project
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -219,7 +235,7 @@ relyingparty.getProjectConfig <- function(delegatedProjectNumber = NULL, project
 relyingparty.getPublicKeys <- function() {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/publicKeys"
     # identitytoolkit.relyingparty.getPublicKeys
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -233,10 +249,10 @@ relyingparty.getPublicKeys <- function() {
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -245,7 +261,7 @@ relyingparty.getPublicKeys <- function() {
 relyingparty.getRecaptchaParam <- function() {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getRecaptchaParam"
     # identitytoolkit.relyingparty.getRecaptchaParam
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -259,10 +275,10 @@ relyingparty.getRecaptchaParam <- function() {
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -273,7 +289,7 @@ relyingparty.getRecaptchaParam <- function() {
 relyingparty.resetPassword <- function(IdentitytoolkitRelyingpartyResetPasswordRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword"
     # identitytoolkit.relyingparty.resetPassword
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyResetPasswordRequest, "gar_IdentitytoolkitRelyingpartyResetPasswordRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyResetPasswordRequest)
@@ -289,10 +305,10 @@ relyingparty.resetPassword <- function(IdentitytoolkitRelyingpartyResetPasswordR
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -303,7 +319,7 @@ relyingparty.resetPassword <- function(IdentitytoolkitRelyingpartyResetPasswordR
 relyingparty.setAccountInfo <- function(IdentitytoolkitRelyingpartySetAccountInfoRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo"
     # identitytoolkit.relyingparty.setAccountInfo
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartySetAccountInfoRequest, "gar_IdentitytoolkitRelyingpartySetAccountInfoRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartySetAccountInfoRequest)
@@ -319,10 +335,10 @@ relyingparty.setAccountInfo <- function(IdentitytoolkitRelyingpartySetAccountInf
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -333,7 +349,7 @@ relyingparty.setAccountInfo <- function(IdentitytoolkitRelyingpartySetAccountInf
 relyingparty.setProjectConfig <- function(IdentitytoolkitRelyingpartySetProjectConfigRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setProjectConfig"
     # identitytoolkit.relyingparty.setProjectConfig
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartySetProjectConfigRequest, "gar_IdentitytoolkitRelyingpartySetProjectConfigRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartySetProjectConfigRequest)
@@ -349,10 +365,10 @@ relyingparty.setProjectConfig <- function(IdentitytoolkitRelyingpartySetProjectC
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -363,7 +379,7 @@ relyingparty.setProjectConfig <- function(IdentitytoolkitRelyingpartySetProjectC
 relyingparty.signOutUser <- function(IdentitytoolkitRelyingpartySignOutUserRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signOutUser"
     # identitytoolkit.relyingparty.signOutUser
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartySignOutUserRequest, "gar_IdentitytoolkitRelyingpartySignOutUserRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartySignOutUserRequest)
@@ -379,10 +395,10 @@ relyingparty.signOutUser <- function(IdentitytoolkitRelyingpartySignOutUserReque
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -393,7 +409,7 @@ relyingparty.signOutUser <- function(IdentitytoolkitRelyingpartySignOutUserReque
 relyingparty.signupNewUser <- function(IdentitytoolkitRelyingpartySignupNewUserRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser"
     # identitytoolkit.relyingparty.signupNewUser
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartySignupNewUserRequest, "gar_IdentitytoolkitRelyingpartySignupNewUserRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartySignupNewUserRequest)
@@ -409,10 +425,11 @@ relyingparty.signupNewUser <- function(IdentitytoolkitRelyingpartySignupNewUserR
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
+#' \item https://www.googleapis.com/auth/firebase
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/firebase)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -423,7 +440,7 @@ relyingparty.signupNewUser <- function(IdentitytoolkitRelyingpartySignupNewUserR
 relyingparty.uploadAccount <- function(IdentitytoolkitRelyingpartyUploadAccountRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/uploadAccount"
     # identitytoolkit.relyingparty.uploadAccount
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyUploadAccountRequest, "gar_IdentitytoolkitRelyingpartyUploadAccountRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyUploadAccountRequest)
@@ -439,10 +456,10 @@ relyingparty.uploadAccount <- function(IdentitytoolkitRelyingpartyUploadAccountR
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -453,7 +470,7 @@ relyingparty.uploadAccount <- function(IdentitytoolkitRelyingpartyUploadAccountR
 relyingparty.verifyAssertion <- function(IdentitytoolkitRelyingpartyVerifyAssertionRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAssertion"
     # identitytoolkit.relyingparty.verifyAssertion
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyVerifyAssertionRequest, "gar_IdentitytoolkitRelyingpartyVerifyAssertionRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyVerifyAssertionRequest)
@@ -469,10 +486,10 @@ relyingparty.verifyAssertion <- function(IdentitytoolkitRelyingpartyVerifyAssert
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -483,7 +500,7 @@ relyingparty.verifyAssertion <- function(IdentitytoolkitRelyingpartyVerifyAssert
 relyingparty.verifyCustomToken <- function(IdentitytoolkitRelyingpartyVerifyCustomTokenRequest) {
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCustomToken"
     # identitytoolkit.relyingparty.verifyCustomToken
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(IdentitytoolkitRelyingpartyVerifyCustomTokenRequest, "gar_IdentitytoolkitRelyingpartyVerifyCustomTokenRequest"))
     
     f(the_body = IdentitytoolkitRelyingpartyVerifyCustomTokenRequest)
@@ -500,10 +517,10 @@ relyingparty.verifyCustomToken <- function(IdentitytoolkitRelyingpartyVerifyCust
 #' @details 
 #' Authentication scopes used by this function are:
 #' \itemize{
-#'   \item 
+#'   \item https://www.googleapis.com/auth/cloud-platform
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c()}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://www.googleapis.com/auth/cloud-platform)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -518,7 +535,8 @@ relyingparty.verifyPassword <- function(IdentitytoolkitRelyingpartyVerifyPasswor
     
     url <- "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword"
     # identitytoolkit.relyingparty.verifyPassword
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(IdentitytoolkitRelyingpartyVerifyPasswordRequest, "gar_IdentitytoolkitRelyingpartyVerifyPasswordRequest"))
     

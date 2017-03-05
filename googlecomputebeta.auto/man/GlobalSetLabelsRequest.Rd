@@ -29,4 +29,3 @@ Other GlobalSetLabelsRequest functions: \code{\link{GlobalSetLabelsRequest.label
   \code{\link{images.setLabels}},
   \code{\link{snapshots.setLabels}}
 }
-

@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.returnlineitem}
 \alias{orders.returnlineitem}
-\title{Returns a line item.}
+\title{Returns a line item. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.returnlineitem(OrdersReturnLineItemRequest, merchantId, orderId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersReturnLineItemRequest functions: \code{\link{OrdersReturnLineItemRequest}}
 }
-

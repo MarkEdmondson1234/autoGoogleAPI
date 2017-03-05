@@ -8,7 +8,7 @@
 Transfers user data from one user to another.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:32:10
+ at 2017-03-05 19:22:22
 filename: /Users/mark/dev/R/autoGoogleAPI/googleadmindatatransferv1.auto/R/admin_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/admin.datatransfer.readonly
 }
 }
-

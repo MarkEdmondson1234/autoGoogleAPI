@@ -1,5 +1,5 @@
 # googlegroupssettingsv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Groups Settings API R library
 
 Lets you manage permission levels and related settings of a group.

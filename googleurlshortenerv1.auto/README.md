@@ -1,5 +1,5 @@
 # googleurlshortenerv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 URL Shortener API R library
 
 Lets you create, inspect, and manage goo.gl short URLs

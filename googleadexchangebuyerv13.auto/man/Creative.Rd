@@ -76,7 +76,7 @@ Creative(Creative.corrections = NULL, Creative.disapprovalReasons = NULL,
 
 \item{version}{The version for this creative}
 
-\item{videoURL}{The url to fetch a video ad}
+\item{videoURL}{The URL to fetch a video ad}
 
 \item{width}{Ad width}
 }
@@ -101,4 +101,3 @@ Other Creative functions: \code{\link{Creative.corrections}},
   \code{\link{Creative.nativeAd}},
   \code{\link{creatives.insert}}
 }
-

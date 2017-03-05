@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/deployment-manager/runtime-configurator/}{Google Documentation}
 }
-

@@ -8,7 +8,7 @@
 Gets the delivery status of titles for Google Play Movies Partners.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:21:31
+ at 2017-03-05 19:57:46
 filename: /Users/mark/dev/R/autoGoogleAPI/googleplaymoviespartnerv1.auto/R/playmoviespartner_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/playmovies_partner.readonly
 }
 }
-

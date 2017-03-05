@@ -1,5 +1,5 @@
 # googlesiteVerificationv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Site Verification API R library
 
 Verifies ownership of websites or domains with Google.

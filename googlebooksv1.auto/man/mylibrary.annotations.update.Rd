@@ -35,4 +35,3 @@ Other Annotation functions: \code{\link{Annotation.clientVersionRanges}},
   \code{\link{Annotation}},
   \code{\link{mylibrary.annotations.insert}}
 }
-

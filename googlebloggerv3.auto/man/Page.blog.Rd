@@ -25,4 +25,3 @@ Other Page functions: \code{\link{Page.author.image}},
   \code{\link{pages.insert}}, \code{\link{pages.patch}},
   \code{\link{pages.update}}
 }
-

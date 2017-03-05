@@ -8,7 +8,7 @@
 API for working with Fusion Tables data.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:13:07
+ at 2017-03-05 19:51:13
 filename: /Users/mark/dev/R/autoGoogleAPI/googlefusiontablesv1.auto/R/fusiontables_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/fusiontables.readonly
 }
 }
-

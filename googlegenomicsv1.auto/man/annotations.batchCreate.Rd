@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{annotations.batchCreate}
 \alias{annotations.batchCreate}
-\title{Creates one or more new annotations atomically. All annotations must belong to the same annotation set. Caller must have WRITE permission for this annotation set. For optimal performance, batch positionally adjacent annotations together. If the request has a systemic issue, such as an attempt to write to an inaccessible annotation set, the entire RPC will fail accordingly. For lesser data issues, when possible an error will be isolated to the corresponding batch entry in the response; the remaining well formed annotations will be created normally. For details on the requirements for each individual annotation resource, see CreateAnnotation.}
+\title{Creates one or more new annotations atomically. All annotations mustbelong to the same annotation set. Caller must have WRITEpermission for this annotation set. For optimal performance, batchpositionally adjacent annotations together.If the request has a systemic issue, such as an attempt to write toan inaccessible annotation set, the entire RPC will fail accordingly. Forlesser data issues, when possible an error will be isolated to thecorresponding batch entry in the response; the remaining well formedannotations will be created normally.For details on the requirements for each individual annotation resource,seeCreateAnnotation.}
 \usage{
 annotations.batchCreate(BatchCreateAnnotationsRequest)
 }
@@ -25,8 +25,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other BatchCreateAnnotationsRequest functions: \code{\link{BatchCreateAnnotationsRequest}}
 }
-

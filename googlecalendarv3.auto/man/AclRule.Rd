@@ -33,4 +33,3 @@ Other AclRule functions: \code{\link{AclRule.scope}},
   \code{\link{acl.insert}}, \code{\link{acl.patch}},
   \code{\link{acl.update}}
 }
-

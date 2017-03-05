@@ -2,7 +2,7 @@
 % Please edit documentation in R/iam_functions.R
 \name{projects.serviceAccounts.create}
 \alias{projects.serviceAccounts.create}
-\title{Creates a service account and returns it.}
+\title{Creates a ServiceAccountand returns it.}
 \usage{
 projects.serviceAccounts.create(CreateServiceAccountRequest, name)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other CreateServiceAccountRequest functions: \code{\link{CreateServiceAccountRequest}}
 }
-

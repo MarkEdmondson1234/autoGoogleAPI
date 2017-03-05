@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{inventory.set}
 \alias{inventory.set}
-\title{Updates price and availability of a product in your Merchant Center account. This operation does not update the expiration date of the product.}
+\title{Updates price and availability of a product in your Merchant Center account. This operation does not update the expiration date of the product. This method can only be called for non-multi-client accounts.}
 \usage{
 inventory.set(InventorySetRequest, merchantId, storeCode, productId,
   dryRun = NULL)
@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other InventorySetRequest functions: \code{\link{InventorySetRequest}}
 }
-

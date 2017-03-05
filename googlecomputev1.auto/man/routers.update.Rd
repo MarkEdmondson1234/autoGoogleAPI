@@ -2,7 +2,7 @@
 % Please edit documentation in R/compute_functions.R
 \name{routers.update}
 \alias{routers.update}
-\title{Updates the entire content of the Router resource.}
+\title{Updates the specified Router resource with the data included in the request.}
 \usage{
 routers.update(Router, project, region, router)
 }
@@ -37,4 +37,3 @@ Other Router functions: \code{\link{Router}},
   \code{\link{routers.patch}},
   \code{\link{routers.preview}}
 }
-

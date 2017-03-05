@@ -2,7 +2,7 @@
 #' Lets you search over a website or collection of websites
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:04:50
+#'  at 2017-03-05 19:41:21
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecustomsearchv1.auto/R/customsearch_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 
 #' Returns metadata about the search performed, metadata about the custom search engine used for the search, and the search results.
@@ -114,15 +127,17 @@ search.cse.list <- function(q, c2coff = NULL, cr = NULL, cref = NULL, cx = NULL,
     
     url <- "https://www.googleapis.com/customsearch/v1"
     # search.cse.list
-    f <- gar_api_generator(url, "GET", pars_args = list(c2coff = c2coff, cr = cr, 
-        cref = cref, cx = cx, dateRestrict = dateRestrict, exactTerms = exactTerms, 
-        excludeTerms = excludeTerms, fileType = fileType, filter = filter, gl = gl, 
-        googlehost = googlehost, highRange = highRange, hl = hl, hq = hq, imgColorType = imgColorType, 
-        imgDominantColor = imgDominantColor, imgSize = imgSize, imgType = imgType, 
-        linkSite = linkSite, lowRange = lowRange, lr = lr, num = num, orTerms = orTerms, 
-        q = q, relatedSite = relatedSite, rights = rights, safe = safe, searchType = searchType, 
-        siteSearch = siteSearch, siteSearchFilter = siteSearchFilter, sort = sort, 
-        start = start), data_parse_function = function(x) x)
+    pars = list(q = q, c2coff = c2coff, cr = cr, cref = cref, cx = cx, dateRestrict = dateRestrict, 
+        exactTerms = exactTerms, excludeTerms = excludeTerms, fileType = fileType, 
+        filter = filter, gl = gl, googlehost = googlehost, highRange = highRange, 
+        hl = hl, hq = hq, imgColorType = imgColorType, imgDominantColor = imgDominantColor, 
+        imgSize = imgSize, imgType = imgType, linkSite = linkSite, lowRange = lowRange, 
+        lr = lr, num = num, orTerms = orTerms, relatedSite = relatedSite, rights = rights, 
+        safe = safe, searchType = searchType, siteSearch = siteSearch, siteSearchFilter = siteSearchFilter, 
+        sort = sort, start = start)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

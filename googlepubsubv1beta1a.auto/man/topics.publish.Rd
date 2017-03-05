@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{topics.publish}
 \alias{topics.publish}
-\title{Adds a message to the topic. Returns NOT_FOUND if the topic does not exist.}
+\title{Adds a message to the topic.  Returns NOT_FOUND if the topic does notexist.}
 \usage{
 topics.publish(PublishRequest)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other PublishRequest functions: \code{\link{PublishRequest}}
 }
-

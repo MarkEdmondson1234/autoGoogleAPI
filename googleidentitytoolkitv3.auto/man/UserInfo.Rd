@@ -5,16 +5,18 @@
 \title{UserInfo Object}
 \usage{
 UserInfo(UserInfo.providerUserInfo = NULL, createdAt = NULL,
-  disabled = NULL, displayName = NULL, email = NULL,
+  customAuth = NULL, disabled = NULL, displayName = NULL, email = NULL,
   emailVerified = NULL, lastLoginAt = NULL, localId = NULL,
   passwordHash = NULL, passwordUpdatedAt = NULL, photoUrl = NULL,
-  providerUserInfo = NULL, salt = NULL, screenName = NULL,
-  validSince = NULL, version = NULL)
+  providerUserInfo = NULL, rawPassword = NULL, salt = NULL,
+  screenName = NULL, validSince = NULL, version = NULL)
 }
 \arguments{
 \item{UserInfo.providerUserInfo}{The \link{UserInfo.providerUserInfo} object or list of objects}
 
 \item{createdAt}{User creation timestamp}
+
+\item{customAuth}{Whether the user is authenticated by the developer}
 
 \item{disabled}{Whether the user is disabled}
 
@@ -36,9 +38,11 @@ UserInfo(UserInfo.providerUserInfo = NULL, createdAt = NULL,
 
 \item{providerUserInfo}{The IDP of the user}
 
+\item{rawPassword}{The user's plain text password}
+
 \item{salt}{The user's password salt}
 
-\item{screenName}{User's screen name at Twitter}
+\item{screenName}{User's screen name at Twitter or login name at Github}
 
 \item{validSince}{Timestamp in seconds for valid login token}
 
@@ -57,4 +61,3 @@ Template for an individual account info.
 \seealso{
 Other UserInfo functions: \code{\link{UserInfo.providerUserInfo}}
 }
-

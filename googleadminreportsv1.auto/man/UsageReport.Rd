@@ -28,4 +28,3 @@ JSON template for a usage report.
 Other UsageReport functions: \code{\link{UsageReport.entity}},
   \code{\link{UsageReport.parameters}}
 }
-

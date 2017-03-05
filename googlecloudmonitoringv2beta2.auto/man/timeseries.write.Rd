@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other WriteTimeseriesRequest functions: \code{\link{WriteTimeseriesRequest.commonLabels}},
   \code{\link{WriteTimeseriesRequest}}
 }
-

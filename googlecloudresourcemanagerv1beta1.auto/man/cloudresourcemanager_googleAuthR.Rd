@@ -8,15 +8,14 @@
 The Google Cloud Resource Manager API provides methods for creating, reading, and updating project metadata.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:17:29
+ at 2017-03-05 19:33:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecloudresourcemanagerv1beta1.auto/R/cloudresourcemanager_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/cloud-platform
-\item https://www.googleapis.com/auth/cloud-platform.read-only
+  \item https://www.googleapis.com/auth/cloud-platform.read-only
+\item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

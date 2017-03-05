@@ -22,4 +22,3 @@ No description
 \seealso{
 Other GroupsAddMemberRequest functions: \code{\link{groups.addMember}}
 }
-

@@ -32,7 +32,7 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/bigquery/}{Google Documentation}
 
-Other Table functions: \code{\link{Table}},
-  \code{\link{tables.insert}}, \code{\link{tables.patch}}
+Other Table functions: \code{\link{Table.labels}},
+  \code{\link{Table}}, \code{\link{tables.insert}},
+  \code{\link{tables.patch}}
 }
-

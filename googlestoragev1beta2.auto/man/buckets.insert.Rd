@@ -40,4 +40,3 @@ Other Bucket functions: \code{\link{Bucket.cors}},
   \code{\link{Bucket.website}}, \code{\link{Bucket}},
   \code{\link{buckets.patch}}, \code{\link{buckets.update}}
 }
-

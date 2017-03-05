@@ -2,7 +2,7 @@
 #' Lets you manage permission levels and related settings of a group.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:15:26
+#'  at 2017-03-05 19:54:49
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegroupssettingsv1.auto/R/groupssettings_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Gets one resource by id.
 #' 
@@ -41,7 +54,7 @@ NULL
 groupsSettings.groups.get <- function(groupUniqueId) {
     url <- sprintf("https://www.googleapis.com/groups/v1/groups/%s", groupUniqueId)
     # groupsSettings.groups.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -70,7 +83,7 @@ groupsSettings.groups.get <- function(groupUniqueId) {
 groupsSettings.groups.patch <- function(Groups, groupUniqueId) {
     url <- sprintf("https://www.googleapis.com/groups/v1/groups/%s", groupUniqueId)
     # groupsSettings.groups.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Groups, "gar_Groups"))
     
     f(the_body = Groups)
@@ -106,7 +119,8 @@ groupsSettings.groups.update <- function(Groups, groupUniqueId) {
     
     url <- sprintf("https://www.googleapis.com/groups/v1/groups/%s", groupUniqueId)
     # groupsSettings.groups.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(Groups, "gar_Groups"))
     

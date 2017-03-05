@@ -5,10 +5,10 @@
 \alias{dataflow_googleAuthR}
 \alias{dataflow_googleAuthR-package}
 \title{Google Dataflow API
-Develops and executes data processing patterns like ETL, batch computation, and continuous computation.}
+Manages Google Cloud Dataflow projects on Google Cloud Platform.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:18:12
+ at 2017-03-05 19:41:42
 filename: /Users/mark/dev/R/autoGoogleAPI/googledataflowv1b3.auto/R/dataflow_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/userinfo.email
 }
 }
-

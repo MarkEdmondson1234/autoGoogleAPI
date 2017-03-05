@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.pull}
 \alias{projects.subscriptions.pull}
-\title{Pulls messages from the server. Returns an empty list if there are no messages available in the backlog. The server may return `UNAVAILABLE` if there are too many concurrent pull requests pending for the given subscription.}
+\title{Pulls messages from the server. Returns an empty list if there are nomessages available in the backlog. The server may return `UNAVAILABLE` ifthere are too many concurrent pull requests pending for the givensubscription.}
 \usage{
 projects.subscriptions.pull(PullRequest, subscription)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other PullRequest functions: \code{\link{PullRequest}}
 }
-

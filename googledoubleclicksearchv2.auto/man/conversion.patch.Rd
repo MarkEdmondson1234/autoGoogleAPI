@@ -44,4 +44,3 @@ Other ConversionList functions: \code{\link{ConversionList}},
   \code{\link{conversion.insert}},
   \code{\link{conversion.update}}
 }
-

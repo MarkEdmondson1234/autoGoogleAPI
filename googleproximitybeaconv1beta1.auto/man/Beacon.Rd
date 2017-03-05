@@ -40,7 +40,7 @@ Beacon object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:21:46
+ at 2017-03-05 19:58:07
 filename: /Users/mark/dev/R/autoGoogleAPI/googleproximitybeaconv1beta1.auto/R/proximitybeacon_objects.R
 api_json: api_json
 }
@@ -57,4 +57,3 @@ Other Beacon functions: \code{\link{Beacon.properties}},
   \code{\link{beacons.register}},
   \code{\link{beacons.update}}
 }
-

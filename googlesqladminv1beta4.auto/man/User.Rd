@@ -34,4 +34,3 @@ A Cloud SQL user resource.
 Other User functions: \code{\link{sql.users.insert}},
   \code{\link{sql.users.update}}
 }
-

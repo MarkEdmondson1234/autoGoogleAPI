@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{datasets.getIamPolicy}
 \alias{datasets.getIamPolicy}
-\title{Gets the access control policy for the dataset. This is empty if the policy or resource does not exist. See Getting a Policy for more information. For the definitions of datasets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
+\title{Gets the access control policy for the dataset. This is empty if thepolicy or resource does not exist.See <a href='/iam/docs/managing-policies#getting_a_policy'>Getting aPolicy</a> for more information.For the definitions of datasets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
 \usage{
 datasets.getIamPolicy(GetIamPolicyRequest, resource)
 }
@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other GetIamPolicyRequest functions: \code{\link{GetIamPolicyRequest}}
 }
-

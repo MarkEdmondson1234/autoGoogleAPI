@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstanceGroupsListInstancesRequest functions: \code{\link{instanceGroups.listInstances}}
 }
-

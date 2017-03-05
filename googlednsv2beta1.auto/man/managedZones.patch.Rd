@@ -37,4 +37,3 @@ Other ManagedZone functions: \code{\link{ManagedZone}},
   \code{\link{managedZones.create}},
   \code{\link{managedZones.update}}
 }
-

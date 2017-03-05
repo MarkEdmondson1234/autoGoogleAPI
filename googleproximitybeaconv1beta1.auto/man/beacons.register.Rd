@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Beacon functions: \code{\link{Beacon.properties}},
   \code{\link{Beacon}}, \code{\link{beacons.update}}
 }
-

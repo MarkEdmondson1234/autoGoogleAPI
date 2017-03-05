@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Budget functions: \code{\link{Budget}},
   \code{\link{budget.patch}}
 }
-

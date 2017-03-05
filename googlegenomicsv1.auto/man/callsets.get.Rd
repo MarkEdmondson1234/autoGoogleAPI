@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{callsets.get}
 \alias{callsets.get}
-\title{Gets a call set by ID. For the definitions of call sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
+\title{Gets a call set by ID.For the definitions of call sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
 \usage{
 callsets.get(callSetId)
 }
@@ -25,6 +25,5 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 }
-

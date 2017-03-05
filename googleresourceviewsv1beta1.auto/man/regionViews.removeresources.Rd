@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other RegionViewsRemoveResourcesRequest functions: \code{\link{RegionViewsRemoveResourcesRequest}}
 }
-

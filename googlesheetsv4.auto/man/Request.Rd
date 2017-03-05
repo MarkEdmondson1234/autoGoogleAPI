@@ -4,113 +4,125 @@
 \alias{Request}
 \title{Request Object}
 \usage{
-Request(updateEmbeddedObjectPosition = NULL, deleteNamedRange = NULL,
-  updateNamedRange = NULL, addFilterView = NULL,
-  updateSpreadsheetProperties = NULL, appendDimension = NULL,
-  unmergeCells = NULL, updateProtectedRange = NULL,
-  deleteFilterView = NULL, clearBasicFilter = NULL, sortRange = NULL,
-  repeatCell = NULL, setDataValidation = NULL, updateCells = NULL,
-  addSheet = NULL, updateFilterView = NULL, updateSheetProperties = NULL,
-  updateDimensionProperties = NULL, deleteSheet = NULL,
-  findReplace = NULL, addProtectedRange = NULL,
-  deleteProtectedRange = NULL, updateConditionalFormatRule = NULL,
-  setBasicFilter = NULL, mergeCells = NULL, addChart = NULL,
-  deleteConditionalFormatRule = NULL, updateChartSpec = NULL,
-  deleteDimension = NULL, deleteEmbeddedObject = NULL, pasteData = NULL,
-  addConditionalFormatRule = NULL, updateBorders = NULL,
-  autoResizeDimensions = NULL, duplicateSheet = NULL,
-  duplicateFilterView = NULL, cutPaste = NULL, appendCells = NULL,
-  addNamedRange = NULL, autoFill = NULL, moveDimension = NULL,
-  textToColumns = NULL, insertDimension = NULL, copyPaste = NULL)
+Request(sortRange = NULL, deleteProtectedRange = NULL,
+  duplicateFilterView = NULL, addChart = NULL, findReplace = NULL,
+  updateChartSpec = NULL, textToColumns = NULL,
+  updateProtectedRange = NULL, addSheet = NULL, deleteFilterView = NULL,
+  copyPaste = NULL, insertDimension = NULL, deleteRange = NULL,
+  deleteBanding = NULL, addFilterView = NULL, setDataValidation = NULL,
+  updateBorders = NULL, deleteConditionalFormatRule = NULL,
+  clearBasicFilter = NULL, repeatCell = NULL, appendDimension = NULL,
+  updateConditionalFormatRule = NULL, insertRange = NULL,
+  moveDimension = NULL, updateBanding = NULL, deleteNamedRange = NULL,
+  addProtectedRange = NULL, duplicateSheet = NULL, unmergeCells = NULL,
+  deleteSheet = NULL, updateEmbeddedObjectPosition = NULL,
+  updateDimensionProperties = NULL, pasteData = NULL,
+  setBasicFilter = NULL, addConditionalFormatRule = NULL,
+  addNamedRange = NULL, updateCells = NULL,
+  updateSpreadsheetProperties = NULL, deleteEmbeddedObject = NULL,
+  updateFilterView = NULL, addBanding = NULL, appendCells = NULL,
+  autoResizeDimensions = NULL, cutPaste = NULL, mergeCells = NULL,
+  updateNamedRange = NULL, updateSheetProperties = NULL, autoFill = NULL,
+  deleteDimension = NULL)
 }
 \arguments{
-\item{updateEmbeddedObjectPosition}{Updates an embedded object's (e}
-
-\item{deleteNamedRange}{Deletes a named range}
-
-\item{updateNamedRange}{Updates a named range}
-
-\item{addFilterView}{Adds a filter view}
-
-\item{updateSpreadsheetProperties}{Updates the spreadsheet's properties}
-
-\item{appendDimension}{Appends dimensions to the end of a sheet}
-
-\item{unmergeCells}{Unmerges merged cells}
-
-\item{updateProtectedRange}{Updates a protected range}
-
-\item{deleteFilterView}{Deletes a filter view from a sheet}
-
-\item{clearBasicFilter}{Clears the basic filter on a sheet}
-
 \item{sortRange}{Sorts data in a range}
-
-\item{repeatCell}{Repeats a single cell across a range}
-
-\item{setDataValidation}{Sets data validation for one or more cells}
-
-\item{updateCells}{Updates many cells at once}
-
-\item{addSheet}{Adds a sheet}
-
-\item{updateFilterView}{Updates the properties of a filter view}
-
-\item{updateSheetProperties}{Updates a sheet's properties}
-
-\item{updateDimensionProperties}{Updates dimensions' properties}
-
-\item{deleteSheet}{Deletes a sheet}
-
-\item{findReplace}{Finds and replaces occurrences of some text with other text}
-
-\item{addProtectedRange}{Adds a protected range}
 
 \item{deleteProtectedRange}{Deletes a protected range}
 
-\item{updateConditionalFormatRule}{Updates an existing conditional format rule}
-
-\item{setBasicFilter}{Sets the basic filter on a sheet}
-
-\item{mergeCells}{Merges cells together}
+\item{duplicateFilterView}{Duplicates a filter view}
 
 \item{addChart}{Adds a chart}
 
-\item{deleteConditionalFormatRule}{Deletes an existing conditional format rule}
+\item{findReplace}{Finds and replaces occurrences of some text with other text}
 
 \item{updateChartSpec}{Updates a chart's specifications}
 
-\item{deleteDimension}{Deletes rows or columns in a sheet}
-
-\item{deleteEmbeddedObject}{Deletes an embedded object (e}
-
-\item{pasteData}{Pastes data (HTML or delimited) into a sheet}
-
-\item{addConditionalFormatRule}{Adds a new conditional format rule}
-
-\item{updateBorders}{Updates the borders in a range of cells}
-
-\item{autoResizeDimensions}{Automatically resizes one or more dimensions based on the contents}
-
-\item{duplicateSheet}{Duplicates a sheet}
-
-\item{duplicateFilterView}{Duplicates a filter view}
-
-\item{cutPaste}{Cuts data from one area and pastes it to another}
-
-\item{appendCells}{Appends cells after the last row with data in a sheet}
-
-\item{addNamedRange}{Adds a named range}
-
-\item{autoFill}{Automatically fills in more data based on existing data}
-
-\item{moveDimension}{Moves rows or columns to another location in a sheet}
-
 \item{textToColumns}{Converts a column of text into many columns of text}
+
+\item{updateProtectedRange}{Updates a protected range}
+
+\item{addSheet}{Adds a sheet}
+
+\item{deleteFilterView}{Deletes a filter view from a sheet}
+
+\item{copyPaste}{Copies data from one area and pastes it to another}
 
 \item{insertDimension}{Inserts new rows or columns in a sheet}
 
-\item{copyPaste}{Copies data from one area and pastes it to another}
+\item{deleteRange}{Deletes a range of cells from a sheet, shifting the remaining cells}
+
+\item{deleteBanding}{Removes a banded range}
+
+\item{addFilterView}{Adds a filter view}
+
+\item{setDataValidation}{Sets data validation for one or more cells}
+
+\item{updateBorders}{Updates the borders in a range of cells}
+
+\item{deleteConditionalFormatRule}{Deletes an existing conditional format rule}
+
+\item{clearBasicFilter}{Clears the basic filter on a sheet}
+
+\item{repeatCell}{Repeats a single cell across a range}
+
+\item{appendDimension}{Appends dimensions to the end of a sheet}
+
+\item{updateConditionalFormatRule}{Updates an existing conditional format rule}
+
+\item{insertRange}{Inserts new cells in a sheet, shifting the existing cells}
+
+\item{moveDimension}{Moves rows or columns to another location in a sheet}
+
+\item{updateBanding}{Updates a banded range}
+
+\item{deleteNamedRange}{Deletes a named range}
+
+\item{addProtectedRange}{Adds a protected range}
+
+\item{duplicateSheet}{Duplicates a sheet}
+
+\item{unmergeCells}{Unmerges merged cells}
+
+\item{deleteSheet}{Deletes a sheet}
+
+\item{updateEmbeddedObjectPosition}{Updates an embedded object's (e}
+
+\item{updateDimensionProperties}{Updates dimensions' properties}
+
+\item{pasteData}{Pastes data (HTML or delimited) into a sheet}
+
+\item{setBasicFilter}{Sets the basic filter on a sheet}
+
+\item{addConditionalFormatRule}{Adds a new conditional format rule}
+
+\item{addNamedRange}{Adds a named range}
+
+\item{updateCells}{Updates many cells at once}
+
+\item{updateSpreadsheetProperties}{Updates the spreadsheet's properties}
+
+\item{deleteEmbeddedObject}{Deletes an embedded object (e}
+
+\item{updateFilterView}{Updates the properties of a filter view}
+
+\item{addBanding}{Adds a new banded range}
+
+\item{appendCells}{Appends cells after the last row with data in a sheet}
+
+\item{autoResizeDimensions}{Automatically resizes one or more dimensions based on the contents}
+
+\item{cutPaste}{Cuts data from one area and pastes it to another}
+
+\item{mergeCells}{Merges cells together}
+
+\item{updateNamedRange}{Updates a named range}
+
+\item{updateSheetProperties}{Updates a sheet's properties}
+
+\item{autoFill}{Automatically fills in more data based on existing data}
+
+\item{deleteDimension}{Deletes rows or columns in a sheet}
 }
 \value{
 Request object
@@ -122,4 +134,3 @@ Request Object
 Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
 A single kind of update to apply to a spreadsheet.
 }
-

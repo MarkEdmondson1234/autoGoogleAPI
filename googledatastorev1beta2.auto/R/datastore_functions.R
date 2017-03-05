@@ -2,7 +2,7 @@
 #' Stores and queries data in Google Cloud Datastore.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:05:35
+#'  at 2017-03-05 19:44:12
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googledatastorev1beta2.auto/R/datastore_functions.R
 #' api_json: api_json
 #' 
@@ -20,6 +20,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Allocate IDs for incomplete keys (useful for referencing an entity before it is inserted).
 #' 
@@ -48,7 +61,7 @@ datasets.allocateIds <- function(AllocateIdsRequest, datasetId) {
     url <- sprintf("https://www.googleapis.com/datastore/v1beta2/datasets/%s/allocateIds", 
         datasetId)
     # datastore.datasets.allocateIds
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AllocateIdsRequest, "gar_AllocateIdsRequest"))
     
     f(the_body = AllocateIdsRequest)
@@ -82,7 +95,7 @@ datasets.beginTransaction <- function(BeginTransactionRequest, datasetId) {
     url <- sprintf("https://www.googleapis.com/datastore/v1beta2/datasets/%s/beginTransaction", 
         datasetId)
     # datastore.datasets.beginTransaction
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(BeginTransactionRequest, "gar_BeginTransactionRequest"))
     
     f(the_body = BeginTransactionRequest)
@@ -116,7 +129,7 @@ datasets.commit <- function(CommitRequest, datasetId) {
     url <- sprintf("https://www.googleapis.com/datastore/v1beta2/datasets/%s/commit", 
         datasetId)
     # datastore.datasets.commit
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(CommitRequest, "gar_CommitRequest"))
     
     f(the_body = CommitRequest)
@@ -150,7 +163,7 @@ datasets.lookup <- function(LookupRequest, datasetId) {
     url <- sprintf("https://www.googleapis.com/datastore/v1beta2/datasets/%s/lookup", 
         datasetId)
     # datastore.datasets.lookup
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(LookupRequest, "gar_LookupRequest"))
     
     f(the_body = LookupRequest)
@@ -184,7 +197,7 @@ datasets.rollback <- function(RollbackRequest, datasetId) {
     url <- sprintf("https://www.googleapis.com/datastore/v1beta2/datasets/%s/rollback", 
         datasetId)
     # datastore.datasets.rollback
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(RollbackRequest, "gar_RollbackRequest"))
     
     f(the_body = RollbackRequest)
@@ -223,7 +236,8 @@ datasets.runQuery <- function(RunQueryRequest, datasetId) {
     url <- sprintf("https://www.googleapis.com/datastore/v1beta2/datasets/%s/runQuery", 
         datasetId)
     # datastore.datasets.runQuery
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(RunQueryRequest, "gar_RunQueryRequest"))
     

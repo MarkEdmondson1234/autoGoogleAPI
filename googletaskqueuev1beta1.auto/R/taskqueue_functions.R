@@ -2,7 +2,7 @@
 #' Accesses a Google App Engine Pull Task Queue over REST.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:49:12
+#'  at 2017-03-05 20:18:57
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googletaskqueuev1beta1.auto/R/taskqueue_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Get detailed information about a TaskQueue.
 #' 
@@ -46,7 +59,9 @@ NULL
     url <- sprintf("https://www.googleapis.com/taskqueue/v1beta1/projects/%s/taskqueues/%s", 
         project, taskqueue)
     # taskqueue.taskqueues.get
-    f <- gar_api_generator(url, "GET", pars_args = list(getStats = getStats), data_parse_function = function(x) x)
+    pars = list(getStats = getStats)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -75,9 +90,9 @@ NULL
 #' @export
 tasks.delete <- function(project, taskqueue, task) {
     url <- sprintf("https://www.googleapis.com/taskqueue/v1beta1/projects/%s/taskqueues/%s/tasks/%s", 
-        project, task, taskqueue)
+        project, taskqueue, task)
     # taskqueue.tasks.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -106,9 +121,9 @@ tasks.delete <- function(project, taskqueue, task) {
 #' @export
 tasks.get <- function(project, taskqueue, task) {
     url <- sprintf("https://www.googleapis.com/taskqueue/v1beta1/projects/%s/taskqueues/%s/tasks/%s", 
-        project, task, taskqueue)
+        project, taskqueue, task)
     # taskqueue.tasks.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -140,7 +155,8 @@ tasks.lease <- function(project, taskqueue, numTasks, leaseSecs) {
     url <- sprintf("https://www.googleapis.com/taskqueue/v1beta1/projects/%s/taskqueues/%s/tasks/lease", 
         project, taskqueue)
     # taskqueue.tasks.lease
-    f <- gar_api_generator(url, "POST", pars_args = list(leaseSecs = leaseSecs, numTasks = numTasks), 
+    pars = list(numTasks = numTasks, leaseSecs = leaseSecs)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -177,7 +193,8 @@ tasks.list <- function(project, taskqueue) {
     url <- sprintf("https://www.googleapis.com/taskqueue/v1beta1/projects/%s/taskqueues/%s/tasks", 
         project, taskqueue)
     # taskqueue.tasks.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     
     f()
     

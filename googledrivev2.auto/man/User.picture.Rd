@@ -22,4 +22,3 @@ The user's profile picture.
 \seealso{
 Other User functions: \code{\link{User}}
 }
-

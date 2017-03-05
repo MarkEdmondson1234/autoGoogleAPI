@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Survey functions: \code{\link{Survey}},
   \code{\link{surveys.insert}}
 }
-

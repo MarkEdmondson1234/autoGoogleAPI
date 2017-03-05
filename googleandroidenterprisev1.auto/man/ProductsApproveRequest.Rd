@@ -22,4 +22,3 @@ No description
 \seealso{
 Other ProductsApproveRequest functions: \code{\link{products.approve}}
 }
-

@@ -4,16 +4,16 @@
 \alias{Sink}
 \title{Sink Object}
 \usage{
-Sink(Sink.spec = NULL, Sink.codec = NULL, spec = NULL, codec = NULL)
+Sink(Sink.codec = NULL, Sink.spec = NULL, codec = NULL, spec = NULL)
 }
 \arguments{
-\item{Sink.spec}{The \link{Sink.spec} object or list of objects}
-
 \item{Sink.codec}{The \link{Sink.codec} object or list of objects}
 
-\item{spec}{The sink to write to, plus its parameters}
+\item{Sink.spec}{The \link{Sink.spec} object or list of objects}
 
 \item{codec}{The codec to use to encode data written to the sink}
+
+\item{spec}{The sink to write to, plus its parameters}
 }
 \value{
 Sink object
@@ -29,4 +29,3 @@ A sink that records can be encoded and written to.
 Other Sink functions: \code{\link{Sink.codec}},
   \code{\link{Sink.spec}}
 }
-

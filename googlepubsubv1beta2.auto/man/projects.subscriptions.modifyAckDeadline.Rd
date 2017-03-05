@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.modifyAckDeadline}
 \alias{projects.subscriptions.modifyAckDeadline}
-\title{Modifies the ack deadline for a specific message. This method is useful to indicate that more time is needed to process a message by the subscriber, or to make the message available for redelivery if the processing was interrupted.}
+\title{Modifies the ack deadline for a specific message. This method is usefulto indicate that more time is needed to process a message by thesubscriber, or to make the message available for redelivery if theprocessing was interrupted. Note that this does not modify thesubscription-level `ackDeadlineSeconds` used for subsequent messages.}
 \usage{
 projects.subscriptions.modifyAckDeadline(ModifyAckDeadlineRequest, subscription)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ModifyAckDeadlineRequest functions: \code{\link{ModifyAckDeadlineRequest}}
 }
-

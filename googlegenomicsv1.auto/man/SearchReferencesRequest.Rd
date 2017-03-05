@@ -5,16 +5,16 @@
 \title{SearchReferencesRequest Object}
 \usage{
 SearchReferencesRequest(md5checksums = NULL, accessions = NULL,
-  referenceSetId = NULL, pageToken = NULL, pageSize = NULL)
+  pageToken = NULL, referenceSetId = NULL, pageSize = NULL)
 }
 \arguments{
-\item{md5checksums}{If present, return references for which the md5checksum matches exactly}
+\item{md5checksums}{If present, return references for which the}
 
-\item{accessions}{If present, return references for which a prefix of any of sourceAccessions match any of these strings}
-
-\item{referenceSetId}{If present, return only references which belong to this reference set}
+\item{accessions}{If present, return references for which a prefix of any of}
 
 \item{pageToken}{The continuation token, which is used to page through large result sets}
+
+\item{referenceSetId}{If present, return only references which belong to this reference set}
 
 \item{pageSize}{The maximum number of results to return in a single page}
 }
@@ -31,4 +31,3 @@ No description
 \seealso{
 Other SearchReferencesRequest functions: \code{\link{references.search}}
 }
-

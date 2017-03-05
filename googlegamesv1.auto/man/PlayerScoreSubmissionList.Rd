@@ -22,4 +22,3 @@ This is a JSON template for a list of score submission requests
 \seealso{
 Other PlayerScoreSubmissionList functions: \code{\link{scores.submitMultiple}}
 }
-

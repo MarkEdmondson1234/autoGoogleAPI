@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InstanceGroupsRemoveInstancesRequest functions: \code{\link{instanceGroups.removeInstances}}
 }
-

@@ -26,4 +26,3 @@ Other Input functions: \code{\link{Input.input}},
   \code{\link{hostedmodels.predict}},
   \code{\link{trainedmodels.predict}}
 }
-

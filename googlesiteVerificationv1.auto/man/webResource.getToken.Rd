@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other SiteVerificationWebResourceGettokenRequest functions: \code{\link{SiteVerificationWebResourceGettokenRequest.site}},
   \code{\link{SiteVerificationWebResourceGettokenRequest}}
 }
-

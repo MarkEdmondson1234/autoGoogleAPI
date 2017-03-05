@@ -26,4 +26,3 @@ Other RestDescription functions: \code{\link{RestDescription.auth.oauth2.scopes}
   \code{\link{RestDescription.schemas}},
   \code{\link{RestDescription}}
 }
-

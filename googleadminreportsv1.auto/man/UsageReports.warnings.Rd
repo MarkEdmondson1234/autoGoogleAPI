@@ -23,4 +23,3 @@ No description
 Other UsageReports functions: \code{\link{UsageReports.warnings.data}},
   \code{\link{UsageReports}}
 }
-

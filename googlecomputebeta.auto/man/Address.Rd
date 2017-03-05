@@ -41,4 +41,3 @@ A reserved address resource.
 Other Address functions: \code{\link{addresses.insert}},
   \code{\link{globalAddresses.insert}}
 }
-

@@ -29,4 +29,3 @@ The template used for creating replicas in the pool.
 \seealso{
 Other Template functions: \code{\link{pools.updatetemplate}}
 }
-

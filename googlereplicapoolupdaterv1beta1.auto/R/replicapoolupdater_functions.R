@@ -1,8 +1,8 @@
 #' Google Compute Engine Instance Group Updater API
-#' Updates groups of Compute Engine instances.
+#' [Deprecated. Please use compute.instanceGroupManagers.update method. replicapoolupdater API will be disabled after December 30th, 2016] Updates groups of Compute Engine instances.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:27:41
+#'  at 2017-03-05 20:09:30
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlereplicapoolupdaterv1beta1.auto/R/replicapoolupdater_functions.R
 #' api_json: api_json
 #' 
@@ -21,6 +21,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Cancels an update. The update must be PAUSED before it can be cancelled. This has no effect if the update is already CANCELLED.
 #' 
@@ -46,9 +59,9 @@ NULL
 #' @export
 rollingUpdates.cancel <- function(project, zone, rollingUpdate) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates/%s/cancel", 
-        project, rollingUpdate, zone)
+        project, zone, rollingUpdate)
     # replicapoolupdater.rollingUpdates.cancel
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -79,9 +92,9 @@ rollingUpdates.cancel <- function(project, zone, rollingUpdate) {
 #' @export
 rollingUpdates.get <- function(project, zone, rollingUpdate) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates/%s", 
-        project, rollingUpdate, zone)
+        project, zone, rollingUpdate)
     # replicapoolupdater.rollingUpdates.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -113,7 +126,7 @@ rollingUpdates.insert <- function(RollingUpdate, project, zone) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates", 
         project, zone)
     # replicapoolupdater.rollingUpdates.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(RollingUpdate, "gar_RollingUpdate"))
     
     f(the_body = RollingUpdate)
@@ -151,8 +164,9 @@ rollingUpdates.list <- function(project, zone, filter = NULL, maxResults = NULL,
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates", 
         project, zone)
     # replicapoolupdater.rollingUpdates.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -187,10 +201,11 @@ rollingUpdates.list <- function(project, zone, filter = NULL, maxResults = NULL,
 rollingUpdates.listInstanceUpdates <- function(project, zone, rollingUpdate, filter = NULL, 
     maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates/%s/instanceUpdates", 
-        project, rollingUpdate, zone)
+        project, zone, rollingUpdate)
     # replicapoolupdater.rollingUpdates.listInstanceUpdates
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -219,9 +234,9 @@ rollingUpdates.listInstanceUpdates <- function(project, zone, rollingUpdate, fil
 #' @export
 rollingUpdates.pause <- function(project, zone, rollingUpdate) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates/%s/pause", 
-        project, rollingUpdate, zone)
+        project, zone, rollingUpdate)
     # replicapoolupdater.rollingUpdates.pause
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -250,9 +265,9 @@ rollingUpdates.pause <- function(project, zone, rollingUpdate) {
 #' @export
 rollingUpdates.resume <- function(project, zone, rollingUpdate) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates/%s/resume", 
-        project, rollingUpdate, zone)
+        project, zone, rollingUpdate)
     # replicapoolupdater.rollingUpdates.resume
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -281,9 +296,9 @@ rollingUpdates.resume <- function(project, zone, rollingUpdate) {
 #' @export
 rollingUpdates.rollback <- function(project, zone, rollingUpdate) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/rollingUpdates/%s/rollback", 
-        project, rollingUpdate, zone)
+        project, zone, rollingUpdate)
     # replicapoolupdater.rollingUpdates.rollback
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -312,9 +327,9 @@ rollingUpdates.rollback <- function(project, zone, rollingUpdate) {
 #' @export
 zoneOperations.get <- function(project, zone, operation) {
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/operations/%s", 
-        operation, project, zone)
+        project, zone, operation)
     # replicapoolupdater.zoneOperations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -357,8 +372,10 @@ zoneOperations.list <- function(project, zone, filter = NULL, maxResults = NULL,
     url <- sprintf("https://www.googleapis.com/replicapoolupdater/v1beta1/projects/%s/zones/%s/operations", 
         project, zone)
     # replicapoolupdater.zoneOperations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(filter = filter, maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(filter = filter, maxResults = maxResults, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

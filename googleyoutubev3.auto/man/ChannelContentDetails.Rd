@@ -5,12 +5,10 @@
 \title{ChannelContentDetails Object}
 \usage{
 ChannelContentDetails(ChannelContentDetails.relatedPlaylists = NULL,
-  googlePlusUserId = NULL, relatedPlaylists = NULL)
+  relatedPlaylists = NULL)
 }
 \arguments{
 \item{ChannelContentDetails.relatedPlaylists}{The \link{ChannelContentDetails.relatedPlaylists} object or list of objects}
-
-\item{googlePlusUserId}{The googlePlusUserId object identifies the Google+ profile ID associated with this channel}
 
 \item{relatedPlaylists}{No description}
 }
@@ -27,4 +25,3 @@ Details about the content of a channel.
 \seealso{
 Other ChannelContentDetails functions: \code{\link{ChannelContentDetails.relatedPlaylists}}
 }
-

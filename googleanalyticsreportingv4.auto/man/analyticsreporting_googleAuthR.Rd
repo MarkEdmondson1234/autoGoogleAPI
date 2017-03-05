@@ -8,7 +8,7 @@
 Accesses Analytics report data.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:34:38
+ at 2017-03-05 19:25:36
 filename: /Users/mark/dev/R/autoGoogleAPI/googleanalyticsreportingv4.auto/R/analyticsreporting_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/analytics
 }
 }
-

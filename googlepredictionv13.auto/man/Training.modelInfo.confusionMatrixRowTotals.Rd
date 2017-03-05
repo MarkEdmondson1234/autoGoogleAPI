@@ -21,4 +21,3 @@ Other Training functions: \code{\link{Training.modelInfo.confusionMatrix}},
   \code{\link{Training.modelInfo}}, \code{\link{Training}},
   \code{\link{training.insert}}
 }
-

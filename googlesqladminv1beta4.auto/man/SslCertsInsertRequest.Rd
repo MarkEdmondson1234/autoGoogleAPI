@@ -22,4 +22,3 @@ SslCerts insert request.
 \seealso{
 Other SslCertsInsertRequest functions: \code{\link{sql.sslCerts.insert}}
 }
-

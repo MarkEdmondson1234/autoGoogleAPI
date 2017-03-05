@@ -1,5 +1,5 @@
 # googlednsv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Cloud DNS API R library
 
 Configures and serves authoritative DNS records.

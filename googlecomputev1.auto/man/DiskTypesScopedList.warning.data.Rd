@@ -20,4 +20,3 @@ No description
 Other DiskTypesScopedList functions: \code{\link{DiskTypesScopedList.warning}},
   \code{\link{DiskTypesScopedList}}
 }
-

@@ -13,7 +13,7 @@ Version(Version.betaSettings = NULL, Version.envVariables = NULL,
   handlers = NULL, errorHandlers = NULL, libraries = NULL,
   apiConfig = NULL, envVariables = NULL, defaultExpiration = NULL,
   healthCheck = NULL, nobuildFilesRegex = NULL, deployment = NULL,
-  versionUrl = NULL)
+  versionUrl = NULL, endpointsApiService = NULL)
 }
 \arguments{
 \item{Version.betaSettings}{The \link{Version.betaSettings} object or list of objects}
@@ -62,7 +62,7 @@ Version(Version.betaSettings = NULL, Version.envVariables = NULL,
 
 \item{libraries}{Configuration for third-party Python runtime libraries that are required by the application}
 
-\item{apiConfig}{Serving configuration for [Google Cloud Endpoints](https://cloud}
+\item{apiConfig}{Serving configuration for Google Cloud Endpoints (https://cloud}
 
 \item{envVariables}{Environment variables available to the application}
 
@@ -75,6 +75,8 @@ Version(Version.betaSettings = NULL, Version.envVariables = NULL,
 \item{deployment}{Code and application artifacts that make up this version}
 
 \item{versionUrl}{Serving URL for this version}
+
+\item{endpointsApiService}{Cloud Endpoints configuration}
 }
 \value{
 Version object
@@ -90,4 +92,3 @@ A Version resource is a specific set of source code and configuration files that
 Other Version functions: \code{\link{Version.betaSettings}},
   \code{\link{Version.envVariables}}
 }
-

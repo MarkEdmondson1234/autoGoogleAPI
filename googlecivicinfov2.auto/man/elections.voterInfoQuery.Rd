@@ -4,10 +4,12 @@
 \alias{elections.voterInfoQuery}
 \title{Looks up information relevant to a voter based on the voter's registered address.}
 \usage{
-elections.voterInfoQuery(address, electionId = NULL, officialOnly = NULL,
-  returnAllAvailableData = NULL)
+elections.voterInfoQuery(VoterInfoRequest, address, electionId = NULL,
+  officialOnly = NULL, returnAllAvailableData = NULL)
 }
 \arguments{
+\item{VoterInfoRequest}{The \link{VoterInfoRequest} object to pass to this method}
+
 \item{address}{The registered address of the voter to look up}
 
 \item{electionId}{The unique ID of the election to look up}
@@ -31,5 +33,6 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
 \href{https://developers.google.com/civic-information}{Google Documentation}
-}
 
+Other VoterInfoRequest functions: \code{\link{VoterInfoRequest}}
+}

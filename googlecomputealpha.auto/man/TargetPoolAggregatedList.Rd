@@ -31,4 +31,3 @@ No description
 \seealso{
 Other TargetPoolAggregatedList functions: \code{\link{TargetPoolAggregatedList.items}}
 }
-

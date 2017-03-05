@@ -21,4 +21,3 @@ Other Revision functions: \code{\link{Revision}},
   \code{\link{revisions.patch}},
   \code{\link{revisions.update}}
 }
-

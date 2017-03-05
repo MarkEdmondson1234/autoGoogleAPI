@@ -4,9 +4,11 @@
 \alias{AnalyzeSentimentRequest}
 \title{AnalyzeSentimentRequest Object}
 \usage{
-AnalyzeSentimentRequest(document = NULL)
+AnalyzeSentimentRequest(encodingType = NULL, document = NULL)
 }
 \arguments{
+\item{encodingType}{The encoding type used by the API to calculate sentence offsets for the}
+
 \item{document}{Input document}
 }
 \value{
@@ -22,4 +24,3 @@ The sentiment analysis request message.
 \seealso{
 Other AnalyzeSentimentRequest functions: \code{\link{documents.analyzeSentiment}}
 }
-

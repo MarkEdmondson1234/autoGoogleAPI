@@ -22,4 +22,3 @@ No description
 \seealso{
 Other InappproductsBatchRequest functions: \code{\link{inappproducts.batch}}
 }
-

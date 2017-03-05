@@ -5,7 +5,7 @@
 \title{Updates a file's metadata and/or content with patch semantics.}
 \usage{
 files.update(File, fileId, addParents = NULL, keepRevisionForever = NULL,
-  ocrLanguage = NULL, removeParents = NULL,
+  ocrLanguage = NULL, removeParents = NULL, supportsTeamDrives = NULL,
   useContentAsIndexableText = NULL)
 }
 \arguments{
@@ -20,6 +20,8 @@ files.update(File, fileId, addParents = NULL, keepRevisionForever = NULL,
 \item{ocrLanguage}{A language hint for OCR processing during image import (ISO 639-1 code)}
 
 \item{removeParents}{A comma-separated list of parent IDs to remove}
+
+\item{supportsTeamDrives}{Whether the requesting application supports Team Drives}
 
 \item{useContentAsIndexableText}{Whether to use the uploaded content as indexable text}
 }
@@ -54,4 +56,3 @@ Other File functions: \code{\link{File.appProperties}},
   \code{\link{File}}, \code{\link{files.copy}},
   \code{\link{files.create}}
 }
-

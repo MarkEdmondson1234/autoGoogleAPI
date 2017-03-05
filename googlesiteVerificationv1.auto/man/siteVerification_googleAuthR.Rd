@@ -8,7 +8,7 @@
 Verifies ownership of websites or domains with Google.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:47:15
+ at 2017-03-05 20:13:57
 filename: /Users/mark/dev/R/autoGoogleAPI/googlesiteVerificationv1.auto/R/siteVerification_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/siteverification.verify_only
 }
 }
-

@@ -25,4 +25,3 @@ Parent link for this custom data source. Points to the web property to which thi
 Other CustomDataSource functions: \code{\link{CustomDataSource.childLink}},
   \code{\link{CustomDataSource}}
 }
-

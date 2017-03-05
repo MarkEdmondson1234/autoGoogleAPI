@@ -19,4 +19,3 @@ Request passed to ResumeTransferOperation.
 \seealso{
 Other ResumeTransferOperationRequest functions: \code{\link{transferOperations.resume}}
 }
-

@@ -19,4 +19,3 @@ No description
 \seealso{
 Other UndeleteDatasetRequest functions: \code{\link{datasets.undelete}}
 }
-

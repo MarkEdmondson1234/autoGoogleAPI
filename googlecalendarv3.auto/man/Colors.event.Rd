@@ -20,4 +20,3 @@ A global palette of event colors, mapping from the color ID to its definition. A
 Other Colors functions: \code{\link{Colors.calendar}},
   \code{\link{Colors}}
 }
-

@@ -2,7 +2,7 @@
 #' The Publishing API for Google Play Game Services.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:14:04
+#'  at 2017-03-05 19:52:32
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegamesConfigurationv1configuration.auto/R/gamesConfiguration_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Delete the achievement configuration with the given ID.
 #' 
@@ -42,7 +55,7 @@ achievementConfigurations.delete <- function(achievementId) {
     url <- sprintf("https://www.googleapis.com/games/v1configuration/achievements/%s", 
         achievementId)
     # gamesConfiguration.achievementConfigurations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -70,7 +83,7 @@ achievementConfigurations.get <- function(achievementId) {
     url <- sprintf("https://www.googleapis.com/games/v1configuration/achievements/%s", 
         achievementId)
     # gamesConfiguration.achievementConfigurations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -100,7 +113,7 @@ achievementConfigurations.insert <- function(AchievementConfiguration, applicati
     url <- sprintf("https://www.googleapis.com/games/v1configuration/applications/%s/achievements", 
         applicationId)
     # gamesConfiguration.achievementConfigurations.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(AchievementConfiguration, "gar_AchievementConfiguration"))
     
     f(the_body = AchievementConfiguration)
@@ -132,8 +145,9 @@ achievementConfigurations.list <- function(applicationId, maxResults = NULL, pag
     url <- sprintf("https://www.googleapis.com/games/v1configuration/applications/%s/achievements", 
         applicationId)
     # gamesConfiguration.achievementConfigurations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -163,7 +177,7 @@ achievementConfigurations.patch <- function(AchievementConfiguration, achievemen
     url <- sprintf("https://www.googleapis.com/games/v1configuration/achievements/%s", 
         achievementId)
     # gamesConfiguration.achievementConfigurations.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(AchievementConfiguration, "gar_AchievementConfiguration"))
     
     f(the_body = AchievementConfiguration)
@@ -195,7 +209,7 @@ achievementConfigurations.update <- function(AchievementConfiguration, achieveme
     url <- sprintf("https://www.googleapis.com/games/v1configuration/achievements/%s", 
         achievementId)
     # gamesConfiguration.achievementConfigurations.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(AchievementConfiguration, "gar_AchievementConfiguration"))
     
     f(the_body = AchievementConfiguration)
@@ -224,9 +238,9 @@ achievementConfigurations.update <- function(AchievementConfiguration, achieveme
 #' @export
 imageConfigurations.upload <- function(resourceId, imageType) {
     url <- sprintf("https://www.googleapis.com/games/v1configuration/images/%s/imageType/%s", 
-        imageType, resourceId)
+        resourceId, imageType)
     # gamesConfiguration.imageConfigurations.upload
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -254,7 +268,7 @@ leaderboardConfigurations.delete <- function(leaderboardId) {
     url <- sprintf("https://www.googleapis.com/games/v1configuration/leaderboards/%s", 
         leaderboardId)
     # gamesConfiguration.leaderboardConfigurations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -282,7 +296,7 @@ leaderboardConfigurations.get <- function(leaderboardId) {
     url <- sprintf("https://www.googleapis.com/games/v1configuration/leaderboards/%s", 
         leaderboardId)
     # gamesConfiguration.leaderboardConfigurations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -312,7 +326,7 @@ leaderboardConfigurations.insert <- function(LeaderboardConfiguration, applicati
     url <- sprintf("https://www.googleapis.com/games/v1configuration/applications/%s/leaderboards", 
         applicationId)
     # gamesConfiguration.leaderboardConfigurations.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(LeaderboardConfiguration, "gar_LeaderboardConfiguration"))
     
     f(the_body = LeaderboardConfiguration)
@@ -344,8 +358,9 @@ leaderboardConfigurations.list <- function(applicationId, maxResults = NULL, pag
     url <- sprintf("https://www.googleapis.com/games/v1configuration/applications/%s/leaderboards", 
         applicationId)
     # gamesConfiguration.leaderboardConfigurations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -375,7 +390,7 @@ leaderboardConfigurations.patch <- function(LeaderboardConfiguration, leaderboar
     url <- sprintf("https://www.googleapis.com/games/v1configuration/leaderboards/%s", 
         leaderboardId)
     # gamesConfiguration.leaderboardConfigurations.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(LeaderboardConfiguration, "gar_LeaderboardConfiguration"))
     
     f(the_body = LeaderboardConfiguration)
@@ -412,7 +427,8 @@ leaderboardConfigurations.update <- function(LeaderboardConfiguration, leaderboa
     url <- sprintf("https://www.googleapis.com/games/v1configuration/leaderboards/%s", 
         leaderboardId)
     # gamesConfiguration.leaderboardConfigurations.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(LeaderboardConfiguration, "gar_LeaderboardConfiguration"))
     

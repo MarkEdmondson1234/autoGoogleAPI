@@ -25,4 +25,3 @@ The font which is included in the style.
 Other AdStyle functions: \code{\link{AdStyle.colors}},
   \code{\link{AdStyle}}
 }
-

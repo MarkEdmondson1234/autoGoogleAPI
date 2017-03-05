@@ -41,4 +41,3 @@ No description
 \seealso{
 Other AdsenseReportsGenerateResponse functions: \code{\link{AdsenseReportsGenerateResponse.headers}}
 }
-

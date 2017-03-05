@@ -19,4 +19,3 @@ Optional attributes for this message.
 \seealso{
 Other PubsubMessage functions: \code{\link{PubsubMessage}}
 }
-

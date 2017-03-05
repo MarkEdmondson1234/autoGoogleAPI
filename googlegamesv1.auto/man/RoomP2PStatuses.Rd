@@ -22,4 +22,3 @@ This is a JSON template for an update on the status of peers in a room.
 \seealso{
 Other RoomP2PStatuses functions: \code{\link{rooms.reportStatus}}
 }
-

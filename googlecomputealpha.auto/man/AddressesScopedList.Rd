@@ -31,4 +31,3 @@ No description
 Other AddressesScopedList functions: \code{\link{AddressesScopedList.warning.data}},
   \code{\link{AddressesScopedList.warning}}
 }
-

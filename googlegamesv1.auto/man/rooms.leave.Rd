@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other RoomLeaveRequest functions: \code{\link{RoomLeaveRequest}}
 }
-

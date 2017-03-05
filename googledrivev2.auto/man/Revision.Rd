@@ -64,4 +64,3 @@ Other Revision functions: \code{\link{Revision.exportLinks}},
   \code{\link{revisions.patch}},
   \code{\link{revisions.update}}
 }
-

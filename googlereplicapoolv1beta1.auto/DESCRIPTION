@@ -3,14 +3,10 @@ Title: Replica Pool API
 Version: 0.0.0.9000
 Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
                        role = c("aut", "cre")))
-Description: The Replica Pool API allows users to declaratively provision and
-    manage groups of Google Compute Engine instances based on a common template.
-    Auto-generated via googleAuthR.
-Depends:
-    R (>= 3.3.0)
+Description: The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    googleAuthR (>= 0.3)
-RoxygenNote: 5.0.1
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

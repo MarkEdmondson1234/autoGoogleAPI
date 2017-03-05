@@ -22,4 +22,3 @@ No description
 \seealso{
 Other RegionDisksResizeRequest functions: \code{\link{regionDisks.resize}}
 }
-

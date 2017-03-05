@@ -20,4 +20,3 @@ Methods on this resource.
 Other RestResource functions: \code{\link{RestResource.resources}},
   \code{\link{RestResource}}
 }
-

@@ -33,4 +33,3 @@ Other BucketAccessControl functions: \code{\link{BucketAccessControl}},
   \code{\link{bucketAccessControls.insert}},
   \code{\link{bucketAccessControls.patch}}
 }
-

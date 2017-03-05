@@ -21,4 +21,3 @@ Other Operation functions: \code{\link{Operation.error}},
   \code{\link{Operation.warnings.data}},
   \code{\link{Operation.warnings}}, \code{\link{Operation}}
 }
-

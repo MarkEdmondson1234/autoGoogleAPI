@@ -32,4 +32,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Client functions: \code{\link{Client}},
   \code{\link{accounts.clients.create}}
 }
-

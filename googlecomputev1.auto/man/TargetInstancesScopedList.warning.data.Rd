@@ -20,4 +20,3 @@ No description
 Other TargetInstancesScopedList functions: \code{\link{TargetInstancesScopedList.warning}},
   \code{\link{TargetInstancesScopedList}}
 }
-

@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{annotations.update}
 \alias{annotations.update}
-\title{Updates an annotation. Caller must have WRITE permission for the associated dataset.}
+\title{Updates an annotation. Caller must haveWRITE permission for the associated dataset.}
 \usage{
 annotations.update(Annotation, annotationId, updateMask = NULL)
 }
@@ -28,10 +28,9 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other Annotation functions: \code{\link{Annotation.info}},
   \code{\link{Annotation}},
   \code{\link{annotations.create}}
 }
-

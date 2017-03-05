@@ -19,4 +19,3 @@ Hash(es) of the build source, which can be used to verify that the originalsourc
 \seealso{
 Other SourceProvenance functions: \code{\link{SourceProvenance}}
 }
-

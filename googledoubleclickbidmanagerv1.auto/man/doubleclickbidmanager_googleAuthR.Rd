@@ -8,7 +8,7 @@
 API for viewing and managing your reports in DoubleClick Bid Manager.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:11:16
+ at 2017-03-05 19:48:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googledoubleclickbidmanagerv1.auto/R/doubleclickbidmanager_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

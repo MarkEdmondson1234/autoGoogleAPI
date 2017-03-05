@@ -8,7 +8,7 @@
 Declares, configures, and deploys complex solutions on Google Cloud Platform.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:06:05
+ at 2017-03-05 19:45:23
 filename: /Users/mark/dev/R/autoGoogleAPI/googledeploymentmanagerv2.auto/R/deploymentmanager_functions.R
 api_json: api_json
 }
@@ -21,4 +21,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/ndev.cloudman.readonly
 }
 }
-

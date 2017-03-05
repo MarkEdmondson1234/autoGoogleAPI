@@ -4,81 +4,80 @@
 \alias{RequestLog}
 \title{RequestLog Object}
 \usage{
-RequestLog(appId = NULL, moduleId = NULL, versionId = NULL,
-  requestId = NULL, ip = NULL, startTime = NULL, endTime = NULL,
-  latency = NULL, megaCycles = NULL, method = NULL, resource = NULL,
-  httpVersion = NULL, status = NULL, responseSize = NULL,
-  referrer = NULL, userAgent = NULL, nickname = NULL,
-  urlMapEntry = NULL, host = NULL, cost = NULL, taskQueueName = NULL,
-  taskName = NULL, wasLoadingRequest = NULL, pendingTime = NULL,
-  instanceIndex = NULL, finished = NULL, first = NULL,
-  instanceId = NULL, line = NULL, appEngineRelease = NULL,
-  traceId = NULL, sourceReference = NULL)
+RequestLog(userAgent = NULL, wasLoadingRequest = NULL,
+  sourceReference = NULL, responseSize = NULL, traceId = NULL,
+  line = NULL, referrer = NULL, taskQueueName = NULL, requestId = NULL,
+  nickname = NULL, pendingTime = NULL, resource = NULL, status = NULL,
+  taskName = NULL, urlMapEntry = NULL, instanceIndex = NULL,
+  finished = NULL, host = NULL, httpVersion = NULL, startTime = NULL,
+  latency = NULL, ip = NULL, appId = NULL, appEngineRelease = NULL,
+  method = NULL, cost = NULL, instanceId = NULL, megaCycles = NULL,
+  first = NULL, versionId = NULL, moduleId = NULL, endTime = NULL)
 }
 \arguments{
-\item{appId}{Application that handled this request}
-
-\item{moduleId}{Module of the application that handled this request}
-
-\item{versionId}{Version of the application that handled this request}
-
-\item{requestId}{Globally unique identifier for a request, which is based on the request start time}
-
-\item{ip}{Origin IP address}
-
-\item{startTime}{Time when the request started}
-
-\item{endTime}{Time when the request finished}
-
-\item{latency}{Latency of the request}
-
-\item{megaCycles}{Number of CPU megacycles used to process request}
-
-\item{method}{Request method}
-
-\item{resource}{Contains the path and query portion of the URL that was requested}
-
-\item{httpVersion}{HTTP version of request}
-
-\item{status}{HTTP response status code}
-
-\item{responseSize}{Size in bytes sent back to client by request}
-
-\item{referrer}{Referrer URL of request}
-
 \item{userAgent}{User agent that made the request}
-
-\item{nickname}{The logged-in user who made the request}
-
-\item{urlMapEntry}{File or class that handled the request}
-
-\item{host}{Internet host and port number of the resource being requested}
-
-\item{cost}{An indication of the relative cost of serving this request}
-
-\item{taskQueueName}{Queue name of the request, in the case of an offline request}
-
-\item{taskName}{Task name of the request, in the case of an offline request}
 
 \item{wasLoadingRequest}{Whether this was a loading request for the instance}
 
+\item{sourceReference}{Source code for the application that handled this request}
+
+\item{responseSize}{Size in bytes sent back to client by request}
+
+\item{traceId}{Stackdriver Trace identifier for this request}
+
+\item{line}{A list of log lines emitted by the application while serving this request}
+
+\item{referrer}{Referrer URL of request}
+
+\item{taskQueueName}{Queue name of the request, in the case of an offline request}
+
+\item{requestId}{Globally unique identifier for a request, which is based on the request start time}
+
+\item{nickname}{The logged-in user who made the request}
+
 \item{pendingTime}{Time this request spent in the pending request queue}
+
+\item{resource}{Contains the path and query portion of the URL that was requested}
+
+\item{status}{HTTP response status code}
+
+\item{taskName}{Task name of the request, in the case of an offline request}
+
+\item{urlMapEntry}{File or class that handled the request}
 
 \item{instanceIndex}{If the instance processing this request belongs to a manually scaled module, then this is the 0-based index of the instance}
 
 \item{finished}{Whether this request is finished or active}
 
-\item{first}{Whether this is the first RequestLog entry for this request}
+\item{host}{Internet host and port number of the resource being requested}
 
-\item{instanceId}{An identifier for the instance that handled the request}
+\item{httpVersion}{HTTP version of request}
 
-\item{line}{A list of log lines emitted by the application while serving this request}
+\item{startTime}{Time when the request started}
+
+\item{latency}{Latency of the request}
+
+\item{ip}{Origin IP address}
+
+\item{appId}{Application that handled this request}
 
 \item{appEngineRelease}{App Engine release version}
 
-\item{traceId}{Cloud Trace identifier for this request}
+\item{method}{Request method}
 
-\item{sourceReference}{Source code for the application that handled this request}
+\item{cost}{An indication of the relative cost of serving this request}
+
+\item{instanceId}{An identifier for the instance that handled the request}
+
+\item{megaCycles}{Number of CPU megacycles used to process request}
+
+\item{first}{Whether this is the first RequestLog entry for this request}
+
+\item{versionId}{Version of the application that handled this request}
+
+\item{moduleId}{Module of the application that handled this request}
+
+\item{endTime}{Time when the request finished}
 }
 \value{
 RequestLog object
@@ -90,4 +89,3 @@ RequestLog Object
 Autogenerated via \code{\link[googleAuthR]{gar_create_api_objects}}
 Complete log information about a single HTTP request to an App Engine application.
 }
-

@@ -4,24 +4,24 @@
 \alias{SearchAnnotationsRequest}
 \title{SearchAnnotationsRequest Object}
 \usage{
-SearchAnnotationsRequest(annotationSetIds = NULL, referenceId = NULL,
-  referenceName = NULL, start = NULL, end = NULL, pageToken = NULL,
-  pageSize = NULL)
+SearchAnnotationsRequest(pageToken = NULL, pageSize = NULL, start = NULL,
+  annotationSetIds = NULL, referenceName = NULL, referenceId = NULL,
+  end = NULL)
 }
 \arguments{
-\item{annotationSetIds}{Required}
-
-\item{referenceId}{The ID of the reference to query}
-
-\item{referenceName}{The name of the reference to query, within the reference set associated with this query}
-
-\item{start}{The start position of the range on the reference, 0-based inclusive}
-
-\item{end}{The end position of the range on the reference, 0-based exclusive}
-
 \item{pageToken}{The continuation token, which is used to page through large result sets}
 
 \item{pageSize}{The maximum number of results to return in a single page}
+
+\item{start}{The start position of the range on the reference, 0-based inclusive}
+
+\item{annotationSetIds}{Required}
+
+\item{referenceName}{The name of the reference to query, within the reference set associated}
+
+\item{referenceId}{The ID of the reference to query}
+
+\item{end}{The end position of the range on the reference, 0-based exclusive}
 }
 \value{
 SearchAnnotationsRequest object
@@ -36,4 +36,3 @@ No description
 \seealso{
 Other SearchAnnotationsRequest functions: \code{\link{annotations.search}}
 }
-

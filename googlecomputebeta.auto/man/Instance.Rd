@@ -5,11 +5,12 @@
 \title{Instance Object}
 \usage{
 Instance(Instance.labels = NULL, canIpForward = NULL, cpuPlatform = NULL,
-  creationTimestamp = NULL, description = NULL, disks = NULL, id = NULL,
-  labelFingerprint = NULL, labels = NULL, machineType = NULL,
-  metadata = NULL, name = NULL, networkInterfaces = NULL,
-  scheduling = NULL, selfLink = NULL, serviceAccounts = NULL,
-  status = NULL, statusMessage = NULL, tags = NULL, zone = NULL)
+  creationTimestamp = NULL, description = NULL, disks = NULL,
+  guestAccelerators = NULL, id = NULL, labelFingerprint = NULL,
+  labels = NULL, machineType = NULL, metadata = NULL, name = NULL,
+  networkInterfaces = NULL, scheduling = NULL, selfLink = NULL,
+  serviceAccounts = NULL, status = NULL, statusMessage = NULL,
+  tags = NULL, zone = NULL)
 }
 \arguments{
 \item{Instance.labels}{The \link{Instance.labels} object or list of objects}
@@ -23,6 +24,8 @@ Instance(Instance.labels = NULL, canIpForward = NULL, cpuPlatform = NULL,
 \item{description}{An optional description of this resource}
 
 \item{disks}{Array of disks associated with this instance}
+
+\item{guestAccelerators}{No description}
 
 \item{id}{[Output Only] The unique identifier for the resource}
 
@@ -66,4 +69,3 @@ An Instance resource.
 Other Instance functions: \code{\link{Instance.labels}},
   \code{\link{instances.insert}}
 }
-

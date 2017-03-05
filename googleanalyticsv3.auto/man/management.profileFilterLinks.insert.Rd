@@ -36,4 +36,3 @@ Other ProfileFilterLink functions: \code{\link{ProfileFilterLink}},
   \code{\link{management.profileFilterLinks.patch}},
   \code{\link{management.profileFilterLinks.update}}
 }
-

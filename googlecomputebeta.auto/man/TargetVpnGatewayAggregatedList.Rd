@@ -16,7 +16,7 @@ TargetVpnGatewayAggregatedList(TargetVpnGatewayAggregatedList.items = NULL,
 
 \item{nextPageToken}{[Output Only] This token allows you to get the next page of results for list requests}
 
-\item{selfLink}{[Output Only] Server-defined URL for the resource}
+\item{selfLink}{[Output Only] Server-defined URL for this resource}
 }
 \value{
 TargetVpnGatewayAggregatedList object
@@ -31,4 +31,3 @@ No description
 \seealso{
 Other TargetVpnGatewayAggregatedList functions: \code{\link{TargetVpnGatewayAggregatedList.items}}
 }
-

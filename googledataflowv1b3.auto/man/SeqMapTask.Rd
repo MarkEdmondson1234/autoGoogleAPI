@@ -4,23 +4,23 @@
 \alias{SeqMapTask}
 \title{SeqMapTask Object}
 \usage{
-SeqMapTask(SeqMapTask.userFn = NULL, inputs = NULL, userFn = NULL,
-  outputInfos = NULL, name = NULL, systemName = NULL, stageName = NULL)
+SeqMapTask(SeqMapTask.userFn = NULL, name = NULL, outputInfos = NULL,
+  inputs = NULL, stageName = NULL, systemName = NULL, userFn = NULL)
 }
 \arguments{
 \item{SeqMapTask.userFn}{The \link{SeqMapTask.userFn} object or list of objects}
 
-\item{inputs}{Information about each of the inputs}
-
-\item{userFn}{The user function to invoke}
+\item{name}{The user-provided name of the SeqDo operation}
 
 \item{outputInfos}{Information about each of the outputs}
 
-\item{name}{The user-provided name of the SeqDo operation}
+\item{inputs}{Information about each of the inputs}
+
+\item{stageName}{System-defined name of the stage containing the SeqDo operation}
 
 \item{systemName}{System-defined name of the SeqDo operation}
 
-\item{stageName}{System-defined name of the stage containing the SeqDo operation}
+\item{userFn}{The user function to invoke}
 }
 \value{
 SeqMapTask object
@@ -35,4 +35,3 @@ Describes a particular function to invoke.
 \seealso{
 Other SeqMapTask functions: \code{\link{SeqMapTask.userFn}}
 }
-

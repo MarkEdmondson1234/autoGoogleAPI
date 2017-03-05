@@ -2,7 +2,7 @@
 #' API for spectrum-management functions.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:47:28
+#'  at 2017-03-05 20:15:32
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlespectrumv1explorer.auto/R/spectrum_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Requests information about the available spectrum for a device at a location. Requests from a fixed-mode device must include owner information so the device can be registered with the database.
 #' 
@@ -42,7 +55,7 @@ NULL
 paws.getSpectrum <- function(PawsGetSpectrumRequest) {
     url <- "https://www.googleapis.com/spectrum/v1explorer/paws/getSpectrum"
     # spectrum.paws.getSpectrum
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PawsGetSpectrumRequest, "gar_PawsGetSpectrumRequest"))
     
     f(the_body = PawsGetSpectrumRequest)
@@ -72,7 +85,7 @@ paws.getSpectrum <- function(PawsGetSpectrumRequest) {
 paws.getSpectrumBatch <- function(PawsGetSpectrumBatchRequest) {
     url <- "https://www.googleapis.com/spectrum/v1explorer/paws/getSpectrumBatch"
     # spectrum.paws.getSpectrumBatch
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PawsGetSpectrumBatchRequest, "gar_PawsGetSpectrumBatchRequest"))
     
     f(the_body = PawsGetSpectrumBatchRequest)
@@ -102,7 +115,7 @@ paws.getSpectrumBatch <- function(PawsGetSpectrumBatchRequest) {
 paws.init <- function(PawsInitRequest) {
     url <- "https://www.googleapis.com/spectrum/v1explorer/paws/init"
     # spectrum.paws.init
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PawsInitRequest, "gar_PawsInitRequest"))
     
     f(the_body = PawsInitRequest)
@@ -132,7 +145,7 @@ paws.init <- function(PawsInitRequest) {
 paws.notifySpectrumUse <- function(PawsNotifySpectrumUseRequest) {
     url <- "https://www.googleapis.com/spectrum/v1explorer/paws/notifySpectrumUse"
     # spectrum.paws.notifySpectrumUse
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PawsNotifySpectrumUseRequest, "gar_PawsNotifySpectrumUseRequest"))
     
     f(the_body = PawsNotifySpectrumUseRequest)
@@ -162,7 +175,7 @@ paws.notifySpectrumUse <- function(PawsNotifySpectrumUseRequest) {
 paws.register <- function(PawsRegisterRequest) {
     url <- "https://www.googleapis.com/spectrum/v1explorer/paws/register"
     # spectrum.paws.register
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PawsRegisterRequest, "gar_PawsRegisterRequest"))
     
     f(the_body = PawsRegisterRequest)
@@ -197,7 +210,8 @@ paws.verifyDevice <- function(PawsVerifyDeviceRequest) {
     
     url <- "https://www.googleapis.com/spectrum/v1explorer/paws/verifyDevice"
     # spectrum.paws.verifyDevice
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(PawsVerifyDeviceRequest, "gar_PawsVerifyDeviceRequest"))
     

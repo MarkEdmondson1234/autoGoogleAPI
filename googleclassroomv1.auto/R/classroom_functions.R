@@ -2,7 +2,7 @@
 #' Manages classes, rosters, and invitations in Google Classroom.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:16:30
+#'  at 2017-03-05 19:56:19
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleclassroomv1.auto/R/classroom_functions.R
 #' api_json: api_json
 #' 
@@ -30,6 +30,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Creates a course. The user specified in `ownerId` is the owner of the created course and added as a teacher. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to create courses or for access errors. * `NOT_FOUND` if the primary teacher is not a valid user. * `FAILED_PRECONDITION` if the course owner's account is disabled or for the following request errors: * UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if an alias was specified in the `id` and already exists.
 #' 
@@ -54,7 +67,7 @@ NULL
 courses.create <- function(Course) {
     url <- "https://classroom.googleapis.com/v1/courses"
     # classroom.courses.create
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Course, "gar_Course"))
     
     f(the_body = Course)
@@ -84,7 +97,7 @@ courses.create <- function(Course) {
 courses.get <- function(id) {
     url <- sprintf("https://classroom.googleapis.com/v1/courses/%s", id)
     # classroom.courses.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -113,7 +126,7 @@ courses.get <- function(id) {
 courses.update <- function(Course, id) {
     url <- sprintf("https://classroom.googleapis.com/v1/courses/%s", id)
     # classroom.courses.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Course, "gar_Course"))
     
     f(the_body = Course)
@@ -145,7 +158,8 @@ courses.update <- function(Course, id) {
 courses.patch <- function(Course, id, updateMask = NULL) {
     url <- sprintf("https://classroom.googleapis.com/v1/courses/%s", id)
     # classroom.courses.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(updateMask = updateMask), 
+    pars = list(updateMask = updateMask)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Course, "gar_Course"))
     
@@ -175,7 +189,7 @@ courses.patch <- function(Course, id, updateMask = NULL) {
 courses.delete <- function(id) {
     url <- sprintf("https://classroom.googleapis.com/v1/courses/%s", id)
     # classroom.courses.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -199,20 +213,24 @@ courses.delete <- function(id) {
 #' 
 #' @param studentId Restricts returned courses to those having a student with the specified identifier
 #' @param teacherId Restricts returned courses to those having a teacher with the specified identifier
+#' @param courseStates Restricts returned courses to those in one of the specified states
 #' @param pageSize Maximum number of items to return
 #' @param pageToken nextPageToken value returned from a previous list call, indicating that the subsequent page of results should be returned
 #' @importFrom googleAuthR gar_api_generator
 #' @export
-courses.list <- function(studentId = NULL, teacherId = NULL, pageSize = NULL, pageToken = NULL) {
+courses.list <- function(studentId = NULL, teacherId = NULL, courseStates = NULL, 
+    pageSize = NULL, pageToken = NULL) {
     url <- "https://classroom.googleapis.com/v1/courses"
     # classroom.courses.list
-    f <- gar_api_generator(url, "GET", pars_args = list(studentId = studentId, teacherId = teacherId, 
-        pageSize = pageSize, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(studentId = studentId, teacherId = teacherId, courseStates = courseStates, 
+        pageSize = pageSize, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
 
-#' Returns a user profile. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access this user profile or if no profile exists with the requested ID or for access errors.
+#' Returns a user profile. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access this user profile, if no profile exists with the requested ID, or for access errors.
 #' 
 #' Autogenerated via \code{\link[googleAuthR]{gar_create_api_skeleton}}
 #' 
@@ -237,7 +255,7 @@ courses.list <- function(studentId = NULL, teacherId = NULL, pageSize = NULL, pa
 userProfiles.get <- function(userId) {
     url <- sprintf("https://classroom.googleapis.com/v1/userProfiles/%s", userId)
     # classroom.userProfiles.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -265,7 +283,7 @@ userProfiles.get <- function(userId) {
 invitations.create <- function(Invitation) {
     url <- "https://classroom.googleapis.com/v1/invitations"
     # classroom.invitations.create
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Invitation, "gar_Invitation"))
     
     f(the_body = Invitation)
@@ -295,7 +313,7 @@ invitations.create <- function(Invitation) {
 invitations.get <- function(id) {
     url <- sprintf("https://classroom.googleapis.com/v1/invitations/%s", id)
     # classroom.invitations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -322,7 +340,7 @@ invitations.get <- function(id) {
 invitations.delete <- function(id) {
     url <- sprintf("https://classroom.googleapis.com/v1/invitations/%s", id)
     # classroom.invitations.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -353,8 +371,9 @@ invitations.delete <- function(id) {
 invitations.list <- function(userId = NULL, courseId = NULL, pageSize = NULL, pageToken = NULL) {
     url <- "https://classroom.googleapis.com/v1/invitations"
     # classroom.invitations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(userId = userId, courseId = courseId, 
-        pageSize = pageSize, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(userId = userId, courseId = courseId, pageSize = pageSize, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -386,7 +405,8 @@ invitations.accept <- function(id) {
     
     url <- sprintf("https://classroom.googleapis.com/v1/invitations/%s:accept", id)
     # classroom.invitations.accept
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     f()
     

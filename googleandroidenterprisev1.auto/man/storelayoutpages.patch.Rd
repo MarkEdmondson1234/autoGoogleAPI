@@ -33,4 +33,3 @@ Other StorePage functions: \code{\link{StorePage}},
   \code{\link{storelayoutpages.insert}},
   \code{\link{storelayoutpages.update}}
 }
-

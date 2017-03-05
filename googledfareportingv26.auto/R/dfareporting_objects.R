@@ -2,7 +2,7 @@
 #' Manages your DoubleClick Campaign Manager ad campaigns and reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:09:53
+#'  at 2017-03-05 19:45:53
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googledfareportingv26.auto/R/dfareporting_objects.R
 #' api_json: api_json
 #' 
@@ -918,7 +918,7 @@ ContentCategory <- function(accountId = NULL, id = NULL, name = NULL) {
 #' @param encryptedUserIdCandidates A list of the alphanumeric encrypted user IDs
 #' @param floodlightActivityId Floodlight Activity ID of this conversion
 #' @param floodlightConfigurationId Floodlight Configuration ID of this conversion
-#' @param limitAdTracking Whether the user has Limit Ad Tracking set
+#' @param limitAdTracking Whether Limit Ad Tracking is enabled
 #' @param mobileDeviceId The mobile device ID
 #' @param ordinal The ordinal of the conversion
 #' @param quantity The quantity of the conversion

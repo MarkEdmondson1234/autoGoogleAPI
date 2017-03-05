@@ -2,7 +2,7 @@
 % Please edit documentation in R/androidenterprise_functions.R
 \name{products.approve}
 \alias{products.approve}
-\title{Approves the specified product and the relevant app permissions, if any. The maximum number of products that you can approve per enterprise customer is 1,000.To learn how to use Google Play for Work to design and create a store layout to display approved products to your users, see Store Layout Design.}
+\title{Approves the specified product and the relevant app permissions, if any. The maximum number of products that you can approve per enterprise customer is 1,000.To learn how to use managed Google Play to design and create a store layout to display approved products to your users, see Store Layout Design.}
 \usage{
 products.approve(ProductsApproveRequest, enterpriseId, productId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ProductsApproveRequest functions: \code{\link{ProductsApproveRequest}}
 }
-

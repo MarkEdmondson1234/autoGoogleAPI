@@ -71,4 +71,3 @@ Other Object functions: \code{\link{Object.customerEncryption}},
   \code{\link{objects.rewrite}},
   \code{\link{objects.update}}
 }
-

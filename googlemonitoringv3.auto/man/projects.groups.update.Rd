@@ -2,14 +2,14 @@
 % Please edit documentation in R/monitoring_functions.R
 \name{projects.groups.update}
 \alias{projects.groups.update}
-\title{Updates an existing group. You can change any group attributes except `name`.}
+\title{Updates an existing group. You can change any group attributes except name.}
 \usage{
 projects.groups.update(Group, name, validateOnly = NULL)
 }
 \arguments{
 \item{Group}{The \link{Group} object to pass to this method}
 
-\item{name}{The name of this group}
+\item{name}{Output only}
 
 \item{validateOnly}{If true, validate this request but do not update the existing group}
 }
@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Group functions: \code{\link{Group}},
   \code{\link{projects.groups.create}}
 }
-

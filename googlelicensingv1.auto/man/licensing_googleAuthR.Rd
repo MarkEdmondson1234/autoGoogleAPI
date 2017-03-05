@@ -8,7 +8,7 @@
 Licensing API to view and manage license for your domain.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:24:00
+ at 2017-03-05 20:00:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googlelicensingv1.auto/R/licensing_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/apps.licensing
 }
 }
-

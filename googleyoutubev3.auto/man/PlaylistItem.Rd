@@ -32,4 +32,3 @@ A playlistItem resource identifies another resource, such as a video, that is in
 Other PlaylistItem functions: \code{\link{playlistItems.insert}},
   \code{\link{playlistItems.update}}
 }
-

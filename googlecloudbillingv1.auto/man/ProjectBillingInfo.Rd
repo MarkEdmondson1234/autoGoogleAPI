@@ -29,4 +29,3 @@ Encapsulation of billing information for a Developers Console project. A project
 \seealso{
 Other ProjectBillingInfo functions: \code{\link{projects.updateBillingInfo}}
 }
-

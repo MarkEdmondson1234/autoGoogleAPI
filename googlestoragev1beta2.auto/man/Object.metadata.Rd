@@ -22,4 +22,3 @@ Other Object functions: \code{\link{Object.owner}},
   \code{\link{objects.insert}},
   \code{\link{objects.patch}}, \code{\link{objects.update}}
 }
-

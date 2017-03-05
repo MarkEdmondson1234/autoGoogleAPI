@@ -1,5 +1,5 @@
 # googleidentitytoolkitv3.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Google Identity Toolkit API R library
 
 Help the third party sites to implement federated login.
@@ -20,7 +20,7 @@ Set the appropriate Google API scopes:
 ```r
 library(googleAuthR)
 library(googleidentitytoolkitv3.auto)
-options(googleAuthR.scopes.selected = c(''))
+options(googleAuthR.scopes.selected = c('https://www.googleapis.com/auth/cloud-platform', 'https://www.googleapis.com/auth/firebase'))
 
 gar_auth()
 ```

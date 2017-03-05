@@ -2,7 +2,7 @@
 % Please edit documentation in R/monitoring_functions.R
 \name{projects.collectdTimeSeries.create}
 \alias{projects.collectdTimeSeries.create}
-\title{Creates a new time series with the given data points. This method is only for use in `collectd`-related code, including the Google Monitoring Agent. See [google.monitoring.v3.MetricService.CreateTimeSeries] instead.}
+\title{Stackdriver Monitoring Agent only: Creates a new time series.<aside class='caution'>This method is only for use by the Stackdriver Monitoring Agent. Use projects.timeSeries.create instead.</aside>}
 \usage{
 projects.collectdTimeSeries.create(CreateCollectdTimeSeriesRequest, name)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other CreateCollectdTimeSeriesRequest functions: \code{\link{CreateCollectdTimeSeriesRequest}}
 }
-

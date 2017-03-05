@@ -36,4 +36,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/compute/docs/replica-pool/}{Google Documentation}
 }
-

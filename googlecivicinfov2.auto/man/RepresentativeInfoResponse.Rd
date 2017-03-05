@@ -32,4 +32,3 @@ The result of a representative info lookup query.
 \seealso{
 Other RepresentativeInfoResponse functions: \code{\link{RepresentativeInfoResponse.divisions}}
 }
-

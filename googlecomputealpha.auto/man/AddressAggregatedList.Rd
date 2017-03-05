@@ -31,4 +31,3 @@ No description
 \seealso{
 Other AddressAggregatedList functions: \code{\link{AddressAggregatedList.items}}
 }
-

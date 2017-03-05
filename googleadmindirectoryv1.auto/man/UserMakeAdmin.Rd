@@ -22,4 +22,3 @@ JSON request template for setting/revoking admin status of a user in Directory A
 \seealso{
 Other UserMakeAdmin functions: \code{\link{directory.users.makeAdmin}}
 }
-

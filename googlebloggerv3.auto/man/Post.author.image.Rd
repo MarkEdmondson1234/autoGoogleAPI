@@ -26,4 +26,3 @@ Other Post functions: \code{\link{Post.author}},
   \code{\link{Post}}, \code{\link{posts.insert}},
   \code{\link{posts.patch}}, \code{\link{posts.update}}
 }
-

@@ -27,4 +27,3 @@ The parameters of the raw disk image.
 Other Image functions: \code{\link{Image.labels}},
   \code{\link{Image}}, \code{\link{images.insert}}
 }
-

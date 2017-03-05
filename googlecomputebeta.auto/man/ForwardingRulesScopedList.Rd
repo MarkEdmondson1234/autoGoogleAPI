@@ -31,4 +31,3 @@ No description
 Other ForwardingRulesScopedList functions: \code{\link{ForwardingRulesScopedList.warning.data}},
   \code{\link{ForwardingRulesScopedList.warning}}
 }
-

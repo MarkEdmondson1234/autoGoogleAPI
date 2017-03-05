@@ -22,4 +22,3 @@ JSON request template for firing commands on Mobile Device in Directory Devices 
 \seealso{
 Other MobileDeviceAction functions: \code{\link{directory.mobiledevices.action}}
 }
-

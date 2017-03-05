@@ -24,4 +24,3 @@ No description
 \seealso{
 Other InstanceMoveRequest functions: \code{\link{projects.moveInstance}}
 }
-

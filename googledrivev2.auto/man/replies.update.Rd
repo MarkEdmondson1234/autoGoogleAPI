@@ -35,4 +35,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other CommentReply functions: \code{\link{CommentReply}},
   \code{\link{replies.insert}}, \code{\link{replies.patch}}
 }
-

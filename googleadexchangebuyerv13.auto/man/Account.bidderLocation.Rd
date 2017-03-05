@@ -21,4 +21,3 @@ Other Account functions: \code{\link{Account}},
   \code{\link{accounts.patch}},
   \code{\link{accounts.update}}
 }
-

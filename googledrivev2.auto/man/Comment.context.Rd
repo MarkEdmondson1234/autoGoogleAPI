@@ -27,4 +27,3 @@ Other Comment functions: \code{\link{Comment}},
   \code{\link{comments.patch}},
   \code{\link{comments.update}}
 }
-

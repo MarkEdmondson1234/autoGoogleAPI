@@ -30,4 +30,3 @@ Other ConversionList functions: \code{\link{ConversionList}},
   \code{\link{conversion.patch}},
   \code{\link{conversion.update}}
 }
-

@@ -35,4 +35,3 @@ Other Dataset functions: \code{\link{Dataset.access}},
   \code{\link{datasets.insert}},
   \code{\link{datasets.update}}
 }
-

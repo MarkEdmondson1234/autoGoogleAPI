@@ -22,7 +22,7 @@ DirectoryList object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:10:31
+ at 2017-03-05 19:47:34
 filename: /Users/mark/dev/R/autoGoogleAPI/googlediscoveryv1.auto/R/discovery_objects.R
 api_json: api_json
 }
@@ -38,4 +38,3 @@ No description
 Other DirectoryList functions: \code{\link{DirectoryList.items.icons}},
   \code{\link{DirectoryList.items}}
 }
-

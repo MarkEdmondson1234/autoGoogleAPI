@@ -57,4 +57,3 @@ No description
 \seealso{
 Other VpnTunnel functions: \code{\link{vpnTunnels.insert}}
 }
-

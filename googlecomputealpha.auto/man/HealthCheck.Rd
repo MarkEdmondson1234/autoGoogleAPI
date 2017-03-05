@@ -9,7 +9,7 @@ HealthCheck(checkIntervalSec = NULL, creationTimestamp = NULL,
   httpHealthCheck = NULL, httpsHealthCheck = NULL, id = NULL,
   name = NULL, selfLink = NULL, sslHealthCheck = NULL,
   tcpHealthCheck = NULL, timeoutSec = NULL, type = NULL,
-  unhealthyThreshold = NULL)
+  udpHealthCheck = NULL, unhealthyThreshold = NULL)
 }
 \arguments{
 \item{checkIntervalSec}{How often (in seconds) to send a health check}
@@ -38,7 +38,9 @@ HealthCheck(checkIntervalSec = NULL, creationTimestamp = NULL,
 
 \item{timeoutSec}{How long (in seconds) to wait before claiming failure}
 
-\item{type}{Specifies the type of the healthCheck, either TCP, UDP, SSL, HTTP, HTTPS or HTTP2}
+\item{type}{Specifies the type of the healthCheck, either TCP, SSL, HTTP or HTTPS}
+
+\item{udpHealthCheck}{No description}
 
 \item{unhealthyThreshold}{A so-far healthy instance will be marked unhealthy after this many consecutive failures}
 }
@@ -57,4 +59,3 @@ Other HealthCheck functions: \code{\link{healthChecks.insert}},
   \code{\link{healthChecks.patch}},
   \code{\link{healthChecks.update}}
 }
-

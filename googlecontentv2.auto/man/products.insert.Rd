@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{products.insert}
 \alias{products.insert}
-\title{Uploads a product to your Merchant Center account.}
+\title{Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry. This method can only be called for non-multi-client accounts.}
 \usage{
 products.insert(Product, merchantId, dryRun = NULL)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other Product functions: \code{\link{Product}}
 }
-

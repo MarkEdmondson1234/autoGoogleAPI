@@ -31,4 +31,3 @@ No description
 \seealso{
 Other AutoscalerAggregatedList functions: \code{\link{AutoscalerAggregatedList.items}}
 }
-

@@ -4,15 +4,15 @@
 \alias{ExportReadGroupSetRequest}
 \title{ExportReadGroupSetRequest Object}
 \usage{
-ExportReadGroupSetRequest(projectId = NULL, exportUri = NULL,
-  referenceNames = NULL)
+ExportReadGroupSetRequest(exportUri = NULL, referenceNames = NULL,
+  projectId = NULL)
 }
 \arguments{
-\item{projectId}{Required}
-
 \item{exportUri}{Required}
 
 \item{referenceNames}{The reference names to export}
+
+\item{projectId}{Required}
 }
 \value{
 ExportReadGroupSetRequest object
@@ -27,4 +27,3 @@ The read group set export request.
 \seealso{
 Other ExportReadGroupSetRequest functions: \code{\link{readgroupsets.export}}
 }
-

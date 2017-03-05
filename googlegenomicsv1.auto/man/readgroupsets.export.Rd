@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{readgroupsets.export}
 \alias{readgroupsets.export}
-\title{Exports a read group set to a BAM file in Google Cloud Storage. For the definitions of read group sets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics) Note that currently there may be some differences between exported BAM files and the original BAM file at the time of import. See ImportReadGroupSets for caveats.}
+\title{Exports a read group set to a BAM file in Google Cloud Storage.For the definitions of read group sets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)Note that currently there may be some differences between exported BAMfiles and the original BAM file at the time of import. SeeImportReadGroupSetsfor caveats.}
 \usage{
 readgroupsets.export(ExportReadGroupSetRequest, readGroupSetId)
 }
@@ -27,8 +27,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other ExportReadGroupSetRequest functions: \code{\link{ExportReadGroupSetRequest}}
 }
-

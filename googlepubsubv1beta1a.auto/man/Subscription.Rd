@@ -12,9 +12,9 @@ Subscription(name = NULL, topic = NULL, pushConfig = NULL,
 
 \item{topic}{The name of the topic from which this subscription is receiving messages}
 
-\item{pushConfig}{If push delivery is used with this subscription, this field is used to configure it}
+\item{pushConfig}{If push delivery is used with this subscription, this field is}
 
-\item{ackDeadlineSeconds}{For either push or pull delivery, the value is the maximum time after a subscriber receives a message before the subscriber should acknowledge or Nack the message}
+\item{ackDeadlineSeconds}{For either push or pull delivery, the value is the maximum time after a}
 }
 \value{
 Subscription object
@@ -29,4 +29,3 @@ A subscription resource.
 \seealso{
 Other Subscription functions: \code{\link{subscriptions.create}}
 }
-

@@ -21,4 +21,3 @@ Other Metadata functions: \code{\link{Metadata}},
   \code{\link{instances.setMetadata}},
   \code{\link{projects.setCommonInstanceMetadata}}
 }
-

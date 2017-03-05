@@ -5,9 +5,10 @@
 \title{Performs a book search.}
 \usage{
 volumes.list(q, download = NULL, filter = NULL, langRestrict = NULL,
-  libraryRestrict = NULL, maxResults = NULL, orderBy = NULL,
-  partner = NULL, printType = NULL, projection = NULL,
-  showPreorders = NULL, source = NULL, startIndex = NULL)
+  libraryRestrict = NULL, maxAllowedMaturityRating = NULL,
+  maxResults = NULL, orderBy = NULL, partner = NULL, printType = NULL,
+  projection = NULL, showPreorders = NULL, source = NULL,
+  startIndex = NULL)
 }
 \arguments{
 \item{q}{Full-text search query string}
@@ -19,6 +20,8 @@ volumes.list(q, download = NULL, filter = NULL, langRestrict = NULL,
 \item{langRestrict}{Restrict results to books with this language code}
 
 \item{libraryRestrict}{Restrict search to this user's library}
+
+\item{maxAllowedMaturityRating}{The maximum allowed maturity rating of returned recommendations}
 
 \item{maxResults}{Maximum number of results to return}
 
@@ -52,4 +55,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/books/docs/v1/getting_started}{Google Documentation}
 }
-

@@ -21,4 +21,3 @@ Other Beacon functions: \code{\link{Beacon}},
   \code{\link{beacons.register}},
   \code{\link{beacons.update}}
 }
-

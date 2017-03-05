@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.cancel}
 \alias{orders.cancel}
-\title{Cancels all line items in an order.}
+\title{Cancels all line items in an order. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.cancel(OrdersCancelRequest, merchantId, orderId)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersCancelRequest functions: \code{\link{OrdersCancelRequest}}
 }
-

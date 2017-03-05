@@ -2,7 +2,7 @@
 #' Access Gmail mailboxes including sending user email.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-04 00:01:53
+#'  at 2017-03-05 19:54:07
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlegmailv1.auto/R/gmail_functions.R
 #' api_json: api_json
 #' 
@@ -13,6 +13,7 @@
 #' \item https://www.googleapis.com/auth/gmail.compose
 #' \item https://www.googleapis.com/auth/gmail.insert
 #' \item https://www.googleapis.com/auth/gmail.labels
+#' \item https://www.googleapis.com/auth/gmail.metadata
 #' \item https://www.googleapis.com/auth/gmail.modify
 #' \item https://www.googleapis.com/auth/gmail.readonly
 #' \item https://www.googleapis.com/auth/gmail.send
@@ -26,6 +27,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Gets the current user's Gmail profile.
 #' 
@@ -38,11 +52,12 @@ NULL
 #' \itemize{
 #'   \item https://mail.google.com/
 #' \item https://www.googleapis.com/auth/gmail.compose
+#' \item https://www.googleapis.com/auth/gmail.metadata
 #' \item https://www.googleapis.com/auth/gmail.modify
 #' \item https://www.googleapis.com/auth/gmail.readonly
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.compose, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.compose, https://www.googleapis.com/auth/gmail.metadata, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -52,7 +67,7 @@ NULL
 users.getProfile <- function(userId) {
     url <- sprintf("https://www.googleapis.com/gmail/v1/users/%s/profile", userId)
     # gmail.users.getProfile
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -67,11 +82,12 @@ users.getProfile <- function(userId) {
 #' Authentication scopes used by this function are:
 #' \itemize{
 #'   \item https://mail.google.com/
+#' \item https://www.googleapis.com/auth/gmail.metadata
 #' \item https://www.googleapis.com/auth/gmail.modify
 #' \item https://www.googleapis.com/auth/gmail.readonly
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.metadata, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -81,7 +97,7 @@ users.getProfile <- function(userId) {
 users.stop <- function(userId) {
     url <- sprintf("https://www.googleapis.com/gmail/v1/users/%s/stop", userId)
     # gmail.users.stop
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     f()
     
 }
@@ -97,11 +113,12 @@ users.stop <- function(userId) {
 #' Authentication scopes used by this function are:
 #' \itemize{
 #'   \item https://mail.google.com/
+#' \item https://www.googleapis.com/auth/gmail.metadata
 #' \item https://www.googleapis.com/auth/gmail.modify
 #' \item https://www.googleapis.com/auth/gmail.readonly
 #' }
 #' 
-#' Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
+#' Set \code{options(googleAuthR.scopes.selected = c(https://mail.google.com/, https://www.googleapis.com/auth/gmail.metadata, https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/gmail.readonly)}
 #' Then run \code{googleAuthR::gar_auth()} to authenticate.
 #' See \code{\link[googleAuthR]{gar_auth}} for details. 
 #' 
@@ -117,7 +134,8 @@ users.watch <- function(WatchRequest, userId) {
     
     url <- sprintf("https://www.googleapis.com/gmail/v1/users/%s/watch", userId)
     # gmail.users.watch
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     stopifnot(inherits(WatchRequest, "gar_WatchRequest"))
     

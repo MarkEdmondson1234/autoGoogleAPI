@@ -2,7 +2,7 @@
 % Please edit documentation in R/compute_functions.R
 \name{regionInstanceGroupManagers.get}
 \alias{regionInstanceGroupManagers.get}
-\title{Returns all of the details for the specified managed instance group.}
+\title{Returns all of the details about the specified managed instance group.}
 \usage{
 regionInstanceGroupManagers.get(project, region, instanceGroupManager)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
 }
-

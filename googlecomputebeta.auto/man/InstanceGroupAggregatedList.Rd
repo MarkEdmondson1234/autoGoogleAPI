@@ -31,4 +31,3 @@ No description
 \seealso{
 Other InstanceGroupAggregatedList functions: \code{\link{InstanceGroupAggregatedList.items}}
 }
-

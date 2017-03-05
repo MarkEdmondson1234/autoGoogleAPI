@@ -22,4 +22,3 @@ The request to add resources to the resource view.
 \seealso{
 Other ZoneViewsAddResourcesRequest functions: \code{\link{zoneViews.addresources}}
 }
-

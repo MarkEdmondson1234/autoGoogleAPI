@@ -2,7 +2,7 @@
 % Please edit documentation in R/monitoring_functions.R
 \name{projects.metricDescriptors.create}
 \alias{projects.metricDescriptors.create}
-\title{Creates a new metric descriptor. User-created metric descriptors define [custom metrics](/monitoring/custom-metrics).}
+\title{Creates a new metric descriptor. User-created metric descriptors define custom metrics.}
 \usage{
 projects.metricDescriptors.create(MetricDescriptor, name)
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other MetricDescriptor functions: \code{\link{MetricDescriptor}}
 }
-

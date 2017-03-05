@@ -23,4 +23,3 @@ Other Profile functions: \code{\link{Profile.childLink}},
   \code{\link{management.profiles.patch}},
   \code{\link{management.profiles.update}}
 }
-

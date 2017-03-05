@@ -8,7 +8,7 @@
 Manages the deployment of apps to Android for Work users.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 22:34:46
+ at 2017-03-05 19:25:50
 filename: /Users/mark/dev/R/autoGoogleAPI/googleandroidenterprisev1.auto/R/androidenterprise_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/androidenterprise
 }
 }
-

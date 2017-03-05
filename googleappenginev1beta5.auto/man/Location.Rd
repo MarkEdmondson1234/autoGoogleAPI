@@ -14,7 +14,7 @@ Location(Location.labels = NULL, Location.metadata = NULL, name = NULL,
 
 \item{name}{Resource name for the location, which may vary between implementations}
 
-\item{locationId}{The cononical id for this location}
+\item{locationId}{The canonical id for this location}
 
 \item{labels}{Cross-service attributes for the location}
 
@@ -34,4 +34,3 @@ A resource that represents Google Cloud Platform location.
 Other Location functions: \code{\link{Location.labels}},
   \code{\link{Location.metadata}}
 }
-

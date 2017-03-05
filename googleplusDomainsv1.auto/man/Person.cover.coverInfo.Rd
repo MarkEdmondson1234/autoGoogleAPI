@@ -29,4 +29,3 @@ Other Person functions: \code{\link{Person.cover.coverPhoto}},
   \code{\link{Person.placesLived}},
   \code{\link{Person.urls}}, \code{\link{Person}}
 }
-

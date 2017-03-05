@@ -27,4 +27,3 @@ No description
 \seealso{
 Other AddOrderDealsRequest functions: \code{\link{marketplacedeals.insert}}
 }
-

@@ -1,5 +1,5 @@
 # googleqpxExpressv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 QPX Express API R library
 
 Finds the least expensive flights between an origin and a destination.

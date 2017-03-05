@@ -34,4 +34,3 @@ Other CalendarResource functions: \code{\link{CalendarResource}},
   \code{\link{directory.resources.calendars.insert}},
   \code{\link{directory.resources.calendars.patch}}
 }
-

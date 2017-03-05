@@ -35,4 +35,3 @@ Other Creative functions: \code{\link{Creative.corrections}},
   \code{\link{Creative.nativeAd.logo}},
   \code{\link{Creative.nativeAd}}, \code{\link{Creative}}
 }
-

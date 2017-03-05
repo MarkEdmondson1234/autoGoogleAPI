@@ -38,4 +38,3 @@ Other Filter functions: \code{\link{Filter.advancedDetails}},
   \code{\link{management.filters.patch}},
   \code{\link{management.filters.update}}
 }
-

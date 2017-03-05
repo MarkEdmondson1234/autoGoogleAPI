@@ -36,4 +36,3 @@ No description
 \seealso{
 Other PagespeedApiImageV2 functions: \code{\link{PagespeedApiImageV2.page_rect}}
 }
-

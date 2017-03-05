@@ -54,4 +54,3 @@ Other AdUnit functions: \code{\link{AdUnit.contentAdsSettings.backupOption}},
   \code{\link{AdUnit.feedAdsSettings}},
   \code{\link{AdUnit.mobileContentAdsSettings}}
 }
-

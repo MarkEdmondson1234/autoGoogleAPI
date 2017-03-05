@@ -33,4 +33,3 @@ A Group resource.
 \seealso{
 Other Group functions: \code{\link{groups.insert}}
 }
-

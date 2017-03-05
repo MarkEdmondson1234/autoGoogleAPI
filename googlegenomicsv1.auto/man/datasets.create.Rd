@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{datasets.create}
 \alias{datasets.create}
-\title{Creates a new dataset. For the definitions of datasets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
+\title{Creates a new dataset.For the definitions of datasets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)}
 \usage{
 datasets.create(Dataset)
 }
@@ -25,9 +25,8 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other Dataset functions: \code{\link{Dataset}},
   \code{\link{datasets.patch}}
 }
-

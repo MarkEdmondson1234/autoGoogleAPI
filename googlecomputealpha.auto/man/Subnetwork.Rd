@@ -7,7 +7,7 @@
 Subnetwork(creationTimestamp = NULL, description = NULL,
   gatewayAddress = NULL, id = NULL, ipCidrRange = NULL, name = NULL,
   network = NULL, privateIpGoogleAccess = NULL, region = NULL,
-  selfLink = NULL)
+  secondaryIpRanges = NULL, selfLink = NULL)
 }
 \arguments{
 \item{creationTimestamp}{[Output Only] Creation timestamp in RFC3339 text format}
@@ -28,6 +28,8 @@ Subnetwork(creationTimestamp = NULL, description = NULL,
 
 \item{region}{URL of the region where the Subnetwork resides}
 
+\item{secondaryIpRanges}{An array of configurations for secondary IP ranges for VM instances contained in this subnetwork}
+
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 }
 \value{
@@ -43,4 +45,3 @@ A Subnetwork resource.
 \seealso{
 Other Subnetwork functions: \code{\link{subnetworks.insert}}
 }
-

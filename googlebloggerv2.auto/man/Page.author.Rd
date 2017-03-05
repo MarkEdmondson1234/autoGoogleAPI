@@ -32,4 +32,3 @@ The author of this Page.
 Other Page functions: \code{\link{Page.author.image}},
   \code{\link{Page.blog}}, \code{\link{Page}}
 }
-

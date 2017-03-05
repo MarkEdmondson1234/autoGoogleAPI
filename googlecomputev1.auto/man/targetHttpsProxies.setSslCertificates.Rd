@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other TargetHttpsProxiesSetSslCertificatesRequest functions: \code{\link{TargetHttpsProxiesSetSslCertificatesRequest}}
 }
-

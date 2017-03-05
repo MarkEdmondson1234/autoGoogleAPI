@@ -50,4 +50,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ListTimeseriesDescriptorsRequest functions: \code{\link{ListTimeseriesDescriptorsRequest}}
 }
-

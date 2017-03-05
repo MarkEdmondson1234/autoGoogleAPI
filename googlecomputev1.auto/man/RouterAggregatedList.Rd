@@ -31,4 +31,3 @@ Contains a list of routers.
 \seealso{
 Other RouterAggregatedList functions: \code{\link{RouterAggregatedList.items}}
 }
-

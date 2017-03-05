@@ -12,7 +12,7 @@ Account(adultContent = NULL, adwordsLinks = NULL, id = NULL,
 \arguments{
 \item{adultContent}{Indicates whether the merchant sells adult content}
 
-\item{adwordsLinks}{List of linked AdWords accounts, active or pending approval}
+\item{adwordsLinks}{List of linked AdWords accounts that are active or pending approval}
 
 \item{id}{Merchant Center account ID}
 
@@ -31,7 +31,7 @@ Account object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:04:24
+ at 2017-03-05 19:40:46
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecontentv2.auto/R/content_objects.R
 api_json: api_json
 }
@@ -48,4 +48,3 @@ Other Account functions: \code{\link{accounts.insert}},
   \code{\link{accounts.patch}},
   \code{\link{accounts.update}}
 }
-

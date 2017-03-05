@@ -4,14 +4,14 @@
 \alias{operations.list}
 \title{Lists operations that match the specified filter in the request.}
 \usage{
-operations.list(name, filter = NULL, pageSize = NULL, pageToken = NULL)
+operations.list(name, pageSize = NULL, filter = NULL, pageToken = NULL)
 }
 \arguments{
 \item{name}{The name of the operation collection}
 
-\item{filter}{A string for filtering Operations}
-
 \item{pageSize}{The maximum number of results to return}
+
+\item{filter}{A string for filtering Operations}
 
 \item{pageToken}{The standard list page token}
 }
@@ -30,6 +30,5 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 }
-

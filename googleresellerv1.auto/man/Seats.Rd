@@ -10,9 +10,9 @@ Seats(licensedNumberOfSeats = NULL, maximumNumberOfSeats = NULL,
 \arguments{
 \item{licensedNumberOfSeats}{Read-only field containing the current number of licensed seats for FLEXIBLE Google-Apps subscriptions and secondary subscriptions such as Google-Vault and Drive-storage}
 
-\item{maximumNumberOfSeats}{Maximum number of seats that can be purchased}
+\item{maximumNumberOfSeats}{The maximumNumberOfSeats property is the maximum number of licenses that the customer can purchase}
 
-\item{numberOfSeats}{Number of seats to purchase}
+\item{numberOfSeats}{The numberOfSeats property holds the customer's number of user licenses}
 }
 \value{
 Seats object
@@ -27,4 +27,3 @@ JSON template for subscription seats.
 \seealso{
 Other Seats functions: \code{\link{subscriptions.changeSeats}}
 }
-

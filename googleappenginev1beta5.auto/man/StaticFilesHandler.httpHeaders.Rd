@@ -19,4 +19,3 @@ HTTP headers to use for all responses from these URLs.
 \seealso{
 Other StaticFilesHandler functions: \code{\link{StaticFilesHandler}}
 }
-

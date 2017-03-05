@@ -31,4 +31,3 @@ Other About functions: \code{\link{About.exportFormats}},
   \code{\link{About.importFormats}},
   \code{\link{About.maxImportSizes}}, \code{\link{About}}
 }
-

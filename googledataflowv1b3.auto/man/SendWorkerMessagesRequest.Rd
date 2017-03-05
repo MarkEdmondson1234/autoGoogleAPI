@@ -22,4 +22,3 @@ A request for sending worker messages to the service.
 \seealso{
 Other SendWorkerMessagesRequest functions: \code{\link{projects.workerMessages}}
 }
-

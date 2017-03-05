@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.create}
 \alias{projects.subscriptions.create}
-\title{Creates a subscription to a given topic. If the subscription already exists, returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic.}
+\title{Creates a subscription to a given topic.If the subscription already exists, returns `ALREADY_EXISTS`.If the corresponding topic doesn't exist, returns `NOT_FOUND`.If the name is not provided in the request, the server will assign a randomname for this subscription on the same project as the topic, conformingto the[resource name format](https://cloud.google.com/pubsub/docs/overview#names).The generated name is populated in the returned Subscription object.Note that for REST API requests, you must specify a name in the request.}
 \usage{
 projects.subscriptions.create(Subscription, name)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other Subscription functions: \code{\link{Subscription}}
 }
-

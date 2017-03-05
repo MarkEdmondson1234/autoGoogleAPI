@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{orders.custombatch}
 \alias{orders.custombatch}
-\title{Retrieves or modifies multiple orders in a single request.}
+\title{Retrieves or modifies multiple orders in a single request. This method can only be called for non-multi-client accounts.}
 \usage{
 orders.custombatch(OrdersCustomBatchRequest)
 }
@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other OrdersCustomBatchRequest functions: \code{\link{OrdersCustomBatchRequest}}
 }
-

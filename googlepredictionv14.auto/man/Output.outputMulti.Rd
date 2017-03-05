@@ -19,4 +19,3 @@ No description
 \seealso{
 Other Output functions: \code{\link{Output}}
 }
-

@@ -40,4 +40,3 @@ Sessions contain metadata, such as a user-friendly name and time interval inform
 \seealso{
 Other Session functions: \code{\link{users.sessions.update}}
 }
-

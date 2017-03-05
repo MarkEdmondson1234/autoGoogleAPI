@@ -1,5 +1,5 @@
 # googletagmanagerv1.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Tag Manager API R library
 
 Accesses Tag Manager accounts and containers.

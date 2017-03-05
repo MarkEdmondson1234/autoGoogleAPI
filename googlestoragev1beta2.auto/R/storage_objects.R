@@ -2,7 +2,7 @@
 #' Lets you store and retrieve potentially-large, immutable data objects.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:48:41
+#'  at 2017-03-05 20:17:49
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragev1beta2.auto/R/storage_objects.R
 #' api_json: api_json
 #' 

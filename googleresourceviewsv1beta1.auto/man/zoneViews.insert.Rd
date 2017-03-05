@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other ResourceView functions: \code{\link{ResourceView}},
   \code{\link{regionViews.insert}}
 }
-

@@ -8,7 +8,7 @@
 Lets you create, inspect, and manage goo.gl short URLs}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-04 00:03:02
+ at 2017-03-05 20:21:27
 filename: /Users/mark/dev/R/autoGoogleAPI/googleurlshortenerv1.auto/R/urlshortener_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/urlshortener
 }
 }
-

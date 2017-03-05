@@ -54,4 +54,3 @@ No description
 \seealso{
 Other Pool functions: \code{\link{pools.insert}}
 }
-

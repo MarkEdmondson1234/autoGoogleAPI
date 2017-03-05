@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Input functions: \code{\link{Input.input}},
   \code{\link{Input}}, \code{\link{hostedmodels.predict}}
 }
-

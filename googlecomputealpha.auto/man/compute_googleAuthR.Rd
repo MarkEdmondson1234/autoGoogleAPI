@@ -8,7 +8,7 @@
 Creates and runs virtual machines on Google Cloud Platform.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:01:06
+ at 2017-03-05 19:35:57
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecomputealpha.auto/R/compute_functions.R
 api_json: api_json
 }
@@ -23,4 +23,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/devstorage.read_write
 }
 }
-

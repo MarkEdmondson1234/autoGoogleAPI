@@ -20,4 +20,3 @@ The source to read from, plus its parameters.
 Other Source functions: \code{\link{Source.codec}},
   \code{\link{Source}}
 }
-

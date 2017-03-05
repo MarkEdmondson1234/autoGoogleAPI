@@ -22,4 +22,3 @@ No description
 \seealso{
 Other DisksResizeRequest functions: \code{\link{disks.resize}}
 }
-

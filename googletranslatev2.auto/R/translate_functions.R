@@ -2,7 +2,7 @@
 #' Translates text from one language to another.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:50:08
+#'  at 2017-03-05 20:21:07
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googletranslatev2.auto/R/translate_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Detect the language of text.
 #' 
@@ -41,7 +54,9 @@ NULL
 language.detections.list <- function(q) {
     url <- "https://www.googleapis.com/language/translate/v2/detect"
     # language.detections.list
-    f <- gar_api_generator(url, "GET", pars_args = list(q = q), data_parse_function = function(x) x)
+    pars = list(q = q)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -68,7 +83,9 @@ language.detections.list <- function(q) {
 language.languages.list <- function(target = NULL) {
     url <- "https://www.googleapis.com/language/translate/v2/languages"
     # language.languages.list
-    f <- gar_api_generator(url, "GET", pars_args = list(target = target), data_parse_function = function(x) x)
+    pars = list(target = target)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -108,8 +125,10 @@ language.translations.list <- function(q, target, cid = NULL, format = NULL, sou
     
     url <- "https://www.googleapis.com/language/translate/v2"
     # language.translations.list
-    f <- gar_api_generator(url, "GET", pars_args = list(cid = cid, format = format, 
-        q = q, source = source, target = target), data_parse_function = function(x) x)
+    pars = list(q = q, target = target, cid = cid, format = format, source = source)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

@@ -2,7 +2,7 @@
 #' Accesses Tag Manager accounts and containers.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:48:57
+#'  at 2017-03-05 20:18:35
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googletagmanagerv1.auto/R/tagmanager_functions.R
 #' api_json: api_json
 #' 
@@ -24,6 +24,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Gets a GTM Account.
 #' 
@@ -49,7 +62,7 @@ NULL
 accounts.get <- function(accountId) {
     url <- sprintf("https://www.googleapis.com/tagmanager/v1/accounts/%s", accountId)
     # tagmanager.accounts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -77,7 +90,7 @@ accounts.get <- function(accountId) {
 accounts.list <- function() {
     url <- "https://www.googleapis.com/tagmanager/v1/accounts"
     # tagmanager.accounts.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -113,7 +126,9 @@ accounts.update <- function(Account, accountId, fingerprint = NULL) {
     
     url <- sprintf("https://www.googleapis.com/tagmanager/v1/accounts/%s", accountId)
     # tagmanager.accounts.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(fingerprint = fingerprint), 
+    pars = list(fingerprint = fingerprint)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     stopifnot(inherits(Account, "gar_Account"))

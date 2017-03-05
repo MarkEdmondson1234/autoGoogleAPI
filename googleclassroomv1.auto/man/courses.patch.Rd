@@ -33,4 +33,3 @@ Other Course functions: \code{\link{Course}},
   \code{\link{courses.create}},
   \code{\link{courses.update}}
 }
-

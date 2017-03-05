@@ -7,7 +7,7 @@
 SubmitJobRequest(job = NULL)
 }
 \arguments{
-\item{job}{[Required] The job resource}
+\item{job}{Required The job resource}
 }
 \value{
 SubmitJobRequest object
@@ -22,4 +22,3 @@ A job submission request.
 \seealso{
 Other SubmitJobRequest functions: \code{\link{projects.regions.jobs.submit}}
 }
-

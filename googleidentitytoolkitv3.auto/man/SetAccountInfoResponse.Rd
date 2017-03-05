@@ -5,9 +5,10 @@
 \title{SetAccountInfoResponse Object}
 \usage{
 SetAccountInfoResponse(SetAccountInfoResponse.providerUserInfo = NULL,
-  displayName = NULL, email = NULL, expiresIn = NULL, idToken = NULL,
-  localId = NULL, newEmail = NULL, passwordHash = NULL, photoUrl = NULL,
-  providerUserInfo = NULL, refreshToken = NULL)
+  displayName = NULL, email = NULL, emailVerified = NULL,
+  expiresIn = NULL, idToken = NULL, localId = NULL, newEmail = NULL,
+  passwordHash = NULL, photoUrl = NULL, providerUserInfo = NULL,
+  refreshToken = NULL)
 }
 \arguments{
 \item{SetAccountInfoResponse.providerUserInfo}{The \link{SetAccountInfoResponse.providerUserInfo} object or list of objects}
@@ -15,6 +16,8 @@ SetAccountInfoResponse(SetAccountInfoResponse.providerUserInfo = NULL,
 \item{displayName}{The name of the user}
 
 \item{email}{The email of the user}
+
+\item{emailVerified}{If email has been verified}
 
 \item{expiresIn}{If idToken is STS id token, then this field will be expiration time of STS id token in seconds}
 
@@ -45,4 +48,3 @@ Respone of setting the account information.
 \seealso{
 Other SetAccountInfoResponse functions: \code{\link{SetAccountInfoResponse.providerUserInfo}}
 }
-

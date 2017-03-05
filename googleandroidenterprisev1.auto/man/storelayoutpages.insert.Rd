@@ -31,4 +31,3 @@ Other StorePage functions: \code{\link{StorePage}},
   \code{\link{storelayoutpages.patch}},
   \code{\link{storelayoutpages.update}}
 }
-

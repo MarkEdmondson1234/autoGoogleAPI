@@ -24,7 +24,7 @@ LicenseAssignment object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:24:00
+ at 2017-03-05 20:00:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googlelicensingv1.auto/R/licensing_objects.R
 api_json: api_json
 }
@@ -40,4 +40,3 @@ Template for LiscenseAssignment Resource
 Other LicenseAssignment functions: \code{\link{licenseAssignments.patch}},
   \code{\link{licenseAssignments.update}}
 }
-

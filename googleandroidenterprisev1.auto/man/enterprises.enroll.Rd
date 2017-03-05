@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Enterprise functions: \code{\link{Enterprise}},
   \code{\link{enterprises.insert}}
 }
-

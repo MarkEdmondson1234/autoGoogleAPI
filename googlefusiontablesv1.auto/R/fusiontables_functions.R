@@ -2,7 +2,7 @@
 #' API for working with Fusion Tables data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:13:07
+#'  at 2017-03-05 19:51:13
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlefusiontablesv1.auto/R/fusiontables_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Deletes the column.
 #' 
@@ -42,9 +55,9 @@ NULL
 #' @export
 column.delete <- function(tableId, columnId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/columns/%s", 
-        columnId, tableId)
+        tableId, columnId)
     # fusiontables.column.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -72,9 +85,9 @@ column.delete <- function(tableId, columnId) {
 #' @export
 column.get <- function(tableId, columnId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/columns/%s", 
-        columnId, tableId)
+        tableId, columnId)
     # fusiontables.column.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -104,7 +117,7 @@ column.insert <- function(Column, tableId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/columns", 
         tableId)
     # fusiontables.column.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Column, "gar_Column"))
     
     f(the_body = Column)
@@ -137,8 +150,9 @@ column.list <- function(tableId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/columns", 
         tableId)
     # fusiontables.column.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -167,9 +181,9 @@ column.list <- function(tableId, maxResults = NULL, pageToken = NULL) {
 #' @export
 column.patch <- function(Column, tableId, columnId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/columns/%s", 
-        columnId, tableId)
+        tableId, columnId)
     # fusiontables.column.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Column, "gar_Column"))
     
     f(the_body = Column)
@@ -200,9 +214,9 @@ column.patch <- function(Column, tableId, columnId) {
 #' @export
 column.update <- function(Column, tableId, columnId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/columns/%s", 
-        columnId, tableId)
+        tableId, columnId)
     # fusiontables.column.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Column, "gar_Column"))
     
     f(the_body = Column)
@@ -234,8 +248,9 @@ column.update <- function(Column, tableId, columnId) {
 query.sql <- function(sql, hdrs = NULL, typed = NULL) {
     url <- "https://www.googleapis.com/fusiontables/v1/query"
     # fusiontables.query.sql
-    f <- gar_api_generator(url, "POST", pars_args = list(hdrs = hdrs, sql = sql, 
-        typed = typed), data_parse_function = function(x) x)
+    pars = list(sql = sql, hdrs = hdrs, typed = typed)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -265,7 +280,8 @@ query.sql <- function(sql, hdrs = NULL, typed = NULL) {
 query.sqlGet <- function(sql, hdrs = NULL, typed = NULL) {
     url <- "https://www.googleapis.com/fusiontables/v1/query"
     # fusiontables.query.sqlGet
-    f <- gar_api_generator(url, "GET", pars_args = list(hdrs = hdrs, sql = sql, typed = typed), 
+    pars = list(sql = sql, hdrs = hdrs, typed = typed)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -293,9 +309,9 @@ query.sqlGet <- function(sql, hdrs = NULL, typed = NULL) {
 #' @export
 style.delete <- function(tableId, styleId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/styles/%s", 
-        styleId, tableId)
+        tableId, styleId)
     # fusiontables.style.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -323,9 +339,9 @@ style.delete <- function(tableId, styleId) {
 #' @export
 style.get <- function(tableId, styleId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/styles/%s", 
-        styleId, tableId)
+        tableId, styleId)
     # fusiontables.style.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -355,7 +371,7 @@ style.insert <- function(StyleSetting, tableId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/styles", 
         tableId)
     # fusiontables.style.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(StyleSetting, "gar_StyleSetting"))
     
     f(the_body = StyleSetting)
@@ -388,8 +404,9 @@ style.list <- function(tableId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/styles", 
         tableId)
     # fusiontables.style.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -418,9 +435,9 @@ style.list <- function(tableId, maxResults = NULL, pageToken = NULL) {
 #' @export
 style.patch <- function(StyleSetting, tableId, styleId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/styles/%s", 
-        styleId, tableId)
+        tableId, styleId)
     # fusiontables.style.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(StyleSetting, "gar_StyleSetting"))
     
     f(the_body = StyleSetting)
@@ -451,9 +468,9 @@ style.patch <- function(StyleSetting, tableId, styleId) {
 #' @export
 style.update <- function(StyleSetting, tableId, styleId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/styles/%s", 
-        styleId, tableId)
+        tableId, styleId)
     # fusiontables.style.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(StyleSetting, "gar_StyleSetting"))
     
     f(the_body = StyleSetting)
@@ -484,7 +501,8 @@ style.update <- function(StyleSetting, tableId, styleId) {
 table.copy <- function(tableId, copyPresentation = NULL) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/copy", tableId)
     # fusiontables.table.copy
-    f <- gar_api_generator(url, "POST", pars_args = list(copyPresentation = copyPresentation), 
+    pars = list(copyPresentation = copyPresentation)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -512,7 +530,7 @@ table.copy <- function(tableId, copyPresentation = NULL) {
 table.delete <- function(tableId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s", tableId)
     # fusiontables.table.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -540,7 +558,7 @@ table.delete <- function(tableId) {
 table.get <- function(tableId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s", tableId)
     # fusiontables.table.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -574,8 +592,10 @@ table.importRows <- function(tableId, delimiter = NULL, encoding = NULL, endLine
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/import", 
         tableId)
     # fusiontables.table.importRows
-    f <- gar_api_generator(url, "POST", pars_args = list(delimiter = delimiter, encoding = encoding, 
-        endLine = endLine, isStrict = isStrict, startLine = startLine), data_parse_function = function(x) x)
+    pars = list(delimiter = delimiter, encoding = encoding, endLine = endLine, isStrict = isStrict, 
+        startLine = startLine)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -604,8 +624,9 @@ table.importRows <- function(tableId, delimiter = NULL, encoding = NULL, endLine
 table.importTable <- function(name, delimiter = NULL, encoding = NULL) {
     url <- "https://www.googleapis.com/fusiontables/v1/tables/import"
     # fusiontables.table.importTable
-    f <- gar_api_generator(url, "POST", pars_args = list(delimiter = delimiter, encoding = encoding, 
-        name = name), data_parse_function = function(x) x)
+    pars = list(name = name, delimiter = delimiter, encoding = encoding)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -633,7 +654,7 @@ table.importTable <- function(name, delimiter = NULL, encoding = NULL) {
 table.insert <- function(Table) {
     url <- "https://www.googleapis.com/fusiontables/v1/tables"
     # fusiontables.table.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Table, "gar_Table"))
     
     f(the_body = Table)
@@ -664,8 +685,9 @@ table.insert <- function(Table) {
 table.list <- function(maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/fusiontables/v1/tables"
     # fusiontables.table.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -695,7 +717,8 @@ table.list <- function(maxResults = NULL, pageToken = NULL) {
 table.patch <- function(Table, tableId, replaceViewDefinition = NULL) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s", tableId)
     # fusiontables.table.patch
-    f <- gar_api_generator(url, "PATCH", pars_args = list(replaceViewDefinition = replaceViewDefinition), 
+    pars = list(replaceViewDefinition = replaceViewDefinition)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Table, "gar_Table"))
     
@@ -728,7 +751,8 @@ table.patch <- function(Table, tableId, replaceViewDefinition = NULL) {
 table.update <- function(Table, tableId, replaceViewDefinition = NULL) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s", tableId)
     # fusiontables.table.update
-    f <- gar_api_generator(url, "PUT", pars_args = list(replaceViewDefinition = replaceViewDefinition), 
+    pars = list(replaceViewDefinition = replaceViewDefinition)
+    f <- googleAuthR::gar_api_generator(url, "PUT", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     stopifnot(inherits(Table, "gar_Table"))
     
@@ -760,7 +784,7 @@ task.delete <- function(tableId, taskId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/tasks/%s", 
         tableId, taskId)
     # fusiontables.task.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -790,7 +814,7 @@ task.get <- function(tableId, taskId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/tasks/%s", 
         tableId, taskId)
     # fusiontables.task.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -822,8 +846,9 @@ task.list <- function(tableId, maxResults = NULL, pageToken = NULL, startIndex =
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/tasks", 
         tableId)
     # fusiontables.task.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken, startIndex = startIndex), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken, startIndex = startIndex)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -852,7 +877,7 @@ template.delete <- function(tableId, templateId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/templates/%s", 
         tableId, templateId)
     # fusiontables.template.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -882,7 +907,7 @@ template.get <- function(tableId, templateId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/templates/%s", 
         tableId, templateId)
     # fusiontables.template.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -912,7 +937,7 @@ template.insert <- function(Template, tableId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/templates", 
         tableId)
     # fusiontables.template.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Template, "gar_Template"))
     
     f(the_body = Template)
@@ -945,8 +970,9 @@ template.list <- function(tableId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/templates", 
         tableId)
     # fusiontables.template.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -977,7 +1003,7 @@ template.patch <- function(Template, tableId, templateId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/templates/%s", 
         tableId, templateId)
     # fusiontables.template.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Template, "gar_Template"))
     
     f(the_body = Template)
@@ -1016,7 +1042,8 @@ template.update <- function(Template, tableId, templateId) {
     url <- sprintf("https://www.googleapis.com/fusiontables/v1/tables/%s/templates/%s", 
         tableId, templateId)
     # fusiontables.template.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(Template, "gar_Template"))
     

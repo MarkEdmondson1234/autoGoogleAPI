@@ -32,4 +32,3 @@ No description
 Other GroupItem functions: \code{\link{GroupItem.resource}},
   \code{\link{groupItems.insert}}
 }
-

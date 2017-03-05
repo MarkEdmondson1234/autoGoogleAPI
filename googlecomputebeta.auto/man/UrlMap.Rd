@@ -43,4 +43,3 @@ A UrlMap resource. This resource defines the mapping from URL to the BackendServ
 Other UrlMap functions: \code{\link{urlMaps.insert}},
   \code{\link{urlMaps.patch}}, \code{\link{urlMaps.update}}
 }
-

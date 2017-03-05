@@ -32,7 +32,7 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \href{https://developers.google.com/compute/docs/reference/latest/}{Google Documentation}
 
 Other Policy functions: \code{\link{Policy}},
+  \code{\link{hosts.setIamPolicy}},
   \code{\link{instances.setIamPolicy}},
   \code{\link{subnetworks.setIamPolicy}}
 }
-

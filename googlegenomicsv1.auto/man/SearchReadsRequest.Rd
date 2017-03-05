@@ -4,18 +4,18 @@
 \alias{SearchReadsRequest}
 \title{SearchReadsRequest Object}
 \usage{
-SearchReadsRequest(readGroupSetIds = NULL, readGroupIds = NULL,
-  referenceName = NULL, start = NULL, end = NULL, pageToken = NULL,
-  pageSize = NULL)
+SearchReadsRequest(start = NULL, referenceName = NULL,
+  readGroupSetIds = NULL, readGroupIds = NULL, end = NULL,
+  pageToken = NULL, pageSize = NULL)
 }
 \arguments{
-\item{readGroupSetIds}{The IDs of the read groups sets within which to search for reads}
-
-\item{readGroupIds}{The IDs of the read groups within which to search for reads}
+\item{start}{The start position of the range on the reference, 0-based inclusive}
 
 \item{referenceName}{The reference sequence name, for example `chr1`, `1`, or `chrX`}
 
-\item{start}{The start position of the range on the reference, 0-based inclusive}
+\item{readGroupSetIds}{The IDs of the read groups sets within which to search for reads}
+
+\item{readGroupIds}{The IDs of the read groups within which to search for reads}
 
 \item{end}{The end position of the range on the reference, 0-based exclusive}
 
@@ -36,4 +36,3 @@ The read search request.
 \seealso{
 Other SearchReadsRequest functions: \code{\link{reads.search}}
 }
-

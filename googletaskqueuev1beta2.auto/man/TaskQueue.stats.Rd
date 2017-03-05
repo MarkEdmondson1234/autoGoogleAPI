@@ -30,4 +30,3 @@ Statistics for the TaskQueue object in question.
 Other TaskQueue functions: \code{\link{TaskQueue.acl}},
   \code{\link{TaskQueue}}
 }
-

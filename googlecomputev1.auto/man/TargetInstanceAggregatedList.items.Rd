@@ -19,4 +19,3 @@ A map of scoped target instance lists.
 \seealso{
 Other TargetInstanceAggregatedList functions: \code{\link{TargetInstanceAggregatedList}}
 }
-

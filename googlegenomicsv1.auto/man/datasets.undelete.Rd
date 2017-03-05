@@ -2,7 +2,7 @@
 % Please edit documentation in R/genomics_functions.R
 \name{datasets.undelete}
 \alias{datasets.undelete}
-\title{Undeletes a dataset by restoring a dataset which was deleted via this API. For the definitions of datasets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics) This operation is only possible for a week after the deletion occurred.}
+\title{Undeletes a dataset by restoring a dataset which was deleted via this API.For the definitions of datasets and other genomics resources, see[Fundamentals of GoogleGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)This operation is only possible for a week after the deletion occurred.}
 \usage{
 datasets.undelete(UndeleteDatasetRequest, datasetId)
 }
@@ -26,8 +26,7 @@ Then run \code{googleAuthR::gar_auth()} to authenticate.
 See \code{\link[googleAuthR]{gar_auth}} for details.
 }
 \seealso{
-\href{https://cloud.google.com/genomics/}{Google Documentation}
+\href{https://cloud.google.com/genomics}{Google Documentation}
 
 Other UndeleteDatasetRequest functions: \code{\link{UndeleteDatasetRequest}}
 }
-

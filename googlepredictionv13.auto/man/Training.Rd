@@ -43,4 +43,3 @@ Other Training functions: \code{\link{Training.modelInfo.confusionMatrixRowTotal
   \code{\link{Training.modelInfo}},
   \code{\link{training.insert}}
 }
-

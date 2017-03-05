@@ -1,8 +1,8 @@
 #' Google Compute Engine Instance Group Updater API Objects 
-#' Updates groups of Compute Engine instances.
+#' [Deprecated. Please use compute.instanceGroupManagers.update method. replicapoolupdater API will be disabled after December 30th, 2016] Updates groups of Compute Engine instances.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:27:41
+#'  at 2017-03-05 20:09:30
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlereplicapoolupdaterv1beta1.auto/R/replicapoolupdater_objects.R
 #' api_json: api_json
 #' 

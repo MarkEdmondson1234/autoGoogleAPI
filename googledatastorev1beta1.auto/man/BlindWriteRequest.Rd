@@ -22,4 +22,3 @@ No description
 \seealso{
 Other BlindWriteRequest functions: \code{\link{datasets.blindWrite}}
 }
-

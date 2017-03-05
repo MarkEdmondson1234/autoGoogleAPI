@@ -25,4 +25,3 @@ Request for beacon and attachment information about beacons that a mobile client
 \seealso{
 Other GetInfoForObservedBeaconsRequest functions: \code{\link{beaconinfo.getforobserved}}
 }
-

@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/compute/docs/instance-groups/manager/#applying_rolling_updates_using_the_updater_service}{Google Documentation}
 }
-

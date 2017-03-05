@@ -8,7 +8,7 @@
 Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each API.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:10:31
+ at 2017-03-05 19:47:34
 filename: /Users/mark/dev/R/autoGoogleAPI/googlediscoveryv1.auto/R/discovery_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item 
 }
 }
-

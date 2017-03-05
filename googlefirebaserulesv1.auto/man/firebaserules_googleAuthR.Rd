@@ -8,7 +8,7 @@
 Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:12:32
+ at 2017-03-05 19:50:31
 filename: /Users/mark/dev/R/autoGoogleAPI/googlefirebaserulesv1.auto/R/firebaserules_functions.R
 api_json: api_json
 }
@@ -20,4 +20,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/firebase.readonly
 }
 }
-

@@ -8,7 +8,7 @@
 Manipulates events and other calendar data.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-04 00:00:52
+ at 2017-03-05 19:30:35
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecalendarv3.auto/R/calendar_functions.R
 api_json: api_json
 }
@@ -19,4 +19,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/calendar.readonly
 }
 }
-

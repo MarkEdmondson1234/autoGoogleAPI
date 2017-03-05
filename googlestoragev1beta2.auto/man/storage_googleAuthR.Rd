@@ -8,7 +8,7 @@
 Lets you store and retrieve potentially-large, immutable data objects.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:48:40
+ at 2017-03-05 20:17:48
 filename: /Users/mark/dev/R/autoGoogleAPI/googlestoragev1beta2.auto/R/storage_functions.R
 api_json: api_json
 }
@@ -20,4 +20,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/devstorage.read_write
 }
 }
-

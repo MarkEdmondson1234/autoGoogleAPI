@@ -2,7 +2,7 @@
 #' The Resource View API allows users to create and manage logical sets of Google Compute Engine instances.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:28:11
+#'  at 2017-03-05 20:10:14
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleresourceviewsv1beta1.auto/R/resourceviews_objects.R
 #' api_json: api_json
 #' 

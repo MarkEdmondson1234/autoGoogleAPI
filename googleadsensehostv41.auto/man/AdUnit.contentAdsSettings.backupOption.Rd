@@ -29,4 +29,3 @@ Other AdUnit functions: \code{\link{AdUnit.contentAdsSettings}},
   \code{\link{AdUnit.mobileContentAdsSettings}},
   \code{\link{AdUnit}}
 }
-

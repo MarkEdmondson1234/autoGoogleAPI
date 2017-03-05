@@ -20,4 +20,3 @@ Request message for `GetIamPolicy` method.
 Other GetIamPolicyRequest functions: \code{\link{organizations.getIamPolicy}},
   \code{\link{projects.getIamPolicy}}
 }
-

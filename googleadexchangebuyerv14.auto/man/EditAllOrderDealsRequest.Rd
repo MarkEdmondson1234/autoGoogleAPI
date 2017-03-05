@@ -29,4 +29,3 @@ No description
 \seealso{
 Other EditAllOrderDealsRequest functions: \code{\link{marketplacedeals.update}}
 }
-

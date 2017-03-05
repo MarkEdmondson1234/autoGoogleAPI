@@ -27,4 +27,3 @@ Contains a single result table. The table is returned as an array of rows that c
 \seealso{
 Other ResultTable functions: \code{\link{ResultTable.columnHeaders}}
 }
-

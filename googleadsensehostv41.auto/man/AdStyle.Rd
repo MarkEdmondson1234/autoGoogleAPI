@@ -14,7 +14,7 @@ AdStyle(AdStyle.colors = NULL, AdStyle.font = NULL, colors = NULL,
 
 \item{colors}{The colors included in the style}
 
-\item{corners}{The style of the corners in the ad}
+\item{corners}{The style of the corners in the ad (deprecated: never populated, ignored)}
 
 \item{font}{The font which is included in the style}
 }
@@ -32,4 +32,3 @@ No description
 Other AdStyle functions: \code{\link{AdStyle.colors}},
   \code{\link{AdStyle.font}}
 }
-

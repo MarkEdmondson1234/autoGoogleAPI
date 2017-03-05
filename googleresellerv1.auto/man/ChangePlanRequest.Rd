@@ -8,13 +8,13 @@ ChangePlanRequest(dealCode = NULL, planName = NULL,
   purchaseOrderId = NULL, seats = NULL)
 }
 \arguments{
-\item{dealCode}{External name of the deal code applicable for the subscription}
+\item{dealCode}{Google-issued code (100 char max) for discounted pricing on subscription plans}
 
-\item{planName}{Name of the plan to change to}
+\item{planName}{The planName property is required}
 
-\item{purchaseOrderId}{Purchase order id for your order tracking purposes}
+\item{purchaseOrderId}{This is an optional property}
 
-\item{seats}{Number/Limit of seats in the new plan}
+\item{seats}{This is a required property}
 }
 \value{
 ChangePlanRequest object
@@ -29,4 +29,3 @@ JSON template for the ChangePlan rpc request.
 \seealso{
 Other ChangePlanRequest functions: \code{\link{subscriptions.changePlan}}
 }
-

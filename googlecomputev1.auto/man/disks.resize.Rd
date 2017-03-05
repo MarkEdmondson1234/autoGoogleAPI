@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other DisksResizeRequest functions: \code{\link{DisksResizeRequest}}
 }
-

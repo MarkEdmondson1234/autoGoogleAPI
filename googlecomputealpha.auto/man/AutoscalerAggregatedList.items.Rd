@@ -19,4 +19,3 @@ A map of scoped autoscaler lists.
 \seealso{
 Other AutoscalerAggregatedList functions: \code{\link{AutoscalerAggregatedList}}
 }
-

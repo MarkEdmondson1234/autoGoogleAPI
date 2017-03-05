@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{accountshipping.patch}
 \alias{accountshipping.patch}
-\title{Updates the shipping settings of the account. This method supports patch semantics.}
+\title{Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.}
 \usage{
 accountshipping.patch(AccountShipping, merchantId, accountId, dryRun = NULL)
 }
@@ -34,4 +34,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other AccountShipping functions: \code{\link{AccountShipping}},
   \code{\link{accountshipping.update}}
 }
-

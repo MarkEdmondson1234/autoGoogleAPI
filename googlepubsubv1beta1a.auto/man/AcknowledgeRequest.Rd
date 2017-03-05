@@ -24,4 +24,3 @@ Request for the Acknowledge method.
 \seealso{
 Other AcknowledgeRequest functions: \code{\link{subscriptions.acknowledge}}
 }
-

@@ -2,7 +2,7 @@
 #' Stores and queries data in Google Cloud Datastore.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:05:36
+#'  at 2017-03-05 19:44:12
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googledatastorev1beta2.auto/R/datastore_objects.R
 #' api_json: api_json
 #' 

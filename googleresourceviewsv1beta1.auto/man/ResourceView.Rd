@@ -41,4 +41,3 @@ The resource view object.
 Other ResourceView functions: \code{\link{regionViews.insert}},
   \code{\link{zoneViews.insert}}
 }
-

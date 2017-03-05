@@ -2,7 +2,7 @@
 #' Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each API.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:10:31
+#'  at 2017-03-05 19:47:34
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlediscoveryv1.auto/R/discovery_functions.R
 #' api_json: api_json
 #' 
@@ -18,6 +18,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Retrieve the description of a particular version of an api.
 #' 
@@ -43,7 +56,7 @@ apis.getRest <- function(api, version) {
     url <- sprintf("https://www.googleapis.com/discovery/v1/apis/%s/%s/rest", api, 
         version)
     # discovery.apis.getRest
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -77,7 +90,9 @@ apis.list <- function(name = NULL, preferred = NULL) {
     
     url <- "https://www.googleapis.com/discovery/v1/apis"
     # discovery.apis.list
-    f <- gar_api_generator(url, "GET", pars_args = list(name = name, preferred = preferred), 
+    pars = list(name = name, preferred = preferred)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     
     f()

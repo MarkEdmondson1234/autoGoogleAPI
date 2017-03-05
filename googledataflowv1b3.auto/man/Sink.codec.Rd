@@ -20,4 +20,3 @@ The codec to use to encode data written to the sink.
 Other Sink functions: \code{\link{Sink.spec}},
   \code{\link{Sink}}
 }
-

@@ -37,4 +37,3 @@ Other Autoscaler functions: \code{\link{Autoscaler}},
   \code{\link{regionAutoscalers.patch}},
   \code{\link{regionAutoscalers.update}}
 }
-

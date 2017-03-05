@@ -37,4 +37,3 @@ Other Router functions: \code{\link{Router}},
   \code{\link{routers.insert}},
   \code{\link{routers.patch}}, \code{\link{routers.update}}
 }
-

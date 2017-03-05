@@ -1,5 +1,5 @@
 # googlesqladminv1beta3.auto
-![](http://www.google.com/images/icons/product/search-32.gif)
+![](https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png)
 Cloud SQL Administration API R library
 
 Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.

@@ -6,7 +6,8 @@
 \usage{
 Network(IPv4Range = NULL, autoCreateSubnetworks = NULL,
   creationTimestamp = NULL, description = NULL, gatewayIPv4 = NULL,
-  id = NULL, name = NULL, selfLink = NULL, subnetworks = NULL)
+  id = NULL, name = NULL, peerings = NULL, selfLink = NULL,
+  subnetworks = NULL)
 }
 \arguments{
 \item{IPv4Range}{The range of internal addresses that are legal on this network}
@@ -22,6 +23,8 @@ Network(IPv4Range = NULL, autoCreateSubnetworks = NULL,
 \item{id}{[Output Only] The unique identifier for the resource}
 
 \item{name}{Name of the resource}
+
+\item{peerings}{[Output Only] List of network peerings for the resource}
 
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 
@@ -40,4 +43,3 @@ Represents a Network resource. Read Networks and Firewalls for more information.
 \seealso{
 Other Network functions: \code{\link{networks.insert}}
 }
-

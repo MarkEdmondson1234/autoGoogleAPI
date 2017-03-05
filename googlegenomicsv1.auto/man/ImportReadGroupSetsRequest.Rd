@@ -4,17 +4,17 @@
 \alias{ImportReadGroupSetsRequest}
 \title{ImportReadGroupSetsRequest Object}
 \usage{
-ImportReadGroupSetsRequest(datasetId = NULL, referenceSetId = NULL,
-  sourceUris = NULL, partitionStrategy = NULL)
+ImportReadGroupSetsRequest(partitionStrategy = NULL, datasetId = NULL,
+  sourceUris = NULL, referenceSetId = NULL)
 }
 \arguments{
+\item{partitionStrategy}{The partition strategy describes how read groups are partitioned into read}
+
 \item{datasetId}{Required}
 
-\item{referenceSetId}{The reference set to which the imported read group sets are aligned to, if any}
+\item{sourceUris}{A list of URIs pointing at [BAM}
 
-\item{sourceUris}{A list of URIs pointing at [BAM files](https://samtools}
-
-\item{partitionStrategy}{The partition strategy describes how read groups are partitioned into read group sets}
+\item{referenceSetId}{The reference set to which the imported read group sets are aligned to, if}
 }
 \value{
 ImportReadGroupSetsRequest object
@@ -29,4 +29,3 @@ The read group set import request.
 \seealso{
 Other ImportReadGroupSetsRequest functions: \code{\link{readgroupsets.import}}
 }
-

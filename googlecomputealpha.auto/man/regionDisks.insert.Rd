@@ -4,7 +4,8 @@
 \alias{regionDisks.insert}
 \title{Creates a persistent regional disk in the specified project using the data included in the request.}
 \usage{
-regionDisks.insert(Disk, project, region, sourceImage = NULL)
+regionDisks.insert(Disk, project, region, requestId = NULL,
+  sourceImage = NULL)
 }
 \arguments{
 \item{Disk}{The \link{Disk} object to pass to this method}
@@ -12,6 +13,8 @@ regionDisks.insert(Disk, project, region, sourceImage = NULL)
 \item{project}{Project ID for this request}
 
 \item{region}{Name of the region for this request}
+
+\item{requestId}{begin_interface: MixerMutationRequestBuilder Request ID to support idempotency}
 
 \item{sourceImage}{Optional}
 }
@@ -35,4 +38,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Disk functions: \code{\link{Disk.labels}},
   \code{\link{Disk}}, \code{\link{disks.insert}}
 }
-

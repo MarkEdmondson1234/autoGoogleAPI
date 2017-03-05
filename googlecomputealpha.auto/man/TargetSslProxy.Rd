@@ -40,4 +40,3 @@ A TargetSslProxy resource. This resource defines an SSL proxy.
 \seealso{
 Other TargetSslProxy functions: \code{\link{targetSslProxies.insert}}
 }
-

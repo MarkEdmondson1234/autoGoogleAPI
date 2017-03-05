@@ -24,4 +24,3 @@ Other TargetReference functions: \code{\link{forwardingRules.setTarget}},
   \code{\link{globalForwardingRules.setTarget}},
   \code{\link{targetPools.setBackup}}
 }
-

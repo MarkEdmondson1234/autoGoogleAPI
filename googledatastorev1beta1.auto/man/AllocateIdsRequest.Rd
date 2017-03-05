@@ -15,7 +15,7 @@ AllocateIdsRequest object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:05:20
+ at 2017-03-05 19:43:49
 filename: /Users/mark/dev/R/autoGoogleAPI/googledatastorev1beta1.auto/R/datastore_objects.R
 api_json: api_json
 }
@@ -30,4 +30,3 @@ No description
 \seealso{
 Other AllocateIdsRequest functions: \code{\link{datasets.allocateIds}}
 }
-

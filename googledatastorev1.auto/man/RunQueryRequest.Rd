@@ -29,4 +29,3 @@ The request for Datastore.RunQuery.
 \seealso{
 Other RunQueryRequest functions: \code{\link{projects.runQuery}}
 }
-

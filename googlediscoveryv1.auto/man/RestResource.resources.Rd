@@ -20,4 +20,3 @@ Sub-resources on this resource.
 Other RestResource functions: \code{\link{RestResource.methods}},
   \code{\link{RestResource}}
 }
-

@@ -8,24 +8,23 @@
 Executes Google Apps Script projects.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:22:54
+ at 2017-03-05 20:11:39
 filename: /Users/mark/dev/R/autoGoogleAPI/googlescriptv1.auto/R/script_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://mail.google.com/
-\item https://www.google.com/calendar/feeds
-\item https://www.google.com/m8/feeds
+  \item https://www.googleapis.com/auth/admin.directory.user
 \item https://www.googleapis.com/auth/admin.directory.group
-\item https://www.googleapis.com/auth/admin.directory.user
-\item https://www.googleapis.com/auth/drive
-\item https://www.googleapis.com/auth/forms
-\item https://www.googleapis.com/auth/forms.currentonly
-\item https://www.googleapis.com/auth/groups
 \item https://www.googleapis.com/auth/spreadsheets
+\item https://mail.google.com/
+\item https://www.googleapis.com/auth/forms
+\item https://www.google.com/m8/feeds
 \item https://www.googleapis.com/auth/userinfo.email
+\item https://www.google.com/calendar/feeds
+\item https://www.googleapis.com/auth/groups
+\item https://www.googleapis.com/auth/forms.currentonly
+\item https://www.googleapis.com/auth/drive
 }
 }
-

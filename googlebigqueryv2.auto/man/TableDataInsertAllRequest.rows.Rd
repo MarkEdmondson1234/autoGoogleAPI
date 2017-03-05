@@ -20,4 +20,3 @@ No description
 Other TableDataInsertAllRequest functions: \code{\link{TableDataInsertAllRequest}},
   \code{\link{tabledata.insertAll}}
 }
-

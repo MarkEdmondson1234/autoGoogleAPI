@@ -5,19 +5,21 @@
 \title{DatabaseInstance Object}
 \usage{
 DatabaseInstance(DatabaseInstance.failoverReplica = NULL,
-  backendType = NULL, currentDiskSize = NULL, databaseVersion = NULL,
-  etag = NULL, failoverReplica = NULL, instanceType = NULL,
-  ipAddresses = NULL, ipv6Address = NULL, masterInstanceName = NULL,
-  maxDiskSize = NULL, name = NULL, onPremisesConfiguration = NULL,
-  project = NULL, region = NULL, replicaConfiguration = NULL,
-  replicaNames = NULL, selfLink = NULL, serverCaCert = NULL,
-  serviceAccountEmailAddress = NULL, settings = NULL, state = NULL,
-  suspensionReason = NULL)
+  backendType = NULL, connectionName = NULL, currentDiskSize = NULL,
+  databaseVersion = NULL, etag = NULL, failoverReplica = NULL,
+  instanceType = NULL, ipAddresses = NULL, ipv6Address = NULL,
+  masterInstanceName = NULL, maxDiskSize = NULL, name = NULL,
+  onPremisesConfiguration = NULL, project = NULL, region = NULL,
+  replicaConfiguration = NULL, replicaNames = NULL, selfLink = NULL,
+  serverCaCert = NULL, serviceAccountEmailAddress = NULL, settings = NULL,
+  state = NULL, suspensionReason = NULL)
 }
 \arguments{
 \item{DatabaseInstance.failoverReplica}{The \link{DatabaseInstance.failoverReplica} object or list of objects}
 
 \item{backendType}{FIRST_GEN: Basic Cloud SQL instance that runs in a Google-managed container}
+
+\item{connectionName}{Connection name of the Cloud SQL instance used in connection strings}
 
 \item{currentDiskSize}{The current disk usage of the instance in bytes}
 
@@ -77,4 +79,3 @@ Other DatabaseInstance functions: \code{\link{DatabaseInstance.failoverReplica}}
   \code{\link{sql.instances.patch}},
   \code{\link{sql.instances.update}}
 }
-

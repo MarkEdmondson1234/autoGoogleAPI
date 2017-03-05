@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other StyleSetting functions: \code{\link{StyleSetting}},
   \code{\link{style.patch}}, \code{\link{style.update}}
 }
-

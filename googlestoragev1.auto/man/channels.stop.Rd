@@ -33,4 +33,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other Channel functions: \code{\link{Channel.params}},
   \code{\link{Channel}}, \code{\link{objects.watchAll}}
 }
-

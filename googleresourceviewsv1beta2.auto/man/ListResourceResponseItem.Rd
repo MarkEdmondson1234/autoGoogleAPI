@@ -27,4 +27,3 @@ The list response item that contains the resource and end points information.
 \seealso{
 Other ListResourceResponseItem functions: \code{\link{ListResourceResponseItem.endpoints}}
 }
-

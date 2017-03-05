@@ -20,4 +20,3 @@ No description
 Other Route functions: \code{\link{Route.warnings}},
   \code{\link{Route}}, \code{\link{routes.insert}}
 }
-

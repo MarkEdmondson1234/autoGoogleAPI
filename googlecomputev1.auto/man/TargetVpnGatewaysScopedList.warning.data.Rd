@@ -20,4 +20,3 @@ No description
 Other TargetVpnGatewaysScopedList functions: \code{\link{TargetVpnGatewaysScopedList.warning}},
   \code{\link{TargetVpnGatewaysScopedList}}
 }
-

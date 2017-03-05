@@ -4,12 +4,15 @@
 \alias{ServiceAccountKey}
 \title{ServiceAccountKey Object}
 \usage{
-ServiceAccountKey(data = NULL, id = NULL, type = NULL)
+ServiceAccountKey(data = NULL, id = NULL, publicData = NULL,
+  type = NULL)
 }
 \arguments{
 \item{data}{The body of the private key credentials file, in string format}
 
 \item{id}{An opaque, unique identifier for this ServiceAccountKey}
+
+\item{publicData}{Public key data for the credentials file}
 
 \item{type}{The file format of the generated key data}
 }
@@ -26,4 +29,3 @@ Credentials that can be used to authenticate as a service account.
 \seealso{
 Other ServiceAccountKey functions: \code{\link{serviceaccountkeys.insert}}
 }
-

@@ -2,7 +2,7 @@
 #' Accesses AdSense publishers' inventory and generates performance reports.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:33:30
+#'  at 2017-03-05 19:23:57
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleadsensev14.auto/R/adsense_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Get information about the selected AdSense account.
 #' 
@@ -44,7 +57,9 @@ NULL
 accounts.get <- function(accountId, tree = NULL) {
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/accounts/%s", accountId)
     # adsense.accounts.get
-    f <- gar_api_generator(url, "GET", pars_args = list(tree = tree), data_parse_function = function(x) x)
+    pars = list(tree = tree)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -73,8 +88,9 @@ accounts.get <- function(accountId, tree = NULL) {
 accounts.list <- function(maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/adsense/v1.4/accounts"
     # adsense.accounts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -103,8 +119,9 @@ accounts.list <- function(maxResults = NULL, pageToken = NULL) {
 adclients.list <- function(maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/adsense/v1.4/adclients"
     # adsense.adclients.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -134,7 +151,7 @@ adunits.get <- function(adClientId, adUnitId) {
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/adclients/%s/adunits/%s", 
         adClientId, adUnitId)
     # adsense.adunits.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -164,7 +181,7 @@ adunits.getAdCode <- function(adClientId, adUnitId) {
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/adclients/%s/adunits/%s/adcode", 
         adClientId, adUnitId)
     # adsense.adunits.getAdCode
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -196,8 +213,9 @@ adunits.list <- function(adClientId, includeInactive = NULL, maxResults = NULL, 
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/adclients/%s/adunits", 
         adClientId)
     # adsense.adunits.list
-    f <- gar_api_generator(url, "GET", pars_args = list(includeInactive = includeInactive, 
-        maxResults = maxResults, pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(includeInactive = includeInactive, maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -224,7 +242,7 @@ adunits.list <- function(adClientId, includeInactive = NULL, maxResults = NULL, 
 alerts.delete <- function(alertId) {
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/alerts/%s", alertId)
     # adsense.alerts.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -252,7 +270,9 @@ alerts.delete <- function(alertId) {
 alerts.list <- function(locale = NULL) {
     url <- "https://www.googleapis.com/adsense/v1.4/alerts"
     # adsense.alerts.list
-    f <- gar_api_generator(url, "GET", pars_args = list(locale = locale), data_parse_function = function(x) x)
+    pars = list(locale = locale)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -282,7 +302,7 @@ customchannels.get <- function(adClientId, customChannelId) {
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/adclients/%s/customchannels/%s", 
         adClientId, customChannelId)
     # adsense.customchannels.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -313,8 +333,9 @@ customchannels.list <- function(adClientId, maxResults = NULL, pageToken = NULL)
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/adclients/%s/customchannels", 
         adClientId)
     # adsense.customchannels.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -341,7 +362,7 @@ customchannels.list <- function(adClientId, maxResults = NULL, pageToken = NULL)
 metadata.dimensions.list <- function() {
     url <- "https://www.googleapis.com/adsense/v1.4/metadata/dimensions"
     # adsense.metadata.dimensions.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -368,7 +389,7 @@ metadata.dimensions.list <- function() {
 metadata.metrics.list <- function() {
     url <- "https://www.googleapis.com/adsense/v1.4/metadata/metrics"
     # adsense.metadata.metrics.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -395,7 +416,7 @@ metadata.metrics.list <- function() {
 payments.list <- function() {
     url <- "https://www.googleapis.com/adsense/v1.4/payments"
     # adsense.payments.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -436,10 +457,12 @@ reports.generate <- function(startDate, endDate, accountId = NULL, currency = NU
     sort = NULL, startIndex = NULL, useTimezoneReporting = NULL) {
     url <- "https://www.googleapis.com/adsense/v1.4/reports"
     # adsense.reports.generate
-    f <- gar_api_generator(url, "GET", pars_args = list(accountId = accountId, currency = currency, 
-        dimension = dimension, endDate = endDate, filter = filter, locale = locale, 
-        maxResults = maxResults, metric = metric, sort = sort, startDate = startDate, 
-        startIndex = startIndex, useTimezoneReporting = useTimezoneReporting), data_parse_function = function(x) x)
+    pars = list(startDate = startDate, endDate = endDate, accountId = accountId, 
+        currency = currency, dimension = dimension, filter = filter, locale = locale, 
+        maxResults = maxResults, metric = metric, sort = sort, startIndex = startIndex, 
+        useTimezoneReporting = useTimezoneReporting)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -467,7 +490,7 @@ reports.generate <- function(startDate, endDate, accountId = NULL, currency = NU
 savedadstyles.get <- function(savedAdStyleId) {
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/savedadstyles/%s", savedAdStyleId)
     # adsense.savedadstyles.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -496,8 +519,9 @@ savedadstyles.get <- function(savedAdStyleId) {
 savedadstyles.list <- function(maxResults = NULL, pageToken = NULL) {
     url <- "https://www.googleapis.com/adsense/v1.4/savedadstyles"
     # adsense.savedadstyles.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -535,8 +559,10 @@ urlchannels.list <- function(adClientId, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/adsense/v1.4/adclients/%s/urlchannels", 
         adClientId)
     # adsense.urlchannels.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     f()
     

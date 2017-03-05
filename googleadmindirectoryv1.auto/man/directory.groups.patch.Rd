@@ -31,4 +31,3 @@ Other Group functions: \code{\link{Group}},
   \code{\link{directory.groups.insert}},
   \code{\link{directory.groups.update}}
 }
-

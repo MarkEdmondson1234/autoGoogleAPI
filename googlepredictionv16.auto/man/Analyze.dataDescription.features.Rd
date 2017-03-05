@@ -43,4 +43,3 @@ Other Analyze functions: \code{\link{Analyze.dataDescription.features.categorica
   \code{\link{Analyze.modelDescription}},
   \code{\link{Analyze}}
 }
-

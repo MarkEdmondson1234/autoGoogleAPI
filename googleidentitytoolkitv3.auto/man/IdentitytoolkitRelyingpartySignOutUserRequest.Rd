@@ -25,4 +25,3 @@ Request to sign out user.
 \seealso{
 Other IdentitytoolkitRelyingpartySignOutUserRequest functions: \code{\link{relyingparty.signOutUser}}
 }
-

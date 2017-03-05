@@ -40,4 +40,3 @@ The request message for a batch available spectrum query protocol.
 \seealso{
 Other PawsGetSpectrumBatchRequest functions: \code{\link{paws.getSpectrumBatch}}
 }
-

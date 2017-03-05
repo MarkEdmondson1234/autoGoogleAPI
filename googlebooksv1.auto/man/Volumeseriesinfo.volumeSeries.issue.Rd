@@ -20,4 +20,3 @@ No description
 Other Volumeseriesinfo functions: \code{\link{Volumeseriesinfo.volumeSeries}},
   \code{\link{Volumeseriesinfo}}
 }
-

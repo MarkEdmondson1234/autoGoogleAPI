@@ -37,4 +37,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 Other User functions: \code{\link{User}},
   \code{\link{sql.users.insert}}
 }
-

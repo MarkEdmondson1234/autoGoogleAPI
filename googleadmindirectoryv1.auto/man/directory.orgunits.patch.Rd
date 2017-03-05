@@ -33,4 +33,3 @@ Other OrgUnit functions: \code{\link{OrgUnit}},
   \code{\link{directory.orgunits.insert}},
   \code{\link{directory.orgunits.update}}
 }
-

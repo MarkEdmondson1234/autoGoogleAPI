@@ -32,4 +32,3 @@ Other Usersettings functions: \code{\link{Usersettings.notesExport}},
   \code{\link{Usersettings.notification}},
   \code{\link{Usersettings}}
 }
-

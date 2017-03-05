@@ -35,4 +35,3 @@ Other Annotation functions: \code{\link{Annotation.currentVersionRanges}},
   \code{\link{mylibrary.annotations.insert}},
   \code{\link{mylibrary.annotations.update}}
 }
-

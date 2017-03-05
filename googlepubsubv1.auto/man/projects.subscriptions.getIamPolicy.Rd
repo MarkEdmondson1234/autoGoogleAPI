@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{projects.subscriptions.getIamPolicy}
 \alias{projects.subscriptions.getIamPolicy}
-\title{Gets the access control policy for a `resource`. Returns an empty policy if the resource exists and does not have a policy set.}
+\title{Gets the access control policy for a resource.Returns an empty policy if the resource exists and does not have a policyset.}
 \usage{
 projects.subscriptions.getIamPolicy(resource)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/pubsub/docs}{Google Documentation}
 }
-

@@ -8,7 +8,7 @@
 Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:03:51
+ at 2017-03-05 19:39:58
 filename: /Users/mark/dev/R/autoGoogleAPI/googleconsumersurveysv2.auto/R/consumersurveys_functions.R
 api_json: api_json
 }
@@ -20,4 +20,3 @@ Authentication scopes used are:
 \item https://www.googleapis.com/auth/userinfo.email
 }
 }
-

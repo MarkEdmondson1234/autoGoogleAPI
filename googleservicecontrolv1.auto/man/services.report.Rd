@@ -2,7 +2,7 @@
 % Please edit documentation in R/servicecontrol_functions.R
 \name{services.report}
 \alias{services.report}
-\title{Reports operations to Google Service Control. It should be calledafter the operation is completed.This method requires the `servicemanagement.services.report` permissionon the specified service. For more information, see[Google Cloud IAM](https://cloud.google.com/iam).}
+\title{Reports operation results to Google Service Control, such as logs andmetrics. It should be called after an operation is completed.If feasible, the client should aggregate reporting data for up to 5seconds to reduce API traffic. Limiting aggregation to 5 seconds is toreduce data loss during client crashes. Clients should carefully choosethe aggregation time window to avoid data loss risk more than 0.01%for business and compliance reasons.NOTE: the `ReportRequest` has the size limit of 1MB.This method requires the `servicemanagement.services.report` permissionon the specified service. For more information, see[Google Cloud IAM](https://cloud.google.com/iam).}
 \usage{
 services.report(ReportRequest, serviceName)
 }
@@ -30,4 +30,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ReportRequest functions: \code{\link{ReportRequest}}
 }
-

@@ -24,4 +24,3 @@ No description
 \seealso{
 Other Category functions: \code{\link{Category.items}}
 }
-

@@ -10,7 +10,7 @@ Course(id = NULL, name = NULL, section = NULL,
   ownerId = NULL, creationTime = NULL, updateTime = NULL,
   enrollmentCode = NULL, courseState = NULL, alternateLink = NULL,
   teacherGroupEmail = NULL, courseGroupEmail = NULL, teacherFolder = NULL,
-  courseMaterialSets = NULL)
+  courseMaterialSets = NULL, guardiansEnabled = NULL)
 }
 \arguments{
 \item{id}{Identifier for this course assigned by Classroom}
@@ -44,13 +44,15 @@ Course(id = NULL, name = NULL, section = NULL,
 \item{teacherFolder}{Information about a Drive Folder that is shared with all teachers of the course}
 
 \item{courseMaterialSets}{Sets of materials that appear on the 'about' page of this course}
+
+\item{guardiansEnabled}{Whether or not guardian notifications are enabled for this course}
 }
 \value{
 Course object
 }
 \description{
 Auto-generated code by googleAuthR::gar_create_api_objects
- at 2016-09-03 23:16:30
+ at 2017-03-05 19:56:19
 filename: /Users/mark/dev/R/autoGoogleAPI/googleclassroomv1.auto/R/classroom_objects.R
 api_json: api_json
 }
@@ -66,4 +68,3 @@ A Course in Classroom.
 Other Course functions: \code{\link{courses.create}},
   \code{\link{courses.patch}}, \code{\link{courses.update}}
 }
-

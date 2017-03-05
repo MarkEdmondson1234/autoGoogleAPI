@@ -31,4 +31,3 @@ Other Search functions: \code{\link{Search.queries}},
   \code{\link{Search.spelling}}, \code{\link{Search.url}},
   \code{\link{Search}}
 }
-

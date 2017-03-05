@@ -20,4 +20,3 @@ Metadata to set on the Google Compute Engine VMs.
 Other WorkerPool functions: \code{\link{WorkerPool.poolArgs}},
   \code{\link{WorkerPool}}
 }
-

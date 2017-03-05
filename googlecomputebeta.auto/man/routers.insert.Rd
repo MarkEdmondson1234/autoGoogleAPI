@@ -35,4 +35,3 @@ Other Router functions: \code{\link{Router}},
   \code{\link{routers.preview}},
   \code{\link{routers.update}}
 }
-

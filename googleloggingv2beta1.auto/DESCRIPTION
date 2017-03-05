@@ -1,15 +1,12 @@
 Package: googleloggingv2beta1.auto
-Title: Google Cloud Logging API
+Title: Stackdriver Logging API
 Version: 0.0.0.9000
 Authors@R: c(person("Mark", "Edmondson",email = "m@sunholo.com",
                        role = c("aut", "cre")))
-Description: Writes log entries and manages your logs, log sinks, and logs-based
-    metrics. Auto-generated via googleAuthR.
-Depends:
-    R (>= 3.3.0)
+Description: Writes log entries and manages your Stackdriver Logging configuration. Auto-generated via googleAuthR.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    googleAuthR (>= 0.3)
-RoxygenNote: 5.0.1
+Imports: googleAuthR (>= 0.3)
+RoxygenNote: 6.0.1

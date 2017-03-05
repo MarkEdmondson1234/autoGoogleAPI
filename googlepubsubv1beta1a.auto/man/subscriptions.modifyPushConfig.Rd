@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{subscriptions.modifyPushConfig}
 \alias{subscriptions.modifyPushConfig}
-\title{Modifies the PushConfig for a specified subscription. This method can be used to suspend the flow of messages to an endpoint by clearing the PushConfig field in the request. Messages will be accumulated for delivery even if no push configuration is defined or while the configuration is modified.}
+\title{Modifies the <code>PushConfig</code> for a specified subscription.This method can be used to suspend the flow of messages to an endpointby clearing the <code>PushConfig</code> field in the request. Messageswill be accumulated for delivery even if no push configuration isdefined or while the configuration is modified.}
 \usage{
 subscriptions.modifyPushConfig(ModifyPushConfigRequest)
 }
@@ -29,4 +29,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other ModifyPushConfigRequest functions: \code{\link{ModifyPushConfigRequest}}
 }
-

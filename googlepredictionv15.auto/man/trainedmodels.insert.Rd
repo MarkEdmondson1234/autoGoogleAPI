@@ -33,4 +33,3 @@ Other Training functions: \code{\link{Training.modelInfo}},
   \code{\link{Training.trainingInstances}},
   \code{\link{Training}}
 }
-

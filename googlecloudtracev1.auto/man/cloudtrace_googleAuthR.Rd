@@ -4,11 +4,11 @@
 \name{cloudtrace_googleAuthR}
 \alias{cloudtrace_googleAuthR}
 \alias{cloudtrace_googleAuthR-package}
-\title{Google Cloud Trace API
-Send and retrieve trace data from Google Cloud Trace. Data is generated and available by default for all App Engine applications. Data from other applications can be written to Cloud Trace for display, reporting, and analysis.}
+\title{Stackdriver Trace API
+Send and retrieve trace data from Stackdriver Trace. Data is generated and available by default for all App Engine applications. Data from other applications can be written to Stackdriver Trace for display, reporting, and analysis.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:17:45
+ at 2017-03-05 19:34:03
 filename: /Users/mark/dev/R/autoGoogleAPI/googlecloudtracev1.auto/R/cloudtrace_functions.R
 api_json: api_json
 }
@@ -16,8 +16,7 @@ api_json: api_json
 Authentication scopes used are:
 \itemize{
   \item https://www.googleapis.com/auth/cloud-platform
-\item https://www.googleapis.com/auth/trace.append
 \item https://www.googleapis.com/auth/trace.readonly
+\item https://www.googleapis.com/auth/trace.append
 }
 }
-

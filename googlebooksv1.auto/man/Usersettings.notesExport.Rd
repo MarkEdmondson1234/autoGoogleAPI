@@ -28,4 +28,3 @@ Other Usersettings functions: \code{\link{Usersettings.notification.moreFromAuth
   \code{\link{Usersettings}},
   \code{\link{myconfig.updateUserSettings}}
 }
-

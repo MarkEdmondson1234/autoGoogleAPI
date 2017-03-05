@@ -4,10 +4,17 @@
 \alias{CheckRequest}
 \title{CheckRequest Object}
 \usage{
-CheckRequest(operation = NULL)
+CheckRequest(serviceConfigId = NULL, skipActivationCheck = NULL,
+  operation = NULL, requestProjectSettings = NULL)
 }
 \arguments{
+\item{serviceConfigId}{Specifies which version of service configuration should be used to process}
+
+\item{skipActivationCheck}{Indicates if service activation check should be skipped for this request}
+
 \item{operation}{The operation to be checked}
+
+\item{requestProjectSettings}{Requests the project settings to be returned as part of the check response}
 }
 \value{
 CheckRequest object
@@ -22,4 +29,3 @@ Request message for the Check method.
 \seealso{
 Other CheckRequest functions: \code{\link{services.check}}
 }
-

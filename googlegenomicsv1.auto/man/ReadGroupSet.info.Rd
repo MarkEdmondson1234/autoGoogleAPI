@@ -20,4 +20,3 @@ A map of additional read group set information.
 Other ReadGroupSet functions: \code{\link{ReadGroupSet}},
   \code{\link{readgroupsets.patch}}
 }
-

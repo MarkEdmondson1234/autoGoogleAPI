@@ -24,4 +24,3 @@ The request for Datastore.Lookup.
 \seealso{
 Other LookupRequest functions: \code{\link{projects.lookup}}
 }
-

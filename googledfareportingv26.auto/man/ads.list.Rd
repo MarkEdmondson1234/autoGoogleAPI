@@ -2,7 +2,7 @@
 % Please edit documentation in R/dfareporting_functions.R
 \name{ads.list}
 \alias{ads.list}
-\title{Retrieves a list of ads, possibly filtered.}
+\title{Retrieves a list of ads, possibly filtered. This method supports paging.}
 \usage{
 ads.list(profileId, active = NULL, advertiserId = NULL, archived = NULL,
   audienceSegmentIds = NULL, campaignIds = NULL, compatibility = NULL,
@@ -81,4 +81,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/doubleclick-advertisers/}{Google Documentation}
 }
-

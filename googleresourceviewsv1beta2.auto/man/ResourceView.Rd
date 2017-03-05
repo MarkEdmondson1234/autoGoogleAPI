@@ -45,4 +45,3 @@ The resource view object.
 \seealso{
 Other ResourceView functions: \code{\link{zoneViews.insert}}
 }
-

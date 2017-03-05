@@ -45,4 +45,3 @@ Other Datafeed functions: \code{\link{datafeeds.insert}},
   \code{\link{datafeeds.patch}},
   \code{\link{datafeeds.update}}
 }
-

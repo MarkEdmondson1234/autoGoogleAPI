@@ -29,4 +29,3 @@ No description
 \seealso{
 Other RepresentativeInfoData functions: \code{\link{RepresentativeInfoData.divisions}}
 }
-

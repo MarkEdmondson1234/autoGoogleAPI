@@ -39,4 +39,3 @@ Other Person functions: \code{\link{Person.cover.coverInfo}},
   \code{\link{Person.placesLived}},
   \code{\link{Person.urls}}, \code{\link{Person}}
 }
-

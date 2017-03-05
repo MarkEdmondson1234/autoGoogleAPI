@@ -22,4 +22,3 @@ No description
 \seealso{
 Other RegionInstanceGroupManagersRecreateRequest functions: \code{\link{regionInstanceGroupManagers.recreateInstances}}
 }
-

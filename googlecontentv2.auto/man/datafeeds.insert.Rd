@@ -2,7 +2,7 @@
 % Please edit documentation in R/content_functions.R
 \name{datafeeds.insert}
 \alias{datafeeds.insert}
-\title{Registers a datafeed with your Merchant Center account.}
+\title{Registers a datafeed with your Merchant Center account. This method can only be called for non-multi-client accounts.}
 \usage{
 datafeeds.insert(Datafeed, merchantId, dryRun = NULL)
 }
@@ -33,4 +33,3 @@ Other Datafeed functions: \code{\link{Datafeed}},
   \code{\link{datafeeds.patch}},
   \code{\link{datafeeds.update}}
 }
-

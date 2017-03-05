@@ -2,7 +2,7 @@
 #' Accesses Google Cloud Monitoring data.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 22:59:49
+#'  at 2017-03-05 19:32:52
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlecloudmonitoringv2beta2.auto/R/cloudmonitoring_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Create a new metric.
 #' 
@@ -46,7 +59,7 @@ metricDescriptors.create <- function(MetricDescriptor, project) {
     url <- sprintf("https://www.googleapis.com/cloudmonitoring/v2beta2/projects/%s/metricDescriptors", 
         project)
     # cloudmonitoring.metricDescriptors.create
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(MetricDescriptor, "gar_MetricDescriptor"))
     
     f(the_body = MetricDescriptor)
@@ -76,9 +89,9 @@ metricDescriptors.create <- function(MetricDescriptor, project) {
 #' @export
 metricDescriptors.delete <- function(project, metric) {
     url <- sprintf("https://www.googleapis.com/cloudmonitoring/v2beta2/projects/%s/metricDescriptors/%s", 
-        metric, project)
+        project, metric)
     # cloudmonitoring.metricDescriptors.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -113,8 +126,9 @@ metricDescriptors.list <- function(ListMetricDescriptorsRequest, project, count 
     url <- sprintf("https://www.googleapis.com/cloudmonitoring/v2beta2/projects/%s/metricDescriptors", 
         project)
     # cloudmonitoring.metricDescriptors.list
-    f <- gar_api_generator(url, "GET", pars_args = list(count = count, pageToken = pageToken, 
-        query = query), data_parse_function = function(x) x)
+    pars = list(count = count, pageToken = pageToken, query = query)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(ListMetricDescriptorsRequest, "gar_ListMetricDescriptorsRequest"))
     
     f(the_body = ListMetricDescriptorsRequest)
@@ -156,11 +170,12 @@ timeseries.list <- function(ListTimeseriesRequest, project, metric, youngest, ag
     count = NULL, labels = NULL, oldest = NULL, pageToken = NULL, timespan = NULL, 
     window = NULL) {
     url <- sprintf("https://www.googleapis.com/cloudmonitoring/v2beta2/projects/%s/timeseries/%s", 
-        metric, project)
+        project, metric)
     # cloudmonitoring.timeseries.list
-    f <- gar_api_generator(url, "GET", pars_args = list(aggregator = aggregator, 
-        count = count, labels = labels, oldest = oldest, pageToken = pageToken, timespan = timespan, 
-        window = window, youngest = youngest), data_parse_function = function(x) x)
+    pars = list(youngest = youngest, aggregator = aggregator, count = count, labels = labels, 
+        oldest = oldest, pageToken = pageToken, timespan = timespan, window = window)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     stopifnot(inherits(ListTimeseriesRequest, "gar_ListTimeseriesRequest"))
     
     f(the_body = ListTimeseriesRequest)
@@ -193,7 +208,7 @@ timeseries.write <- function(WriteTimeseriesRequest, project) {
     url <- sprintf("https://www.googleapis.com/cloudmonitoring/v2beta2/projects/%s/timeseries:write", 
         project)
     # cloudmonitoring.timeseries.write
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(WriteTimeseriesRequest, "gar_WriteTimeseriesRequest"))
     
     f(the_body = WriteTimeseriesRequest)
@@ -249,11 +264,13 @@ timeseriesDescriptors.list <- function(ListTimeseriesDescriptorsRequest, project
     
     
     url <- sprintf("https://www.googleapis.com/cloudmonitoring/v2beta2/projects/%s/timeseriesDescriptors/%s", 
-        metric, project)
+        project, metric)
     # cloudmonitoring.timeseriesDescriptors.list
-    f <- gar_api_generator(url, "GET", pars_args = list(aggregator = aggregator, 
-        count = count, labels = labels, oldest = oldest, pageToken = pageToken, timespan = timespan, 
-        window = window, youngest = youngest), data_parse_function = function(x) x)
+    pars = list(youngest = youngest, aggregator = aggregator, count = count, labels = labels, 
+        oldest = oldest, pageToken = pageToken, timespan = timespan, window = window)
+    
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     
     stopifnot(inherits(ListTimeseriesDescriptorsRequest, "gar_ListTimeseriesDescriptorsRequest"))
     

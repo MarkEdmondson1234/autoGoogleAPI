@@ -4,13 +4,13 @@
 \alias{debugger.debuggees.list}
 \title{Lists all the debuggees that the user can set breakpoints to.}
 \usage{
-debugger.debuggees.list(project = NULL, includeInactive = NULL,
+debugger.debuggees.list(includeInactive = NULL, project = NULL,
   clientVersion = NULL)
 }
 \arguments{
-\item{project}{Project number of a Google Cloud project whose debuggees to list}
-
 \item{includeInactive}{When set to `true`, the result includes all debuggees}
+
+\item{project}{Project number of a Google Cloud project whose debuggees to list}
 
 \item{clientVersion}{The client version making the call}
 }
@@ -31,4 +31,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{http://cloud.google.com/debugger}{Google Documentation}
 }
-

@@ -5,8 +5,8 @@
 \title{Autoscaler Object}
 \usage{
 Autoscaler(autoscalingPolicy = NULL, creationTimestamp = NULL,
-  description = NULL, id = NULL, name = NULL, selfLink = NULL,
-  target = NULL, zone = NULL)
+  description = NULL, id = NULL, name = NULL, region = NULL,
+  selfLink = NULL, target = NULL, zone = NULL)
 }
 \arguments{
 \item{autoscalingPolicy}{The configuration parameters for the autoscaling algorithm}
@@ -18,6 +18,8 @@ Autoscaler(autoscalingPolicy = NULL, creationTimestamp = NULL,
 \item{id}{[Output Only] The unique identifier for the resource}
 
 \item{name}{Name of the resource}
+
+\item{region}{[Output Only] URL of the region where the instance group resides (for autoscalers living in regional scope)}
 
 \item{selfLink}{[Output Only] Server-defined URL for the resource}
 
@@ -38,6 +40,8 @@ Represents an Autoscaler resource. Autoscalers allow you to automatically scale 
 \seealso{
 Other Autoscaler functions: \code{\link{autoscalers.insert}},
   \code{\link{autoscalers.patch}},
-  \code{\link{autoscalers.update}}
+  \code{\link{autoscalers.update}},
+  \code{\link{regionAutoscalers.insert}},
+  \code{\link{regionAutoscalers.patch}},
+  \code{\link{regionAutoscalers.update}}
 }
-

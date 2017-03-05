@@ -42,4 +42,3 @@ Represents a Target VPN gateway resource.
 \seealso{
 Other TargetVpnGateway functions: \code{\link{targetVpnGateways.insert}}
 }
-

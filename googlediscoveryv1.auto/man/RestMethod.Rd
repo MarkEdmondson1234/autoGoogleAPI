@@ -80,4 +80,3 @@ Other RestMethod functions: \code{\link{RestMethod.mediaUpload.protocols.resumab
   \code{\link{RestMethod.request}},
   \code{\link{RestMethod.response}}
 }
-

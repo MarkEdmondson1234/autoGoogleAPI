@@ -33,4 +33,3 @@ Other Task functions: \code{\link{Task.links}},
   \code{\link{Task}}, \code{\link{insert}},
   \code{\link{update}}
 }
-

@@ -2,7 +2,7 @@
 % Please edit documentation in R/youtubereporting_functions.R
 \name{media.download}
 \alias{media.download}
-\title{Method for media download. Download is supported on the URI `/v1/media/{+name}?alt=media`.}
+\title{Method for media download. Download is supportedon the URI `/v1/media/{+name}?alt=media`.}
 \usage{
 media.download(resourceName)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://developers.google.com/youtube/reporting/v1/reports/}{Google Documentation}
 }
-

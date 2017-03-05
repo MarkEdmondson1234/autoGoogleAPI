@@ -2,7 +2,7 @@
 #' Interacts with Glass users via the timeline.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:24:13
+#'  at 2017-03-05 20:02:07
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlemirrorv1.auto/R/mirror_functions.R
 #' api_json: api_json
 #' 
@@ -19,6 +19,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Inserts a new account for a user
 #' 
@@ -44,10 +57,10 @@ NULL
 #' @family Account functions
 #' @export
 accounts.insert <- function(Account, userToken, accountType, accountName) {
-    url <- sprintf("https://www.googleapis.com/mirror/v1/accounts/%s/%s/%s", accountName, 
-        accountType, userToken)
+    url <- sprintf("https://www.googleapis.com/mirror/v1/accounts/%s/%s/%s", userToken, 
+        accountType, accountName)
     # mirror.accounts.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Account, "gar_Account"))
     
     f(the_body = Account)
@@ -76,7 +89,7 @@ accounts.insert <- function(Account, userToken, accountType, accountName) {
 contacts.delete <- function(id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/contacts/%s", id)
     # mirror.contacts.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -103,7 +116,7 @@ contacts.delete <- function(id) {
 contacts.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/contacts/%s", id)
     # mirror.contacts.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -131,7 +144,7 @@ contacts.get <- function(id) {
 contacts.insert <- function(Contact) {
     url <- "https://www.googleapis.com/mirror/v1/contacts"
     # mirror.contacts.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Contact, "gar_Contact"))
     
     f(the_body = Contact)
@@ -159,7 +172,7 @@ contacts.insert <- function(Contact) {
 contacts.list <- function() {
     url <- "https://www.googleapis.com/mirror/v1/contacts"
     # mirror.contacts.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -188,7 +201,7 @@ contacts.list <- function() {
 contacts.patch <- function(Contact, id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/contacts/%s", id)
     # mirror.contacts.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(Contact, "gar_Contact"))
     
     f(the_body = Contact)
@@ -219,7 +232,7 @@ contacts.patch <- function(Contact, id) {
 contacts.update <- function(Contact, id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/contacts/%s", id)
     # mirror.contacts.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Contact, "gar_Contact"))
     
     f(the_body = Contact)
@@ -249,7 +262,7 @@ contacts.update <- function(Contact, id) {
 locations.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/locations/%s", id)
     # mirror.locations.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -276,7 +289,7 @@ locations.get <- function(id) {
 locations.list <- function() {
     url <- "https://www.googleapis.com/mirror/v1/locations"
     # mirror.locations.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -303,7 +316,7 @@ locations.list <- function() {
 settings.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/settings/%s", id)
     # mirror.settings.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -330,7 +343,7 @@ settings.get <- function(id) {
 subscriptions.delete <- function(id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/subscriptions/%s", id)
     # mirror.subscriptions.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -358,7 +371,7 @@ subscriptions.delete <- function(id) {
 subscriptions.insert <- function(Subscription) {
     url <- "https://www.googleapis.com/mirror/v1/subscriptions"
     # mirror.subscriptions.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Subscription, "gar_Subscription"))
     
     f(the_body = Subscription)
@@ -386,7 +399,7 @@ subscriptions.insert <- function(Subscription) {
 subscriptions.list <- function() {
     url <- "https://www.googleapis.com/mirror/v1/subscriptions"
     # mirror.subscriptions.list
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -415,7 +428,7 @@ subscriptions.list <- function() {
 subscriptions.update <- function(Subscription, id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/subscriptions/%s", id)
     # mirror.subscriptions.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     stopifnot(inherits(Subscription, "gar_Subscription"))
     
     f(the_body = Subscription)
@@ -445,7 +458,7 @@ subscriptions.update <- function(Subscription, id) {
 timeline.delete <- function(id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/timeline/%s", id)
     # mirror.timeline.delete
-    f <- gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "DELETE", data_parse_function = function(x) x)
     f()
     
 }
@@ -473,7 +486,7 @@ timeline.delete <- function(id) {
 timeline.get <- function(id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/timeline/%s", id)
     # mirror.timeline.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -502,7 +515,7 @@ timeline.get <- function(id) {
 timeline.insert <- function(TimelineItem) {
     url <- "https://www.googleapis.com/mirror/v1/timeline"
     # mirror.timeline.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(TimelineItem, "gar_TimelineItem"))
     
     f(the_body = TimelineItem)
@@ -539,9 +552,10 @@ timeline.list <- function(bundleId = NULL, includeDeleted = NULL, maxResults = N
     orderBy = NULL, pageToken = NULL, pinnedOnly = NULL, sourceItemId = NULL) {
     url <- "https://www.googleapis.com/mirror/v1/timeline"
     # mirror.timeline.list
-    f <- gar_api_generator(url, "GET", pars_args = list(bundleId = bundleId, includeDeleted = includeDeleted, 
-        maxResults = maxResults, orderBy = orderBy, pageToken = pageToken, pinnedOnly = pinnedOnly, 
-        sourceItemId = sourceItemId), data_parse_function = function(x) x)
+    pars = list(bundleId = bundleId, includeDeleted = includeDeleted, maxResults = maxResults, 
+        orderBy = orderBy, pageToken = pageToken, pinnedOnly = pinnedOnly, sourceItemId = sourceItemId)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -571,7 +585,7 @@ timeline.list <- function(bundleId = NULL, includeDeleted = NULL, maxResults = N
 timeline.patch <- function(TimelineItem, id) {
     url <- sprintf("https://www.googleapis.com/mirror/v1/timeline/%s", id)
     # mirror.timeline.patch
-    f <- gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "PATCH", data_parse_function = function(x) x)
     stopifnot(inherits(TimelineItem, "gar_TimelineItem"))
     
     f(the_body = TimelineItem)
@@ -608,7 +622,8 @@ timeline.update <- function(TimelineItem, id) {
     
     url <- sprintf("https://www.googleapis.com/mirror/v1/timeline/%s", id)
     # mirror.timeline.update
-    f <- gar_api_generator(url, "PUT", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "PUT", data_parse_function = function(x) x)
     
     stopifnot(inherits(TimelineItem, "gar_TimelineItem"))
     

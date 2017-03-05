@@ -34,4 +34,3 @@ Other Training functions: \code{\link{Training.dataAnalysis}},
   \code{\link{Training.modelInfo.confusionMatrix}},
   \code{\link{Training.modelInfo}}, \code{\link{Training}}
 }
-

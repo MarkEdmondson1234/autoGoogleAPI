@@ -2,7 +2,7 @@
 #' Builds on top of the Google+ platform.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_objects
-#'  at 2016-09-03 23:25:10
+#'  at 2017-03-05 20:04:45
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googleplusv1.auto/R/plus_objects.R
 #' api_json: api_json
 #' 

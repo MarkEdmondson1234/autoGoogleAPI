@@ -5,25 +5,24 @@
 \alias{people_googleAuthR}
 \alias{people_googleAuthR-package}
 \title{Google People API
-The Google People API service gives access to information about profiles and contacts.}
+Provides access to information about profiles and contacts.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-04 00:02:09
+ at 2017-03-05 20:04:23
 filename: /Users/mark/dev/R/autoGoogleAPI/googlepeoplev1.auto/R/people_functions.R
 api_json: api_json
 }
 \details{
 Authentication scopes used are:
 \itemize{
-  \item https://www.googleapis.com/auth/contacts
+  \item https://www.googleapis.com/auth/user.emails.read
+\item https://www.googleapis.com/auth/contacts
+\item https://www.googleapis.com/auth/user.addresses.read
+\item https://www.googleapis.com/auth/userinfo.email
+\item https://www.googleapis.com/auth/user.phonenumbers.read
+\item https://www.googleapis.com/auth/user.birthday.read
 \item https://www.googleapis.com/auth/contacts.readonly
 \item https://www.googleapis.com/auth/plus.login
-\item https://www.googleapis.com/auth/user.addresses.read
-\item https://www.googleapis.com/auth/user.birthday.read
-\item https://www.googleapis.com/auth/user.emails.read
-\item https://www.googleapis.com/auth/user.phonenumbers.read
-\item https://www.googleapis.com/auth/userinfo.email
 \item https://www.googleapis.com/auth/userinfo.profile
 }
 }
-

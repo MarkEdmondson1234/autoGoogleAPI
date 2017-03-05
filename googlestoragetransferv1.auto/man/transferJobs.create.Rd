@@ -28,4 +28,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 
 Other TransferJob functions: \code{\link{TransferJob}}
 }
-

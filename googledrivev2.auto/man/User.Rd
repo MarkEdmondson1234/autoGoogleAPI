@@ -33,4 +33,3 @@ Information about a Drive user.
 \seealso{
 Other User functions: \code{\link{User.picture}}
 }
-

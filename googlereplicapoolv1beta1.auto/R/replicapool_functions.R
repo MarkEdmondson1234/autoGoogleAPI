@@ -2,7 +2,7 @@
 #' The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
 #' 
 #' Auto-generated code by googleAuthR::gar_create_api_skeleton
-#'  at 2016-09-03 23:27:09
+#'  at 2017-03-05 20:08:46
 #' filename: /Users/mark/dev/R/autoGoogleAPI/googlereplicapoolv1beta1.auto/R/replicapool_functions.R
 #' api_json: api_json
 #' 
@@ -23,6 +23,19 @@
 NULL
 ## NULL
 
+#' A helper function that tests whether an object is either NULL _or_
+#' a list of NULLs
+#'
+#' @keywords internal
+is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
+#' Recursively step down into list, removing all such objects
+#'
+#' @keywords internal
+rmNullObs <- function(x) {
+    x <- Filter(Negate(is.NullOb), x)
+    lapply(x, function(x) if (is.list(x)) 
+        rmNullObs(x) else x)
+}
 
 #' Deletes a replica pool.
 #' 
@@ -51,9 +64,9 @@ NULL
 #' @export
 pools.delete <- function(PoolsDeleteRequest, projectName, zone, poolName) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s", 
-        poolName, projectName, zone)
+        projectName, zone, poolName)
     # replicapool.pools.delete
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(PoolsDeleteRequest, "gar_PoolsDeleteRequest"))
     
     f(the_body = PoolsDeleteRequest)
@@ -88,9 +101,9 @@ pools.delete <- function(PoolsDeleteRequest, projectName, zone, poolName) {
 #' @export
 pools.get <- function(projectName, zone, poolName) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s", 
-        poolName, projectName, zone)
+        projectName, zone, poolName)
     # replicapool.pools.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -123,7 +136,7 @@ pools.insert <- function(Pool, projectName, zone) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools", 
         projectName, zone)
     # replicapool.pools.insert
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Pool, "gar_Pool"))
     
     f(the_body = Pool)
@@ -161,8 +174,9 @@ pools.list <- function(projectName, zone, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools", 
         projectName, zone)
     # replicapool.pools.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -193,9 +207,10 @@ pools.list <- function(projectName, zone, maxResults = NULL, pageToken = NULL) {
 #' @export
 pools.resize <- function(projectName, zone, poolName, numReplicas = NULL) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s/resize", 
-        poolName, projectName, zone)
+        projectName, zone, poolName)
     # replicapool.pools.resize
-    f <- gar_api_generator(url, "POST", pars_args = list(numReplicas = numReplicas), 
+    pars = list(numReplicas = numReplicas)
+    f <- googleAuthR::gar_api_generator(url, "POST", pars_args = rmNullObs(pars), 
         data_parse_function = function(x) x)
     f()
     
@@ -228,9 +243,9 @@ pools.resize <- function(projectName, zone, poolName, numReplicas = NULL) {
 #' @export
 pools.updatetemplate <- function(Template, projectName, zone, poolName) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s/updateTemplate", 
-        poolName, projectName, zone)
+        projectName, zone, poolName)
     # replicapool.pools.updatetemplate
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(Template, "gar_Template"))
     
     f(the_body = Template)
@@ -265,9 +280,9 @@ pools.updatetemplate <- function(Template, projectName, zone, poolName) {
 #' @export
 replicas.delete <- function(ReplicasDeleteRequest, projectName, zone, poolName, replicaName) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s/replicas/%s", 
-        poolName, projectName, replicaName, zone)
+        projectName, zone, poolName, replicaName)
     # replicapool.replicas.delete
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     stopifnot(inherits(ReplicasDeleteRequest, "gar_ReplicasDeleteRequest"))
     
     f(the_body = ReplicasDeleteRequest)
@@ -303,9 +318,9 @@ replicas.delete <- function(ReplicasDeleteRequest, projectName, zone, poolName, 
 #' @export
 replicas.get <- function(projectName, zone, poolName, replicaName) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s/replicas/%s", 
-        poolName, projectName, replicaName, zone)
+        projectName, zone, poolName, replicaName)
     # replicapool.replicas.get
-    f <- gar_api_generator(url, "GET", data_parse_function = function(x) x)
+    f <- googleAuthR::gar_api_generator(url, "GET", data_parse_function = function(x) x)
     f()
     
 }
@@ -340,10 +355,11 @@ replicas.get <- function(projectName, zone, poolName, replicaName) {
 #' @export
 replicas.list <- function(projectName, zone, poolName, maxResults = NULL, pageToken = NULL) {
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s/replicas", 
-        poolName, projectName, zone)
+        projectName, zone, poolName)
     # replicapool.replicas.list
-    f <- gar_api_generator(url, "GET", pars_args = list(maxResults = maxResults, 
-        pageToken = pageToken), data_parse_function = function(x) x)
+    pars = list(maxResults = maxResults, pageToken = pageToken)
+    f <- googleAuthR::gar_api_generator(url, "GET", pars_args = rmNullObs(pars), 
+        data_parse_function = function(x) x)
     f()
     
 }
@@ -382,9 +398,10 @@ replicas.restart <- function(projectName, zone, poolName, replicaName) {
     
     
     url <- sprintf("https://www.googleapis.com/replicapool/v1beta1/projects/%s/zones/%s/pools/%s/replicas/%s/restart", 
-        poolName, projectName, replicaName, zone)
+        projectName, zone, poolName, replicaName)
     # replicapool.replicas.restart
-    f <- gar_api_generator(url, "POST", data_parse_function = function(x) x)
+    
+    f <- googleAuthR::gar_api_generator(url, "POST", data_parse_function = function(x) x)
     
     f()
     

@@ -24,4 +24,3 @@ No description
 \seealso{
 Other LookupRequest functions: \code{\link{datasets.lookup}}
 }
-

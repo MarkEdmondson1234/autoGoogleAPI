@@ -2,7 +2,7 @@
 % Please edit documentation in R/pubsub_functions.R
 \name{topics.get}
 \alias{topics.get}
-\title{Gets the configuration of a topic. Since the topic only has the name attribute, this method is only useful to check the existence of a topic. If other attributes are added in the future, they will be returned here.}
+\title{Gets the configuration of a topic. Since the topic only has the nameattribute, this method is only useful to check the existence of a topic.If other attributes are added in the future, they will be returned here.}
 \usage{
 topics.get(topic)
 }
@@ -26,4 +26,3 @@ See \code{\link[googleAuthR]{gar_auth}} for details.
 \seealso{
 \href{https://cloud.google.com/pubsub/docs}{Google Documentation}
 }
-

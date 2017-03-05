@@ -22,4 +22,3 @@ No description
 \seealso{
 Other ShippingsettingsCustomBatchRequest functions: \code{\link{shippingsettings.custombatch}}
 }
-

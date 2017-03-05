@@ -4,12 +4,12 @@
 \alias{ModifyPushConfigRequest}
 \title{ModifyPushConfigRequest Object}
 \usage{
-ModifyPushConfigRequest(subscription = NULL, pushConfig = NULL)
+ModifyPushConfigRequest(pushConfig = NULL, subscription = NULL)
 }
 \arguments{
-\item{subscription}{The name of the subscription}
+\item{pushConfig}{An empty <code>push_config</code> indicates that the Pub/Sub system should}
 
-\item{pushConfig}{An empty push_config indicates that the Pub/Sub system should pause pushing messages from the given subscription}
+\item{subscription}{The name of the subscription}
 }
 \value{
 ModifyPushConfigRequest object
@@ -24,4 +24,3 @@ Request for the ModifyPushConfig method.
 \seealso{
 Other ModifyPushConfigRequest functions: \code{\link{subscriptions.modifyPushConfig}}
 }
-

@@ -45,4 +45,3 @@ Other Activity functions: \code{\link{Activity.actor.clientSpecificActorInfo}},
   \code{\link{Activity.provider}}, \code{\link{Activity}},
   \code{\link{activities.insert}}
 }
-

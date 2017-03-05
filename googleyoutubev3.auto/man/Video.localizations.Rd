@@ -20,4 +20,3 @@ List with all localizations.
 Other Video functions: \code{\link{Video}},
   \code{\link{videos.insert}}, \code{\link{videos.update}}
 }
-

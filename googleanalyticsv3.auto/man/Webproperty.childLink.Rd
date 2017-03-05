@@ -29,4 +29,3 @@ Other Webproperty functions: \code{\link{Webproperty.parentLink}},
   \code{\link{management.webproperties.patch}},
   \code{\link{management.webproperties.update}}
 }
-

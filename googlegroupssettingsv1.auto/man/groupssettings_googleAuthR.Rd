@@ -8,7 +8,7 @@
 Lets you manage permission levels and related settings of a group.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:15:26
+ at 2017-03-05 19:54:49
 filename: /Users/mark/dev/R/autoGoogleAPI/googlegroupssettingsv1.auto/R/groupssettings_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/apps.groups.settings
 }
 }
-

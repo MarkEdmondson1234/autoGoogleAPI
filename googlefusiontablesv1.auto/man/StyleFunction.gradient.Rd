@@ -30,4 +30,3 @@ Gradient function that interpolates a range of colors based on column value.
 Other StyleFunction functions: \code{\link{StyleFunction.gradient.colors}},
   \code{\link{StyleFunction}}
 }
-

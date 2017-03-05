@@ -20,4 +20,3 @@ No description
 Other InstancesScopedList functions: \code{\link{InstancesScopedList.warning}},
   \code{\link{InstancesScopedList}}
 }
-

@@ -8,7 +8,7 @@
 Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and detection of explicit content, into applications.}
 \description{
 Auto-generated code by googleAuthR::gar_create_api_skeleton
- at 2016-09-03 23:50:21
+ at 2017-03-05 20:21:47
 filename: /Users/mark/dev/R/autoGoogleAPI/googlevisionv1.auto/R/vision_functions.R
 api_json: api_json
 }
@@ -18,4 +18,3 @@ Authentication scopes used are:
   \item https://www.googleapis.com/auth/cloud-platform
 }
 }
-

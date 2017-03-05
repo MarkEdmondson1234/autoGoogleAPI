@@ -30,4 +30,3 @@ Other Creative functions: \code{\link{Creative.corrections}},
   \code{\link{Creative.filteringReasons.reasons}},
   \code{\link{Creative}}, \code{\link{creatives.insert}}
 }
-
